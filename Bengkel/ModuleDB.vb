@@ -1,0 +1,79 @@
+﻿Imports System.IO
+Imports MySql.Data.MySqlClient
+
+Module ModuleDB
+    Public conn As MySqlConnection
+
+    Function koneksi()
+        Try
+            Dim line As String
+            Using reader As StreamReader = New StreamReader("config.ini")
+                line = reader.ReadLine
+            End Using
+            conn = New MySqlConnection(line)
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            Else
+                conn.Close()
+            End If
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function query(ByVal sql As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = sql
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function queryUser(ByVal query As String, ByVal username As String, ByVal password As String,
+                       ByVal nama As String, ByVal level As String, ByVal status As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@username", username)
+                cmd.Parameters.AddWithValue("@password", password)
+                cmd.Parameters.AddWithValue("@nama", nama)
+                cmd.Parameters.AddWithValue("@level", level)
+                cmd.Parameters.AddWithValue("@status", status)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function querySupplier(ByVal query As String, ByVal kode As String, ByVal nama As String,
+                            ByVal alamat As String, ByVal telepon As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kode", kode)
+                cmd.Parameters.AddWithValue("@nama", nama)
+                cmd.Parameters.AddWithValue("@alamat", alamat)
+                cmd.Parameters.AddWithValue("@telepon", telepon)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+End Module

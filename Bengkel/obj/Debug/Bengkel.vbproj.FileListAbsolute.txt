@@ -1,0 +1,14 @@
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\bin\Debug\Bengkel.exe.config
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\bin\Debug\Bengkel.exe
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\bin\Debug\Bengkel.pdb
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\bin\Debug\Bengkel.xml
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.vbprojResolveAssemblyReference.cache
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormUser.resources
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.Resources.resources
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.vbproj.GenerateResource.Cache
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.exe
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.xml
+c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.pdb
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormUtama.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormLogin.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormSupplier.resources
