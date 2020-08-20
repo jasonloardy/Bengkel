@@ -76,4 +76,24 @@ Module ModuleDB
         End Try
     End Function
 
+    Function queryPelanggan(ByVal query As String, ByVal kode As String, ByVal nama As String,
+                            ByVal alamat As String, ByVal telepon As String, ByVal kategori As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kode", kode)
+                cmd.Parameters.AddWithValue("@nama", nama)
+                cmd.Parameters.AddWithValue("@alamat", alamat)
+                cmd.Parameters.AddWithValue("@telepon", telepon)
+                cmd.Parameters.AddWithValue("@kategori", kategori)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
 End Module

@@ -31,6 +31,7 @@ Partial Class FormUtama
         Me.DataBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataSupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataPelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,7 +46,7 @@ Partial Class FormUtama
         '
         'DataMasterToolStripMenuItem
         '
-        Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataBarangToolStripMenuItem, Me.DataSupplierToolStripMenuItem, Me.DataUserToolStripMenuItem})
+        Me.DataMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataBarangToolStripMenuItem, Me.DataPelangganToolStripMenuItem, Me.DataSupplierToolStripMenuItem, Me.DataUserToolStripMenuItem})
         Me.DataMasterToolStripMenuItem.Name = "DataMasterToolStripMenuItem"
         Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.DataMasterToolStripMenuItem.Text = "Data Master"
@@ -92,6 +93,12 @@ Partial Class FormUtama
         Me.DataSupplierToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DataSupplierToolStripMenuItem.Text = "Data Supplier"
         '
+        'DataPelangganToolStripMenuItem
+        '
+        Me.DataPelangganToolStripMenuItem.Name = "DataPelangganToolStripMenuItem"
+        Me.DataPelangganToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.DataPelangganToolStripMenuItem.Text = "Data Pelanggan"
+        '
         'FormUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -120,4 +127,5 @@ Partial Class FormUtama
     Friend WithEvents LaporanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataSupplierToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DataPelangganToolStripMenuItem As ToolStripMenuItem
 End Class

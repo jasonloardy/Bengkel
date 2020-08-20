@@ -43,4 +43,11 @@
         FormSupplier.Dock = DockStyle.Fill
         FormSupplier.Show()
     End Sub
+
+    Private Sub DataPelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataPelangganToolStripMenuItem.Click
+        closeAll()
+        FormPelanggan.MdiParent = Me
+        FormPelanggan.Dock = DockStyle.Fill
+        FormPelanggan.Show()
+    End Sub
 End Class

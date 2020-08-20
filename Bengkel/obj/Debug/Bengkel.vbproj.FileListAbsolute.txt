@@ -12,3 +12,4 @@ c:\users\jason\documents\visual studio 2015\Projects\Bengkel\Bengkel\obj\Debug\B
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormUtama.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormLogin.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormSupplier.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormPelanggan.resources
