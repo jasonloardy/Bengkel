@@ -76,7 +76,7 @@ Partial Class FormSupplier
         Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 12
+        Me.btnRefresh.TabIndex = 1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -88,7 +88,7 @@ Partial Class FormSupplier
         Me.dgvSupplier.Location = New System.Drawing.Point(6, 74)
         Me.dgvSupplier.Name = "dgvSupplier"
         Me.dgvSupplier.Size = New System.Drawing.Size(742, 457)
-        Me.dgvSupplier.TabIndex = 10
+        Me.dgvSupplier.TabIndex = 2
         '
         'Label5
         '
@@ -102,9 +102,10 @@ Partial Class FormSupplier
         'tbCari
         '
         Me.tbCari.Location = New System.Drawing.Point(151, 19)
+        Me.tbCari.MaxLength = 64
         Me.tbCari.Name = "tbCari"
         Me.tbCari.Size = New System.Drawing.Size(597, 20)
-        Me.tbCari.TabIndex = 8
+        Me.tbCari.TabIndex = 0
         '
         'gbSupplier
         '
@@ -136,6 +137,7 @@ Partial Class FormSupplier
         '
         Me.tbKode.Enabled = False
         Me.tbKode.Location = New System.Drawing.Point(94, 19)
+        Me.tbKode.MaxLength = 8
         Me.tbKode.Name = "tbKode"
         Me.tbKode.Size = New System.Drawing.Size(144, 20)
         Me.tbKode.TabIndex = 0
@@ -152,16 +154,18 @@ Partial Class FormSupplier
         'tbTelepon
         '
         Me.tbTelepon.Location = New System.Drawing.Point(94, 97)
+        Me.tbTelepon.MaxLength = 64
         Me.tbTelepon.Name = "tbTelepon"
         Me.tbTelepon.Size = New System.Drawing.Size(300, 20)
-        Me.tbTelepon.TabIndex = 6
+        Me.tbTelepon.TabIndex = 3
         '
         'tbNama
         '
         Me.tbNama.Location = New System.Drawing.Point(94, 45)
+        Me.tbNama.MaxLength = 64
         Me.tbNama.Name = "tbNama"
         Me.tbNama.Size = New System.Drawing.Size(300, 20)
-        Me.tbNama.TabIndex = 2
+        Me.tbNama.TabIndex = 1
         '
         'Label2
         '
@@ -184,16 +188,17 @@ Partial Class FormSupplier
         'tbAlamat
         '
         Me.tbAlamat.Location = New System.Drawing.Point(94, 71)
+        Me.tbAlamat.MaxLength = 64
         Me.tbAlamat.Name = "tbAlamat"
         Me.tbAlamat.Size = New System.Drawing.Size(300, 20)
-        Me.tbAlamat.TabIndex = 4
+        Me.tbAlamat.TabIndex = 2
         '
         'btnBatal
         '
         Me.btnBatal.Location = New System.Drawing.Point(1097, 150)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 8
+        Me.btnBatal.TabIndex = 5
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -202,7 +207,7 @@ Partial Class FormSupplier
         Me.btnHapus.Location = New System.Drawing.Point(1016, 150)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 7
+        Me.btnHapus.TabIndex = 4
         Me.btnHapus.Text = "Hapus"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -211,7 +216,7 @@ Partial Class FormSupplier
         Me.btnEdit.Location = New System.Drawing.Point(935, 150)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 6
+        Me.btnEdit.TabIndex = 3
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -220,7 +225,7 @@ Partial Class FormSupplier
         Me.btnTambah.Location = New System.Drawing.Point(854, 150)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambah.TabIndex = 5
+        Me.btnTambah.TabIndex = 2
         Me.btnTambah.Text = "Tambah"
         Me.btnTambah.UseVisualStyleBackColor = True
         '
@@ -235,6 +240,7 @@ Partial Class FormSupplier
         Me.Controls.Add(Me.btnTambah)
         Me.Controls.Add(Me.gbSupplier)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximizeBox = False
         Me.Name = "FormSupplier"
         Me.Text = "FormSupplier"
         Me.GroupBox1.ResumeLayout(False)

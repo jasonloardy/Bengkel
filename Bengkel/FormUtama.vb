@@ -31,6 +31,7 @@
         Dim pilih As Integer
         pilih = MsgBox("Yakin ingin logout ?", 48 + 4 + 256, "Konfirmasi")
         If pilih = 6 Then
+            closeAll()
             Me.Hide()
             FormLogin.Show()
         End If

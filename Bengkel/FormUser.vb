@@ -106,7 +106,7 @@ Public Class FormUser
 
     Sub queryTambah()
         Dim sql As String = "INSERT INTO tb_user VALUES (@username, @password, @nama, @level, @status)"
-        If queryUser(sql, tbUsername.Text, tbPassword.Text, tbNama.Text, cbLevel.Text(0), cbStatus.Text(0)) Then
+        If queryUser(sql, tbUsername.Text.ToLower, tbPassword.Text, tbNama.Text.ToUpper, cbLevel.Text(0), cbStatus.Text(0)) Then
             isiGrid()
             MsgBox("Data berhasil di-tambah!", MsgBoxStyle.Information, "Informasi")
             reset()
@@ -116,7 +116,7 @@ Public Class FormUser
     Sub queryEdit()
         Dim sql As String = "UPDATE tb_user SET username = @username, password = @password, nama = @nama, level = @level,
                             status = @status WHERE username = '" & id_data & "'"
-        If queryUser(sql, tbUsername.Text, tbPassword.Text, tbNama.Text, cbLevel.Text(0), cbStatus.Text(0)) Then
+        If queryUser(sql, tbUsername.Text.ToLower, tbPassword.Text, tbNama.Text.ToUpper, cbLevel.Text(0), cbStatus.Text(0)) Then
             isiGrid()
             MsgBox("Data berhasil di-edit!", MsgBoxStyle.Information, "Informasi")
             reset()

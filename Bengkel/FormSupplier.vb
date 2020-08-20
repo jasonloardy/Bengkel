@@ -2,6 +2,8 @@
 
 Public Class FormSupplier
     Public mode, id_data As String
+    Public dt As DataTable
+
     Private Sub FormSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If koneksi() Then
             Reset()
@@ -16,6 +18,7 @@ Public Class FormSupplier
             Dim ds As New DataSet()
             If da.Fill(ds) Then
                 dgvSupplier.DataSource = ds.Tables(0)
+                dt = ds.Tables(0)
                 judulGrid()
             Else
                 dgvSupplier.DataSource = Nothing
@@ -121,13 +124,14 @@ Public Class FormSupplier
             End Using
             Return kode & hitung
         Catch ex As Exception
-
+            MsgBox(ex.Message, 16, "Error")
+            Return ""
         End Try
     End Function
 
     Sub queryTambah()
         Dim sql As String = "INSERT INTO tb_supplier VALUES (@kode, @nama, @alamat, @telepon)"
-        If querySupplier(sql, kode_supplier, tbNama.Text, tbAlamat.Text, tbTelepon.Text) Then
+        If querySupplier(sql, kode_supplier, tbNama.Text.ToUpper, tbAlamat.Text.ToUpper, tbTelepon.Text) Then
             isiGrid()
             MsgBox("Data berhasil di-tambah!", MsgBoxStyle.Information, "Informasi")
             reset()
@@ -137,7 +141,7 @@ Public Class FormSupplier
     Sub queryEdit()
         Dim sql As String = "UPDATE tb_supplier SET nama = @nama, alamat = @alamat,
                             no_telepon = @telepon WHERE kd_supplier = '" & id_data & "'"
-        If querySupplier(sql, tbKode.Text, tbNama.Text, tbAlamat.Text, tbTelepon.Text) Then
+        If querySupplier(sql, tbKode.Text, tbNama.Text.ToUpper, tbAlamat.Text.ToUpper, tbTelepon.Text) Then
             isiGrid()
             MsgBox("Data berhasil di-edit!", MsgBoxStyle.Information, "Informasi")
             reset()
@@ -188,6 +192,14 @@ Public Class FormSupplier
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
         reset()
+    End Sub
+
+    Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
+        Try
+            dt.DefaultView.RowFilter = "kd_supplier LIKE '%" & tbCari.Text & "%' OR nama LIKE '%" & tbCari.Text & "%'"
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
