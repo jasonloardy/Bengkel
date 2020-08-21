@@ -32,6 +32,7 @@ Partial Class FormUtama
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataSupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataPelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataSatuanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -77,8 +78,9 @@ Partial Class FormUtama
         '
         'DataBarangToolStripMenuItem
         '
+        Me.DataBarangToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSatuanToolStripMenuItem})
         Me.DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
-        Me.DataBarangToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DataBarangToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.DataBarangToolStripMenuItem.Text = "Data Barang"
         '
         'LogoutToolStripMenuItem
@@ -98,6 +100,12 @@ Partial Class FormUtama
         Me.DataPelangganToolStripMenuItem.Name = "DataPelangganToolStripMenuItem"
         Me.DataPelangganToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.DataPelangganToolStripMenuItem.Text = "Data Pelanggan"
+        '
+        'DataSatuanToolStripMenuItem
+        '
+        Me.DataSatuanToolStripMenuItem.Name = "DataSatuanToolStripMenuItem"
+        Me.DataSatuanToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DataSatuanToolStripMenuItem.Text = "Data Satuan"
         '
         'FormUtama
         '
@@ -128,4 +136,5 @@ Partial Class FormUtama
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataSupplierToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataPelangganToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DataSatuanToolStripMenuItem As ToolStripMenuItem
 End Class

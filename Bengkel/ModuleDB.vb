@@ -96,4 +96,20 @@ Module ModuleDB
         End Try
     End Function
 
+    Function querySatuan(ByVal query As String, ByVal kode As String, ByVal nama As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kode", kode)
+                cmd.Parameters.AddWithValue("@nama", nama)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
 End Module

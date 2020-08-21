@@ -94,6 +94,12 @@
     <Compile Include="FormPelanggan.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSatuan.Designer.vb">
+      <DependentUpon>FormSatuan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSatuan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormSupplier.Designer.vb">
       <DependentUpon>FormSupplier.vb</DependentUpon>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPelanggan.resx">
       <DependentUpon>FormPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSatuan.resx">
+      <DependentUpon>FormSatuan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSupplier.resx">
       <DependentUpon>FormSupplier.vb</DependentUpon>
