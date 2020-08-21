@@ -10,10 +10,47 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-08-20 17:02:18
+Date: 2020-08-20 21:55:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `tb_barang`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_barang`;
+CREATE TABLE `tb_barang` (
+  `kd_barang` varchar(16) NOT NULL,
+  `nama_barang` varchar(64) DEFAULT NULL,
+  `harga_beli` int(9) DEFAULT NULL,
+  `harga_jual_u` int(9) DEFAULT NULL,
+  `harga_jual_l` int(9) DEFAULT NULL,
+  `harga_jual_b` int(9) DEFAULT NULL,
+  `stok` int(9) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  PRIMARY KEY (`kd_barang`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_barang
+-- ----------------------------
+INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '500000', '700000', '650000', '600000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '200000', '350000', '300000', '250000', '0', 'A');
+
+-- ----------------------------
+-- Table structure for `tb_barang_satuan`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_barang_satuan`;
+CREATE TABLE `tb_barang_satuan` (
+  `kd_barang` varchar(16) DEFAULT NULL,
+  `kd_satuan` varchar(8) DEFAULT NULL,
+  `isi` int(9) DEFAULT NULL,
+  `jenis_satuan` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_barang_satuan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
