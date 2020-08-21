@@ -53,7 +53,7 @@ Partial Class FormBarang
         Me.tbIsiStn = New System.Windows.Forms.TextBox()
         Me.cbStnMulti = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvSatuan = New System.Windows.Forms.DataGridView()
         Me.tbKode = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbNama = New System.Windows.Forms.TextBox()
@@ -63,11 +63,12 @@ Partial Class FormBarang
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
+        Me.btnHapusStn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBarang.SuspendLayout()
         Me.gbStnMulti.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSatuan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -316,13 +317,14 @@ Partial Class FormBarang
         '
         'gbStnMulti
         '
+        Me.gbStnMulti.Controls.Add(Me.btnHapusStn)
         Me.gbStnMulti.Controls.Add(Me.lblStnMulti)
         Me.gbStnMulti.Controls.Add(Me.btnTambahStn)
         Me.gbStnMulti.Controls.Add(Me.Label6)
         Me.gbStnMulti.Controls.Add(Me.tbIsiStn)
         Me.gbStnMulti.Controls.Add(Me.cbStnMulti)
         Me.gbStnMulti.Controls.Add(Me.Label4)
-        Me.gbStnMulti.Controls.Add(Me.DataGridView1)
+        Me.gbStnMulti.Controls.Add(Me.dgvSatuan)
         Me.gbStnMulti.Location = New System.Drawing.Point(124, 202)
         Me.gbStnMulti.Name = "gbStnMulti"
         Me.gbStnMulti.Size = New System.Drawing.Size(270, 273)
@@ -382,13 +384,13 @@ Partial Class FormBarang
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Satuan :"
         '
-        'DataGridView1
+        'dgvSatuan
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 101)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(258, 166)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgvSatuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSatuan.Location = New System.Drawing.Point(6, 101)
+        Me.dgvSatuan.Name = "dgvSatuan"
+        Me.dgvSatuan.Size = New System.Drawing.Size(258, 166)
+        Me.dgvSatuan.TabIndex = 0
         '
         'tbKode
         '
@@ -470,6 +472,15 @@ Partial Class FormBarang
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
+        'btnHapusStn
+        '
+        Me.btnHapusStn.Location = New System.Drawing.Point(157, 72)
+        Me.btnHapusStn.Name = "btnHapusStn"
+        Me.btnHapusStn.Size = New System.Drawing.Size(75, 23)
+        Me.btnHapusStn.TabIndex = 18
+        Me.btnHapusStn.Text = "Hapus"
+        Me.btnHapusStn.UseVisualStyleBackColor = True
+        '
         'FormBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -492,7 +503,7 @@ Partial Class FormBarang
         Me.gbBarang.PerformLayout()
         Me.gbStnMulti.ResumeLayout(False)
         Me.gbStnMulti.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSatuan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -519,7 +530,7 @@ Partial Class FormBarang
     Friend WithEvents tbIsiStn As TextBox
     Friend WithEvents cbStnMulti As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvSatuan As DataGridView
     Friend WithEvents tbKode As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents tbNama As TextBox
@@ -538,4 +549,5 @@ Partial Class FormBarang
     Friend WithEvents cbCustom As CheckBox
     Friend WithEvents cbStatus As ComboBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents btnHapusStn As Button
 End Class
