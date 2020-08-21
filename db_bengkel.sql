@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-08-20 21:55:58
+Date: 2020-08-21 18:04:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,21 @@ CREATE TABLE `tb_barang` (
 -- Records of tb_barang
 -- ----------------------------
 INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '500000', '700000', '650000', '600000', '0', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '200000', '350000', '300000', '250000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '200000', '350000', '300000', '250000', '2500', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000003', 'BEHEL NMAX', '100000', '150000', '140000', '130000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000004', 'BEHEL MIO Z ', '50000', '100000', '90000', '80000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000005', 'KNALPOT ORI MIO Z', '500000', '600000', '580000', '560000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000007', 'OLI YAMALUBE', '30000', '40000', '35000', '32000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000008', 'TES', '100000', '150000', '140000', '130000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000009', 'SPION MURAH', '10000', '20000', '18000', '15000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000010', 'SPION MAHAL', '20000', '30000', '28000', '25000', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000011', 'TEST 11', '2', '22', '2', '2', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000012', 'TES 12', '2', '2', '2', '2', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000013', 'TES 12', '2', '2', '2', '2', '0', 'N');
+INSERT INTO `tb_barang` VALUES ('B0000014', '12', '2', '22', '2', '2', '0', 'N');
+INSERT INTO `tb_barang` VALUES ('B0000016', 'ASD', '123', '321', '123', '321', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000017', 'ASD', '123', '321', '123', '321', '0', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000018', '123', '123', '123', '123', '123', '0', 'A');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -51,6 +65,29 @@ CREATE TABLE `tb_barang_satuan` (
 -- ----------------------------
 -- Records of tb_barang_satuan
 -- ----------------------------
+INSERT INTO `tb_barang_satuan` VALUES ('B0000008', 'BH', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000008', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000009', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000009', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000010', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000011', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000011', 'PCS', '2', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000012', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000012', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000013', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000013', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000014', 'BH', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000014', 'LSN', '2', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000016', 'BH', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000017', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000017', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000018', 'BH', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000018', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000019', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000019', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000019', 'LSN', '12', 'M');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000007', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000007', 'LSN', '12', 'M');
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
@@ -85,6 +122,7 @@ CREATE TABLE `tb_satuan` (
 -- Records of tb_satuan
 -- ----------------------------
 INSERT INTO `tb_satuan` VALUES ('BH', 'BUAH');
+INSERT INTO `tb_satuan` VALUES ('LSN', 'LUSIN');
 INSERT INTO `tb_satuan` VALUES ('PCS', 'PIECES');
 
 -- ----------------------------
