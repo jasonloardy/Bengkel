@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-08-20 16:12:21
+Date: 2020-08-20 17:02:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,6 +33,22 @@ CREATE TABLE `tb_pelanggan` (
 -- ----------------------------
 INSERT INTO `tb_pelanggan` VALUES ('PL000001', 'JASON', 'BARONANG', '12345678901', 'U');
 INSERT INTO `tb_pelanggan` VALUES ('PL000002', 'ERIKA', 'SERIGALA', '123819823', 'B');
+
+-- ----------------------------
+-- Table structure for `tb_satuan`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_satuan`;
+CREATE TABLE `tb_satuan` (
+  `kd_satuan` varchar(8) NOT NULL,
+  `nama_satuan` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`kd_satuan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_satuan
+-- ----------------------------
+INSERT INTO `tb_satuan` VALUES ('BH', 'BUAH');
+INSERT INTO `tb_satuan` VALUES ('PCS', 'PIECES');
 
 -- ----------------------------
 -- Table structure for `tb_supplier`
