@@ -83,6 +83,7 @@ Public Class FormPelanggan
         tbNama.Clear()
         tbAlamat.Clear()
         tbTelepon.Clear()
+        cbKategori.SelectedIndex = -1
     End Sub
 
     Sub reset()

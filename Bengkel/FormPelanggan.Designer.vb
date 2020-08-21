@@ -263,6 +263,8 @@ Partial Class FormPelanggan
         Me.Controls.Add(Me.btnTambah)
         Me.Controls.Add(Me.gbPelanggan)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "FormPelanggan"
         Me.Text = "FormPelanggan"
         CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).EndInit()

@@ -151,6 +151,8 @@ Partial Class FormSatuan
         Me.Controls.Add(Me.dgvSatuan)
         Me.Controls.Add(Me.btnBatal)
         Me.Controls.Add(Me.gbSatuan)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "FormSatuan"
         Me.Text = "FormSatuan"
         CType(Me.dgvSatuan, System.ComponentModel.ISupportInitialize).EndInit()

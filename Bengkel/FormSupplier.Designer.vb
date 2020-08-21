@@ -240,6 +240,7 @@ Partial Class FormSupplier
         Me.Controls.Add(Me.btnTambah)
         Me.Controls.Add(Me.gbSupplier)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "FormSupplier"
         Me.Text = "FormSupplier"
