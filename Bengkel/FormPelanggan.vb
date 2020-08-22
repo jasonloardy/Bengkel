@@ -40,16 +40,16 @@ Public Class FormPelanggan
             Dim objAlternatingCellStyle As New DataGridViewCellStyle()
             dgvpelanggan.AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
-            .Columns(0).HeaderText = "Kode pelanggan"
-            .Columns(1).HeaderText = "Nama pelanggan"
+            .Columns(0).HeaderText = "Kode Pelanggan"
+            .Columns(1).HeaderText = "Nama Pelanggan"
             .Columns(2).HeaderText = "Alamat"
             .Columns(3).HeaderText = "No. Telepon"
             .Columns(4).HeaderText = "Kategori"
-            .Columns(0).Width = 100
-            .Columns(1).Width = 150
-            .Columns(2).Width = 150
-            .Columns(3).Width = 150
-            .Columns(4).Width = 100
+            .Columns(0).Width = 125
+            .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            .Columns(2).Width = 225
+            .Columns(3).Width = 125
+            .Columns(4).Width = 75
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = True

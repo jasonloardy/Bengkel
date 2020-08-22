@@ -38,10 +38,10 @@ Public Class FormSupplier
             .Columns(1).HeaderText = "Nama Supplier"
             .Columns(2).HeaderText = "Alamat"
             .Columns(3).HeaderText = "No. Telepon"
-            .Columns(0).Width = 100
-            .Columns(1).Width = 200
-            .Columns(2).Width = 200
-            .Columns(3).Width = 150
+            .Columns(0).Width = 125
+            .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            .Columns(2).Width = 250
+            .Columns(3).Width = 125
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = True

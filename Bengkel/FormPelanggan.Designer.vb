@@ -50,6 +50,7 @@ Partial Class FormPelanggan
         '
         'btnBatal
         '
+        Me.btnBatal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBatal.Location = New System.Drawing.Point(1097, 177)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
@@ -59,6 +60,7 @@ Partial Class FormPelanggan
         '
         'btnHapus
         '
+        Me.btnHapus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnHapus.Location = New System.Drawing.Point(1016, 177)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
@@ -68,6 +70,7 @@ Partial Class FormPelanggan
         '
         'btnEdit
         '
+        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Location = New System.Drawing.Point(935, 177)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
@@ -77,6 +80,7 @@ Partial Class FormPelanggan
         '
         'btnTambah
         '
+        Me.btnTambah.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnTambah.Location = New System.Drawing.Point(854, 177)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
@@ -113,8 +117,9 @@ Partial Class FormPelanggan
         '
         'dgvPelanggan
         '
-        Me.dgvPelanggan.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvPelanggan.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPelanggan.Location = New System.Drawing.Point(6, 74)
         Me.dgvPelanggan.Name = "dgvPelanggan"
@@ -132,6 +137,8 @@ Partial Class FormPelanggan
         '
         'tbCari
         '
+        Me.tbCari.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbCari.Location = New System.Drawing.Point(164, 19)
         Me.tbCari.MaxLength = 64
         Me.tbCari.Name = "tbCari"
@@ -200,6 +207,7 @@ Partial Class FormPelanggan
         '
         'gbPelanggan
         '
+        Me.gbPelanggan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbPelanggan.Controls.Add(Me.cbKategori)
         Me.gbPelanggan.Controls.Add(Me.Label6)
         Me.gbPelanggan.Controls.Add(Me.Label4)
@@ -238,8 +246,9 @@ Partial Class FormPelanggan
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvPelanggan)

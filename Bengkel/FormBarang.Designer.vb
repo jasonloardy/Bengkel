@@ -47,6 +47,7 @@ Partial Class FormBarang
         Me.tbHrgBeli = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.gbStnMulti = New System.Windows.Forms.GroupBox()
+        Me.btnHapusStn = New System.Windows.Forms.Button()
         Me.lblStnMulti = New System.Windows.Forms.Label()
         Me.btnTambahStn = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -63,7 +64,6 @@ Partial Class FormBarang
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
-        Me.btnHapusStn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBarang.SuspendLayout()
@@ -73,8 +73,9 @@ Partial Class FormBarang
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvBarang)
@@ -107,8 +108,9 @@ Partial Class FormBarang
         '
         'dgvBarang
         '
-        Me.dgvBarang.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvBarang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBarang.Location = New System.Drawing.Point(6, 74)
         Me.dgvBarang.Name = "dgvBarang"
@@ -126,6 +128,8 @@ Partial Class FormBarang
         '
         'tbCari
         '
+        Me.tbCari.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbCari.Location = New System.Drawing.Point(147, 19)
         Me.tbCari.MaxLength = 64
         Me.tbCari.Name = "tbCari"
@@ -143,6 +147,7 @@ Partial Class FormBarang
         '
         'gbBarang
         '
+        Me.gbBarang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbBarang.Controls.Add(Me.cbStatus)
         Me.gbBarang.Controls.Add(Me.Label11)
         Me.gbBarang.Controls.Add(Me.cbCustom)
@@ -332,6 +337,15 @@ Partial Class FormBarang
         Me.gbStnMulti.TabStop = False
         Me.gbStnMulti.Text = "Konversi"
         '
+        'btnHapusStn
+        '
+        Me.btnHapusStn.Location = New System.Drawing.Point(157, 72)
+        Me.btnHapusStn.Name = "btnHapusStn"
+        Me.btnHapusStn.Size = New System.Drawing.Size(75, 23)
+        Me.btnHapusStn.TabIndex = 18
+        Me.btnHapusStn.Text = "Hapus"
+        Me.btnHapusStn.UseVisualStyleBackColor = True
+        '
         'lblStnMulti
         '
         Me.lblStnMulti.AutoSize = True
@@ -438,6 +452,7 @@ Partial Class FormBarang
         '
         'btnHapus
         '
+        Me.btnHapus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnHapus.Location = New System.Drawing.Point(1016, 526)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
@@ -447,6 +462,7 @@ Partial Class FormBarang
         '
         'btnEdit
         '
+        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Location = New System.Drawing.Point(935, 526)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
@@ -456,6 +472,7 @@ Partial Class FormBarang
         '
         'btnTambah
         '
+        Me.btnTambah.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnTambah.Location = New System.Drawing.Point(854, 526)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
@@ -465,21 +482,13 @@ Partial Class FormBarang
         '
         'btnBatal
         '
+        Me.btnBatal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBatal.Location = New System.Drawing.Point(1097, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
         Me.btnBatal.TabIndex = 17
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
-        '
-        'btnHapusStn
-        '
-        Me.btnHapusStn.Location = New System.Drawing.Point(157, 72)
-        Me.btnHapusStn.Name = "btnHapusStn"
-        Me.btnHapusStn.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapusStn.TabIndex = 18
-        Me.btnHapusStn.Text = "Hapus"
-        Me.btnHapusStn.UseVisualStyleBackColor = True
         '
         'FormBarang
         '

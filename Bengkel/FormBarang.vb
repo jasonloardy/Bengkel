@@ -132,7 +132,7 @@ Public Class FormBarang
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
                                 END status FROM tb_barang tb
                                 JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang
-                                ORDER BY tb.kd_barang"
+                                ORDER BY tb.status, tb.kd_barang"
             Dim da As New MySqlDataAdapter(sql, conn)
             Dim ds As New DataSet()
             If da.Fill(ds) Then
@@ -163,12 +163,12 @@ Public Class FormBarang
             .Columns(7).HeaderText = "Stok"
             .Columns(8).HeaderText = "Status"
             .Columns(0).Width = 100
-            .Columns(1).Width = 200
-            .Columns(2).Width = 50
+            .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            .Columns(2).Width = 75
             .Columns(3).Width = 100
             .Columns(4).Width = 100
             .Columns(7).Width = 75
-            .Columns(7).Width = 75
+            .Columns(8).Width = 75
             .Columns(3).DefaultCellStyle.Format = "c0"
             .Columns(4).DefaultCellStyle.Format = "c0"
             .Columns(7).DefaultCellStyle.Format = "n2"

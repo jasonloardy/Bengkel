@@ -48,8 +48,9 @@ Partial Class FormSupplier
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvSupplier)
@@ -82,8 +83,9 @@ Partial Class FormSupplier
         '
         'dgvSupplier
         '
-        Me.dgvSupplier.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvSupplier.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSupplier.Location = New System.Drawing.Point(6, 74)
         Me.dgvSupplier.Name = "dgvSupplier"
@@ -101,6 +103,8 @@ Partial Class FormSupplier
         '
         'tbCari
         '
+        Me.tbCari.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbCari.Location = New System.Drawing.Point(151, 19)
         Me.tbCari.MaxLength = 64
         Me.tbCari.Name = "tbCari"
@@ -109,6 +113,7 @@ Partial Class FormSupplier
         '
         'gbSupplier
         '
+        Me.gbSupplier.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbSupplier.Controls.Add(Me.Label4)
         Me.gbSupplier.Controls.Add(Me.tbKode)
         Me.gbSupplier.Controls.Add(Me.Label1)
@@ -195,6 +200,7 @@ Partial Class FormSupplier
         '
         'btnBatal
         '
+        Me.btnBatal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBatal.Location = New System.Drawing.Point(1097, 150)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
@@ -204,6 +210,7 @@ Partial Class FormSupplier
         '
         'btnHapus
         '
+        Me.btnHapus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnHapus.Location = New System.Drawing.Point(1016, 150)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
@@ -213,6 +220,7 @@ Partial Class FormSupplier
         '
         'btnEdit
         '
+        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Location = New System.Drawing.Point(935, 150)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
@@ -222,6 +230,7 @@ Partial Class FormSupplier
         '
         'btnTambah
         '
+        Me.btnTambah.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnTambah.Location = New System.Drawing.Point(854, 150)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
