@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FormBarang
-    Public mode, id_data As String
+    Public mode, id_data, temp_kode, from As String
     Public dt As DataTable
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -27,7 +27,7 @@ Public Class FormBarang
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
                                 tb.harga_beli*tbs.isi harga_beli, tb.harga_jual_u*tbs.isi harga_jual_u,
-                                tb.harga_jual_l*tbs.isi harga_jual_l, tb.harga_jual_b*tbs.isi harga_jual_b,
+                                tb.harga_jual_l*tbs.isi harga_jual_l, tb.harga_jual_b*tbs.isi harga_jual_b, tb.stok,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
@@ -45,6 +45,8 @@ Public Class FormBarang
                             tbHrgJualU.Text = dr.Item("harga_jual_u")
                             tbHrgJualL.Text = dr.Item("harga_jual_l")
                             tbHrgJualB.Text = dr.Item("harga_jual_b")
+                            tbStok.Text = dr.Item("stok")
+                            tbStokFisik.Text = dr.Item("stok")
                             cbStatus.Text = dr.Item("status")
                         End While
                     End If
@@ -130,7 +132,7 @@ Public Class FormBarang
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
-                                END status FROM tb_barang tb
+                                END status, tbs.isi FROM tb_barang tb
                                 JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang
                                 ORDER BY tb.status, tb.kd_barang"
             Dim da As New MySqlDataAdapter(sql, conn)
@@ -162,6 +164,7 @@ Public Class FormBarang
             .Columns(6).Visible = False
             .Columns(7).HeaderText = "Stok"
             .Columns(8).HeaderText = "Status"
+            .Columns(9).Visible = False
             .Columns(0).Width = 100
             .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             .Columns(2).Width = 75
@@ -190,6 +193,9 @@ Public Class FormBarang
 
     Private Sub dgvbarang_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellClick
         reset()
+        tbStok.ReadOnly = True
+        lblStok.Visible = True
+        tbStokFisik.Visible = True
         gridDetail()
         btnTambah.Enabled = False
         btnEdit.Enabled = True
@@ -208,12 +214,18 @@ Public Class FormBarang
         tbIsiStn.Clear()
         dgvSatuan.Columns.Clear()
         dgvSatuan.Rows.Clear()
+        tbStok.Clear()
+        tbStokFisik.Clear()
         cbStatus.SelectedIndex = -1
     End Sub
 
     Sub reset()
+        tbKode.ReadOnly = True
+        cbCustom.Checked = False
         gbBarang.Enabled = False
         gbStnMulti.Enabled = False
+        lblStok.Visible = False
+        tbStokFisik.Visible = False
         clear()
         btnTambah.Text = "Tambah"
         btnTambah.Enabled = True
@@ -285,6 +297,8 @@ Public Class FormBarang
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
                     queryBarangStnMulti(sqlStn, kode, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
                 Next
+                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @stok_masuk, @stok_keluar);"
+                queryBarangHistory(sqlHistory, kode, "SA", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbStok.Text, 0)
                 trans.Commit()
                 isiGrid()
                 MsgBox("Data berhasil di-tambah!", MsgBoxStyle.Information, "Informasi")
@@ -311,6 +325,13 @@ Public Class FormBarang
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
                     queryBarangStnMulti(sqlStn, tbKode.Text, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
                 Next
+                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @stok_masuk, @stok_keluar);"
+                Dim selisih As Integer = tbStokFisik.Text - tbStok.Text
+                If selisih > 0 Then
+                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), selisih, 0)
+                ElseIf selisih < 0 Then
+                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), 0, Math.Abs(selisih))
+                End If
                 trans.Commit()
                 isiGrid()
                 MsgBox("Data berhasil di-edit!", MsgBoxStyle.Information, "Informasi")
@@ -349,6 +370,7 @@ Public Class FormBarang
             modeSimpan()
             clear()
             tbKode.Text = kode_barang()
+            tbStok.ReadOnly = False
             cbStatus.SelectedIndex = 0
         Else
             If tbKode.Text = "" Or tbNama.Text = "" Or cbStnDasar.SelectedIndex = -1 Or tbHrgBeli.Text = "" Or tbHrgJualU.Text = "" Or
@@ -392,10 +414,16 @@ Public Class FormBarang
 
     Private Sub cbCustom_CheckedChanged(sender As Object, e As EventArgs) Handles cbCustom.CheckedChanged
         If cbCustom.Checked Then
+            If mode = "edit" Then
+                temp_kode = tbKode.Text
+            Else
+                temp_kode = kode_barang()
+            End If
             tbKode.Clear()
-            tbKode.Enabled = True
+            tbKode.ReadOnly = False
         Else
-            tbKode.Text = kode_barang()
+            tbKode.ReadOnly = True
+            tbKode.Text = temp_kode
         End If
     End Sub
 
@@ -406,6 +434,21 @@ Public Class FormBarang
         lblStnJualL.Text = stnDasar
         lblStnJualB.Text = stnDasar
         lblStnMulti.Text = stnDasar
+    End Sub
+
+    Private Sub dgvBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellDoubleClick
+        If from = "pembelian" Then
+            Dim baris As Integer
+            With dgvBarang
+                baris = .CurrentRow.Index
+                FormPembelian.kodeBarang = .Item(0, baris).Value
+                FormPembelian.tbKodeBarang.Text = .Item(0, baris).Value
+                FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
+                FormPembelian.tbSatuan.Text = .Item(2, baris).Value
+                FormPembelian.tbIsi.Text = .Item(9, baris).Value
+            End With
+        End If
+        Me.Close()
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

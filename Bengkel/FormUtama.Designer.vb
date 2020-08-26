@@ -24,15 +24,16 @@ Partial Class FormUtama
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataSatuanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataPelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataSupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PembelianToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PenjualanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataBarangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataSupplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataPelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataSatuanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TransaksiPembelianToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -52,8 +53,40 @@ Partial Class FormUtama
         Me.DataMasterToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.DataMasterToolStripMenuItem.Text = "Data Master"
         '
+        'DataBarangToolStripMenuItem
+        '
+        Me.DataBarangToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSatuanToolStripMenuItem})
+        Me.DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
+        Me.DataBarangToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.DataBarangToolStripMenuItem.Text = "Data Barang"
+        '
+        'DataSatuanToolStripMenuItem
+        '
+        Me.DataSatuanToolStripMenuItem.Name = "DataSatuanToolStripMenuItem"
+        Me.DataSatuanToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.DataSatuanToolStripMenuItem.Text = "Data Satuan"
+        '
+        'DataPelangganToolStripMenuItem
+        '
+        Me.DataPelangganToolStripMenuItem.Name = "DataPelangganToolStripMenuItem"
+        Me.DataPelangganToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.DataPelangganToolStripMenuItem.Text = "Data Pelanggan"
+        '
+        'DataSupplierToolStripMenuItem
+        '
+        Me.DataSupplierToolStripMenuItem.Name = "DataSupplierToolStripMenuItem"
+        Me.DataSupplierToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.DataSupplierToolStripMenuItem.Text = "Data Supplier"
+        '
+        'DataUserToolStripMenuItem
+        '
+        Me.DataUserToolStripMenuItem.Name = "DataUserToolStripMenuItem"
+        Me.DataUserToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.DataUserToolStripMenuItem.Text = "Data User"
+        '
         'PembelianToolStripMenuItem
         '
+        Me.PembelianToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TransaksiPembelianToolStripMenuItem})
         Me.PembelianToolStripMenuItem.Name = "PembelianToolStripMenuItem"
         Me.PembelianToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.PembelianToolStripMenuItem.Text = "Pembelian"
@@ -70,42 +103,17 @@ Partial Class FormUtama
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
         '
-        'DataUserToolStripMenuItem
-        '
-        Me.DataUserToolStripMenuItem.Name = "DataUserToolStripMenuItem"
-        Me.DataUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DataUserToolStripMenuItem.Text = "Data User"
-        '
-        'DataBarangToolStripMenuItem
-        '
-        Me.DataBarangToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataSatuanToolStripMenuItem})
-        Me.DataBarangToolStripMenuItem.Name = "DataBarangToolStripMenuItem"
-        Me.DataBarangToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
-        Me.DataBarangToolStripMenuItem.Text = "Data Barang"
-        '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'DataSupplierToolStripMenuItem
+        'TransaksiPembelianToolStripMenuItem
         '
-        Me.DataSupplierToolStripMenuItem.Name = "DataSupplierToolStripMenuItem"
-        Me.DataSupplierToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DataSupplierToolStripMenuItem.Text = "Data Supplier"
-        '
-        'DataPelangganToolStripMenuItem
-        '
-        Me.DataPelangganToolStripMenuItem.Name = "DataPelangganToolStripMenuItem"
-        Me.DataPelangganToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
-        Me.DataPelangganToolStripMenuItem.Text = "Data Pelanggan"
-        '
-        'DataSatuanToolStripMenuItem
-        '
-        Me.DataSatuanToolStripMenuItem.Name = "DataSatuanToolStripMenuItem"
-        Me.DataSatuanToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DataSatuanToolStripMenuItem.Text = "Data Satuan"
+        Me.TransaksiPembelianToolStripMenuItem.Name = "TransaksiPembelianToolStripMenuItem"
+        Me.TransaksiPembelianToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TransaksiPembelianToolStripMenuItem.Text = "Transaksi Pembelian"
         '
         'FormUtama
         '
@@ -136,4 +144,5 @@ Partial Class FormUtama
     Friend WithEvents DataSupplierToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataPelangganToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataSatuanToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TransaksiPembelianToolStripMenuItem As ToolStripMenuItem
 End Class

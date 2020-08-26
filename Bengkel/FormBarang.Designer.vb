@@ -30,6 +30,10 @@ Partial Class FormBarang
         Me.tbCari = New System.Windows.Forms.TextBox()
         Me.cbStnDasar = New System.Windows.Forms.ComboBox()
         Me.gbBarang = New System.Windows.Forms.GroupBox()
+        Me.lblStok = New System.Windows.Forms.Label()
+        Me.tbStokFisik = New System.Windows.Forms.TextBox()
+        Me.tbStok = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.cbStatus = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cbCustom = New System.Windows.Forms.CheckBox()
@@ -148,6 +152,10 @@ Partial Class FormBarang
         'gbBarang
         '
         Me.gbBarang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbBarang.Controls.Add(Me.lblStok)
+        Me.gbBarang.Controls.Add(Me.tbStokFisik)
+        Me.gbBarang.Controls.Add(Me.tbStok)
+        Me.gbBarang.Controls.Add(Me.Label12)
         Me.gbBarang.Controls.Add(Me.cbStatus)
         Me.gbBarang.Controls.Add(Me.Label11)
         Me.gbBarang.Controls.Add(Me.cbCustom)
@@ -177,6 +185,40 @@ Partial Class FormBarang
         Me.gbBarang.TabIndex = 13
         Me.gbBarang.TabStop = False
         Me.gbBarang.Text = "Data Barang"
+        '
+        'lblStok
+        '
+        Me.lblStok.AutoSize = True
+        Me.lblStok.Location = New System.Drawing.Point(195, 458)
+        Me.lblStok.Name = "lblStok"
+        Me.lblStok.Size = New System.Drawing.Size(19, 13)
+        Me.lblStok.TabIndex = 30
+        Me.lblStok.Text = "=>"
+        '
+        'tbStokFisik
+        '
+        Me.tbStokFisik.Location = New System.Drawing.Point(220, 455)
+        Me.tbStokFisik.MaxLength = 64
+        Me.tbStokFisik.Name = "tbStokFisik"
+        Me.tbStokFisik.Size = New System.Drawing.Size(65, 20)
+        Me.tbStokFisik.TabIndex = 29
+        '
+        'tbStok
+        '
+        Me.tbStok.Location = New System.Drawing.Point(124, 455)
+        Me.tbStok.MaxLength = 64
+        Me.tbStok.Name = "tbStok"
+        Me.tbStok.Size = New System.Drawing.Size(65, 20)
+        Me.tbStok.TabIndex = 27
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(83, 458)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 13)
+        Me.Label12.TabIndex = 26
+        Me.Label12.Text = "Stok :"
         '
         'cbStatus
         '
@@ -314,7 +356,7 @@ Partial Class FormBarang
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(68, 101)
+        Me.Label7.Location = New System.Drawing.Point(65, 101)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 11
@@ -332,7 +374,7 @@ Partial Class FormBarang
         Me.gbStnMulti.Controls.Add(Me.dgvSatuan)
         Me.gbStnMulti.Location = New System.Drawing.Point(124, 202)
         Me.gbStnMulti.Name = "gbStnMulti"
-        Me.gbStnMulti.Size = New System.Drawing.Size(270, 273)
+        Me.gbStnMulti.Size = New System.Drawing.Size(270, 247)
         Me.gbStnMulti.TabIndex = 10
         Me.gbStnMulti.TabStop = False
         Me.gbStnMulti.Text = "Konversi"
@@ -403,12 +445,11 @@ Partial Class FormBarang
         Me.dgvSatuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSatuan.Location = New System.Drawing.Point(6, 101)
         Me.dgvSatuan.Name = "dgvSatuan"
-        Me.dgvSatuan.Size = New System.Drawing.Size(258, 166)
+        Me.dgvSatuan.Size = New System.Drawing.Size(258, 140)
         Me.dgvSatuan.TabIndex = 0
         '
         'tbKode
         '
-        Me.tbKode.Enabled = False
         Me.tbKode.Location = New System.Drawing.Point(124, 19)
         Me.tbKode.MaxLength = 8
         Me.tbKode.Name = "tbKode"
@@ -559,4 +600,8 @@ Partial Class FormBarang
     Friend WithEvents cbStatus As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents btnHapusStn As Button
+    Friend WithEvents lblStok As Label
+    Friend WithEvents tbStokFisik As TextBox
+    Friend WithEvents tbStok As TextBox
+    Friend WithEvents Label12 As Label
 End Class

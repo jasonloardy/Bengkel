@@ -160,6 +160,26 @@ Module ModuleDB
         End Try
     End Function
 
+    Function queryBarangHistory(ByVal query As String, ByVal kode As String, ByVal kd_transaksi As String, ByVal tanggal As String,
+                                ByVal stok_masuk As Integer, ByVal stok_keluar As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kode", kode)
+                cmd.Parameters.AddWithValue("@kd_transaksi", kd_transaksi)
+                cmd.Parameters.AddWithValue("@tanggal", tanggal)
+                cmd.Parameters.AddWithValue("@stok_masuk", stok_masuk)
+                cmd.Parameters.AddWithValue("@stok_keluar", stok_keluar)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
     Function queryCb(ByVal query As String)
         Dim dt As New DataTable()
         Using da = New MySqlDataAdapter(query, conn)

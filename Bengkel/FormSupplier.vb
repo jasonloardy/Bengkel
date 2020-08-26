@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FormSupplier
-    Public mode, id_data As String
+    Public mode, id_data, from As String
     Public dt As DataTable
 
     Private Sub FormSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -192,6 +192,20 @@ Public Class FormSupplier
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
         reset()
+    End Sub
+
+    Private Sub dgvSupplier_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellDoubleClick
+        If from = "pembelian" Then
+            Dim baris As Integer
+            With dgvSupplier
+                baris = .CurrentRow.Index
+                FormPembelian.tbKodeSupplier.Text = .Item(0, baris).Value
+                FormPembelian.tbNamaSupplier.Text = .Item(1, baris).Value
+                FormPembelian.tbAlamat.Text = .Item(2, baris).Value
+                FormPembelian.tbNoTelepon.Text = .Item(3, baris).Value
+            End With
+        End If
+        Me.Close()
     End Sub
 
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged

@@ -57,4 +57,11 @@
         FormSatuan.Dock = DockStyle.Fill
         FormSatuan.Show()
     End Sub
+
+    Private Sub TransaksiPembelianToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TransaksiPembelianToolStripMenuItem.Click
+        closeAll()
+        FormPembelian.MdiParent = Me
+        FormPembelian.Dock = DockStyle.Fill
+        FormPembelian.Show()
+    End Sub
 End Class
