@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Bengkel.FormPembelian
+            Me.MainForm = Global.Bengkel.FormLogin
         End Sub
     End Class
 End Namespace

@@ -22,7 +22,7 @@ Partial Class FormPembelian
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -43,6 +43,14 @@ Partial Class FormPembelian
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.dgvKeranjang = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
@@ -69,14 +77,6 @@ Partial Class FormPembelian
         Me.tbDiskonAll = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -271,8 +271,8 @@ Partial Class FormPembelian
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -284,6 +284,55 @@ Partial Class FormPembelian
         Me.dgvKeranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvKeranjang.Size = New System.Drawing.Size(1160, 249)
         Me.dgvKeranjang.TabIndex = 11
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Kode Barang"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Nama Barang"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Satuan"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Qty"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Harga Beli"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Diskon (%)"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "ItemUnit"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Total"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
         '
         'btnHapus
         '
@@ -353,6 +402,7 @@ Partial Class FormPembelian
         '
         'tbDiskonBarang
         '
+        Me.tbDiskonBarang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDiskonBarang.Location = New System.Drawing.Point(739, 32)
         Me.tbDiskonBarang.Name = "tbDiskonBarang"
         Me.tbDiskonBarang.Size = New System.Drawing.Size(75, 20)
@@ -360,6 +410,7 @@ Partial Class FormPembelian
         '
         'tbIsi
         '
+        Me.tbIsi.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbIsi.Location = New System.Drawing.Point(923, 32)
         Me.tbIsi.Name = "tbIsi"
         Me.tbIsi.Size = New System.Drawing.Size(75, 20)
@@ -493,14 +544,17 @@ Partial Class FormPembelian
         Me.tbSubtotal.ReadOnly = True
         Me.tbSubtotal.Size = New System.Drawing.Size(150, 20)
         Me.tbSubtotal.TabIndex = 22
+        Me.tbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbPotongan
         '
         Me.tbPotongan.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPotongan.Location = New System.Drawing.Point(1022, 500)
         Me.tbPotongan.Name = "tbPotongan"
+        Me.tbPotongan.ReadOnly = True
         Me.tbPotongan.Size = New System.Drawing.Size(150, 20)
         Me.tbPotongan.TabIndex = 23
+        Me.tbPotongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbJumlahItem
         '
@@ -538,55 +592,6 @@ Partial Class FormPembelian
         Me.Label16.Size = New System.Drawing.Size(63, 13)
         Me.Label16.TabIndex = 27
         Me.Label16.Text = "Diskon (%) :"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Kode Barang"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Nama Barang"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Satuan"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Qty"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Harga Beli"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Diskon (%)"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "ItemUnit"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Total"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
         '
         'FormPembelian
         '

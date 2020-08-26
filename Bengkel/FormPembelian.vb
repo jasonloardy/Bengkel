@@ -1,9 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FormPembelian
-    Public totalPembelian As Decimal = 0
     Public kodeBarang As String
-    Public isiBarang As Decimal
     Function kode_pembelian()
         Try
             Dim kode As String = "000"
@@ -40,9 +38,27 @@ Public Class FormPembelian
         If koneksi() Then
             reset()
         End If
+    End Sub
 
+    Sub hitungTotal()
+        Try
+            Dim total As Integer
+            Dim jumlahItem As Integer
+            For i = 0 To dgvKeranjang.RowCount - 1
+                total += dgvKeranjang.Rows(i).Cells(7).Value
+                jumlahItem += dgvKeranjang.Rows(i).Cells(3).Value
+            Next
+            tbJumlahItem.Text = jumlahItem
+            tbSubtotal.Text = FormatCurrency(total)
+            tbPotongan.Text = FormatCurrency((Val(tbDiskonAll.Text) / 100) * total)
+            lblTotal.Text = FormatCurrency(total - tbPotongan.Text)
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
     Sub clearInput()
+        hitungTotal()
+        kodeBarang = ""
         tbKodeBarang.Clear()
         tbNamaBarang.Clear()
         tbSatuan.Clear()
@@ -52,7 +68,6 @@ Public Class FormPembelian
         tbTotal.Clear()
     End Sub
     Sub reset()
-        totalPembelian = 0
         dtpTanggal.Value = Date.Now
         tbKodePembelian.Text = kode_pembelian()
         tbKodeBukti.Clear()
@@ -60,15 +75,18 @@ Public Class FormPembelian
         tbNamaSupplier.Clear()
         tbAlamat.Clear()
         tbNoTelepon.Clear()
-        lblTotal.Text = FormatCurrency(totalPembelian)
+        lblTotal.Text = FormatCurrency(0)
         gbBarang.Enabled = False
         clearInput()
-        dgvKeranjang.Columns(6).Visible = False
+        'dgvKeranjang.Columns(6).Visible = False
+        dgvKeranjang.Columns(4).DefaultCellStyle.Format = "c0"
+        dgvKeranjang.Columns(5).DefaultCellStyle.Format = "n2"
+        dgvKeranjang.Columns(7).DefaultCellStyle.Format = "c0"
         dgvKeranjang.Rows.Clear()
-        tbJumlahItem.Clear()
-        tbSubtotal.Clear()
-        tbDiskonAll.Clear()
-        tbPotongan.Clear()
+        tbJumlahItem.Text = 0
+        tbSubtotal.Text = FormatCurrency(0)
+        tbDiskonAll.Text = 0
+        tbPotongan.Text = FormatCurrency(0)
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
@@ -126,6 +144,12 @@ Public Class FormPembelian
                         Dim baris As Integer = .Rows.Add()
                         .Rows.Item(baris).Cells(0).Value = kodeBarang
                         .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
+                        .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
+                        .Rows.Item(baris).Cells(3).Value = tbQty.Text
+                        .Rows.Item(baris).Cells(4).Value = Val(tbHargaBeli.Text)
+                        .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
+                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text * tbQty.Text
+                        .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
                     End With
                     clearInput()
                 End If
@@ -142,9 +166,18 @@ Public Class FormPembelian
             pilih = MsgBox("Hapus Item " & namaBarang & " dari Keranjang?", 48 + 4 + 256, "Konfirmasi")
             If pilih = 6 Then
                 dgvKeranjang.Rows.Remove(dgvKeranjang.CurrentRow)
+                hitungTotal()
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub tbDiskonAll_TextChanged(sender As Object, e As EventArgs) Handles tbDiskonAll.TextChanged
+        Try
+            hitungTotal()
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
 End Class
