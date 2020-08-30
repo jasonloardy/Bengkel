@@ -43,14 +43,6 @@ Partial Class FormPembelian
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.dgvKeranjang = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
@@ -77,6 +69,16 @@ Partial Class FormPembelian
         Me.tbDiskonAll = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.tbSales = New System.Windows.Forms.TextBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -86,6 +88,8 @@ Partial Class FormPembelian
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.tbSales)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -284,55 +288,6 @@ Partial Class FormPembelian
         Me.dgvKeranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvKeranjang.Size = New System.Drawing.Size(1160, 249)
         Me.dgvKeranjang.TabIndex = 11
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Kode Barang"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Nama Barang"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Satuan"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Qty"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Harga Beli"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Diskon (%)"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "ItemUnit"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Total"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
         '
         'btnHapus
         '
@@ -539,27 +494,27 @@ Partial Class FormPembelian
         'tbSubtotal
         '
         Me.tbSubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSubtotal.Location = New System.Drawing.Point(1022, 474)
+        Me.tbSubtotal.Location = New System.Drawing.Point(1016, 474)
         Me.tbSubtotal.Name = "tbSubtotal"
         Me.tbSubtotal.ReadOnly = True
-        Me.tbSubtotal.Size = New System.Drawing.Size(150, 20)
+        Me.tbSubtotal.Size = New System.Drawing.Size(156, 20)
         Me.tbSubtotal.TabIndex = 22
         Me.tbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbPotongan
         '
         Me.tbPotongan.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbPotongan.Location = New System.Drawing.Point(1022, 500)
+        Me.tbPotongan.Location = New System.Drawing.Point(1016, 500)
         Me.tbPotongan.Name = "tbPotongan"
         Me.tbPotongan.ReadOnly = True
-        Me.tbPotongan.Size = New System.Drawing.Size(150, 20)
+        Me.tbPotongan.Size = New System.Drawing.Size(156, 20)
         Me.tbPotongan.TabIndex = 23
         Me.tbPotongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbJumlahItem
         '
         Me.tbJumlahItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbJumlahItem.Location = New System.Drawing.Point(966, 474)
+        Me.tbJumlahItem.Location = New System.Drawing.Point(960, 474)
         Me.tbJumlahItem.Name = "tbJumlahItem"
         Me.tbJumlahItem.ReadOnly = True
         Me.tbJumlahItem.Size = New System.Drawing.Size(50, 20)
@@ -568,7 +523,7 @@ Partial Class FormPembelian
         'tbDiskonAll
         '
         Me.tbDiskonAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbDiskonAll.Location = New System.Drawing.Point(966, 500)
+        Me.tbDiskonAll.Location = New System.Drawing.Point(960, 500)
         Me.tbDiskonAll.Name = "tbDiskonAll"
         Me.tbDiskonAll.Size = New System.Drawing.Size(50, 20)
         Me.tbDiskonAll.TabIndex = 25
@@ -577,7 +532,7 @@ Partial Class FormPembelian
         '
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(901, 477)
+        Me.Label15.Location = New System.Drawing.Point(895, 477)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(59, 13)
         Me.Label15.TabIndex = 26
@@ -587,11 +542,76 @@ Partial Class FormPembelian
         '
         Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(897, 503)
+        Me.Label16.Location = New System.Drawing.Point(891, 503)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(63, 13)
         Me.Label16.TabIndex = 27
         Me.Label16.Text = "Diskon (%) :"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(57, 101)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(39, 13)
+        Me.Label17.TabIndex = 7
+        Me.Label17.Text = "Sales :"
+        '
+        'tbSales
+        '
+        Me.tbSales.Location = New System.Drawing.Point(102, 101)
+        Me.tbSales.Name = "tbSales"
+        Me.tbSales.Size = New System.Drawing.Size(200, 20)
+        Me.tbSales.TabIndex = 6
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Kode Barang"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Nama Barang"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Satuan"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Qty"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Harga Beli"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Diskon (%)"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Unit"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Total"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
         '
         'FormPembelian
         '
@@ -675,6 +695,8 @@ Partial Class FormPembelian
     Friend WithEvents tbIsi As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents tbDiskonBarang As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents tbSales As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn

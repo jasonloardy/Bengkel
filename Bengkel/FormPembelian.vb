@@ -180,4 +180,42 @@ Public Class FormPembelian
             'MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
+
+    Sub querySimpan()
+        Try
+            Dim kode As String = kode_pembelian()
+            trans = conn.BeginTransaction
+            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon);"
+            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text) Then
+                Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
+                For i As Integer = 0 To dgvKeranjang.RowCount - 1
+                    queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                                         dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value)
+                    'update harga baru
+                    query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & tbDiskonAll.Text & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
+                Next
+                trans.Commit()
+                dgvKeranjang.Rows.Clear()
+                MsgBox("Transaksi berhasil di-simpan!", MsgBoxStyle.Information, "Informasi")
+                reset()
+            Else
+                trans.Rollback()
+            End If
+        Catch ex As Exception
+            trans.Rollback()
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
+        Dim pilih As Integer
+        pilih = MsgBox("Simpan Transaksi Pembelian ?", 48 + 4 + 256, "Konfirmasi")
+        If pilih = 6 Then
+            If dgvKeranjang.RowCount > 0 Then
+                querySimpan()
+            Else
+                MsgBox("Barang yang dimasukkan belum ada!", 16, "Error")
+            End If
+        End If
+    End Sub
 End Class

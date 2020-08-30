@@ -180,6 +180,49 @@ Module ModuleDB
         End Try
     End Function
 
+    Function queryPembelian(ByVal query As String, ByVal kd_pembelian As String, ByVal kd_supplier As String,
+                            ByVal kd_bukti As String, ByVal sales As String, ByVal diskon As Decimal)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pembelian", kd_pembelian)
+                cmd.Parameters.AddWithValue("@kd_supplier", kd_supplier)
+                cmd.Parameters.AddWithValue("@kd_bukti", kd_bukti)
+                cmd.Parameters.AddWithValue("@sales", sales)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        Return False
+        End Try
+    End Function
+
+    Function queryPembelianDetail(ByVal query As String, ByVal kd_pembelian As String, ByVal kd_barang As String,
+                                  ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_beli As Integer,
+                                  ByVal diskon As Decimal, ByVal unit As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pembelian", kd_pembelian)
+                cmd.Parameters.AddWithValue("@kd_barang", kd_barang)
+                cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
+                cmd.Parameters.AddWithValue("@qty", qty)
+                cmd.Parameters.AddWithValue("@harga_beli", harga_beli)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Parameters.AddWithValue("@unit", unit)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
     Function queryCb(ByVal query As String)
         Dim dt As New DataTable()
         Using da = New MySqlDataAdapter(query, conn)
