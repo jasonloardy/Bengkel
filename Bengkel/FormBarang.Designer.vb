@@ -33,7 +33,7 @@ Partial Class FormBarang
         Me.lblStok = New System.Windows.Forms.Label()
         Me.tbStokFisik = New System.Windows.Forms.TextBox()
         Me.tbStok = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.labelStok = New System.Windows.Forms.Label()
         Me.cbStatus = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cbCustom = New System.Windows.Forms.CheckBox()
@@ -155,7 +155,7 @@ Partial Class FormBarang
         Me.gbBarang.Controls.Add(Me.lblStok)
         Me.gbBarang.Controls.Add(Me.tbStokFisik)
         Me.gbBarang.Controls.Add(Me.tbStok)
-        Me.gbBarang.Controls.Add(Me.Label12)
+        Me.gbBarang.Controls.Add(Me.labelStok)
         Me.gbBarang.Controls.Add(Me.cbStatus)
         Me.gbBarang.Controls.Add(Me.Label11)
         Me.gbBarang.Controls.Add(Me.cbCustom)
@@ -211,14 +211,14 @@ Partial Class FormBarang
         Me.tbStok.Size = New System.Drawing.Size(65, 20)
         Me.tbStok.TabIndex = 27
         '
-        'Label12
+        'labelStok
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(83, 458)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(35, 13)
-        Me.Label12.TabIndex = 26
-        Me.Label12.Text = "Stok :"
+        Me.labelStok.Location = New System.Drawing.Point(6, 458)
+        Me.labelStok.Name = "labelStok"
+        Me.labelStok.Size = New System.Drawing.Size(112, 13)
+        Me.labelStok.TabIndex = 26
+        Me.labelStok.Text = "Stok :"
+        Me.labelStok.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'cbStatus
         '
@@ -603,5 +603,5 @@ Partial Class FormBarang
     Friend WithEvents lblStok As Label
     Friend WithEvents tbStokFisik As TextBox
     Friend WithEvents tbStok As TextBox
-    Friend WithEvents Label12 As Label
+    Friend WithEvents labelStok As Label
 End Class

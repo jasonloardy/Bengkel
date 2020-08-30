@@ -24,6 +24,24 @@ Module ModuleDB
         End Try
     End Function
 
+    Public Sub formatUang(ByVal Text As TextBox)
+        Try
+            If Len(Text.Text) > 0 Then
+                Text.Text = FormatNumber(CDbl(Text.Text), 0)
+                Dim x As Integer = Text.SelectionStart.ToString
+                If x = 0 Then
+                    Text.SelectionStart = Len(Text.Text)
+                    Text.SelectionLength = 0
+                Else
+                    Text.SelectionStart = x
+                    Text.SelectionLength = 0
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Function query(ByVal sql As String)
         Try
             Using cmd As New MySqlCommand

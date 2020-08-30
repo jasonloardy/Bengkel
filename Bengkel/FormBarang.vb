@@ -127,7 +127,7 @@ Public Class FormBarang
     Sub isiGrid()
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_u*tbs.isi) - (tb.harga_beli*tbs.isi),
+                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_b*tbs.isi) - (tb.harga_beli*tbs.isi),
                                 tb.harga_jual_b*tbs.isi, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
@@ -174,6 +174,7 @@ Public Class FormBarang
             .Columns(8).Width = 75
             .Columns(3).DefaultCellStyle.Format = "c0"
             .Columns(4).DefaultCellStyle.Format = "c0"
+            .Columns(5).DefaultCellStyle.Format = "c0"
             .Columns(7).DefaultCellStyle.Format = "n2"
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -315,8 +316,8 @@ Public Class FormBarang
     Sub queryEdit()
         Try
             trans = conn.BeginTransaction
-            Dim sql As String = "UPDATE tb_barang SET kd_barang = @kode, nama_barang = @nama, harga_beli = @harga_beli, 
-                                  harga_jual_u = @harga_jual_u, harga_jual_b = @harga_jual_b, status = @status WHERE kd_barang = '" & id_data & "';
+            Dim sql As String = "UPDATE tb_barang SET kd_barang = @kode, nama_barang = @nama, harga_beli = @harga_beli, harga_jual_u = @harga_jual_u,
+                                  harga_jual_l = @harga_jual_l, harga_jual_b = @harga_jual_b, status = @status WHERE kd_barang = '" & id_data & "';
                                  DELETE FROM tb_barang_satuan WHERE kd_barang = '" & id_data & "';
                                  INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
             If queryBarang(sql, tbKode.Text, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualB.Text,
@@ -434,6 +435,7 @@ Public Class FormBarang
         lblStnJualL.Text = stnDasar
         lblStnJualB.Text = stnDasar
         lblStnMulti.Text = stnDasar
+        labelStok.Text = "Stok " & cbStnDasar.Text & " :"
     End Sub
 
     Private Sub dgvBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellDoubleClick
@@ -449,6 +451,22 @@ Public Class FormBarang
             End With
         End If
         Me.Close()
+    End Sub
+
+    Private Sub tbHrgJualU_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualU.TextChanged
+        formatUang(tbHrgJualU)
+    End Sub
+
+    Private Sub tbHrgBeli_TextChanged(sender As Object, e As EventArgs) Handles tbHrgBeli.TextChanged
+        formatUang(tbHrgBeli)
+    End Sub
+
+    Private Sub tbHrgJualL_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualL.TextChanged
+        formatUang(tbHrgJualL)
+    End Sub
+
+    Private Sub tbHrgJualB_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualB.TextChanged
+        formatUang(tbHrgJualB)
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click
