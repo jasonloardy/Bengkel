@@ -127,7 +127,7 @@ Public Class FormBarang
     Sub isiGrid()
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, tb.harga_jual_l*tbs.isi,
+                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_u*tbs.isi) - (tb.harga_beli*tbs.isi),
                                 tb.harga_jual_b*tbs.isi, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
@@ -160,7 +160,7 @@ Public Class FormBarang
             .Columns(2).HeaderText = "Satuan"
             .Columns(3).HeaderText = "Hrg. Beli"
             .Columns(4).HeaderText = "Hrg. Jual"
-            .Columns(5).Visible = False
+            .Columns(5).HeaderText = "Margin"
             .Columns(6).Visible = False
             .Columns(7).HeaderText = "Stok"
             .Columns(8).HeaderText = "Status"

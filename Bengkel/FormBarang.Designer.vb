@@ -305,11 +305,11 @@ Partial Class FormBarang
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(21, 179)
+        Me.Label10.Location = New System.Drawing.Point(33, 179)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(97, 13)
+        Me.Label10.Size = New System.Drawing.Size(85, 13)
         Me.Label10.TabIndex = 17
-        Me.Label10.Text = "Hrg. Jual Bengkel :"
+        Me.Label10.Text = "Hrg. Jual Partai :"
         '
         'tbHrgJualL
         '
