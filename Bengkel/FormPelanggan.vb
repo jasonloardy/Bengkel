@@ -17,7 +17,7 @@ Public Class FormPelanggan
                                 CASE
                                 WHEN kategori = 'U' THEN 'Umum'
                                 WHEN kategori = 'L' THEN 'Langganan'
-                                WHEN kategori = 'B' THEN 'Bengkel'
+                                WHEN kategori = 'P' THEN 'Partai'
                                 END kategori
                                 FROM tb_pelanggan"
             Dim da As New MySqlDataAdapter(sql, conn)

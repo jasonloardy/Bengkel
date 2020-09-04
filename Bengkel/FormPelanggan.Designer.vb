@@ -229,7 +229,7 @@ Partial Class FormPelanggan
         '
         Me.cbKategori.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbKategori.FormattingEnabled = True
-        Me.cbKategori.Items.AddRange(New Object() {"Umum", "Langganan", "Bengkel"})
+        Me.cbKategori.Items.AddRange(New Object() {"Umum", "Langganan", "Partai"})
         Me.cbKategori.Location = New System.Drawing.Point(107, 123)
         Me.cbKategori.Name = "cbKategori"
         Me.cbKategori.Size = New System.Drawing.Size(131, 21)

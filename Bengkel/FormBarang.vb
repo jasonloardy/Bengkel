@@ -27,7 +27,7 @@ Public Class FormBarang
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
                                 tb.harga_beli*tbs.isi harga_beli, tb.harga_jual_u*tbs.isi harga_jual_u,
-                                tb.harga_jual_l*tbs.isi harga_jual_l, tb.harga_jual_b*tbs.isi harga_jual_b, tb.stok,
+                                tb.harga_jual_l*tbs.isi harga_jual_l, tb.harga_jual_p*tbs.isi harga_jual_p, tb.stok,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
@@ -44,7 +44,7 @@ Public Class FormBarang
                             tbHrgBeli.Text = dr.Item("harga_beli")
                             tbHrgJualU.Text = dr.Item("harga_jual_u")
                             tbHrgJualL.Text = dr.Item("harga_jual_l")
-                            tbHrgJualB.Text = dr.Item("harga_jual_b")
+                            tbHrgJualP.Text = dr.Item("harga_jual_p")
                             tbStok.Text = dr.Item("stok")
                             tbStokFisik.Text = dr.Item("stok")
                             cbStatus.Text = dr.Item("status")
@@ -127,8 +127,8 @@ Public Class FormBarang
     Sub isiGrid()
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_b*tbs.isi) - (tb.harga_beli*tbs.isi),
-                                tb.harga_jual_b*tbs.isi, tb.stok/tbs.isi,
+                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
+                                tb.harga_jual_p*tbs.isi, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
@@ -210,7 +210,7 @@ Public Class FormBarang
         tbHrgBeli.Clear()
         tbHrgJualU.Clear()
         tbHrgJualL.Clear()
-        tbHrgJualB.Clear()
+        tbHrgJualP.Clear()
         cbStnMulti.SelectedIndex = -1
         tbIsiStn.Clear()
         dgvSatuan.Columns.Clear()
@@ -290,9 +290,9 @@ Public Class FormBarang
                 kode = kode_barang()
             End If
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_barang VALUES (@kode, @nama, @harga_beli, @harga_jual_u, @harga_jual_l, @harga_jual_b, @stok, @status);
+            Dim sql As String = "INSERT INTO tb_barang VALUES (@kode, @nama, @harga_beli, @harga_jual_u, @harga_jual_l, @harga_jual_p, @stok, @status);
                                  INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
-            If queryBarang(sql, kode, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualB.Text,
+            If queryBarang(sql, kode, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualP.Text,
                         0, cbStatus.Text(0), cbStnDasar.Text, 1, "D") Then
                 Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
@@ -317,10 +317,10 @@ Public Class FormBarang
         Try
             trans = conn.BeginTransaction
             Dim sql As String = "UPDATE tb_barang SET kd_barang = @kode, nama_barang = @nama, harga_beli = @harga_beli, harga_jual_u = @harga_jual_u,
-                                  harga_jual_l = @harga_jual_l, harga_jual_b = @harga_jual_b, status = @status WHERE kd_barang = '" & id_data & "';
+                                  harga_jual_l = @harga_jual_l, harga_jual_p = @harga_jual_p, status = @status WHERE kd_barang = '" & id_data & "';
                                  DELETE FROM tb_barang_satuan WHERE kd_barang = '" & id_data & "';
                                  INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
-            If queryBarang(sql, tbKode.Text, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualB.Text,
+            If queryBarang(sql, tbKode.Text, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualP.Text,
                         0, cbStatus.Text(0), cbStnDasar.Text, 1, "D") Then
                 Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
@@ -375,7 +375,7 @@ Public Class FormBarang
             cbStatus.SelectedIndex = 0
         Else
             If tbKode.Text = "" Or tbNama.Text = "" Or cbStnDasar.SelectedIndex = -1 Or tbHrgBeli.Text = "" Or tbHrgJualU.Text = "" Or
-                tbHrgJualL.Text = "" Or tbHrgJualB.Text = "" Then
+                tbHrgJualL.Text = "" Or tbHrgJualP.Text = "" Then
                 MsgBox("Lengkapi data yang kosong!", 16, "Perhatian")
             Else
                 If mode = "tambah" Then
@@ -454,19 +454,19 @@ Public Class FormBarang
     End Sub
 
     Private Sub tbHrgJualU_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualU.TextChanged
-        formatUang(tbHrgJualU)
+        formatRibuan(tbHrgJualU)
     End Sub
 
     Private Sub tbHrgBeli_TextChanged(sender As Object, e As EventArgs) Handles tbHrgBeli.TextChanged
-        formatUang(tbHrgBeli)
+        formatRibuan(tbHrgBeli)
     End Sub
 
     Private Sub tbHrgJualL_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualL.TextChanged
-        formatUang(tbHrgJualL)
+        formatRibuan(tbHrgJualL)
     End Sub
 
-    Private Sub tbHrgJualB_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualB.TextChanged
-        formatUang(tbHrgJualB)
+    Private Sub tbHrgJualB_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualP.TextChanged
+        formatRibuan(tbHrgJualP)
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

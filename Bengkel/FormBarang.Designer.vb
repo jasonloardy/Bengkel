@@ -42,7 +42,7 @@ Partial Class FormBarang
         Me.lblStnJualL = New System.Windows.Forms.Label()
         Me.lblStnJualU = New System.Windows.Forms.Label()
         Me.lblStnBeli = New System.Windows.Forms.Label()
-        Me.tbHrgJualB = New System.Windows.Forms.TextBox()
+        Me.tbHrgJualP = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tbHrgJualL = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -164,7 +164,7 @@ Partial Class FormBarang
         Me.gbBarang.Controls.Add(Me.lblStnJualL)
         Me.gbBarang.Controls.Add(Me.lblStnJualU)
         Me.gbBarang.Controls.Add(Me.lblStnBeli)
-        Me.gbBarang.Controls.Add(Me.tbHrgJualB)
+        Me.gbBarang.Controls.Add(Me.tbHrgJualP)
         Me.gbBarang.Controls.Add(Me.Label10)
         Me.gbBarang.Controls.Add(Me.tbHrgJualL)
         Me.gbBarang.Controls.Add(Me.Label9)
@@ -294,13 +294,13 @@ Partial Class FormBarang
         Me.lblStnBeli.TabIndex = 19
         Me.lblStnBeli.Text = "/ Stn. Dasar"
         '
-        'tbHrgJualB
+        'tbHrgJualP
         '
-        Me.tbHrgJualB.Location = New System.Drawing.Point(124, 176)
-        Me.tbHrgJualB.MaxLength = 64
-        Me.tbHrgJualB.Name = "tbHrgJualB"
-        Me.tbHrgJualB.Size = New System.Drawing.Size(131, 20)
-        Me.tbHrgJualB.TabIndex = 18
+        Me.tbHrgJualP.Location = New System.Drawing.Point(124, 176)
+        Me.tbHrgJualP.MaxLength = 64
+        Me.tbHrgJualP.Name = "tbHrgJualP"
+        Me.tbHrgJualP.Size = New System.Drawing.Size(131, 20)
+        Me.tbHrgJualP.TabIndex = 18
         '
         'Label10
         '
@@ -566,7 +566,7 @@ Partial Class FormBarang
     Friend WithEvents tbCari As TextBox
     Friend WithEvents cbStnDasar As ComboBox
     Friend WithEvents gbBarang As GroupBox
-    Friend WithEvents tbHrgJualB As TextBox
+    Friend WithEvents tbHrgJualP As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents tbHrgJualL As TextBox
     Friend WithEvents Label9 As Label

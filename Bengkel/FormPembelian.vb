@@ -8,7 +8,9 @@ Public Class FormPembelian
             Dim hitung As String = "1"
             Dim user As String = FormUtama.user
             Dim tanggal As String = Date.Now.ToString("MMyy")
-            Dim sql As String = "SELECT kd_pembelian FROM tb_pembelian ORDER BY kd_pembelian DESC LIMIT 1"
+            Dim sql As String = "SELECT kd_pembelian FROM tb_pembelian
+                                 WHERE RIGHT(kd_pembelian, 4) = '" & tanggal & "'
+                                 ORDER BY kd_pembelian DESC LIMIT 1"
             Using cmd As New MySqlCommand(sql, conn)
                 Using dr = cmd.ExecuteReader
                     If dr.HasRows Then
@@ -46,7 +48,7 @@ Public Class FormPembelian
             Dim jumlahItem As Integer
             For i = 0 To dgvKeranjang.RowCount - 1
                 total += dgvKeranjang.Rows(i).Cells(7).Value
-                jumlahItem += dgvKeranjang.Rows(i).Cells(3).Value
+                jumlahItem += dgvKeranjang.Rows(i).Cells(6).Value
             Next
             tbJumlahItem.Text = jumlahItem
             tbSubtotal.Text = FormatCurrency(total)
@@ -108,28 +110,26 @@ Public Class FormPembelian
         End If
     End Sub
 
-    Private Sub tbQty_TextChanged(sender As Object, e As EventArgs) Handles tbQty.TextChanged
+    Sub totalBarang()
         Try
             tbTotal.Text = FormatCurrency(tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100))
         Catch ex As Exception
             'MsgBox(ex.Message, 16, "Error")
         End Try
+    End Sub
+
+    Private Sub tbQty_TextChanged(sender As Object, e As EventArgs) Handles tbQty.TextChanged
+        formatRibuan(tbQty)
+        totalBarang()
     End Sub
 
     Private Sub tbHargaBeli_TextChanged(sender As Object, e As EventArgs) Handles tbHargaBeli.TextChanged
-        Try
-            tbTotal.Text = FormatCurrency(tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100))
-        Catch ex As Exception
-            'MsgBox(ex.Message, 16, "Error")
-        End Try
+        formatRibuan(tbHargaBeli)
+        totalBarang()
     End Sub
 
     Private Sub tbDiskonBarang_TextChanged(sender As Object, e As EventArgs) Handles tbDiskonBarang.TextChanged
-        Try
-            tbTotal.Text = FormatCurrency(tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100))
-        Catch ex As Exception
-            'MsgBox(ex.Message, 16, "Error")
-        End Try
+        totalBarang()
     End Sub
 
     Private Sub btnInput_Click(sender As Object, e As EventArgs) Handles btnInput.Click
@@ -146,7 +146,7 @@ Public Class FormPembelian
                         .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
                         .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
                         .Rows.Item(baris).Cells(3).Value = tbQty.Text
-                        .Rows.Item(baris).Cells(4).Value = Val(tbHargaBeli.Text)
+                        .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaBeli.Text)
                         .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
                         .Rows.Item(baris).Cells(6).Value = tbIsi.Text * tbQty.Text
                         .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
@@ -184,9 +184,15 @@ Public Class FormPembelian
     Sub querySimpan()
         Try
             Dim kode As String = kode_pembelian()
+            Dim tanggalJT As String
+            If dtpJatuhTempo.Visible = True Then
+                tanggalJT = dtpJatuhTempo.Value.ToString("yyyy-MM-dd")
+            Else
+                tanggalJT = Nothing
+            End If
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon);"
-            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text) Then
+            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt);"
+            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT) Then
                 Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
@@ -217,5 +223,36 @@ Public Class FormPembelian
                 MsgBox("Barang yang dimasukkan belum ada!", 16, "Error")
             End If
         End If
+    End Sub
+    Sub cekJatuhTempo()
+        Try
+            Dim total = CDec(lblTotal.Text)
+            Dim bayar = Val(tbTunai.Text.Replace(".", ""))
+            If total <= bayar Then
+                lblJatuhTempo.Visible = False
+                dtpJatuhTempo.Visible = False
+            Else
+                lblJatuhTempo.Visible = True
+                dtpJatuhTempo.Visible = True
+            End If
+            Dim kredit = total - bayar
+            If kredit >= 0 Then
+                tbKredit.Text = FormatCurrency(kredit)
+            Else
+                tbKredit.Text = FormatCurrency(0)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+
+    Private Sub tbTunai_TextChanged(sender As Object, e As EventArgs) Handles tbTunai.TextChanged
+        formatRibuan(tbTunai)
+        cekJatuhTempo()
+    End Sub
+
+    Private Sub lblTotal_TextChanged(sender As Object, e As EventArgs) Handles lblTotal.TextChanged
+        cekJatuhTempo()
     End Sub
 End Class

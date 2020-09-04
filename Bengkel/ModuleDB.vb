@@ -24,7 +24,7 @@ Module ModuleDB
         End Try
     End Function
 
-    Public Sub formatUang(ByVal Text As TextBox)
+    Public Sub formatRibuan(ByVal Text As TextBox)
         Try
             If Len(Text.Text) > 0 Then
                 Text.Text = FormatNumber(CDbl(Text.Text), 0)
@@ -38,7 +38,7 @@ Module ModuleDB
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, 16, "Error")
+            'MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
 
@@ -133,7 +133,7 @@ Module ModuleDB
 
     Function queryBarang(ByVal query As String, ByVal kode As String, ByVal nama As String,
                          ByVal harga_beli As Integer, ByVal harga_jual_u As Integer, ByVal harga_jual_l As Integer,
-                         ByVal harga_jual_b As Integer, ByVal stok As Integer, ByVal status As String,
+                         ByVal harga_jual_p As Integer, ByVal stok As Integer, ByVal status As String,
                          ByVal kd_satuan As String, ByVal isi As Integer, ByVal jenis_satuan As String)
         Try
             Using cmd As New MySqlCommand
@@ -143,7 +143,7 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@harga_beli", harga_beli)
                 cmd.Parameters.AddWithValue("@harga_jual_u", harga_jual_u)
                 cmd.Parameters.AddWithValue("@harga_jual_l", harga_jual_l)
-                cmd.Parameters.AddWithValue("@harga_jual_b", harga_jual_b)
+                cmd.Parameters.AddWithValue("@harga_jual_p", harga_jual_p)
                 cmd.Parameters.AddWithValue("@stok", stok)
                 cmd.Parameters.AddWithValue("@status", status)
                 cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
@@ -199,7 +199,7 @@ Module ModuleDB
     End Function
 
     Function queryPembelian(ByVal query As String, ByVal kd_pembelian As String, ByVal kd_supplier As String,
-                            ByVal kd_bukti As String, ByVal sales As String, ByVal diskon As Decimal)
+                            ByVal kd_bukti As String, ByVal sales As String, ByVal diskon As Decimal, ByVal tanggal_jt As String)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -208,13 +208,14 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@kd_bukti", kd_bukti)
                 cmd.Parameters.AddWithValue("@sales", sales)
                 cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Parameters.AddWithValue("@tanggal_jt", tanggal_jt)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using
             Return True
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
-        Return False
+            Return False
         End Try
     End Function
 
