@@ -204,8 +204,8 @@ Public Class FormSupplier
                 FormPembelian.tbAlamat.Text = .Item(2, baris).Value
                 FormPembelian.tbNoTelepon.Text = .Item(3, baris).Value
             End With
+            Me.Close()
         End If
-        Me.Close()
     End Sub
 
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged

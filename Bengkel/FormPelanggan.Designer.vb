@@ -275,6 +275,7 @@ Partial Class FormPelanggan
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "FormPelanggan"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPelanggan"
         CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbPelanggan.ResumeLayout(False)

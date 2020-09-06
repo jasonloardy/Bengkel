@@ -2,7 +2,8 @@
 
 Public Class FormBarang
     Public mode, id_data, temp_kode, from As String
-    Public dt As DataTable
+    Public page As Integer = 1
+    Public totalPage As Integer = 1
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If koneksi() Then
@@ -66,7 +67,6 @@ Public Class FormBarang
             Dim ds As New DataSet()
             If da.Fill(ds) Then
                 dgvSatuan.DataSource = ds.Tables(0)
-                dt = ds.Tables(0)
                 judulGridSatuan()
             Else
                 dgvSatuan.DataSource = Nothing
@@ -93,8 +93,6 @@ Public Class FormBarang
             Dim ds As New DataSet()
             If da.Fill(ds) Then
                 isiColStn()
-
-                dt = ds.Tables(0)
                 For Each dr As DataRow In ds.Tables(0).Rows
                     With dgvSatuan
                         Dim baris As Integer = .Rows.Add()
@@ -126,6 +124,8 @@ Public Class FormBarang
 
     Sub isiGrid()
         Try
+            Dim offset As Integer = 5
+            Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
                                 tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
                                 tb.harga_jual_p*tbs.isi, tb.stok/tbs.isi,
@@ -134,17 +134,39 @@ Public Class FormBarang
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
                                 END status, tbs.isi FROM tb_barang tb
                                 JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang
-                                ORDER BY tb.status, tb.kd_barang"
-            Dim da As New MySqlDataAdapter(sql, conn)
-            Dim ds As New DataSet()
-            If da.Fill(ds) Then
-                dgvBarang.DataSource = ds.Tables(0)
-                dt = ds.Tables(0)
-                judulGrid()
-            Else
-                dgvBarang.DataSource = Nothing
-            End If
-            lblTotal.Text = "Jumlah Item : " & dgvBarang.RowCount
+                                WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)
+                                ORDER BY tb.status, tb.kd_barang
+                                LIMIT " & limit & ", " & offset
+            Using cmd As New MySqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
+                cmd.Parameters.AddWithValue("@nama_barang", "%" & tbCari.Text & "%")
+                Using dr = cmd.ExecuteReader
+                    If dr.HasRows Then
+                        Using dt As New DataTable
+                            dt.Load(dr)
+                            dgvBarang.DataSource = dt
+                        End Using
+                        judulGrid()
+                        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_barang tb
+                                                  JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang 
+                                                  WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)"
+                        Using cmdCount As New MySqlCommand(sqlCount, conn)
+                            cmdCount.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
+                            cmdCount.Parameters.AddWithValue("@nama_barang", "%" & tbCari.Text & "%")
+                            Using drCount = cmdCount.ExecuteReader
+                                While drCount.Read
+                                    lblTotal.Text = "Total Item : " & drCount.Item(0)
+                                    totalPage = Math.Ceiling(drCount.Item(0) / offset)
+                                    lblPage.Text = page & " / " & totalPage
+                                End While
+                            End Using
+                        End Using
+                    Else
+                        dgvBarang.DataSource = Nothing
+                    End If
+                End Using
+            End Using
+            paging()
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
@@ -181,6 +203,13 @@ Public Class FormBarang
             .ReadOnly = True
             .AllowUserToAddRows = False
         End With
+        If from = "pembelian" Then
+            With dgvBarang
+                .Columns(3).Visible = False
+                .Columns(5).Visible = False
+                .Columns(8).Visible = False
+            End With
+        End If
     End Sub
 
     Sub gridDetail()
@@ -248,7 +277,7 @@ Public Class FormBarang
         Try
             Dim kode As String = "B000000"
             Dim hitung As String = "1"
-            Dim sql As String = "SELECT kd_barang FROM tb_barang WHERE kd_barang LIKE 'B%'" _
+            Dim sql As String = "SELECT kd_barang FROM tb_barang WHERE kd_barang Like 'B%'" _
                                  & "ORDER BY kd_barang DESC LIMIT 1"
             Using cmd As New MySqlCommand(sql, conn)
                 Using dr = cmd.ExecuteReader
@@ -407,9 +436,9 @@ Public Class FormBarang
 
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
         Try
-            dt.DefaultView.RowFilter = "kd_barang LIKE '%" & tbCari.Text & "%' OR nama_barang LIKE '%" & tbCari.Text & "%'"
+            isiGrid()
         Catch ex As Exception
-            'MsgBox(ex.Message, 16, "Error")
+            MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
 
@@ -449,8 +478,8 @@ Public Class FormBarang
                 FormPembelian.tbSatuan.Text = .Item(2, baris).Value
                 FormPembelian.tbIsi.Text = .Item(9, baris).Value
             End With
+            Me.Close()
         End If
-        Me.Close()
     End Sub
 
     Private Sub tbHrgJualU_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualU.TextChanged
@@ -467,6 +496,29 @@ Public Class FormBarang
 
     Private Sub tbHrgJualB_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualP.TextChanged
         formatRibuan(tbHrgJualP)
+    End Sub
+
+    Sub paging()
+        If page = totalPage Then
+            btnNext.Enabled = False
+        Else
+            btnNext.Enabled = True
+        End If
+        If page = 1 Then
+            btnPrev.Enabled = False
+        Else
+            btnPrev.Enabled = True
+        End If
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        page += 1
+        isiGrid()
+    End Sub
+
+    Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
+        page -= 1
+        isiGrid()
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

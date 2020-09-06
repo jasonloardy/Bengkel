@@ -252,6 +252,7 @@ Partial Class FormSupplier
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "FormSupplier"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormSupplier"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

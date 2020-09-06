@@ -23,6 +23,9 @@ Partial Class FormBarang
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblPage = New System.Windows.Forms.Label()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnPrev = New System.Windows.Forms.Button()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.dgvBarang = New System.Windows.Forms.DataGridView()
@@ -80,6 +83,9 @@ Partial Class FormBarang
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.lblPage)
+        Me.GroupBox1.Controls.Add(Me.btnNext)
+        Me.GroupBox1.Controls.Add(Me.btnPrev)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvBarang)
@@ -91,6 +97,36 @@ Partial Class FormBarang
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Daftar Barang"
+        '
+        'lblPage
+        '
+        Me.lblPage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblPage.Location = New System.Drawing.Point(658, 50)
+        Me.lblPage.Name = "lblPage"
+        Me.lblPage.Size = New System.Drawing.Size(54, 13)
+        Me.lblPage.TabIndex = 16
+        Me.lblPage.Text = "999 / 999"
+        Me.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnNext
+        '
+        Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNext.Location = New System.Drawing.Point(718, 45)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(30, 23)
+        Me.btnNext.TabIndex = 15
+        Me.btnNext.Text = ">"
+        Me.btnNext.UseVisualStyleBackColor = True
+        '
+        'btnPrev
+        '
+        Me.btnPrev.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrev.Location = New System.Drawing.Point(622, 45)
+        Me.btnPrev.Name = "btnPrev"
+        Me.btnPrev.Size = New System.Drawing.Size(30, 23)
+        Me.btnPrev.TabIndex = 14
+        Me.btnPrev.Text = "<"
+        Me.btnPrev.UseVisualStyleBackColor = True
         '
         'lblTotal
         '
@@ -545,6 +581,7 @@ Partial Class FormBarang
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "FormBarang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormBarang"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -604,4 +641,7 @@ Partial Class FormBarang
     Friend WithEvents tbStokFisik As TextBox
     Friend WithEvents tbStok As TextBox
     Friend WithEvents labelStok As Label
+    Friend WithEvents lblPage As Label
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnPrev As Button
 End Class
