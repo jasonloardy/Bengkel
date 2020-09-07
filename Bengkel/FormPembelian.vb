@@ -89,6 +89,7 @@ Public Class FormPembelian
         tbSubtotal.Text = FormatCurrency(0)
         tbDiskonAll.Text = 0
         tbPotongan.Text = FormatCurrency(0)
+        tbTunai.Text = FormatCurrency(0)
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
@@ -105,8 +106,9 @@ Public Class FormPembelian
     Private Sub tbKodeBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbKodeBarang.KeyPress
         If e.KeyChar = Chr(13) Then
             FormBarang.from = "pembelian"
-            FormBarang.Show()
             FormBarang.tbCari.Text = tbKodeBarang.Text
+            FormBarang.ShowDialog()
+
         End If
     End Sub
 
@@ -188,7 +190,7 @@ Public Class FormPembelian
             Dim tunai As Integer
             If dtpJatuhTempo.Visible = True Then
                 tanggalJT = dtpJatuhTempo.Value.ToString("yyyy-MM-dd")
-                tunai = tbTunai.Text
+                tunai = Val(tbTunai.Text)
             Else
                 tanggalJT = Nothing
                 tunai = lblTotal.Text
@@ -257,5 +259,9 @@ Public Class FormPembelian
 
     Private Sub lblTotal_TextChanged(sender As Object, e As EventArgs) Handles lblTotal.TextChanged
         cekJatuhTempo()
+    End Sub
+
+    Private Sub tbTotal_TextChanged(sender As Object, e As EventArgs) Handles tbTotal.TextChanged
+
     End Sub
 End Class

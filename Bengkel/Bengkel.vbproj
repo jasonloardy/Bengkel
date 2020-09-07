@@ -88,6 +88,12 @@
     <Compile Include="FormDaftarHutang.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormInputBox.Designer.vb">
+      <DependentUpon>FormInputBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInputBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormLogin.Designer.vb">
       <DependentUpon>FormLogin.vb</DependentUpon>
     </Compile>
@@ -98,6 +104,12 @@
       <DependentUpon>FormPelanggan.vb</DependentUpon>
     </Compile>
     <Compile Include="FormPelanggan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPembayaranHutang.Designer.vb">
+      <DependentUpon>FormPembayaranHutang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPembayaranHutang.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPembelian.Designer.vb">
@@ -155,11 +167,17 @@
     <EmbeddedResource Include="FormDaftarHutang.resx">
       <DependentUpon>FormDaftarHutang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInputBox.resx">
+      <DependentUpon>FormInputBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPelanggan.resx">
       <DependentUpon>FormPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPembayaranHutang.resx">
+      <DependentUpon>FormPembayaranHutang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPembelian.resx">
       <DependentUpon>FormPembelian.vb</DependentUpon>

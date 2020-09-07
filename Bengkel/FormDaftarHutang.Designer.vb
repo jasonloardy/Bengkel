@@ -25,11 +25,11 @@ Partial Class FormDaftarHutang
         Me.dgvSupplier = New System.Windows.Forms.DataGridView()
         Me.dgvTrx = New System.Windows.Forms.DataGridView()
         Me.gbSupplier = New System.Windows.Forms.GroupBox()
-        Me.tbCariSupplier = New System.Windows.Forms.TextBox()
         Me.lblSupplier = New System.Windows.Forms.Label()
+        Me.tbCariSupplier = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbCariTrx = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbSupplier.SuspendLayout()
@@ -64,13 +64,6 @@ Partial Class FormDaftarHutang
         Me.gbSupplier.TabStop = False
         Me.gbSupplier.Text = "Supplier"
         '
-        'tbCariSupplier
-        '
-        Me.tbCariSupplier.Location = New System.Drawing.Point(91, 19)
-        Me.tbCariSupplier.Name = "tbCariSupplier"
-        Me.tbCariSupplier.Size = New System.Drawing.Size(303, 20)
-        Me.tbCariSupplier.TabIndex = 1
-        '
         'lblSupplier
         '
         Me.lblSupplier.AutoSize = True
@@ -80,9 +73,16 @@ Partial Class FormDaftarHutang
         Me.lblSupplier.TabIndex = 2
         Me.lblSupplier.Text = "Kode Supplier :"
         '
+        'tbCariSupplier
+        '
+        Me.tbCariSupplier.Location = New System.Drawing.Point(91, 19)
+        Me.tbCariSupplier.Name = "tbCariSupplier"
+        Me.tbCariSupplier.Size = New System.Drawing.Size(303, 20)
+        Me.tbCariSupplier.TabIndex = 1
+        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.tbCariTrx)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dgvTrx)
         Me.GroupBox1.Location = New System.Drawing.Point(418, 12)
@@ -92,6 +92,13 @@ Partial Class FormDaftarHutang
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Transaksi Hutang"
         '
+        'tbCariTrx
+        '
+        Me.tbCariTrx.Location = New System.Drawing.Point(73, 19)
+        Me.tbCariTrx.Name = "tbCariTrx"
+        Me.tbCariTrx.Size = New System.Drawing.Size(675, 20)
+        Me.tbCariTrx.TabIndex = 3
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -100,13 +107,6 @@ Partial Class FormDaftarHutang
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Pencarian :"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(73, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(675, 20)
-        Me.TextBox1.TabIndex = 3
         '
         'FormDaftarHutang
         '
@@ -133,6 +133,6 @@ Partial Class FormDaftarHutang
     Friend WithEvents lblSupplier As Label
     Friend WithEvents tbCariSupplier As TextBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbCariTrx As TextBox
     Friend WithEvents Label1 As Label
 End Class
