@@ -221,17 +221,6 @@ Public Class FormBarang
         End With
     End Sub
 
-    Private Sub dgvbarang_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellClick
-        reset()
-        tbStok.ReadOnly = True
-        lblStok.Visible = True
-        tbStokFisik.Visible = True
-        gridDetail()
-        btnTambah.Enabled = False
-        btnEdit.Enabled = True
-        btnHapus.Enabled = True
-    End Sub
-
     Sub clear()
         isiCb()
         tbKode.Clear()
@@ -467,21 +456,6 @@ Public Class FormBarang
         labelStok.Text = "Stok " & cbStnDasar.Text & " :"
     End Sub
 
-    Private Sub dgvBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellDoubleClick
-        If from = "pembelian" Then
-            Dim baris As Integer
-            With dgvBarang
-                baris = .CurrentRow.Index
-                FormPembelian.kodeBarang = .Item(0, baris).Value
-                FormPembelian.tbKodeBarang.Text = .Item(0, baris).Value
-                FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
-                FormPembelian.tbSatuan.Text = .Item(2, baris).Value
-                FormPembelian.tbIsi.Text = .Item(9, baris).Value
-            End With
-            Me.Close()
-        End If
-    End Sub
-
     Private Sub tbHrgJualU_TextChanged(sender As Object, e As EventArgs) Handles tbHrgJualU.TextChanged
         formatRibuan(tbHrgJualU)
     End Sub
@@ -519,6 +493,32 @@ Public Class FormBarang
     Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
         page -= 1
         isiGrid()
+    End Sub
+
+    Private Sub dgvBarang_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellClick
+        reset()
+        tbStok.ReadOnly = True
+        lblStok.Visible = True
+        tbStokFisik.Visible = True
+        gridDetail()
+        btnTambah.Enabled = False
+        btnEdit.Enabled = True
+        btnHapus.Enabled = True
+    End Sub
+
+    Private Sub dgvBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellDoubleClick
+        If from = "pembelian" Then
+            Dim baris As Integer
+            With dgvBarang
+                baris = .CurrentRow.Index
+                FormPembelian.kodeBarang = .Item(0, baris).Value
+                FormPembelian.tbKodeBarang.Text = .Item(0, baris).Value
+                FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
+                FormPembelian.tbSatuan.Text = .Item(2, baris).Value
+                FormPembelian.tbIsi.Text = .Item(9, baris).Value
+            End With
+            Me.Close()
+        End If
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

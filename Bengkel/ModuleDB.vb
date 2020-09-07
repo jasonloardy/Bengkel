@@ -198,8 +198,8 @@ Module ModuleDB
         End Try
     End Function
 
-    Function queryPembelian(ByVal query As String, ByVal kd_pembelian As String, ByVal kd_supplier As String,
-                            ByVal kd_bukti As String, ByVal sales As String, ByVal diskon As Decimal, ByVal tanggal_jt As String)
+    Function queryPembelian(ByVal query As String, ByVal kd_pembelian As String, ByVal kd_supplier As String, ByVal kd_bukti As String,
+                             ByVal sales As String, ByVal diskon As Decimal, ByVal tanggal_jt As String, ByVal tunai As Integer, ByVal sisa As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -209,6 +209,8 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@sales", sales)
                 cmd.Parameters.AddWithValue("@diskon", diskon)
                 cmd.Parameters.AddWithValue("@tanggal_jt", tanggal_jt)
+                cmd.Parameters.AddWithValue("@tunai", tunai)
+                cmd.Parameters.AddWithValue("@sisa", sisa)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using

@@ -185,14 +185,17 @@ Public Class FormPembelian
         Try
             Dim kode As String = kode_pembelian()
             Dim tanggalJT As String
+            Dim tunai As Integer
             If dtpJatuhTempo.Visible = True Then
                 tanggalJT = dtpJatuhTempo.Value.ToString("yyyy-MM-dd")
+                tunai = tbTunai.Text
             Else
                 tanggalJT = Nothing
+                tunai = lblTotal.Text
             End If
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt);"
-            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT) Then
+            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt, @tunai, @sisa);"
+            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT, tunai, tbKredit.Text) Then
                 Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,

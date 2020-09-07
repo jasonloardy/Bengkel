@@ -16,3 +16,4 @@ C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\B
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormSatuan.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormBarang.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormPembelian.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormDaftarHutang.resources
