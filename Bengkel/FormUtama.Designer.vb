@@ -34,12 +34,17 @@ Partial Class FormUtama
         Me.PenjualanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PembayaranHutangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DaftarHutangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DaftarTransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PembelianToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PembayaranHutangToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMasterToolStripMenuItem, Me.PembelianToolStripMenuItem, Me.PenjualanToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataMasterToolStripMenuItem, Me.PembelianToolStripMenuItem, Me.PenjualanToolStripMenuItem, Me.DaftarTransaksiToolStripMenuItem, Me.LaporanToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1184, 24)
@@ -86,7 +91,7 @@ Partial Class FormUtama
         '
         'PembelianToolStripMenuItem
         '
-        Me.PembelianToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TransaksiPembelianToolStripMenuItem})
+        Me.PembelianToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DaftarHutangToolStripMenuItem, Me.PembayaranHutangToolStripMenuItem, Me.TransaksiPembelianToolStripMenuItem})
         Me.PembelianToolStripMenuItem.Name = "PembelianToolStripMenuItem"
         Me.PembelianToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.PembelianToolStripMenuItem.Text = "Pembelian"
@@ -94,7 +99,7 @@ Partial Class FormUtama
         'TransaksiPembelianToolStripMenuItem
         '
         Me.TransaksiPembelianToolStripMenuItem.Name = "TransaksiPembelianToolStripMenuItem"
-        Me.TransaksiPembelianToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TransaksiPembelianToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.TransaksiPembelianToolStripMenuItem.Text = "Transaksi Pembelian"
         '
         'PenjualanToolStripMenuItem
@@ -114,6 +119,37 @@ Partial Class FormUtama
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.LogoutToolStripMenuItem.Text = "Logout"
+        '
+        'PembayaranHutangToolStripMenuItem
+        '
+        Me.PembayaranHutangToolStripMenuItem.Name = "PembayaranHutangToolStripMenuItem"
+        Me.PembayaranHutangToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.PembayaranHutangToolStripMenuItem.Text = "Pembayaran Hutang"
+        '
+        'DaftarHutangToolStripMenuItem
+        '
+        Me.DaftarHutangToolStripMenuItem.Name = "DaftarHutangToolStripMenuItem"
+        Me.DaftarHutangToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.DaftarHutangToolStripMenuItem.Text = "Daftar Hutang"
+        '
+        'DaftarTransaksiToolStripMenuItem
+        '
+        Me.DaftarTransaksiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PembelianToolStripMenuItem1, Me.PembayaranHutangToolStripMenuItem1})
+        Me.DaftarTransaksiToolStripMenuItem.Name = "DaftarTransaksiToolStripMenuItem"
+        Me.DaftarTransaksiToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
+        Me.DaftarTransaksiToolStripMenuItem.Text = "Daftar Transaksi"
+        '
+        'PembelianToolStripMenuItem1
+        '
+        Me.PembelianToolStripMenuItem1.Name = "PembelianToolStripMenuItem1"
+        Me.PembelianToolStripMenuItem1.Size = New System.Drawing.Size(183, 22)
+        Me.PembelianToolStripMenuItem1.Text = "Pembelian"
+        '
+        'PembayaranHutangToolStripMenuItem1
+        '
+        Me.PembayaranHutangToolStripMenuItem1.Name = "PembayaranHutangToolStripMenuItem1"
+        Me.PembayaranHutangToolStripMenuItem1.Size = New System.Drawing.Size(183, 22)
+        Me.PembayaranHutangToolStripMenuItem1.Text = "Pembayaran Hutang"
         '
         'FormUtama
         '
@@ -147,4 +183,9 @@ Partial Class FormUtama
     Friend WithEvents DataPelangganToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataSatuanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TransaksiPembelianToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DaftarHutangToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PembayaranHutangToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DaftarTransaksiToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PembelianToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents PembayaranHutangToolStripMenuItem1 As ToolStripMenuItem
 End Class

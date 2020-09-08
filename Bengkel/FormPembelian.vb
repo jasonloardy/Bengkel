@@ -213,7 +213,6 @@ Public Class FormPembelian
                 trans.Rollback()
             End If
         Catch ex As Exception
-            trans.Rollback()
             MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub

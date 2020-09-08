@@ -135,6 +135,8 @@ Public Class FormUser
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         mode = "edit"
         modeSimpan()
+        tbUsername.Enabled = False
+        tbNama.Focus()
     End Sub
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click

@@ -11,11 +11,10 @@ Public Class FormDaftarHutang
     End Sub
 
     Sub reset()
-        If from <> "hutang-trx" Then
-            tbCariSupplier.ReadOnly = False
-            tbCariSupplier.Clear()
-            tbCariTrx.Clear()
-        End If
+        tbCariSupplier.Clear()
+        dgvSupplier.DataSource = Nothing
+        tbCariTrx.Clear()
+        dgvTrx.DataSource = Nothing
     End Sub
 
     Sub isiGridSupplier()
@@ -166,4 +165,8 @@ Public Class FormDaftarHutang
         Next
         Return False
     End Function
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        isiGridSupplier()
+    End Sub
 End Class

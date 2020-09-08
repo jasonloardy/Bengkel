@@ -64,4 +64,18 @@
         FormPembelian.Dock = DockStyle.Fill
         FormPembelian.Show()
     End Sub
+
+    Private Sub DaftarHutangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaftarHutangToolStripMenuItem.Click
+        closeAll()
+        FormDaftarHutang.MdiParent = Me
+        FormDaftarHutang.Dock = DockStyle.Fill
+        FormDaftarHutang.Show()
+    End Sub
+
+    Private Sub PembayaranHutangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PembayaranHutangToolStripMenuItem.Click
+        closeAll()
+        FormPembayaranHutang.MdiParent = Me
+        FormPembayaranHutang.Dock = DockStyle.Fill
+        FormPembayaranHutang.Show()
+    End Sub
 End Class

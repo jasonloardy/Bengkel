@@ -153,4 +153,39 @@ Public Class FormPembayaranHutang
             MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
+
+    Sub querySimpan()
+        Try
+            Dim kode As String = kode_hutang()
+            trans = conn.BeginTransaction
+            Dim sql As String = "INSERT INTO tb_pembayaran_hutang VALUES (@kd_pembayaran_hutang, NOW(), '1');"
+            If queryPembayaranHutang(sql, kode) Then
+                Dim sqlDetail As String = "INSERT INTO tb_pembayaran_hutang_detail VALUES (@kd_pembayaran_hutang, @kd_pembelian, @bayar);"
+                For i As Integer = 0 To dgvTrx.RowCount - 1
+                    If CDec(dgvTrx.Rows(i).Cells(6).Value) > 0 Then
+                        queryPembayaranHutangDetail(sqlDetail, kode, dgvTrx.Rows(i).Cells(0).Value, CDec(dgvTrx.Rows(i).Cells(6).Value))
+                    End If
+                Next
+                trans.Commit()
+                MsgBox("Transaksi berhasil di-simpan!", MsgBoxStyle.Information, "Informasi")
+                reset()
+            Else
+                trans.Rollback()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
+        Dim pilih As Integer
+        pilih = MsgBox("Simpan Transaksi Pembayaran ?", 48 + 4 + 256, "Konfirmasi")
+        If pilih = 6 Then
+            If CDec(lblTotal.Text) > 0 Then
+                querySimpan()
+            Else
+                MsgBox("Belum Ada Transaksi Yang Dibayar!", 16, "Error")
+            End If
+        End If
+    End Sub
 End Class
