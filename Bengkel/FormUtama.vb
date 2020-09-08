@@ -78,4 +78,11 @@
         FormPembayaranHutang.Dock = DockStyle.Fill
         FormPembayaranHutang.Show()
     End Sub
+
+    Private Sub PembelianToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PembelianToolStripMenuItem1.Click
+        closeAll()
+        FormDaftarPembelian.MdiParent = Me
+        FormDaftarPembelian.Dock = DockStyle.Fill
+        FormDaftarPembelian.Show()
+    End Sub
 End Class
