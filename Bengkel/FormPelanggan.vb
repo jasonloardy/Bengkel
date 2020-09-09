@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class FormPelanggan
-    Public mode, id_data As String
+    Public mode, id_data, from As String
     Public dt As DataTable
 
     Private Sub Formpelanggan_Load(sender As Object, e As EventArgs) Handles MyBase.Load

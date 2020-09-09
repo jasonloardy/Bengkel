@@ -4,6 +4,7 @@ Public Class FormBarang
     Public mode, id_data, temp_kode, from As String
     Public page As Integer = 1
     Public totalPage As Integer = 1
+    Public offset As Integer = 5
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If koneksi() Then
@@ -124,7 +125,6 @@ Public Class FormBarang
 
     Sub isiGrid()
         Try
-            Dim offset As Integer = 5
             Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
                                 tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
@@ -147,20 +147,6 @@ Public Class FormBarang
                             dgvBarang.DataSource = dt
                         End Using
                         judulGrid()
-                        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_barang tb
-                                                  JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang 
-                                                  WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)"
-                        Using cmdCount As New MySqlCommand(sqlCount, conn)
-                            cmdCount.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
-                            cmdCount.Parameters.AddWithValue("@nama_barang", "%" & tbCari.Text & "%")
-                            Using drCount = cmdCount.ExecuteReader
-                                While drCount.Read
-                                    lblTotal.Text = "Total Item : " & drCount.Item(0)
-                                    totalPage = Math.Ceiling(drCount.Item(0) / offset)
-                                    lblPage.Text = page & " / " & totalPage
-                                End While
-                            End Using
-                        End Using
                     Else
                         dgvBarang.DataSource = Nothing
                     End If
@@ -424,11 +410,8 @@ Public Class FormBarang
     End Sub
 
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
-        Try
-            isiGrid()
-        Catch ex As Exception
-            MsgBox(ex.Message, 16, "Error")
-        End Try
+        page = 1
+        isiGrid()
     End Sub
 
     Private Sub cbCustom_CheckedChanged(sender As Object, e As EventArgs) Handles cbCustom.CheckedChanged
@@ -473,7 +456,21 @@ Public Class FormBarang
     End Sub
 
     Sub paging()
-        If page = totalPage Then
+        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_barang tb
+                                                  JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang 
+                                                  WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)"
+        Using cmdCount As New MySqlCommand(sqlCount, conn)
+            cmdCount.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
+            cmdCount.Parameters.AddWithValue("@nama_barang", "%" & tbCari.Text & "%")
+            Using drCount = cmdCount.ExecuteReader
+                While drCount.Read
+                    lblTotal.Text = "Jumlah Item : " & drCount.Item(0)
+                    totalPage = Math.Ceiling(drCount.Item(0) / offset)
+                    lblPage.Text = page & " / " & totalPage
+                End While
+            End Using
+        End Using
+        If page >= totalPage Then
             btnNext.Enabled = False
         Else
             btnNext.Enabled = True

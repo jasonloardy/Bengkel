@@ -14,6 +14,7 @@
 
     Private Sub DataBarangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataBarangToolStripMenuItem.Click
         closeAll()
+        FormBarang.from = "utama"
         FormBarang.MdiParent = Me
         FormBarang.Dock = DockStyle.Fill
         FormBarang.Show()
@@ -39,6 +40,7 @@
 
     Private Sub DataSupplierToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataSupplierToolStripMenuItem.Click
         closeAll()
+        FormSupplier.from = "utama"
         FormSupplier.MdiParent = Me
         FormSupplier.Dock = DockStyle.Fill
         FormSupplier.Show()
@@ -46,6 +48,7 @@
 
     Private Sub DataPelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataPelangganToolStripMenuItem.Click
         closeAll()
+        FormPelanggan.from = "utama"
         FormPelanggan.MdiParent = Me
         FormPelanggan.Dock = DockStyle.Fill
         FormPelanggan.Show()
@@ -67,6 +70,7 @@
 
     Private Sub DaftarHutangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaftarHutangToolStripMenuItem.Click
         closeAll()
+        FormDaftarHutang.from = "utama"
         FormDaftarHutang.MdiParent = Me
         FormDaftarHutang.Dock = DockStyle.Fill
         FormDaftarHutang.Show()

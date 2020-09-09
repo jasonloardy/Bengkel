@@ -109,10 +109,6 @@ Public Class FormDaftarHutang
         End With
     End Sub
 
-    Private Sub dgvSupplier_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellEnter
-        isiGridTrx(dgvSupplier.Item(0, e.RowIndex).Value)
-    End Sub
-
     Sub isiSupplier()
         FormPembayaranHutang.reset()
         Dim baris As Integer
@@ -128,19 +124,21 @@ Public Class FormDaftarHutang
 
     'dgvSupplier.Item(0, dgvSupplier.CurrentRow.Index).Value
     Private Sub dgvSupplier_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellDoubleClick
-        If from = "hutang-supplier" Then
-            If FormPembayaranHutang.tbKodeSupplier.Text <> "" Then
-                If FormPembayaranHutang.tbKodeSupplier.Text = dgvSupplier.Item(0, dgvSupplier.CurrentRow.Index).Value Then
-                    Me.Close()
-                Else
-                    Dim pilih As Integer
-                    pilih = MsgBox("Yakin Ganti Supplier? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
-                    If pilih = 6 Then
-                        isiSupplier()
+        If e.RowIndex > -1 Then
+            If from = "hutang-supplier" Then
+                If FormPembayaranHutang.tbKodeSupplier.Text <> "" Then
+                    If FormPembayaranHutang.tbKodeSupplier.Text = dgvSupplier.Item(0, dgvSupplier.CurrentRow.Index).Value Then
+                        Me.Close()
+                    Else
+                        Dim pilih As Integer
+                        pilih = MsgBox("Yakin Ganti Supplier? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
+                        If pilih = 6 Then
+                            isiSupplier()
+                        End If
                     End If
+                Else
+                    isiSupplier()
                 End If
-            Else
-                isiSupplier()
             End If
         End If
     End Sub
@@ -168,5 +166,11 @@ Public Class FormDaftarHutang
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         isiGridSupplier()
+    End Sub
+
+    Private Sub dgvSupplier_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellClick
+        If e.RowIndex > -1 Then
+            isiGridTrx(dgvSupplier.Item(0, e.RowIndex).Value)
+        End If
     End Sub
 End Class

@@ -25,12 +25,12 @@ Partial Class FormDaftarHutang
         Me.dgvSupplier = New System.Windows.Forms.DataGridView()
         Me.dgvTrx = New System.Windows.Forms.DataGridView()
         Me.gbSupplier = New System.Windows.Forms.GroupBox()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.lblSupplier = New System.Windows.Forms.Label()
         Me.tbCariSupplier = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbCariTrx = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnRefresh = New System.Windows.Forms.Button()
         CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbSupplier.SuspendLayout()
@@ -72,6 +72,15 @@ Partial Class FormDaftarHutang
         Me.gbSupplier.TabIndex = 3
         Me.gbSupplier.TabStop = False
         Me.gbSupplier.Text = "Supplier"
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
+        Me.btnRefresh.TabIndex = 3
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'lblSupplier
         '
@@ -121,15 +130,6 @@ Partial Class FormDaftarHutang
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Pencarian :"
-        '
-        'btnRefresh
-        '
-        Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 3
-        Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'FormDaftarHutang
         '
