@@ -6,6 +6,7 @@ Public Class FormDaftarPembelian
     Public page As Integer = 1
     Public totalPage As Integer = 1
     Public offset As Integer = 5
+    Public kodeTrx As String
 
     Private Sub FormDaftarPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If koneksi() Then
@@ -47,7 +48,7 @@ Public Class FormDaftarPembelian
     Sub isiGrid()
         Try
             Dim limit As Integer = offset * (page - 1)
-            Dim sql As String = "SELECT tb.kd_pembelian, DATE(tb.tanggal), tb.kd_bukti, ts.nama
+            Dim sql As String = "SELECT tb.kd_pembelian, DATE(tb.tanggal), tb.kd_bukti, ts.nama, tb.status
                                 FROM tb_pembelian tb
                                 JOIN tb_supplier ts ON tb.kd_supplier = ts.kd_supplier
                                 WHERE (tb.kd_pembelian LIKE @kd_pembelian OR tb.kd_bukti LIKE @kd_bukti
@@ -86,6 +87,7 @@ Public Class FormDaftarPembelian
             .Columns(1).HeaderText = "Tanggal"
             .Columns(2).HeaderText = "Kode Bukti"
             .Columns(3).HeaderText = "Supplier"
+            .Columns(4).Visible = False
             .Columns(0).Width = 125
             .Columns(1).Width = 75
             .Columns(2).Width = 100
@@ -113,17 +115,49 @@ Public Class FormDaftarPembelian
     End Sub
 
     Sub viewBuktiPembelian(ByVal kd_pembelian As String)
-        Dim cryReport As New ReportDocument
-        Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
-        cryReport.Load(RepLocation & "CRBuktiPembelian.rpt")
-        cryReport.Refresh()
-        cryReport.SetParameterValue("kd_pembelian", kd_pembelian)
-        CRVBuktiPembelian.ReportSource = cryReport
+        Try
+            kodeTrx = kd_pembelian
+            Dim cryReport As New ReportDocument
+            Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
+            cryReport.Load(RepLocation & "CRBuktiPembelian.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("kd_pembelian", kd_pembelian)
+            CRVBuktiPembelian.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 
     Private Sub dgvTrx_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTrx.CellClick
         If e.RowIndex > -1 Then
             viewBuktiPembelian(dgvTrx.Item(0, e.RowIndex).Value)
+            If dgvTrx.Item(4, e.RowIndex).Value = "0" Then
+                btnVoid.Enabled = False
+            ElseIf dgvTrx.Item(4, e.RowIndex).Value = "1" Then
+                btnVoid.Enabled = True
+            End If
         End If
+    End Sub
+
+    Private Sub dgvTrx_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvTrx.CellFormatting
+        If dgvTrx.Item(4, e.RowIndex).Value = "0" Then
+            e.CellStyle.BackColor = Color.Salmon
+            e.CellStyle.SelectionBackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub btnVoid_Click(sender As Object, e As EventArgs) Handles btnVoid.Click
+        Try
+            Dim pilih As Integer
+            pilih = MsgBox("Yakin Batalkan Transaksi " & kodeTrx & " ?", 48 + 4 + 256, "Konfirmasi")
+            If pilih = 6 Then
+                query("UPDATE tb_pembelian SET status = '0' WHERE kd_pembelian = '" & kodeTrx & "'")
+                MsgBox("Transaksi " & kodeTrx & " berhasil dibatalkan!", MsgBoxStyle.Information, "Informasi")
+                btnVoid.Enabled = False
+                isiGrid()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 End Class

@@ -179,13 +179,14 @@ Module ModuleDB
     End Function
 
     Function queryBarangHistory(ByVal query As String, ByVal kode As String, ByVal kd_transaksi As String, ByVal tanggal As String,
-                                ByVal stok_masuk As Integer, ByVal stok_keluar As Integer)
+                                ByVal harga_beli As Integer, ByVal stok_masuk As Integer, ByVal stok_keluar As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
                 cmd.Parameters.AddWithValue("@kode", kode)
                 cmd.Parameters.AddWithValue("@kd_transaksi", kd_transaksi)
                 cmd.Parameters.AddWithValue("@tanggal", tanggal)
+                cmd.Parameters.AddWithValue("@harga_beli", harga_beli)
                 cmd.Parameters.AddWithValue("@stok_masuk", stok_masuk)
                 cmd.Parameters.AddWithValue("@stok_keluar", stok_keluar)
                 cmd.Connection = conn

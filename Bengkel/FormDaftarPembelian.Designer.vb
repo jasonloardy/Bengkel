@@ -33,6 +33,7 @@ Partial Class FormDaftarPembelian
         Me.tbCari = New System.Windows.Forms.TextBox()
         Me.CRVBuktiPembelian = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.CRBuktiPembelian1 = New Bengkel.CRBuktiPembelian()
+        Me.btnVoid = New System.Windows.Forms.Button()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbSupplier.SuspendLayout()
         Me.SuspendLayout()
@@ -144,15 +145,27 @@ Partial Class FormDaftarPembelian
         Me.CRVBuktiPembelian.ShowGroupTreeButton = False
         Me.CRVBuktiPembelian.ShowLogo = False
         Me.CRVBuktiPembelian.ShowParameterPanelButton = False
-        Me.CRVBuktiPembelian.Size = New System.Drawing.Size(690, 537)
+        Me.CRVBuktiPembelian.Size = New System.Drawing.Size(690, 508)
         Me.CRVBuktiPembelian.TabIndex = 6
         Me.CRVBuktiPembelian.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'btnVoid
+        '
+        Me.btnVoid.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnVoid.Enabled = False
+        Me.btnVoid.Location = New System.Drawing.Point(482, 526)
+        Me.btnVoid.Name = "btnVoid"
+        Me.btnVoid.Size = New System.Drawing.Size(75, 23)
+        Me.btnVoid.TabIndex = 7
+        Me.btnVoid.Text = "VOID"
+        Me.btnVoid.UseVisualStyleBackColor = True
         '
         'FormDaftarPembelian
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.Controls.Add(Me.btnVoid)
         Me.Controls.Add(Me.CRVBuktiPembelian)
         Me.Controls.Add(Me.gbSupplier)
         Me.Name = "FormDaftarPembelian"
@@ -175,4 +188,5 @@ Partial Class FormDaftarPembelian
     Friend WithEvents btnNext As Button
     Friend WithEvents btnPrev As Button
     Friend WithEvents lblTotal As Label
+    Friend WithEvents btnVoid As Button
 End Class

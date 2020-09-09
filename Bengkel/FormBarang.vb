@@ -302,8 +302,8 @@ Public Class FormBarang
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
                     queryBarangStnMulti(sqlStn, kode, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
                 Next
-                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @stok_masuk, @stok_keluar);"
-                queryBarangHistory(sqlHistory, kode, "SA", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbStok.Text, 0)
+                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @harga_beli, @stok_masuk, @stok_keluar);"
+                queryBarangHistory(sqlHistory, kode, "SA", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbHrgBeli.Text, tbStok.Text, 0)
                 trans.Commit()
                 isiGrid()
                 MsgBox("Data berhasil di-tambah!", MsgBoxStyle.Information, "Informasi")
@@ -330,12 +330,12 @@ Public Class FormBarang
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
                     queryBarangStnMulti(sqlStn, tbKode.Text, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
                 Next
-                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @stok_masuk, @stok_keluar);"
+                Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @harga_beli, @stok_masuk, @stok_keluar);"
                 Dim selisih As Integer = tbStokFisik.Text - tbStok.Text
                 If selisih > 0 Then
-                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), selisih, 0)
+                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbHrgBeli.Text, selisih, 0)
                 ElseIf selisih < 0 Then
-                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), 0, Math.Abs(selisih))
+                    queryBarangHistory(sqlHistory, tbKode.Text, "SS", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbHrgBeli.Text, 0, Math.Abs(selisih))
                 End If
                 trans.Commit()
                 isiGrid()

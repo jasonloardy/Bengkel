@@ -196,13 +196,13 @@ Public Class FormPembelian
                 tunai = lblTotal.Text
             End If
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt, @tunai, @sisa);"
+            Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt, @tunai, @sisa, '1');"
             If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT, tunai, tbKredit.Text) Then
                 Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                         dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value)
-                    'update harga baru
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value)
+                    'update harga beli barang
                     query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & tbDiskonAll.Text & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
                 Next
                 trans.Commit()
