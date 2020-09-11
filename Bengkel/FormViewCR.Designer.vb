@@ -39,6 +39,7 @@ Partial Class FormViewCR
         Me.CRViewer.ShowRefreshButton = False
         Me.CRViewer.Size = New System.Drawing.Size(984, 461)
         Me.CRViewer.TabIndex = 0
+        Me.CRViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'FormViewCR
         '
@@ -46,7 +47,10 @@ Partial Class FormViewCR
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 461)
         Me.Controls.Add(Me.CRViewer)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "FormViewCR"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormViewCR"
         Me.ResumeLayout(False)
 

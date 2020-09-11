@@ -93,4 +93,11 @@
     Private Sub FormUtama_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
     End Sub
+
+    Private Sub PembayaranHutangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PembayaranHutangToolStripMenuItem1.Click
+        closeAll()
+        FormDaftarPembayaranHutang.MdiParent = Me
+        FormDaftarPembayaranHutang.Dock = DockStyle.Fill
+        FormDaftarPembayaranHutang.Show()
+    End Sub
 End Class

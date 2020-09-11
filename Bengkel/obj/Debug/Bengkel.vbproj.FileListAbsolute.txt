@@ -40,3 +40,4 @@ C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\C
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\FlashControlV71.dll
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormViewCR.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormDaftarPembayaranHutang.resources

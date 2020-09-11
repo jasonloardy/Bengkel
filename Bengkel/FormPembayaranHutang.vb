@@ -159,10 +159,13 @@ Public Class FormPembayaranHutang
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_pembayaran_hutang VALUES (@kd_pembayaran_hutang, NOW(), '1');"
             If queryPembayaranHutang(sql, kode) Then
-                Dim sqlDetail As String = "INSERT INTO tb_pembayaran_hutang_detail VALUES (@kd_pembayaran_hutang, @kd_pembelian, @bayar);"
                 For i As Integer = 0 To dgvTrx.RowCount - 1
+                    Dim sqlDetail As String = "INSERT INTO tb_pembayaran_hutang_detail VALUES (@kd_pembayaran_hutang, @kd_pembelian, @bayar);"
                     If CDec(dgvTrx.Rows(i).Cells(6).Value) > 0 Then
-                        queryPembayaranHutangDetail(sqlDetail, kode, dgvTrx.Rows(i).Cells(0).Value, CDec(dgvTrx.Rows(i).Cells(6).Value))
+                        If Not queryPembayaranHutangDetail(sqlDetail, kode, dgvTrx.Rows(i).Cells(0).Value, CDec(dgvTrx.Rows(i).Cells(6).Value)) Then
+                            trans.Rollback()
+                            Exit Sub
+                        End If
                     End If
                 Next
                 trans.Commit()
@@ -170,6 +173,7 @@ Public Class FormPembayaranHutang
                 reset()
             Else
                 trans.Rollback()
+                Exit Sub
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")

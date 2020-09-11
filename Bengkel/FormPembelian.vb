@@ -199,17 +199,24 @@ Public Class FormPembelian
             If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT, tunai, tbKredit.Text) Then
                 Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
-                    queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value)
-                    'update harga beli barang
-                    query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & tbDiskonAll.Text & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
+                    If queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                        'update harga beli barang
+                        query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & tbDiskonAll.Text & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
+                    Else
+                        trans.Rollback()
+                        Exit Sub
+                    End If
                 Next
                 trans.Commit()
                 dgvKeranjang.Rows.Clear()
                 MsgBox("Transaksi berhasil di-simpan!", MsgBoxStyle.Information, "Informasi")
+                FormViewCR.viewBuktiPembelian(kode)
+                FormViewCR.ShowDialog()
                 reset()
             Else
                 trans.Rollback()
+                Exit Sub
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
