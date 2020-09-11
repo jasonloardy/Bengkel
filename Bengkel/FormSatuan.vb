@@ -4,10 +4,9 @@ Public Class FormSatuan
     Public mode, id_data As String
 
     Private Sub Formsatuan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
-            isiGrid()
-        End If
+        koneksi()
+        reset()
+        isiGrid()
     End Sub
 
     Sub isiGrid()

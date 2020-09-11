@@ -2,9 +2,8 @@
 
 Public Class FormPembayaranHutang
     Private Sub FormPembayaranHutang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
-        End If
+        koneksi()
+        reset()
     End Sub
 
     Function kode_hutang()
@@ -87,7 +86,7 @@ Public Class FormPembayaranHutang
                                     sisa, '0', sisa
                                     FROM tb_pembelian tb
                                     JOIN tb_pembelian_detail tbd ON tb.kd_pembelian = tbd.kd_pembelian
-                                    WHERE kd_supplier = '" & kd_supplier & "' AND sisa > 0
+                                    WHERE kd_supplier = '" & kd_supplier & "' AND sisa > 0 AND status = '1'
                                     GROUP BY tb.kd_pembelian"
             Dim da As New MySqlDataAdapter(sql, conn)
             Dim ds As New DataSet()

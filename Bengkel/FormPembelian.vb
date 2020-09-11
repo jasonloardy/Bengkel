@@ -37,9 +37,8 @@ Public Class FormPembelian
     End Function
 
     Private Sub FormPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
-        End If
+        koneksi()
+        reset()
     End Sub
 
     Sub hitungTotal()

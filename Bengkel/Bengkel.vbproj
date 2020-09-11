@@ -162,6 +162,12 @@
     <Compile Include="FormUtama.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormViewCR.Designer.vb">
+      <DependentUpon>FormViewCR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewCR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuleDB.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewCR.resx">
+      <DependentUpon>FormViewCR.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

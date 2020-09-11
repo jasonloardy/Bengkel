@@ -39,3 +39,4 @@ C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\B
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\FlashControlV71.dll
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormViewCR.resources

@@ -89,4 +89,8 @@
         FormDaftarPembelian.Dock = DockStyle.Fill
         FormDaftarPembelian.Show()
     End Sub
+
+    Private Sub FormUtama_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        koneksi()
+    End Sub
 End Class

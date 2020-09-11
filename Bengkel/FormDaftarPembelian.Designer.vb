@@ -145,6 +145,7 @@ Partial Class FormDaftarPembelian
         Me.CRVBuktiPembelian.ShowGroupTreeButton = False
         Me.CRVBuktiPembelian.ShowLogo = False
         Me.CRVBuktiPembelian.ShowParameterPanelButton = False
+        Me.CRVBuktiPembelian.ShowRefreshButton = False
         Me.CRVBuktiPembelian.Size = New System.Drawing.Size(690, 508)
         Me.CRVBuktiPembelian.TabIndex = 6
         Me.CRVBuktiPembelian.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None

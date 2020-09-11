@@ -3,11 +3,11 @@
 Public Class FormDaftarHutang
     Public from As String
     Public dtTrx As DataTable
+    Public dtSupplier As DataTable
     Private Sub FormDaftarHutang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
-            isiGridSupplier()
-        End If
+        koneksi()
+        reset()
+        isiGridSupplier()
     End Sub
 
     Sub reset()
@@ -22,22 +22,17 @@ Public Class FormDaftarHutang
             Dim sql As String = "SELECT tb.kd_supplier, ts.nama, ts.alamat, ts.no_telepon, SUM(tb.sisa) total_hutang
                                     FROM tb_pembelian tb
                                     JOIN tb_supplier ts ON tb.kd_supplier = ts.kd_supplier
-                                    WHERE tb.sisa>0 AND (tb.kd_supplier LIKE @kd_supplier)
+                                    WHERE tb.sisa > 0 AND tb.status = '1'
                                     GROUP BY tb.kd_supplier"
-            Using cmd As New MySqlCommand(sql, conn)
-                cmd.Parameters.AddWithValue("@kd_supplier", "%" & tbCariSupplier.Text & "%")
-                Using dr = cmd.ExecuteReader
-                    If dr.HasRows Then
-                        Using dt As New DataTable
-                            dt.Load(dr)
-                            dgvSupplier.DataSource = dt
-                        End Using
-                        judulGridSupplier()
-                    Else
-                        dgvSupplier.DataSource = Nothing
-                    End If
-                End Using
-            End Using
+            Dim da As New MySqlDataAdapter(sql, conn)
+            Dim ds As New DataSet()
+            If da.Fill(ds) Then
+                dgvSupplier.DataSource = ds.Tables(0)
+                dtSupplier = ds.Tables(0)
+                judulGridSupplier()
+            Else
+                dgvSupplier.DataSource = Nothing
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
@@ -70,7 +65,7 @@ Public Class FormDaftarHutang
                                     SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100 nominal, sisa
                                     FROM tb_pembelian tb
                                     JOIN tb_pembelian_detail tbd ON tb.kd_pembelian = tbd.kd_pembelian
-                                    WHERE kd_supplier = '" & kd_supplier & "' AND sisa > 0
+                                    WHERE kd_supplier = '" & kd_supplier & "' AND sisa > 0 AND status = '1'
                                     GROUP BY tb.kd_pembelian"
             Dim da As New MySqlDataAdapter(sql, conn)
             Dim ds As New DataSet()
@@ -122,7 +117,6 @@ Public Class FormDaftarHutang
         Me.Close()
     End Sub
 
-    'dgvSupplier.Item(0, dgvSupplier.CurrentRow.Index).Value
     Private Sub dgvSupplier_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellDoubleClick
         If e.RowIndex > -1 Then
             If from = "hutang-supplier" Then
@@ -144,7 +138,11 @@ Public Class FormDaftarHutang
     End Sub
 
     Private Sub tbCariSupplier_TextChanged(sender As Object, e As EventArgs) Handles tbCariSupplier.TextChanged
-        isiGridSupplier()
+        Try
+            dtSupplier.DefaultView.RowFilter = "kd_supplier LIKE '%" & tbCariSupplier.Text & "%' OR nama LIKE '%" & tbCariSupplier.Text & "%'"
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 
     Private Sub tbCariTrx_TextChanged(sender As Object, e As EventArgs) Handles tbCariTrx.TextChanged

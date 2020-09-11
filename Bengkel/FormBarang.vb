@@ -7,22 +7,23 @@ Public Class FormBarang
     Public offset As Integer = 5
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
-            isiGrid()
-        End If
+        reset()
+        isiGrid()
     End Sub
 
     Sub isiCb()
-        Dim sqlStn As String = "SELECT * FROM tb_satuan"
+        Try
+            Dim sqlStn As String = "SELECT * FROM tb_satuan"
+            cbStnDasar.DataSource = queryCb(sqlStn)
+            cbStnDasar.DisplayMember = "kd_satuan"
+            cbStnDasar.SelectedIndex = -1
 
-        cbStnDasar.DataSource = queryCb(sqlStn)
-        cbStnDasar.DisplayMember = "kd_satuan"
-        cbStnDasar.SelectedIndex = -1
-
-        cbStnMulti.DataSource = queryCb(sqlStn)
-        cbStnMulti.DisplayMember = "kd_satuan"
-        cbStnMulti.SelectedIndex = -1
+            cbStnMulti.DataSource = queryCb(sqlStn)
+            cbStnMulti.DisplayMember = "kd_satuan"
+            cbStnMulti.SelectedIndex = -1
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 
     Sub isiDetailBarang(ByVal kd_barang As String)

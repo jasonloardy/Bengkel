@@ -5,10 +5,10 @@ Public Class FormPelanggan
     Public dt As DataTable
 
     Private Sub Formpelanggan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            reset()
+        koneksi()
+        reset()
             isiGrid()
-        End If
+
     End Sub
 
     Sub isiGrid()

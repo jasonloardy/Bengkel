@@ -2,27 +2,23 @@
 Imports MySql.Data.MySqlClient
 
 Module ModuleDB
-    Public conn As MySqlConnection
+    Public conn As New MySqlConnection
     Public trans As MySqlTransaction
 
-    Function koneksi()
+    Sub koneksi()
         Try
-            Dim line As String
-            Using reader As StreamReader = New StreamReader("config.ini")
-                line = reader.ReadLine
-            End Using
-            conn = New MySqlConnection(line)
             If conn.State = ConnectionState.Closed Then
+                Dim line As String
+                Using reader As StreamReader = New StreamReader("config.ini")
+                    line = reader.ReadLine
+                End Using
+                conn = New MySqlConnection(line)
                 conn.Open()
-            Else
-                conn.Close()
             End If
-            Return True
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
-            Return False
         End Try
-    End Function
+    End Sub
 
     Public Sub formatRibuan(ByVal Text As TextBox)
         Try
@@ -279,11 +275,16 @@ Module ModuleDB
     End Function
 
     Function queryCb(ByVal query As String)
-        Dim dt As New DataTable()
-        Using da = New MySqlDataAdapter(query, conn)
-            da.Fill(dt)
-        End Using
-        Return dt
+        Try
+            Dim dt As New DataTable()
+            Using da = New MySqlDataAdapter(query, conn)
+                da.Fill(dt)
+            End Using
+            Return dt
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
     End Function
 
 End Module

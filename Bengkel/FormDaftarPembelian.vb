@@ -7,12 +7,11 @@ Public Class FormDaftarPembelian
     Public totalPage As Integer = 1
     Public offset As Integer = 5
     Public kodeTrx As String
+    Public cryReport As New ReportDocument
 
     Private Sub FormDaftarPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            'reset()
-            isiGrid()
-        End If
+        koneksi()
+        isiGrid()
     End Sub
 
     Sub paging()
@@ -117,7 +116,7 @@ Public Class FormDaftarPembelian
     Sub viewBuktiPembelian(ByVal kd_pembelian As String)
         Try
             kodeTrx = kd_pembelian
-            Dim cryReport As New ReportDocument
+            'Dim cryReport As New ReportDocument
             Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
             cryReport.Load(RepLocation & "CRBuktiPembelian.rpt")
             cryReport.Refresh()
@@ -159,5 +158,9 @@ Public Class FormDaftarPembelian
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
+    End Sub
+
+    Private Sub FormDaftarPembelian_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        cryReport.Close()
     End Sub
 End Class

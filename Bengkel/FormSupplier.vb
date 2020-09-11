@@ -5,10 +5,9 @@ Public Class FormSupplier
     Public dt As DataTable
 
     Private Sub FormSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If koneksi() Then
-            Reset()
-            isiGrid()
-        End If
+        koneksi()
+        reset()
+        isiGrid()
     End Sub
 
     Sub isiGrid()
