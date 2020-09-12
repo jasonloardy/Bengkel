@@ -204,6 +204,21 @@ Public Class FormPelanggan
         reset()
     End Sub
 
+    Private Sub dgvPelanggan_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPelanggan.CellDoubleClick
+        If from = "penjualan" Then
+            Dim baris As Integer
+            With dgvPelanggan
+                baris = .CurrentRow.Index
+                FormPenjualan.tbKodePlg.Text = .Item(0, baris).Value
+                FormPenjualan.tbNamaPlg.Text = .Item(1, baris).Value
+                FormPenjualan.tbAlamat.Text = .Item(2, baris).Value
+                FormPenjualan.tbNoTelepon.Text = .Item(3, baris).Value
+                FormPenjualan.tbKatPlg.Text = .Item(4, baris).Value(0)
+            End With
+            Me.Close()
+        End If
+    End Sub
+
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
         Try
             dt.DefaultView.RowFilter = "kd_pelanggan LIKE '%" & tbCari.Text & "%' OR nama LIKE '%" & tbCari.Text & "%'"

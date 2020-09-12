@@ -126,9 +126,15 @@ Public Class FormBarang
 
     Sub isiGrid()
         Try
+            Dim harga_jual As String = "harga_jual_u"
+            If from = "penjualan-langganan" Then
+                harga_jual = "harga_jual_l"
+            ElseIf from = "penjualan-partai" Then
+                harga_jual = "harga_jual_p"
+            End If
             Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi, tb.harga_jual_u*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
+                                tb.harga_beli*tbs.isi, tb." & harga_jual & "*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
                                 tb.harga_jual_p*tbs.isi, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
@@ -514,6 +520,18 @@ Public Class FormBarang
                 FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
                 FormPembelian.tbSatuan.Text = .Item(2, baris).Value
                 FormPembelian.tbIsi.Text = .Item(9, baris).Value
+            End With
+            Me.Close()
+        ElseIf from.Contains("penjualan") Then
+            Dim baris As Integer
+            With dgvBarang
+                baris = .CurrentRow.Index
+                FormPenjualan.kodeBarang = .Item(0, baris).Value
+                FormPenjualan.tbKodeBarang.Text = .Item(0, baris).Value
+                FormPenjualan.tbNamaBarang.Text = .Item(1, baris).Value
+                FormPenjualan.tbSatuan.Text = .Item(2, baris).Value
+                FormPenjualan.tbHargaJual.Text = FormatCurrency(.Item(4, baris).Value)
+                FormPenjualan.tbIsi.Text = .Item(9, baris).Value
             End With
             Me.Close()
         End If

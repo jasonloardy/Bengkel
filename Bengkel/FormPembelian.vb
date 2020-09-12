@@ -47,7 +47,7 @@ Public Class FormPembelian
             Dim jumlahItem As Integer
             For i = 0 To dgvKeranjang.RowCount - 1
                 total += dgvKeranjang.Rows(i).Cells(7).Value
-                jumlahItem += dgvKeranjang.Rows(i).Cells(6).Value
+                jumlahItem += dgvKeranjang.Rows(i).Cells(3).Value
             Next
             tbJumlahItem.Text = jumlahItem
             tbSubtotal.Text = FormatCurrency(total)
@@ -107,7 +107,6 @@ Public Class FormPembelian
             FormBarang.from = "pembelian"
             FormBarang.tbCari.Text = tbKodeBarang.Text
             FormBarang.ShowDialog()
-
         End If
     End Sub
 

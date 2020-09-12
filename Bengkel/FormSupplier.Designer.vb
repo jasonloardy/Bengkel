@@ -41,6 +41,9 @@ Partial Class FormSupplier
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
+        Me.lblPage = New System.Windows.Forms.Label()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnPrev = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbSupplier.SuspendLayout()
@@ -51,7 +54,10 @@ Partial Class FormSupplier
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.lblPage)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
+        Me.GroupBox1.Controls.Add(Me.btnNext)
+        Me.GroupBox1.Controls.Add(Me.btnPrev)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvSupplier)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -238,6 +244,36 @@ Partial Class FormSupplier
         Me.btnTambah.Text = "Tambah"
         Me.btnTambah.UseVisualStyleBackColor = True
         '
+        'lblPage
+        '
+        Me.lblPage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblPage.Location = New System.Drawing.Point(658, 50)
+        Me.lblPage.Name = "lblPage"
+        Me.lblPage.Size = New System.Drawing.Size(54, 13)
+        Me.lblPage.TabIndex = 19
+        Me.lblPage.Text = "999 / 999"
+        Me.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnNext
+        '
+        Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNext.Location = New System.Drawing.Point(718, 45)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(30, 23)
+        Me.btnNext.TabIndex = 18
+        Me.btnNext.Text = ">"
+        Me.btnNext.UseVisualStyleBackColor = True
+        '
+        'btnPrev
+        '
+        Me.btnPrev.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrev.Location = New System.Drawing.Point(622, 45)
+        Me.btnPrev.Name = "btnPrev"
+        Me.btnPrev.Size = New System.Drawing.Size(30, 23)
+        Me.btnPrev.TabIndex = 17
+        Me.btnPrev.Text = "<"
+        Me.btnPrev.UseVisualStyleBackColor = True
+        '
         'FormSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -282,4 +318,7 @@ Partial Class FormSupplier
     Friend WithEvents dgvSupplier As DataGridView
     Friend WithEvents lblTotal As Label
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents lblPage As Label
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnPrev As Button
 End Class

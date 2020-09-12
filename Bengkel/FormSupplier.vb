@@ -2,7 +2,9 @@
 
 Public Class FormSupplier
     Public mode, id_data, from As String
-    Public dt As DataTable
+    Public page As Integer = 1
+    Public totalPage As Integer = 1
+    Public offset As Integer = 1
 
     Private Sub FormSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
@@ -10,19 +12,55 @@ Public Class FormSupplier
         isiGrid()
     End Sub
 
+    Sub paging()
+        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_supplier
+                                    WHERE (kd_supplier LIKE @kd_supplier OR nama LIKE @nama)"
+        Using cmdCount As New MySqlCommand(sqlCount, conn)
+            cmdCount.Parameters.AddWithValue("@kd_supplier", "%" & tbCari.Text & "%")
+            cmdCount.Parameters.AddWithValue("@nama", "%" & tbCari.Text & "%")
+            Using drCount = cmdCount.ExecuteReader
+                While drCount.Read
+                    lblTotal.Text = "Jumlah Supplier : " & drCount.Item(0)
+                    totalPage = Math.Ceiling(drCount.Item(0) / offset)
+                    lblPage.Text = page & " / " & totalPage
+                End While
+            End Using
+        End Using
+        If page >= totalPage Then
+            btnNext.Enabled = False
+        Else
+            btnNext.Enabled = True
+        End If
+        If page = 1 Then
+            btnPrev.Enabled = False
+        Else
+            btnPrev.Enabled = True
+        End If
+    End Sub
+
     Sub isiGrid()
         Try
-            Dim sql As String = "SELECT * FROM tb_supplier"
-            Dim da As New MySqlDataAdapter(sql, conn)
-            Dim ds As New DataSet()
-            If da.Fill(ds) Then
-                dgvSupplier.DataSource = ds.Tables(0)
-                dt = ds.Tables(0)
-                judulGrid()
-            Else
-                dgvSupplier.DataSource = Nothing
-            End If
-            lblTotal.Text = "Jumlah Supplier : " & dgvSupplier.RowCount
+            Dim limit As Integer = offset * (page - 1)
+            Dim sql As String = "SELECT * FROM tb_supplier
+                                WHERE (kd_supplier LIKE @kd_supplier OR nama LIKE @nama)
+                                ORDER BY kd_supplier
+                                LIMIT " & limit & ", " & offset
+            Using cmd As New MySqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@kd_supplier", "%" & tbCari.Text & "%")
+                cmd.Parameters.AddWithValue("@nama", "%" & tbCari.Text & "%")
+                Using dr = cmd.ExecuteReader
+                    If dr.HasRows Then
+                        Using dt As New DataTable
+                            dt.Load(dr)
+                            dgvSupplier.DataSource = dt
+                        End Using
+                        judulGrid()
+                    Else
+                        dgvSupplier.DataSource = Nothing
+                    End If
+                End Using
+            End Using
+            paging()
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
@@ -207,12 +245,19 @@ Public Class FormSupplier
         End If
     End Sub
 
+    Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
+        page -= 1
+        isiGrid()
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        page += 1
+        isiGrid()
+    End Sub
+
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
-        Try
-            dt.DefaultView.RowFilter = "kd_supplier LIKE '%" & tbCari.Text & "%' OR nama LIKE '%" & tbCari.Text & "%'"
-        Catch ex As Exception
-            'MsgBox(ex.Message, 16, "Error")
-        End Try
+        page = 1
+        isiGrid()
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click

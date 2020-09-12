@@ -100,4 +100,11 @@
         FormDaftarPembayaranHutang.Dock = DockStyle.Fill
         FormDaftarPembayaranHutang.Show()
     End Sub
+
+    Private Sub TransaksiPenjualanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TransaksiPenjualanToolStripMenuItem.Click
+        closeAll()
+        FormPenjualan.MdiParent = Me
+        FormPenjualan.Dock = DockStyle.Fill
+        FormPenjualan.Show()
+    End Sub
 End Class

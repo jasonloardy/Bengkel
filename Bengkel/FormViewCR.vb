@@ -17,4 +17,7 @@ Public Class FormViewCR
         End Try
     End Sub
 
+    Private Sub FormViewCR_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        cryReport.Close()
+    End Sub
 End Class

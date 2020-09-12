@@ -15,7 +15,7 @@ Public Class FormDaftarPembayaranHutang
     End Sub
 
     Sub paging()
-        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_pembayaran_hutang tbh
+        Dim sqlCount As String = "SELECT COUNT(DISTINCT tbh.kd_pembayaran_hutang) FROM tb_pembayaran_hutang tbh
                                     JOIN tb_pembayaran_hutang_detail tbhd ON tbh.kd_pembayaran_hutang = tbhd.kd_pembayaran_hutang
                                     JOIN tb_pembelian tbe ON tbhd.kd_pembelian = tbe.kd_pembelian
                                     JOIN tb_supplier ts ON tbe.kd_supplier = ts.kd_supplier
@@ -46,12 +46,12 @@ Public Class FormDaftarPembayaranHutang
     Sub isiGrid()
         Try
             Dim limit As Integer = offset * (page - 1)
-            Dim sql As String = "SELECT tbh.kd_pembayaran_hutang, DATE(tbh.tanggal), ts.nama, tbh.status FROM tb_pembayaran_hutang tbh
+            Dim sql As String = "SELECT tbh.kd_pembayaran_hutang, DATE(tbh.tanggal), GROUP_CONCAT(DISTINCT ts.nama), tbh.status FROM tb_pembayaran_hutang tbh
                                     JOIN tb_pembayaran_hutang_detail tbhd ON tbh.kd_pembayaran_hutang = tbhd.kd_pembayaran_hutang
                                     JOIN tb_pembelian tbe ON tbhd.kd_pembelian = tbe.kd_pembelian
-                                    JOIN tb_supplier ts ON tbe.kd_supplier = ts.kd_supplier
-                                    WHERE (tbh.kd_pembayaran_hutang LIKE @kd_pembayaran_hutang OR ts.nama LIKE @nama_supplier)
+                                    JOIN tb_supplier ts ON tbe.kd_supplier = ts.kd_supplier                                    
                                     GROUP BY tbh.kd_pembayaran_hutang
+                                    HAVING (tbh.kd_pembayaran_hutang LIKE @kd_pembayaran_hutang OR GROUP_CONCAT(DISTINCT ts.nama) LIKE @nama_supplier)
                                     ORDER BY tbh.tanggal DESC
                                     LIMIT " & limit & ", " & offset
             Using cmd As New MySqlCommand(sql, conn)
