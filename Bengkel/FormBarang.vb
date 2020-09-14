@@ -538,6 +538,7 @@ Public Class FormBarang
                 FormPenjualan.tbSatuan.Text = .Item(2, baris).Value
                 FormPenjualan.tbHargaJual.Text = FormatCurrency(.Item(4, baris).Value)
                 FormPenjualan.tbIsi.Text = .Item(9, baris).Value
+                FormPenjualan.tbHargaBeli.Text = .Item(3, baris).Value
             End With
             Me.Close()
         End If

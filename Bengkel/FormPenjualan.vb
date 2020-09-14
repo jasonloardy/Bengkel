@@ -184,6 +184,7 @@ Public Class FormPenjualan
                         .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
                         .Rows.Item(baris).Cells(6).Value = tbIsi.Text
                         .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
+                        .Rows.Item(baris).Cells(8).Value = FormatCurrency(tbHargaBeli.Text)
                     End With
                     clearInput()
                 End If
@@ -291,10 +292,10 @@ Public Class FormPenjualan
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
             If queryPending(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
-                Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     If queryPendingDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                         'Update harga beli barang
                     Else
                         trans.Rollback()
@@ -323,10 +324,10 @@ Public Class FormPenjualan
             If query(sqlDelete) Then
                 Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
                 If queryPending(sql, tbKodePending.Text, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
-                    Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                    Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                     For i As Integer = 0 To dgvKeranjang.RowCount - 1
                         If queryPendingDetail(sqlDetail, tbKodePending.Text, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                                dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                                                dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                             'Update harga beli barang
                         Else
                             trans.Rollback()
@@ -384,7 +385,7 @@ Public Class FormPenjualan
         Try
             Dim sql As String = "SELECT tpd.kd_barang kd_barang, tb.nama_barang nama_barang, tpd.kd_satuan kd_satuan,
                                     tpd.qty qty, tpd.harga_jual harga_jual, tpd.diskon diskon, tpd.unit unit,
-                                    tpd.qty*tpd.harga_jual*(100-tpd.diskon)/100 total
+                                    tpd.qty*tpd.harga_jual*(100-tpd.diskon)/100 total, tpd.harga_beli harga_beli
                                  FROM tb_pending_detail tpd
                                  JOIN tb_barang tb ON tpd.kd_barang = tb.kd_barang
                                  WHERE tpd.kd_pending = '" & tbKodePending.Text & "'"
@@ -402,6 +403,7 @@ Public Class FormPenjualan
                                 .Rows.Item(baris).Cells(5).Value = Val(dr.Item("diskon").ToString)
                                 .Rows.Item(baris).Cells(6).Value = dr.Item("unit").ToString
                                 .Rows.Item(baris).Cells(7).Value = FormatCurrency(dr.Item("total").ToString)
+                                .Rows.Item(baris).Cells(8).Value = FormatCurrency(dr.Item("harga_beli").ToString)
                             End With
                         End While
                     End If
@@ -430,10 +432,10 @@ Public Class FormPenjualan
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_penjualan VALUES (@kd_penjualan, NOW(), @kd_pelanggan, @diskon, @bayar, @kembali, '1');"
             If queryPenjualan(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text), tbBayar.Text, tbKembalian.Text) Then
-                Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     If queryPenjualanDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value * dgvKeranjang.Rows(i).Cells(3).Value) Then
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value * dgvKeranjang.Rows(i).Cells(3).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                         'Update harga beli barang
                     Else
                         trans.Rollback()

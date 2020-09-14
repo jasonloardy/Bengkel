@@ -311,7 +311,7 @@ Module ModuleDB
 
     Function queryPendingDetail(ByVal query As String, ByVal kd_pending As String, ByVal kd_barang As String,
                                   ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
-                                  ByVal diskon As Decimal, ByVal unit As Integer)
+                                  ByVal diskon As Decimal, ByVal unit As Integer, ByVal harga_beli As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -322,6 +322,7 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@harga_jual", harga_jual)
                 cmd.Parameters.AddWithValue("@diskon", diskon)
                 cmd.Parameters.AddWithValue("@unit", unit)
+                cmd.Parameters.AddWithValue("@harga_beli", harga_beli)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using
@@ -354,7 +355,7 @@ Module ModuleDB
 
     Function queryPenjualanDetail(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_barang As String,
                                   ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
-                                  ByVal diskon As Decimal, ByVal unit As Integer)
+                                  ByVal diskon As Decimal, ByVal unit As Integer, ByVal harga_beli As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -365,6 +366,7 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@harga_jual", harga_jual)
                 cmd.Parameters.AddWithValue("@diskon", diskon)
                 cmd.Parameters.AddWithValue("@unit", unit)
+                cmd.Parameters.AddWithValue("@harga_beli", harga_beli)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using

@@ -22,7 +22,7 @@ Partial Class FormPenjualan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.gbBarang = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -72,6 +72,10 @@ Partial Class FormPenjualan
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.dgvKeranjang = New System.Windows.Forms.DataGridView()
+        Me.btnPending = New System.Windows.Forms.Button()
+        Me.tbKodePending = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBaru = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -80,10 +84,8 @@ Partial Class FormPenjualan
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnPending = New System.Windows.Forms.Button()
-        Me.tbKodePending = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnBaru = New System.Windows.Forms.Button()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbHargaBeli = New System.Windows.Forms.TextBox()
         Me.gbBarang.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -543,6 +545,7 @@ Partial Class FormPenjualan
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.tbHargaBeli)
         Me.GroupBox3.Controls.Add(Me.lblTotal)
         Me.GroupBox3.Location = New System.Drawing.Point(647, 12)
         Me.GroupBox3.Name = "GroupBox3"
@@ -567,19 +570,57 @@ Partial Class FormPenjualan
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvKeranjang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvKeranjang.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
+        Me.dgvKeranjang.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
         Me.dgvKeranjang.Location = New System.Drawing.Point(12, 219)
         Me.dgvKeranjang.Name = "dgvKeranjang"
         Me.dgvKeranjang.ReadOnly = True
         Me.dgvKeranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvKeranjang.Size = New System.Drawing.Size(1160, 197)
         Me.dgvKeranjang.TabIndex = 37
+        '
+        'btnPending
+        '
+        Me.btnPending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnPending.Location = New System.Drawing.Point(12, 526)
+        Me.btnPending.Name = "btnPending"
+        Me.btnPending.Size = New System.Drawing.Size(75, 23)
+        Me.btnPending.TabIndex = 52
+        Me.btnPending.Text = "Pending"
+        Me.btnPending.UseVisualStyleBackColor = True
+        '
+        'tbKodePending
+        '
+        Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
+        Me.tbKodePending.Name = "tbKodePending"
+        Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
+        Me.tbKodePending.TabIndex = 53
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(93, 526)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 23)
+        Me.Button1.TabIndex = 54
+        Me.Button1.Text = "List Pending"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnBaru
+        '
+        Me.btnBaru.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBaru.Location = New System.Drawing.Point(935, 526)
+        Me.btnBaru.Name = "btnBaru"
+        Me.btnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.btnBaru.TabIndex = 55
+        Me.btnBaru.Text = "Baru"
+        Me.btnBaru.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -630,43 +671,19 @@ Partial Class FormPenjualan
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         '
-        'btnPending
+        'Column9
         '
-        Me.btnPending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPending.Location = New System.Drawing.Point(12, 526)
-        Me.btnPending.Name = "btnPending"
-        Me.btnPending.Size = New System.Drawing.Size(75, 23)
-        Me.btnPending.TabIndex = 52
-        Me.btnPending.Text = "Pending"
-        Me.btnPending.UseVisualStyleBackColor = True
+        Me.Column9.HeaderText = "Harga Beli"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
         '
-        'tbKodePending
+        'tbHargaBeli
         '
-        Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
-        Me.tbKodePending.Name = "tbKodePending"
-        Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodePending.TabIndex = 53
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(93, 526)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 23)
-        Me.Button1.TabIndex = 54
-        Me.Button1.Text = "List Pending"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnBaru
-        '
-        Me.btnBaru.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBaru.Location = New System.Drawing.Point(935, 526)
-        Me.btnBaru.Name = "btnBaru"
-        Me.btnBaru.Size = New System.Drawing.Size(75, 23)
-        Me.btnBaru.TabIndex = 55
-        Me.btnBaru.Text = "Baru"
-        Me.btnBaru.UseVisualStyleBackColor = True
+        Me.tbHargaBeli.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbHargaBeli.Location = New System.Drawing.Point(6, 107)
+        Me.tbHargaBeli.Name = "tbHargaBeli"
+        Me.tbHargaBeli.Size = New System.Drawing.Size(125, 20)
+        Me.tbHargaBeli.TabIndex = 39
         '
         'FormPenjualan
         '
@@ -704,6 +721,7 @@ Partial Class FormPenjualan
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.dgvKeranjang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -758,6 +776,11 @@ Partial Class FormPenjualan
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents lblTotal As Label
     Friend WithEvents dgvKeranjang As DataGridView
+    Friend WithEvents btnPending As Button
+    Friend WithEvents tbKatPlg As TextBox
+    Friend WithEvents tbKodePending As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnBaru As Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -766,9 +789,6 @@ Partial Class FormPenjualan
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents btnPending As Button
-    Friend WithEvents tbKatPlg As TextBox
-    Friend WithEvents tbKodePending As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents btnBaru As Button
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents tbHargaBeli As TextBox
 End Class
