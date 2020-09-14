@@ -167,8 +167,6 @@ Public Class FormDaftarHutang
     End Sub
 
     Private Sub dgvSupplier_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSupplier.CellClick
-        If e.RowIndex > -1 Then
-            isiGridTrx(dgvSupplier.Item(0, e.RowIndex).Value)
-        End If
+
     End Sub
 End Class

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-14 19:35:33
+Date: 2020-09-14 23:29:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,31 +34,31 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 -- Records of tb_barang
 -- ----------------------------
-INSERT INTO `tb_barang` VALUES ('1', 'HELEM', '121892', '100000', '90000', '80000', '627', 'A');
-INSERT INTO `tb_barang` VALUES ('123123', 'BUSI YAMAHA', '335', '25000', '20000', '17000', '646', 'A');
-INSERT INTO `tb_barang` VALUES ('12312312', 'OLI YAMALUBE', null, '41000', '35000', '34000', '883', 'A');
-INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '90', '700000', '650000', '600000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '90', '350000', '300000', '250000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000003', 'BEHEL NMAX', '90', '150000', '140000', '130000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000004', 'BEHEL MIO Z ', '90', '100000', '90000', '80000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000005', 'KNALPOT ORI MIO Z', '90', '600000', '580000', '560000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000009', 'SPION MURAH', '98000', '20000', '18000', '15000', '829', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000010', 'SPION MAHAL', '0', '30000', '28000', '25000', '659', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000011', 'TEST 11', '32333', '150', '140', '130', '783', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000012', 'TES 12', '97020', '150', '140', '130', '668', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000013', 'TESTING', '8634', '150', '140', '130', '2146', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000017', 'ASD', '90', '123', '123', '345', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000018', 'LAMPU REM X-RIDE', '90', '150000', '140000', '130000', '670', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000019', 'HELM KYT', '90', '150000', '140000', '130000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000020', 'HELM BOGO', '90', '175000', '170000', '165000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000021', 'HELM KIWI', '10', '20000', '15000', '12000', '706', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000022', 'BAUT', '7350', '15000', '4000', '8000', '778', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000023', 'KLEP MIO Z', '90', '200000', '180000', '170000', '658', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000024', 'KLEP SOUL GT', '89638', '200000', '180000', '150000', '766', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000025', 'TEST', '10000', '12000', '11000', '10500', '676', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000026', 'OLI', '99000', '20000', '15000', '13000', '457', 'A');
-INSERT INTO `tb_barang` VALUES ('nmax20', 'KNALPOT NMAX', '229', '700000', '600000', '550000', '636', 'A');
+INSERT INTO `tb_barang` VALUES ('1', 'HELEM', '121892', '100000', '90000', '80000', '555', 'A');
+INSERT INTO `tb_barang` VALUES ('123123', 'BUSI YAMAHA', '335', '25000', '20000', '17000', '580', 'A');
+INSERT INTO `tb_barang` VALUES ('12312312', 'OLI YAMALUBE', null, '41000', '35000', '34000', '822', 'A');
+INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '578', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '90', '700000', '650000', '600000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '90', '350000', '300000', '250000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000003', 'BEHEL NMAX', '90', '150000', '140000', '130000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000004', 'BEHEL MIO Z ', '90', '100000', '90000', '80000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000005', 'KNALPOT ORI MIO Z', '90', '600000', '580000', '560000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000009', 'SPION MURAH', '98000', '20000', '18000', '15000', '768', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000010', 'SPION MAHAL', '0', '30000', '28000', '25000', '598', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000011', 'TEST 11', '32333', '150', '140', '130', '722', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000012', 'TES 12', '97020', '150', '140', '130', '607', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000013', 'TESTING', '8634', '150', '140', '130', '2085', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000017', 'ASD', '90', '123', '123', '345', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000018', 'LAMPU REM X-RIDE', '90', '150000', '140000', '130000', '609', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000019', 'HELM KYT', '90', '150000', '140000', '130000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000020', 'HELM BOGO', '90', '175000', '170000', '165000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000021', 'HELM KIWI', '10', '20000', '15000', '12000', '645', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000022', 'BAUT', '7350', '15000', '4000', '8000', '717', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000023', 'KLEP MIO Z', '90', '200000', '180000', '170000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000024', 'KLEP SOUL GT', '89638', '200000', '180000', '150000', '705', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000025', 'TEST', '10000', '12000', '11000', '10500', '615', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000026', 'OLI', '99000', '20000', '15000', '13000', '396', 'A');
+INSERT INTO `tb_barang` VALUES ('nmax20', 'KNALPOT NMAX', '229', '700000', '600000', '550000', '575', 'A');
 
 -- ----------------------------
 -- Table structure for `tb_barang_history`
@@ -183,6 +183,20 @@ INSERT INTO `tb_barang_history` VALUES ('13123213', '0047/PB//0920', '2020-09-12
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0048/PB//0920', '2020-09-14 18:23:34', '8085', '120', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0049/PB//0920', '2020-09-14 19:22:58', '6250', '144', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0050/PB//0920', '2020-09-14 19:24:51', '8167', '60', '0');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0002/PJ//0920', '2020-09-14 23:16:10', '0', '0', '8');
+INSERT INTO `tb_barang_history` VALUES ('1', '0002/PJ//0920', '2020-09-14 23:16:10', '0', '0', '27');
+INSERT INTO `tb_barang_history` VALUES ('1', '0003/PJ//0920', '2020-09-14 23:16:44', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0003/PJ//0920', '2020-09-14 23:16:44', '0', '0', '3');
+INSERT INTO `tb_barang_history` VALUES ('1', '0004/PJ//0920', '2020-09-14 23:17:48', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('1', '0005/PJ//0920', '2020-09-14 23:18:11', '0', '0', '6');
+INSERT INTO `tb_barang_history` VALUES ('123123', '0005/PJ//0920', '2020-09-14 23:18:11', '0', '0', '5');
+INSERT INTO `tb_barang_history` VALUES ('1', '0006/PJ//0920', '2020-09-14 23:18:54', '0', '0', '5');
+INSERT INTO `tb_barang_history` VALUES ('123123', '0006/PJ//0920', '2020-09-14 23:18:54', '0', '0', '4');
+INSERT INTO `tb_barang_history` VALUES ('1', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '6');
+INSERT INTO `tb_barang_history` VALUES ('123123', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '5');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '7');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0008/PJ//0920', '2020-09-14 23:25:25', '0', '0', '12');
+INSERT INTO `tb_barang_history` VALUES ('1', '0009/PJ//0920', '2020-09-14 23:28:59', '0', '0', '5');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -252,6 +266,7 @@ CREATE TABLE `tb_pelanggan` (
 -- ----------------------------
 INSERT INTO `tb_pelanggan` VALUES ('PL000001', 'JASON', 'BARONANG', '12345678901', 'U');
 INSERT INTO `tb_pelanggan` VALUES ('PL000003', 'IRFAN', 'BANTAENG', '666', 'P');
+INSERT INTO `tb_pelanggan` VALUES ('PL000004', 'ERIKA', 'SERIGALA', '123123', 'U');
 
 -- ----------------------------
 -- Table structure for `tb_pembayaran_hutang`
@@ -526,7 +541,7 @@ INSERT INTO `tb_pembelian_detail` VALUES ('0050/PB//0920', '13123213', 'LSN', '5
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_pending`;
 CREATE TABLE `tb_pending` (
-  `kd_pending` int(8) NOT NULL,
+  `kd_pending` varchar(10) NOT NULL,
   `tanggal` datetime DEFAULT NULL,
   `kd_pelanggan` varchar(8) DEFAULT NULL,
   `diskon` decimal(5,2) DEFAULT NULL,
@@ -542,17 +557,17 @@ CREATE TABLE `tb_pending` (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_pending_detail`;
 CREATE TABLE `tb_pending_detail` (
-  `kd_pending` int(8) DEFAULT NULL,
+  `kd_pending` varchar(10) DEFAULT NULL,
   `kd_barang` varchar(16) DEFAULT NULL,
   `kd_satuan` varchar(8) DEFAULT NULL,
   `qty` int(9) DEFAULT NULL,
-  `harga_beli` int(9) DEFAULT NULL,
+  `harga_jual` int(9) DEFAULT NULL,
   `diskon` decimal(5,0) DEFAULT NULL,
   `unit` int(9) DEFAULT NULL,
-  KEY `kd_pending` (`kd_pending`),
   KEY `kd_barang` (`kd_barang`),
-  CONSTRAINT `tb_pending_detail_ibfk_1` FOREIGN KEY (`kd_pending`) REFERENCES `tb_pending` (`kd_pending`) ON UPDATE CASCADE,
-  CONSTRAINT `tb_pending_detail_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE
+  KEY `kd_pending` (`kd_pending`),
+  CONSTRAINT `tb_pending_detail_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE,
+  CONSTRAINT `tb_pending_detail_ibfk_3` FOREIGN KEY (`kd_pending`) REFERENCES `tb_pending` (`kd_pending`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
@@ -564,7 +579,7 @@ CREATE TABLE `tb_pending_detail` (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_penjualan`;
 CREATE TABLE `tb_penjualan` (
-  `kd_penjualan` int(8) NOT NULL,
+  `kd_penjualan` varchar(32) NOT NULL,
   `tanggal` datetime DEFAULT NULL,
   `kd_pelanggan` varchar(8) DEFAULT NULL,
   `diskon` decimal(5,2) DEFAULT NULL,
@@ -577,28 +592,52 @@ CREATE TABLE `tb_penjualan` (
 -- ----------------------------
 -- Records of tb_penjualan
 -- ----------------------------
+INSERT INTO `tb_penjualan` VALUES ('0001/PJ//0920', '2020-09-14 23:02:53', 'PL000003', '5.00', '0', '128250', '1');
+INSERT INTO `tb_penjualan` VALUES ('0002/PJ//0920', '2020-09-14 23:16:10', 'PL000001', '2.00', '0', '2642080', '1');
+INSERT INTO `tb_penjualan` VALUES ('0003/PJ//0920', '2020-09-14 23:16:44', 'PL000004', '0.00', '0', '305000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0004/PJ//0920', '2020-09-14 23:17:48', 'PL000001', '0.00', '0', '100000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0005/PJ//0920', '2020-09-14 23:18:11', 'PL000001', '0.00', '0', '725000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0006/PJ//0920', '2020-09-14 23:18:54', 'PL000003', '0.00', '0', '468000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0007/PJ//0920', '2020-09-14 23:21:44', 'PL000003', '0.00', '0', '754000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0008/PJ//0920', '2020-09-14 23:25:25', 'PL000004', '0.00', '400000', '-20000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0009/PJ//0920', '2020-09-14 23:28:59', 'PL000003', '0.00', '5', '-395995', '1');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan_detail`
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_penjualan_detail`;
 CREATE TABLE `tb_penjualan_detail` (
-  `kd_penjualan` int(8) DEFAULT NULL,
+  `kd_penjualan` varchar(32) DEFAULT NULL,
   `kd_barang` varchar(16) DEFAULT NULL,
   `kd_satuan` varchar(8) DEFAULT NULL,
   `qty` int(9) DEFAULT NULL,
-  `harga_beli` int(9) DEFAULT NULL,
+  `harga_jual` int(9) DEFAULT NULL,
   `diskon` decimal(5,0) DEFAULT NULL,
   `unit` int(9) DEFAULT NULL,
   KEY `kd_pending` (`kd_penjualan`),
   KEY `kd_barang` (`kd_barang`),
-  CONSTRAINT `tb_penjualan_detail_ibfk_1` FOREIGN KEY (`kd_penjualan`) REFERENCES `tb_penjualan` (`kd_penjualan`) ON UPDATE CASCADE,
-  CONSTRAINT `tb_penjualan_detail_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE
+  CONSTRAINT `tb_penjualan_detail_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE,
+  CONSTRAINT `tb_penjualan_detail_ibfk_3` FOREIGN KEY (`kd_penjualan`) REFERENCES `tb_penjualan` (`kd_penjualan`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_penjualan_detail
 -- ----------------------------
+INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', '13123213', 'PCS', '5', '27000', '0', '5');
+INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '13123213', 'PCS', '8', '35000', '5', '8');
+INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '1', 'PCS', '27', '100000', '10', '27');
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '1', 'PCS', '2', '100000', '0', '2');
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '13123213', 'PCS', '3', '35000', '0', '3');
+INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ//0920', '1', 'PCS', '1', '100000', '0', '1');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '1', 'PCS', '6', '100000', '0', '6');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '123123', 'PCS', '5', '25000', '0', '5');
+INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '1', 'PCS', '5', '80000', '0', '5');
+INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '123123', 'PCS', '4', '17000', '0', '4');
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '1', 'PCS', '6', '80000', '0', '6');
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '123123', 'PCS', '5', '17000', '0', '5');
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '13123213', 'PCS', '7', '27000', '0', '7');
+INSERT INTO `tb_penjualan_detail` VALUES ('0008/PJ//0920', '13123213', 'LSN', '1', '420000', '0', '12');
+INSERT INTO `tb_penjualan_detail` VALUES ('0009/PJ//0920', '1', 'PCS', '5', '80000', '1', '5');
 
 -- ----------------------------
 -- Table structure for `tb_satuan`
@@ -659,9 +698,9 @@ INSERT INTO `tb_user` VALUES ('userku', 'passku', 'NAMA KU', 'A', 'N');
 DROP TRIGGER IF EXISTS `sesuaikan stok`;
 DELIMITER ;;
 CREATE TRIGGER `sesuaikan stok` AFTER INSERT ON `tb_barang_history` FOR EACH ROW IF (NEW.stok_masuk <> 0) THEN
-UPDATE tb_barang SET stok = stok + NEW.stok_masuk;
+UPDATE tb_barang SET stok = stok + NEW.stok_masuk WHERE kd_barang = NEW.kd_barang;
 ELSEIF (NEW.stok_keluar <> 0) THEN
-UPDATE tb_barang SET stok = stok - NEW.stok_keluar;
+UPDATE tb_barang SET stok = stok - NEW.stok_keluar WHERE kd_barang = NEW.kd_barang;
 END IF
 ;;
 DELIMITER ;
@@ -697,7 +736,7 @@ JOIN tb_pembelian_detail tpd ON tb.kd_barang = tpd.kd_barang
 SET tb.harga_beli = (SELECT harga_beli
                                     FROM tb_barang_history tbh
                                     LEFT JOIN tb_pembelian tp ON tbh.kd_transaksi = tp.kd_pembelian
-                                    WHERE kd_barang = tb.kd_barang and (status = '1' or status IS NULL)
+                                    WHERE kd_barang = tb.kd_barang AND (status = '1' or status IS NULL) AND MID(kd_transaksi, 6, 2) = 'PB'
                                     ORDER BY tbh.tanggal DESC
                                     LIMIT 1)
 WHERE tpd.kd_pembelian = NEW.kd_pembelian;
@@ -718,5 +757,11 @@ CREATE TRIGGER `tambah ke tabel history` AFTER INSERT ON `tb_pembelian_detail` F
 VALUES (NEW.kd_barang, NEW.kd_pembelian, NOW(),
 NEW.qty*NEW.harga_beli*(100-NEW.diskon)/100/NEW.unit*(100-(SELECT diskon FROM tb_pembelian WHERE kd_pembelian = NEW.kd_pembelian))/100,
 NEW.unit, 0)
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `tambah tabel history`;
+DELIMITER ;;
+CREATE TRIGGER `tambah tabel history` AFTER INSERT ON `tb_penjualan_detail` FOR EACH ROW INSERT INTO tb_barang_history
+VALUES (NEW.kd_barang, NEW.kd_penjualan, NOW(), 0, 0, NEW.unit)
 ;;
 DELIMITER ;

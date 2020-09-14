@@ -22,7 +22,7 @@ Partial Class FormPenjualan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.gbBarang = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -81,6 +81,9 @@ Partial Class FormPenjualan
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnPending = New System.Windows.Forms.Button()
+        Me.tbKodePending = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBaru = New System.Windows.Forms.Button()
         Me.gbBarang.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -564,8 +567,8 @@ Partial Class FormPenjualan
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -637,11 +640,42 @@ Partial Class FormPenjualan
         Me.btnPending.Text = "Pending"
         Me.btnPending.UseVisualStyleBackColor = True
         '
+        'tbKodePending
+        '
+        Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
+        Me.tbKodePending.Name = "tbKodePending"
+        Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
+        Me.tbKodePending.TabIndex = 53
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(93, 526)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 23)
+        Me.Button1.TabIndex = 54
+        Me.Button1.Text = "List Pending"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnBaru
+        '
+        Me.btnBaru.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBaru.Location = New System.Drawing.Point(935, 526)
+        Me.btnBaru.Name = "btnBaru"
+        Me.btnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.btnBaru.TabIndex = 55
+        Me.btnBaru.Text = "Baru"
+        Me.btnBaru.UseVisualStyleBackColor = True
+        '
         'FormPenjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.Controls.Add(Me.btnBaru)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.tbKodePending)
         Me.Controls.Add(Me.btnPending)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.gbBarang)
@@ -734,4 +768,7 @@ Partial Class FormPenjualan
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents btnPending As Button
     Friend WithEvents tbKatPlg As TextBox
+    Friend WithEvents tbKodePending As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnBaru As Button
 End Class

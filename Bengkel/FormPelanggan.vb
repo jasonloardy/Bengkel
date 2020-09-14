@@ -204,18 +204,33 @@ Public Class FormPelanggan
         reset()
     End Sub
 
+    Sub isiPelanggan()
+        FormPenjualan.reset()
+        Dim baris As Integer
+        With dgvPelanggan
+            baris = .CurrentRow.Index
+            FormPenjualan.tbKodePlg.Text = .Item(0, baris).Value
+            FormPenjualan.tbNamaPlg.Text = .Item(1, baris).Value
+            FormPenjualan.tbAlamat.Text = .Item(2, baris).Value
+            FormPenjualan.tbNoTelepon.Text = .Item(3, baris).Value
+            FormPenjualan.tbKatPlg.Text = .Item(4, baris).Value(0)
+        End With
+        Me.Close()
+    End Sub
+
     Private Sub dgvPelanggan_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPelanggan.CellDoubleClick
-        If from = "penjualan" Then
-            Dim baris As Integer
-            With dgvPelanggan
-                baris = .CurrentRow.Index
-                FormPenjualan.tbKodePlg.Text = .Item(0, baris).Value
-                FormPenjualan.tbNamaPlg.Text = .Item(1, baris).Value
-                FormPenjualan.tbAlamat.Text = .Item(2, baris).Value
-                FormPenjualan.tbNoTelepon.Text = .Item(3, baris).Value
-                FormPenjualan.tbKatPlg.Text = .Item(4, baris).Value(0)
-            End With
-            Me.Close()
+        If FormPenjualan.tbKodePlg.Text <> "" Then
+            If FormPenjualan.tbKatPlg.Text = dgvPelanggan.Item(4, dgvPelanggan.CurrentRow.Index).Value(0) Then
+                Me.Close()
+            Else
+                Dim pilih As Integer
+                pilih = MsgBox("Kategori Pelanggan Berbeda (Keranjang akan di-Reset). Lanjutkan?", 48 + 4 + 256, "Konfirmasi")
+                If pilih = 6 Then
+                    isiPelanggan()
+                End If
+            End If
+        Else
+            isiPelanggan()
         End If
     End Sub
 

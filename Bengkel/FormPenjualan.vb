@@ -73,11 +73,13 @@ Public Class FormPenjualan
     End Sub
     Sub reset()
         dtpTanggal.Value = Date.Now
+        tbKodePending.Clear()
         tbKodePembelian.Text = kode_penjualan()
         tbKodePlg.Clear()
         tbNamaPlg.Clear()
         tbAlamat.Clear()
         tbNoTelepon.Clear()
+        tbKatPlg.Clear()
         lblTotal.Text = FormatCurrency(0)
         gbBarang.Enabled = False
         clearInput()
@@ -91,6 +93,8 @@ Public Class FormPenjualan
         tbDiskonAll.Text = 0
         tbPotongan.Text = FormatCurrency(0)
         tbBayar.Text = 0
+        hitungTotal()
+        btnBatal.Enabled = False
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
@@ -121,7 +125,23 @@ Public Class FormPenjualan
     End Sub
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
-        reset()
+        Try
+            Dim pilih As Integer
+            pilih = MsgBox("Yakin Batalkan Transaksi?", 48 + 4 + 256, "Konfirmasi")
+            If pilih = 6 Then
+                trans = conn.BeginTransaction
+                If query("DELETE FROM tb_pending_detail WHERE kd_pending = '" & tbKodePending.Text & "';
+                       DELETE FROM tb_pending WHERE kd_pending = '" & tbKodePending.Text & "'") Then
+                    trans.Commit()
+                    reset()
+                Else
+                    trans.Rollback()
+                End If
+            End If
+        Catch ex As Exception
+            trans.Rollback()
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 
     Sub totalBarang()
@@ -162,7 +182,7 @@ Public Class FormPenjualan
                         .Rows.Item(baris).Cells(3).Value = tbQty.Text
                         .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
                         .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
-                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text * tbQty.Text
+                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text
                         .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
                     End With
                     clearInput()
@@ -185,7 +205,7 @@ Public Class FormPenjualan
         Try
             Dim total = CDec(lblTotal.Text)
             Dim bayar = Val(tbBayar.Text.Replace(".", ""))
-            Dim kembalian = total - bayar
+            Dim kembalian = bayar - total
             tbKembalian.Text = FormatCurrency(kembalian)
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
@@ -265,12 +285,201 @@ Public Class FormPenjualan
         End Try
     End Sub
 
+    Sub querySimpanPending()
+        Try
+            Dim kode As String = DateTime.Now.ToString("MMddHHmmss")
+            trans = conn.BeginTransaction
+            Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
+            If queryPending(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
+                Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                For i As Integer = 0 To dgvKeranjang.RowCount - 1
+                    If queryPendingDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                        'Update harga beli barang
+                    Else
+                        trans.Rollback()
+                        Exit Sub
+                    End If
+                Next
+                trans.Commit()
+                MsgBox("Transaksi Berhasil di-Pending!", MsgBoxStyle.Information, "Informasi")
+                dgvKeranjang.Rows.Clear()
+                reset()
+            Else
+                trans.Rollback()
+                Exit Sub
+            End If
+        Catch ex As Exception
+            trans.Rollback()
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub queryUpdatePending()
+        Try
+            trans = conn.BeginTransaction
+            Dim sqlDelete As String = "DELETE FROM tb_pending_detail WHERE kd_pending = '" & tbKodePending.Text & "';
+                                       DELETE FROM tb_pending WHERE kd_pending = '" & tbKodePending.Text & "';"
+            If query(sqlDelete) Then
+                Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
+                If queryPending(sql, tbKodePending.Text, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
+                    Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                    For i As Integer = 0 To dgvKeranjang.RowCount - 1
+                        If queryPendingDetail(sqlDetail, tbKodePending.Text, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                                                dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                            'Update harga beli barang
+                        Else
+                            trans.Rollback()
+                            Exit Sub
+                        End If
+                    Next
+                    trans.Commit()
+                    MsgBox("Transaksi Berhasil di-Pending!", MsgBoxStyle.Information, "Informasi")
+                    dgvKeranjang.Rows.Clear()
+                    reset()
+                Else
+                    trans.Rollback()
+                    Exit Sub
+                End If
+            Else
+                trans.Rollback()
+                Exit Sub
+            End If
+        Catch ex As Exception
+            trans.Rollback()
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Private Sub btnPending_Click(sender As Object, e As EventArgs) Handles btnPending.Click
         Dim pilih As Integer
-        pilih = MsgBox("Pending Transaksi Pembelian ?", 48 + 4 + 256, "Konfirmasi")
+        pilih = MsgBox("Pending Transaksi Penjualan ?", 48 + 4 + 256, "Konfirmasi")
         If pilih = 6 Then
             If dgvKeranjang.RowCount > 0 Then
-                'querySimpan()
+                If tbKodePending.Text <> "" Then
+                    queryUpdatePending()
+                Else
+                    querySimpanPending()
+                End If
+            Else
+                MsgBox("Barang yang dimasukkan belum ada!", 16, "Error")
+            End If
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        FormListPending.ShowDialog()
+    End Sub
+
+    Private Sub tbKodePending_TextChanged(sender As Object, e As EventArgs) Handles tbKodePending.TextChanged
+        If tbKodePending.Text = "" Then
+            btnBatal.Enabled = False
+        Else
+            isiGridPending()
+            btnBatal.Enabled = True
+        End If
+    End Sub
+
+    Sub isiGridPending()
+        Try
+            Dim sql As String = "SELECT tpd.kd_barang kd_barang, tb.nama_barang nama_barang, tpd.kd_satuan kd_satuan,
+                                    tpd.qty qty, tpd.harga_jual harga_jual, tpd.diskon diskon, tpd.unit unit,
+                                    tpd.qty*tpd.harga_jual*(100-tpd.diskon)/100 total
+                                 FROM tb_pending_detail tpd
+                                 JOIN tb_barang tb ON tpd.kd_barang = tb.kd_barang
+                                 WHERE tpd.kd_pending = '" & tbKodePending.Text & "'"
+            Using cmd As New MySqlCommand(sql, conn)
+                Using dr = cmd.ExecuteReader
+                    If dr.HasRows Then
+                        While dr.Read
+                            With dgvKeranjang
+                                Dim baris As Integer = .Rows.Add()
+                                .Rows.Item(baris).Cells(0).Value = dr.Item("kd_barang").ToString
+                                .Rows.Item(baris).Cells(1).Value = dr.Item("nama_barang").ToString
+                                .Rows.Item(baris).Cells(2).Value = dr.Item("kd_satuan").ToString
+                                .Rows.Item(baris).Cells(3).Value = dr.Item("qty").ToString
+                                .Rows.Item(baris).Cells(4).Value = FormatCurrency(dr.Item("harga_jual").ToString)
+                                .Rows.Item(baris).Cells(5).Value = Val(dr.Item("diskon").ToString)
+                                .Rows.Item(baris).Cells(6).Value = dr.Item("unit").ToString
+                                .Rows.Item(baris).Cells(7).Value = FormatCurrency(dr.Item("total").ToString)
+                            End With
+                        End While
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnBaru_Click(sender As Object, e As EventArgs) Handles btnBaru.Click
+        Try
+            Dim pilih As Integer
+            pilih = MsgBox("Buat Transaksi Baru?", 48 + 4 + 256, "Konfirmasi")
+            If pilih = 6 Then
+                reset()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub querySimpan()
+        Try
+            Dim kode As String = kode_penjualan()
+            trans = conn.BeginTransaction
+            Dim sql As String = "INSERT INTO tb_penjualan VALUES (@kd_penjualan, NOW(), @kd_pelanggan, @diskon, @bayar, @kembali, '1');"
+            If queryPenjualan(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text), tbBayar.Text, tbKembalian.Text) Then
+                Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit);"
+                For i As Integer = 0 To dgvKeranjang.RowCount - 1
+                    If queryPenjualanDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value * dgvKeranjang.Rows(i).Cells(3).Value) Then
+                        'Update harga beli barang
+                    Else
+                        trans.Rollback()
+                        Exit Sub
+                    End If
+                Next
+                trans.Commit()
+                MsgBox("Transaksi Berhasil di-Simpan!", MsgBoxStyle.Information, "Informasi")
+                dgvKeranjang.Rows.Clear()
+                reset()
+            Else
+                trans.Rollback()
+                Exit Sub
+            End If
+        Catch ex As Exception
+            trans.Rollback()
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
+        Dim pilih As Integer
+
+        If tbKembalian.Text < 0 Then
+            pilih = MsgBox("Nominal bayar kurang, transaksi akan terhitung Kredit. Lanjutkan ?", 48 + 4 + 256, "Konfirmasi")
+        Else
+            pilih = MsgBox("Simpan Transaksi Penjualan ?", 48 + 4 + 256, "Konfirmasi")
+        End If
+        'pilih = MsgBox("Simpan Transaksi Penjualan ?", 48 + 4 + 256, "Konfirmasi")
+        If pilih = 6 Then
+            If dgvKeranjang.RowCount > 0 Then
+                If tbKodePending.Text <> "" Then
+                    'delete dlu baru simpan
+                    trans = conn.BeginTransaction
+                    If query("DELETE FROM tb_pending_detail WHERE kd_pending = '" & tbKodePending.Text & "';
+                       DELETE FROM tb_pending WHERE kd_pending = '" & tbKodePending.Text & "'") Then
+                        trans.Commit()
+                        querySimpan()
+                        reset()
+                    Else
+                        trans.Rollback()
+                    End If
+                Else
+                    'langsung simpan
+                    querySimpan()
+                End If
             Else
                 MsgBox("Barang yang dimasukkan belum ada!", 16, "Error")
             End If

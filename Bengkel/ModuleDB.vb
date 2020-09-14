@@ -292,6 +292,89 @@ Module ModuleDB
         End Try
     End Function
 
+    Function queryPending(ByVal query As String, ByVal kd_pending As String, ByVal kd_pelanggan As String, ByVal diskon As Decimal)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pending", kd_pending)
+                cmd.Parameters.AddWithValue("@kd_pelanggan", kd_pelanggan)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function queryPendingDetail(ByVal query As String, ByVal kd_pending As String, ByVal kd_barang As String,
+                                  ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
+                                  ByVal diskon As Decimal, ByVal unit As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pending", kd_pending)
+                cmd.Parameters.AddWithValue("@kd_barang", kd_barang)
+                cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
+                cmd.Parameters.AddWithValue("@qty", qty)
+                cmd.Parameters.AddWithValue("@harga_jual", harga_jual)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Parameters.AddWithValue("@unit", unit)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function queryPenjualan(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_pelanggan As String, ByVal diskon As Decimal,
+                            ByVal bayar As Integer, ByVal kembali As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_penjualan", kd_penjualan)
+                cmd.Parameters.AddWithValue("@kd_pelanggan", kd_pelanggan)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Parameters.AddWithValue("@bayar", bayar)
+                cmd.Parameters.AddWithValue("@kembali", kembali)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function queryPenjualanDetail(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_barang As String,
+                                  ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
+                                  ByVal diskon As Decimal, ByVal unit As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_penjualan", kd_penjualan)
+                cmd.Parameters.AddWithValue("@kd_barang", kd_barang)
+                cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
+                cmd.Parameters.AddWithValue("@qty", qty)
+                cmd.Parameters.AddWithValue("@harga_jual", harga_jual)
+                cmd.Parameters.AddWithValue("@diskon", diskon)
+                cmd.Parameters.AddWithValue("@unit", unit)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
     Function queryCb(ByVal query As String)
         Try
             Dim dt As New DataTable()
