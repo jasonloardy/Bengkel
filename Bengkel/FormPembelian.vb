@@ -148,7 +148,7 @@ Public Class FormPembelian
                         .Rows.Item(baris).Cells(3).Value = tbQty.Text
                         .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaBeli.Text)
                         .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
-                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text * tbQty.Text
+                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text
                         .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaBeli.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
                     End With
                     clearInput()
@@ -195,29 +195,30 @@ Public Class FormPembelian
             End If
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_pembelian VALUES (@kd_pembelian, NOW(), @kd_supplier, @kd_bukti, @sales, @diskon, @tanggal_jt, @tunai, @sisa, '1');"
-            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, tbDiskonAll.Text, tanggalJT, tunai, tbKredit.Text) Then
+            If queryPembelian(sql, kode, tbKodeSupplier.Text, tbKodeBukti.Text, tbSales.Text, Val(tbDiskonAll.Text), tanggalJT, tunai, tbKredit.Text) Then
                 Dim sqlDetail As String = "INSERT INTO tb_pembelian_detail VALUES (@kd_pembelian, @kd_barang, @kd_satuan, @qty, @harga_beli, @diskon, @unit);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     If queryPembelianDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
-                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value) Then
+                                            dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value * dgvKeranjang.Rows(i).Cells(3).Value) Then
                         'update harga beli barang
-                        query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & tbDiskonAll.Text & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
+                        query("UPDATE tb_barang SET harga_beli = harga_beli * (100 - " & Val(tbDiskonAll.Text) & ") / 100 WHERE kd_barang = '" & dgvKeranjang.Rows(i).Cells(0).Value & "'")
                     Else
                         trans.Rollback()
                         Exit Sub
                     End If
                 Next
                 trans.Commit()
-                dgvKeranjang.Rows.Clear()
                 MsgBox("Transaksi berhasil di-simpan!", MsgBoxStyle.Information, "Informasi")
                 FormViewCR.viewBuktiPembelian(kode)
                 FormViewCR.ShowDialog()
+                dgvKeranjang.Rows.Clear()
                 reset()
             Else
                 trans.Rollback()
                 Exit Sub
             End If
         Catch ex As Exception
+            trans.Rollback()
             MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
@@ -265,7 +266,58 @@ Public Class FormPembelian
         cekJatuhTempo()
     End Sub
 
-    Private Sub tbTotal_TextChanged(sender As Object, e As EventArgs) Handles tbTotal.TextChanged
+    Sub updateTotal(ByVal i As Integer)
+        Try
+            With dgvKeranjang
+                Dim qty As Integer = .Rows(i).Cells(3).Value
+                Dim hargaBeli As Integer = .Rows(i).Cells(4).Value
+                Dim diskon As Decimal = Val(.Rows(i).Cells(5).Value)
 
+                Dim total As Integer = qty * hargaBeli * (100 - diskon) / 100
+
+                .Rows(i).Cells(7).Value = total
+                'MsgBox(total)
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub dgvKeranjang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvKeranjang.CellDoubleClick
+        Try
+            If e.RowIndex > -1 Then
+                If e.ColumnIndex = 3 Then
+                    With FormInputBox
+                        .dgv = dgvKeranjang
+                        .from = "trx"
+                        .columnValue = e.ColumnIndex
+                        .row = e.RowIndex
+                        .Text = "Qty Barang"
+                        .lblMessage.Text = "Masukkan Qty Barang"
+                        .tbValue.Mask = "0000"
+                        .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
+                        .ShowDialog()
+                        updateTotal(e.RowIndex)
+                        hitungTotal()
+                    End With
+                ElseIf e.ColumnIndex = 5 Then
+                    With FormInputBox
+                        .dgv = dgvKeranjang
+                        .from = "trx"
+                        .columnValue = e.ColumnIndex
+                        .row = e.RowIndex
+                        .Text = "Diskon Barang"
+                        .lblMessage.Text = "Masukkan Diskon Barang"
+                        .tbValue.Mask = "00,00"
+                        .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
+                        .ShowDialog()
+                        updateTotal(e.RowIndex)
+                        hitungTotal()
+                    End With
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
     End Sub
 End Class

@@ -22,18 +22,11 @@ Partial Class FormInputBox
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.tbValue = New System.Windows.Forms.TextBox()
         Me.btnInput = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblMessage = New System.Windows.Forms.Label()
+        Me.tbValue = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
-        '
-        'tbValue
-        '
-        Me.tbValue.Location = New System.Drawing.Point(15, 129)
-        Me.tbValue.Name = "tbValue"
-        Me.tbValue.Size = New System.Drawing.Size(357, 20)
-        Me.tbValue.TabIndex = 0
         '
         'btnInput
         '
@@ -61,24 +54,30 @@ Partial Class FormInputBox
         Me.lblMessage.TabIndex = 3
         Me.lblMessage.Text = "Message"
         '
+        'tbValue
+        '
+        Me.tbValue.Location = New System.Drawing.Point(12, 129)
+        Me.tbValue.Name = "tbValue"
+        Me.tbValue.Size = New System.Drawing.Size(360, 20)
+        Me.tbValue.TabIndex = 4
+        '
         'FormInputBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(384, 161)
+        Me.Controls.Add(Me.tbValue)
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnInput)
-        Me.Controls.Add(Me.tbValue)
         Me.Name = "FormInputBox"
         Me.Text = "FormInputBox"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents tbValue As TextBox
     Friend WithEvents btnInput As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents lblMessage As Label
+    Friend WithEvents tbValue As MaskedTextBox
 End Class

@@ -38,6 +38,24 @@ Module ModuleDB
         End Try
     End Sub
 
+    Public Sub formatRibuanMask(ByVal text As MaskedTextBox)
+        Try
+            If Len(text.Text) > 0 Then
+                text.Text = FormatNumber(CDbl(text.Text), 0)
+                Dim x As Integer = text.SelectionStart.ToString
+                If x = 0 Then
+                    text.SelectionStart = Len(text.Text)
+                    text.SelectionLength = 0
+                Else
+                    text.SelectionStart = x
+                    text.SelectionLength = 0
+                End If
+            End If
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Function query(ByVal sql As String)
         Try
             Using cmd As New MySqlCommand

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormPenjualan
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormPenjualan
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -59,6 +59,7 @@ Partial Class FormPenjualan
         Me.tbKodePembelian = New System.Windows.Forms.TextBox()
         Me.dtpTanggal = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tbKatPlg = New System.Windows.Forms.TextBox()
         Me.btnSupplier = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.tbNoTelepon = New System.Windows.Forms.TextBox()
@@ -80,7 +81,6 @@ Partial Class FormPenjualan
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnPending = New System.Windows.Forms.Button()
-        Me.tbKatPlg = New System.Windows.Forms.TextBox()
         Me.gbBarang.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -92,11 +92,11 @@ Partial Class FormPenjualan
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(948, 503)
+        Me.Label20.Location = New System.Drawing.Point(910, 503)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(62, 13)
+        Me.Label20.Size = New System.Drawing.Size(100, 13)
         Me.Label20.TabIndex = 51
-        Me.Label20.Text = "Kembalian :"
+        Me.Label20.Text = "Kembalian / Kredit :"
         '
         'gbBarang
         '
@@ -149,7 +149,6 @@ Partial Class FormPenjualan
         Me.tbIsi.Name = "tbIsi"
         Me.tbIsi.Size = New System.Drawing.Size(75, 20)
         Me.tbIsi.TabIndex = 36
-        Me.tbIsi.Visible = False
         '
         'Label6
         '
@@ -453,6 +452,13 @@ Partial Class FormPenjualan
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pelanggan"
         '
+        'tbKatPlg
+        '
+        Me.tbKatPlg.Location = New System.Drawing.Point(245, 23)
+        Me.tbKatPlg.Name = "tbKatPlg"
+        Me.tbKatPlg.Size = New System.Drawing.Size(51, 20)
+        Me.tbKatPlg.TabIndex = 37
+        '
         'btnSupplier
         '
         Me.btnSupplier.Location = New System.Drawing.Point(202, 21)
@@ -630,13 +636,6 @@ Partial Class FormPenjualan
         Me.btnPending.TabIndex = 52
         Me.btnPending.Text = "Pending"
         Me.btnPending.UseVisualStyleBackColor = True
-        '
-        'tbKatPlg
-        '
-        Me.tbKatPlg.Location = New System.Drawing.Point(245, 23)
-        Me.tbKatPlg.Name = "tbKatPlg"
-        Me.tbKatPlg.Size = New System.Drawing.Size(51, 20)
-        Me.tbKatPlg.TabIndex = 37
         '
         'FormPenjualan
         '

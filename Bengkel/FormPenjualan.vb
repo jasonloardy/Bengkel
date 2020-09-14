@@ -42,8 +42,26 @@ Public Class FormPenjualan
         reset()
     End Sub
 
+    Sub hitungTotal()
+        Try
+            Dim total As Integer
+            Dim jumlahItem As Integer
+            For i = 0 To dgvKeranjang.RowCount - 1
+                total += dgvKeranjang.Rows(i).Cells(7).Value
+                jumlahItem += dgvKeranjang.Rows(i).Cells(3).Value
+            Next
+            tbJumlahItem.Text = jumlahItem
+            tbSubtotal.Text = FormatCurrency(total)
+            tbPotongan.Text = FormatCurrency((Val(tbDiskonAll.Text) / 100) * total)
+            lblTotal.Text = FormatCurrency(total - tbPotongan.Text)
+            hitungKembalian()
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Sub clearInput()
-        'hitungTotal()
+        hitungTotal()
         kodeBarang = ""
         tbKodeBarang.Clear()
         tbNamaBarang.Clear()
@@ -72,7 +90,7 @@ Public Class FormPenjualan
         tbSubtotal.Text = FormatCurrency(0)
         tbDiskonAll.Text = 0
         tbPotongan.Text = FormatCurrency(0)
-        tbBayar.Text = FormatCurrency(0)
+        tbBayar.Text = 0
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
@@ -104,5 +122,158 @@ Public Class FormPenjualan
 
     Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
         reset()
+    End Sub
+
+    Sub totalBarang()
+        Try
+            tbTotal.Text = FormatCurrency(tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100))
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub tbQty_TextChanged(sender As Object, e As EventArgs) Handles tbQty.TextChanged
+        formatRibuan(tbQty)
+        totalBarang()
+    End Sub
+
+    Private Sub tbHargaJual_TextChanged(sender As Object, e As EventArgs) Handles tbHargaJual.TextChanged
+        formatRibuan(tbHargaJual)
+        totalBarang()
+    End Sub
+
+    Private Sub tbDiskonBarang_TextChanged(sender As Object, e As EventArgs) Handles tbDiskonBarang.TextChanged
+        totalBarang()
+    End Sub
+
+    Private Sub btnInput_Click(sender As Object, e As EventArgs) Handles btnInput.Click
+        Try
+            If kodeBarang = "" Then
+                MsgBox("Masukkan Barang Terlebih Dahulu!", 16, "Perhatian")
+            Else
+                If tbQty.Text = "" Then
+                    MsgBox("Kolom Qty / Harga Beli Masih Kosong!", 16, "Perhatian")
+                Else
+                    With dgvKeranjang
+                        Dim baris As Integer = .Rows.Add()
+                        .Rows.Item(baris).Cells(0).Value = kodeBarang
+                        .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
+                        .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
+                        .Rows.Item(baris).Cells(3).Value = tbQty.Text
+                        .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
+                        .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
+                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text * tbQty.Text
+                        .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
+                    End With
+                    clearInput()
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub tbDiskonAll_TextChanged(sender As Object, e As EventArgs) Handles tbDiskonAll.TextChanged
+        Try
+            hitungTotal()
+        Catch ex As Exception
+            'MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub hitungKembalian()
+        Try
+            Dim total = CDec(lblTotal.Text)
+            Dim bayar = Val(tbBayar.Text.Replace(".", ""))
+            Dim kembalian = total - bayar
+            tbKembalian.Text = FormatCurrency(kembalian)
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub tbBayar_TextChanged(sender As Object, e As EventArgs) Handles tbBayar.TextChanged
+        formatRibuan(tbBayar)
+        hitungKembalian()
+    End Sub
+
+    Sub updateTotal(ByVal i As Integer)
+        Try
+            With dgvKeranjang
+                Dim qty As Integer = .Rows(i).Cells(3).Value
+                Dim hargaBeli As Integer = .Rows(i).Cells(4).Value
+                Dim diskon As Decimal = Val(.Rows(i).Cells(5).Value)
+
+                Dim total As Integer = qty * hargaBeli * (100 - diskon) / 100
+
+                .Rows(i).Cells(7).Value = total
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub dgvKeranjang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvKeranjang.CellDoubleClick
+        Try
+            If e.RowIndex > -1 Then
+                If e.ColumnIndex = 3 Then
+                    With FormInputBox
+                        .dgv = dgvKeranjang
+                        .from = "trx"
+                        .columnValue = e.ColumnIndex
+                        .row = e.RowIndex
+                        .Text = "Qty Barang"
+                        .lblMessage.Text = "Masukkan Qty Barang"
+                        .tbValue.Mask = "0000"
+                        .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
+                        .ShowDialog()
+                        updateTotal(e.RowIndex)
+                        hitungTotal()
+                    End With
+                ElseIf e.ColumnIndex = 5 Then
+                    With FormInputBox
+                        .dgv = dgvKeranjang
+                        .from = "trx"
+                        .columnValue = e.ColumnIndex
+                        .row = e.RowIndex
+                        .Text = "Diskon Barang"
+                        .lblMessage.Text = "Masukkan Diskon Barang"
+                        .tbValue.Mask = "00,00"
+                        .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
+                        .ShowDialog()
+                        updateTotal(e.RowIndex)
+                        hitungTotal()
+                    End With
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
+        Try
+            Dim pilih As Integer
+            Dim namaBarang As String = dgvKeranjang.Rows.Item(dgvKeranjang.CurrentRow.Index).Cells(1).Value
+            pilih = MsgBox("Hapus Item " & namaBarang & " dari Keranjang?", 48 + 4 + 256, "Konfirmasi")
+            If pilih = 6 Then
+                dgvKeranjang.Rows.Remove(dgvKeranjang.CurrentRow)
+                hitungTotal()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Private Sub btnPending_Click(sender As Object, e As EventArgs) Handles btnPending.Click
+        Dim pilih As Integer
+        pilih = MsgBox("Pending Transaksi Pembelian ?", 48 + 4 + 256, "Konfirmasi")
+        If pilih = 6 Then
+            If dgvKeranjang.RowCount > 0 Then
+                'querySimpan()
+            Else
+                MsgBox("Barang yang dimasukkan belum ada!", 16, "Error")
+            End If
+        End If
     End Sub
 End Class

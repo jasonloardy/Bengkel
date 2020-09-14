@@ -196,11 +196,17 @@ Public Class FormBarang
             .ReadOnly = True
             .AllowUserToAddRows = False
         End With
-        If from = "pembelian" Then
+        If from.Contains("penjualan") Then
             With dgvBarang
                 .Columns(3).Visible = False
                 .Columns(5).Visible = False
                 .Columns(8).Visible = False
+            End With
+        Else
+            With dgvBarang
+                .Columns(3).Visible = True
+                .Columns(5).Visible = True
+                .Columns(8).Visible = True
             End With
         End If
     End Sub
@@ -535,6 +541,10 @@ Public Class FormBarang
             End With
             Me.Close()
         End If
+    End Sub
+
+    Private Sub FormBarang_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.Dispose()
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

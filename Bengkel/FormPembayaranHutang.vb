@@ -137,12 +137,14 @@ Public Class FormPembayaranHutang
             If e.ColumnIndex = 6 And e.RowIndex > -1 Then
                 With FormInputBox
                     .dgv = dgvTrx
+                    .from = "hutang"
                     .columnSisa = 5
                     .columnKredit = 7
                     .columnValue = e.ColumnIndex
                     .row = e.RowIndex
                     .Text = "Nominal Bayar"
                     .lblMessage.Text = "Masukkan Nominal Bayar"
+                    .tbValue.Mask = ""
                     .tbValue.Text = CDec(dgvTrx.Item(e.ColumnIndex, e.RowIndex).Value)
                     .ShowDialog()
                     hitungTotal()
