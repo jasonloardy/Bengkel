@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class CRBuktiPenjualan
+Public Class CRNotaPenjualan
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class CRBuktiPenjualan
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "CRBuktiPenjualan.rpt"
+            Return "CRNotaPenjualan.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class CRBuktiPenjualan
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Bengkel.CRBuktiPenjualan.rpt"
+            Return "Bengkel.CRNotaPenjualan.rpt"
         End Get
         Set
             'Do nothing
@@ -102,7 +102,7 @@ Public Class CRBuktiPenjualan
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedCRBuktiPenjualan
+Public Class CachedCRNotaPenjualan
     Inherits Component
     Implements ICachedReport
     
@@ -144,7 +144,7 @@ Public Class CachedCRBuktiPenjualan
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As CRBuktiPenjualan = New CRBuktiPenjualan()
+        Dim rpt As CRNotaPenjualan = New CRNotaPenjualan()
         rpt.Site = Me.Site
         Return rpt
     End Function

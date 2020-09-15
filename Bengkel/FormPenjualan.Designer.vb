@@ -70,6 +70,7 @@ Partial Class FormPenjualan
         Me.Label11 = New System.Windows.Forms.Label()
         Me.tbNamaPlg = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.tbHargaBeli = New System.Windows.Forms.TextBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.dgvKeranjang = New System.Windows.Forms.DataGridView()
         Me.btnPending = New System.Windows.Forms.Button()
@@ -85,7 +86,6 @@ Partial Class FormPenjualan
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbHargaBeli = New System.Windows.Forms.TextBox()
         Me.gbBarang.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -154,6 +154,7 @@ Partial Class FormPenjualan
         Me.tbIsi.Name = "tbIsi"
         Me.tbIsi.Size = New System.Drawing.Size(75, 20)
         Me.tbIsi.TabIndex = 36
+        Me.tbIsi.Visible = False
         '
         'Label6
         '
@@ -461,6 +462,7 @@ Partial Class FormPenjualan
         '
         Me.tbKatPlg.Location = New System.Drawing.Point(245, 23)
         Me.tbKatPlg.Name = "tbKatPlg"
+        Me.tbKatPlg.ReadOnly = True
         Me.tbKatPlg.Size = New System.Drawing.Size(51, 20)
         Me.tbKatPlg.TabIndex = 37
         '
@@ -554,6 +556,15 @@ Partial Class FormPenjualan
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Total Penjualan"
         '
+        'tbHargaBeli
+        '
+        Me.tbHargaBeli.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbHargaBeli.Location = New System.Drawing.Point(6, 107)
+        Me.tbHargaBeli.Name = "tbHargaBeli"
+        Me.tbHargaBeli.Size = New System.Drawing.Size(125, 20)
+        Me.tbHargaBeli.TabIndex = 39
+        Me.tbHargaBeli.Visible = False
+        '
         'lblTotal
         '
         Me.lblTotal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -599,6 +610,7 @@ Partial Class FormPenjualan
         Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
         Me.tbKodePending.Name = "tbKodePending"
+        Me.tbKodePending.ReadOnly = True
         Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
         Me.tbKodePending.TabIndex = 53
         '
@@ -664,6 +676,7 @@ Partial Class FormPenjualan
         Me.Column7.HeaderText = "Unit"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
         '
         'Column8
         '
@@ -676,14 +689,7 @@ Partial Class FormPenjualan
         Me.Column9.HeaderText = "Harga Beli"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
-        '
-        'tbHargaBeli
-        '
-        Me.tbHargaBeli.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbHargaBeli.Location = New System.Drawing.Point(6, 107)
-        Me.tbHargaBeli.Name = "tbHargaBeli"
-        Me.tbHargaBeli.Size = New System.Drawing.Size(125, 20)
-        Me.tbHargaBeli.TabIndex = 39
+        Me.Column9.Visible = False
         '
         'FormPenjualan
         '
@@ -781,6 +787,7 @@ Partial Class FormPenjualan
     Friend WithEvents tbKodePending As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents btnBaru As Button
+    Friend WithEvents tbHargaBeli As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -790,5 +797,4 @@ Partial Class FormPenjualan
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents tbHargaBeli As TextBox
 End Class

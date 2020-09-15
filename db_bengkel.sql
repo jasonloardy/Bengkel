@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-15 00:10:27
+Date: 2020-09-15 11:50:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,10 +34,10 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 -- Records of tb_barang
 -- ----------------------------
-INSERT INTO `tb_barang` VALUES ('1', 'HELEM', '60000', '100000', '90000', '80000', '555', 'A');
 INSERT INTO `tb_barang` VALUES ('123123', 'BUSI YAMAHA', '335', '25000', '20000', '17000', '580', 'A');
 INSERT INTO `tb_barang` VALUES ('12312312', 'OLI YAMALUBE', null, '41000', '35000', '34000', '822', 'A');
-INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '-113760', 'A');
+INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '-121963', 'A');
+INSERT INTO `tb_barang` VALUES ('6936103601056', 'HELEM', '60000', '100000', '90000', '80000', '490', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '90', '700000', '650000', '600000', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '90', '350000', '300000', '250000', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000003', 'BEHEL NMAX', '90', '150000', '140000', '130000', '597', 'A');
@@ -50,7 +50,7 @@ INSERT INTO `tb_barang` VALUES ('B0000012', 'TES 12', '97020', '150', '140', '13
 INSERT INTO `tb_barang` VALUES ('B0000013', 'TESTING', '8634', '150', '140', '130', '2085', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000017', 'ASD', '90', '123', '123', '345', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000018', 'LAMPU REM X-RIDE', '90', '150000', '140000', '130000', '609', 'A');
-INSERT INTO `tb_barang` VALUES ('B0000019', 'HELM KYT', '90', '150000', '140000', '130000', '597', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000019', 'HELM KYT', '90', '150000', '140000', '130000', '591', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000020', 'HELM BOGO', '90', '175000', '170000', '165000', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000021', 'HELM KIWI', '10', '20000', '15000', '12000', '645', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000022', 'BAUT', '7350', '15000', '4000', '8000', '717', 'A');
@@ -137,23 +137,23 @@ INSERT INTO `tb_barang_history` VALUES ('nmax20', '0028/PB//0920', '2020-09-09 1
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0028/PB//0920', '2020-09-09 14:52:29', '0', '0', '1');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0027/PB//0920', '2020-09-09 14:55:17', '0', '0', '14');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0028/PB//0920', '2020-09-09 14:57:56', '0', '0', '1');
-INSERT INTO `tb_barang_history` VALUES ('1', 'SA', '2020-09-09 15:17:46', '50000', '100', '0');
-INSERT INTO `tb_barang_history` VALUES ('1', '0029/PB//0920', '2020-09-09 15:18:40', '53361', '10', '0');
-INSERT INTO `tb_barang_history` VALUES ('1', '0030/PB//0920', '2020-09-09 15:19:11', '58212', '10', '0');
-INSERT INTO `tb_barang_history` VALUES ('1', '0030/PB//0920', '2020-09-09 15:49:00', '0', '0', '10');
-INSERT INTO `tb_barang_history` VALUES ('1', '0029/PB//0920', '2020-09-09 15:49:14', '0', '0', '10');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', 'SA', '2020-09-09 15:17:46', '50000', '100', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0029/PB//0920', '2020-09-09 15:18:40', '53361', '10', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0030/PB//0920', '2020-09-09 15:19:11', '58212', '10', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0030/PB//0920', '2020-09-09 15:49:00', '0', '0', '10');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0029/PB//0920', '2020-09-09 15:49:14', '0', '0', '10');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0031/PB//0920', '2020-09-11 21:32:08', '107265', '1', '0');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0031/PB//0920', '2020-09-11 21:32:08', '20200', '2', '0');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0031/PB//0920', '2020-09-11 21:32:33', '0', '0', '1');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0031/PB//0920', '2020-09-11 21:32:33', '0', '0', '2');
-INSERT INTO `tb_barang_history` VALUES ('1', '0032/PB//0920', '2020-09-11 21:35:26', '123123', '1', '0');
-INSERT INTO `tb_barang_history` VALUES ('1', '0032/PB//0920', '2020-09-11 21:35:45', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0032/PB//0920', '2020-09-11 21:35:26', '123123', '1', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0032/PB//0920', '2020-09-11 21:35:45', '0', '0', '1');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0033/PB//0920', '2020-09-11 21:36:24', '1218919', '11', '0');
 INSERT INTO `tb_barang_history` VALUES ('B0000013', '0034/PB//0920', '2020-09-11 22:22:26', '8634', '12', '0');
 INSERT INTO `tb_barang_history` VALUES ('B0000021', '0035/PB//0920', '2020-09-11 22:24:15', '10', '12', '0');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0036/PB//0920', '2020-09-11 22:25:48', '121892', '1', '0');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0037/PB//0920', '2020-09-11 22:33:53', '122', '1', '0');
-INSERT INTO `tb_barang_history` VALUES ('1', '0038/PB//0920', '2020-09-11 22:38:34', '122', '1', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0038/PB//0920', '2020-09-11 22:38:34', '122', '1', '0');
 INSERT INTO `tb_barang_history` VALUES ('nmax20', '0038/PB//0920', '2020-09-11 22:38:34', '229', '2', '0');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0038/PB//0920', '2020-09-11 22:38:34', '335', '3', '0');
 INSERT INTO `tb_barang_history` VALUES ('12312312', '0012/PB//0920', '2020-09-11 23:24:26', '0', '0', '1');
@@ -166,7 +166,7 @@ INSERT INTO `tb_barang_history` VALUES ('B0000009', '0040/PB//0920', '2020-09-12
 INSERT INTO `tb_barang_history` VALUES ('B0000021', 'SS', '2020-09-12 00:16:57', '10', '0', '32');
 INSERT INTO `tb_barang_history` VALUES ('B0000021', 'SS', '2020-09-12 00:17:15', '10', '50', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', 'SS', '2020-09-12 00:18:14', '25000', '0', '2');
-INSERT INTO `tb_barang_history` VALUES ('1', '0041/PB/IRFAN/0920', '2020-09-12 00:44:25', '121892', '1', '0');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0041/PB/IRFAN/0920', '2020-09-12 00:44:25', '121892', '1', '0');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0042/PB/IRFAN/0920', '2020-09-12 00:52:22', '98000', '10', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0042/PB/IRFAN/0920', '2020-09-12 00:52:22', '21342', '22', '0');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0042/PB/IRFAN/0920', '2020-09-12 00:53:43', '0', '0', '10');
@@ -184,23 +184,33 @@ INSERT INTO `tb_barang_history` VALUES ('13123213', '0048/PB//0920', '2020-09-14
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0049/PB//0920', '2020-09-14 19:22:58', '6250', '144', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0050/PB//0920', '2020-09-14 19:24:51', '8167', '60', '0');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0002/PJ//0920', '2020-09-14 23:16:10', '0', '0', '8');
-INSERT INTO `tb_barang_history` VALUES ('1', '0002/PJ//0920', '2020-09-14 23:16:10', '0', '0', '27');
-INSERT INTO `tb_barang_history` VALUES ('1', '0003/PJ//0920', '2020-09-14 23:16:44', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0002/PJ//0920', '2020-09-14 23:16:10', '0', '0', '27');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0003/PJ//0920', '2020-09-14 23:16:44', '0', '0', '2');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0003/PJ//0920', '2020-09-14 23:16:44', '0', '0', '3');
-INSERT INTO `tb_barang_history` VALUES ('1', '0004/PJ//0920', '2020-09-14 23:17:48', '0', '0', '1');
-INSERT INTO `tb_barang_history` VALUES ('1', '0005/PJ//0920', '2020-09-14 23:18:11', '0', '0', '6');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0004/PJ//0920', '2020-09-14 23:17:48', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0005/PJ//0920', '2020-09-14 23:18:11', '0', '0', '6');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0005/PJ//0920', '2020-09-14 23:18:11', '0', '0', '5');
-INSERT INTO `tb_barang_history` VALUES ('1', '0006/PJ//0920', '2020-09-14 23:18:54', '0', '0', '5');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0006/PJ//0920', '2020-09-14 23:18:54', '0', '0', '5');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0006/PJ//0920', '2020-09-14 23:18:54', '0', '0', '4');
-INSERT INTO `tb_barang_history` VALUES ('1', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '6');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '6');
 INSERT INTO `tb_barang_history` VALUES ('123123', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '5');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0007/PJ//0920', '2020-09-14 23:21:44', '0', '0', '7');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0008/PJ//0920', '2020-09-14 23:25:25', '0', '0', '12');
-INSERT INTO `tb_barang_history` VALUES ('1', '0009/PJ//0920', '2020-09-14 23:28:59', '0', '0', '5');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0009/PJ//0920', '2020-09-14 23:28:59', '0', '0', '5');
 INSERT INTO `tb_barang_history` VALUES ('B0000025', '0010/PJ//0920', '2020-09-15 00:08:05', '0', '0', '10000');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0010/PJ//0920', '2020-09-15 00:08:05', '0', '0', '8167');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0011/PJ//0920', '2020-09-15 00:08:32', '0', '0', '8167');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0011/PJ//0920', '2020-09-15 00:08:32', '0', '0', '98004');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0012/PJ//0920', '2020-09-15 08:39:25', '0', '0', '8167');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0013/PJ//0920', '2020-09-15 08:40:27', '0', '0', '12');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0014/PJ//0920', '2020-09-15 08:41:27', '0', '0', '60');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0015/PJ//0920', '2020-09-15 08:42:41', '0', '0', '3');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0015/PJ//0920', '2020-09-15 08:42:41', '0', '0', '12');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0016/PJ//0920', '2020-09-15 09:55:25', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000019', '0016/PJ//0920', '2020-09-15 09:55:25', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0017/PJ//0920', '2020-09-15 10:04:01', '0', '0', '12');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0018/PJ//0920', '2020-09-15 11:11:37', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000019', '0019/PJ//0920', '2020-09-15 11:13:28', '0', '0', '4');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -250,7 +260,8 @@ INSERT INTO `tb_barang_satuan` VALUES ('13123213', 'LSN', '12', 'M');
 INSERT INTO `tb_barang_satuan` VALUES ('12312312', 'PCS', '1', 'D');
 INSERT INTO `tb_barang_satuan` VALUES ('B0000026', 'PCS', '1', 'D');
 INSERT INTO `tb_barang_satuan` VALUES ('B0000026', 'LSN', '12', 'M');
-INSERT INTO `tb_barang_satuan` VALUES ('1', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('6936103601056', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('6936103601056', 'LSN', '12', 'M');
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
@@ -512,23 +523,23 @@ INSERT INTO `tb_pembelian_detail` VALUES ('0025/PB//0920', '123123', 'PCS', '40'
 INSERT INTO `tb_pembelian_detail` VALUES ('0026/PB//0920', 'nmax20', 'PCS', '2', '550000', '1.00', '2');
 INSERT INTO `tb_pembelian_detail` VALUES ('0027/PB//0920', 'nmax20', 'PCS', '14', '530000', '1.00', '14');
 INSERT INTO `tb_pembelian_detail` VALUES ('0028/PB//0920', 'nmax20', 'PCS', '1', '550000', '2.00', '1');
-INSERT INTO `tb_pembelian_detail` VALUES ('0029/PB//0920', '1', 'PCS', '10', '55000', '1.00', '10');
-INSERT INTO `tb_pembelian_detail` VALUES ('0030/PB//0920', '1', 'PCS', '10', '60000', '1.00', '10');
+INSERT INTO `tb_pembelian_detail` VALUES ('0029/PB//0920', '6936103601056', 'PCS', '10', '55000', '1.00', '10');
+INSERT INTO `tb_pembelian_detail` VALUES ('0030/PB//0920', '6936103601056', 'PCS', '10', '60000', '1.00', '10');
 INSERT INTO `tb_pembelian_detail` VALUES ('0031/PB//0920', 'nmax20', 'PCS', '1', '123123', '1.00', '1');
 INSERT INTO `tb_pembelian_detail` VALUES ('0031/PB//0920', '123123', 'PCS', '2', '23423', '2.00', '2');
-INSERT INTO `tb_pembelian_detail` VALUES ('0032/PB//0920', '1', 'PCS', '1', '123123', '0.00', '1');
+INSERT INTO `tb_pembelian_detail` VALUES ('0032/PB//0920', '6936103601056', 'PCS', '1', '123123', '0.00', '1');
 INSERT INTO `tb_pembelian_detail` VALUES ('0033/PB//0920', 'nmax20', 'PCS', '11', '1231231', '1.00', '11');
 INSERT INTO `tb_pembelian_detail` VALUES ('0034/PB//0920', 'B0000013', 'LSN', '1', '123123', '1.00', '12');
 INSERT INTO `tb_pembelian_detail` VALUES ('0035/PB//0920', 'B0000021', 'LSN', '1', '123', '1.00', '12');
 INSERT INTO `tb_pembelian_detail` VALUES ('0036/PB//0920', 'nmax20', 'PCS', '1', '123123', '1.00', '1');
 INSERT INTO `tb_pembelian_detail` VALUES ('0037/PB//0920', 'nmax20', 'PCS', '1', '123', '1.00', '1');
-INSERT INTO `tb_pembelian_detail` VALUES ('0038/PB//0920', '1', 'PCS', '1', '123', '1.00', '1');
+INSERT INTO `tb_pembelian_detail` VALUES ('0038/PB//0920', '6936103601056', 'PCS', '1', '123', '1.00', '1');
 INSERT INTO `tb_pembelian_detail` VALUES ('0038/PB//0920', 'nmax20', 'PCS', '2', '234', '2.00', '2');
 INSERT INTO `tb_pembelian_detail` VALUES ('0038/PB//0920', '123123', 'PCS', '3', '345', '3.00', '3');
 INSERT INTO `tb_pembelian_detail` VALUES ('0039/PB//0920', 'B0000010', 'PCS', '10', '25000', '2.00', '10');
 INSERT INTO `tb_pembelian_detail` VALUES ('0039/PB//0920', 'nmax20', 'PCS', '5', '500000', '5.00', '5');
 INSERT INTO `tb_pembelian_detail` VALUES ('0040/PB//0920', 'B0000009', 'PCS', '12', '100000', '2.00', '12');
-INSERT INTO `tb_pembelian_detail` VALUES ('0041/PB/IRFAN/0920', '1', 'PCS', '1', '123123', '1.00', '1');
+INSERT INTO `tb_pembelian_detail` VALUES ('0041/PB/IRFAN/0920', '6936103601056', 'PCS', '1', '123123', '1.00', '1');
 INSERT INTO `tb_pembelian_detail` VALUES ('0042/PB/IRFAN/0920', '123123', 'PCS', '10', '100000', '0.00', '10');
 INSERT INTO `tb_pembelian_detail` VALUES ('0042/PB/IRFAN/0920', '13123213', 'PCS', '22', '22222', '2.00', '22');
 INSERT INTO `tb_pembelian_detail` VALUES ('0043/PB//0920', '12312312', 'PCS', '1', '123', '1.00', '1');
@@ -555,6 +566,7 @@ CREATE TABLE `tb_pending` (
 -- ----------------------------
 -- Records of tb_pending
 -- ----------------------------
+INSERT INTO `tb_pending` VALUES ('0915100156', '2020-09-15 10:01:56', 'PL000003', '0.00');
 
 -- ----------------------------
 -- Table structure for `tb_pending_detail`
@@ -578,6 +590,7 @@ CREATE TABLE `tb_pending_detail` (
 -- ----------------------------
 -- Records of tb_pending_detail
 -- ----------------------------
+INSERT INTO `tb_pending_detail` VALUES ('0915100156', '13123213', 'LSN', '2', '324000', '2', '12', '98004');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan`
@@ -608,6 +621,14 @@ INSERT INTO `tb_penjualan` VALUES ('0008/PJ//0920', '2020-09-14 23:25:25', 'PL00
 INSERT INTO `tb_penjualan` VALUES ('0009/PJ//0920', '2020-09-14 23:28:59', 'PL000003', '0.00', '5', '-395995', '1');
 INSERT INTO `tb_penjualan` VALUES ('0010/PJ//0920', '2020-09-15 00:08:05', 'PL000001', '0.00', '0', '-93520', '1');
 INSERT INTO `tb_penjualan` VALUES ('0011/PJ//0920', '2020-09-15 00:08:32', 'PL000004', '0.00', '0', '-936600', '1');
+INSERT INTO `tb_penjualan` VALUES ('0012/PJ//0920', '2020-09-15 08:39:25', 'PL000004', '0.00', '0', '-34650', '1');
+INSERT INTO `tb_penjualan` VALUES ('0013/PJ//0920', '2020-09-15 08:40:27', 'PL000003', '2.00', '0', '-311170', '1');
+INSERT INTO `tb_penjualan` VALUES ('0014/PJ//0920', '2020-09-15 08:41:27', 'PL000004', '0.00', '0', '-5880000', '0');
+INSERT INTO `tb_penjualan` VALUES ('0015/PJ//0920', '2020-09-15 08:42:41', 'PL000003', '3.00', '0', '-543937', '1');
+INSERT INTO `tb_penjualan` VALUES ('0016/PJ//0920', '2020-09-15 09:55:25', 'PL000003', '2.00', '350000', '18368', '1');
+INSERT INTO `tb_penjualan` VALUES ('0017/PJ//0920', '2020-09-15 10:04:01', 'PL000003', '5.00', '301644', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0018/PJ//0920', '2020-09-15 11:11:37', 'PL000001', '0.00', '0', '-100000', '1');
+INSERT INTO `tb_penjualan` VALUES ('0019/PJ//0920', '2020-09-15 11:13:28', 'PL000004', '0.00', '0', '-600000', '1');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan_detail`
@@ -618,10 +639,10 @@ CREATE TABLE `tb_penjualan_detail` (
   `kd_barang` varchar(16) DEFAULT NULL,
   `kd_satuan` varchar(8) DEFAULT NULL,
   `qty` int(9) DEFAULT NULL,
-  `harga_beli` int(9) DEFAULT NULL,
   `harga_jual` int(9) DEFAULT NULL,
   `diskon` decimal(5,0) DEFAULT NULL,
   `unit` int(9) DEFAULT NULL,
+  `harga_beli` int(9) DEFAULT NULL,
   KEY `kd_pending` (`kd_penjualan`),
   KEY `kd_barang` (`kd_barang`),
   CONSTRAINT `tb_penjualan_detail_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE,
@@ -631,25 +652,35 @@ CREATE TABLE `tb_penjualan_detail` (
 -- ----------------------------
 -- Records of tb_penjualan_detail
 -- ----------------------------
-INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', '13123213', 'PCS', '5', null, '27000', '0', '5');
-INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '13123213', 'PCS', '8', null, '35000', '5', '8');
-INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '1', 'PCS', '27', null, '100000', '10', '27');
-INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '1', 'PCS', '2', null, '100000', '0', '2');
-INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '13123213', 'PCS', '3', null, '35000', '0', '3');
-INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ//0920', '1', 'PCS', '1', null, '100000', '0', '1');
-INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '1', 'PCS', '6', null, '100000', '0', '6');
-INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '123123', 'PCS', '5', null, '25000', '0', '5');
-INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '1', 'PCS', '5', null, '80000', '0', '5');
-INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '123123', 'PCS', '4', null, '17000', '0', '4');
-INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '1', 'PCS', '6', null, '80000', '0', '6');
-INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '123123', 'PCS', '5', null, '17000', '0', '5');
-INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '13123213', 'PCS', '7', null, '27000', '0', '7');
-INSERT INTO `tb_penjualan_detail` VALUES ('0008/PJ//0920', '13123213', 'LSN', '1', null, '420000', '0', '12');
-INSERT INTO `tb_penjualan_detail` VALUES ('0009/PJ//0920', '1', 'PCS', '5', null, '80000', '1', '5');
-INSERT INTO `tb_penjualan_detail` VALUES ('0010/PJ//0920', 'B0000025', 'PCS', '2', '12000', '2', '2', '10000');
-INSERT INTO `tb_penjualan_detail` VALUES ('0010/PJ//0920', '13123213', 'PCS', '2', '35000', '0', '2', '8167');
-INSERT INTO `tb_penjualan_detail` VALUES ('0011/PJ//0920', '13123213', 'PCS', '3', '35000', '0', '3', '8167');
-INSERT INTO `tb_penjualan_detail` VALUES ('0011/PJ//0920', '13123213', 'LSN', '2', '420000', '1', '24', '98004');
+INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', '13123213', 'PCS', '5', '27000', '0', '5', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '13123213', 'PCS', '8', '35000', '5', '8', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '6936103601056', 'PCS', '27', '100000', '10', '27', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '6936103601056', 'PCS', '2', '100000', '0', '2', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '13123213', 'PCS', '3', '35000', '0', '3', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ//0920', '6936103601056', 'PCS', '1', '100000', '0', '1', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '6936103601056', 'PCS', '6', '100000', '0', '6', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ//0920', '123123', 'PCS', '5', '25000', '0', '5', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '6936103601056', 'PCS', '5', '80000', '0', '5', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0006/PJ//0920', '123123', 'PCS', '4', '17000', '0', '4', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '6936103601056', 'PCS', '6', '80000', '0', '6', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '123123', 'PCS', '5', '17000', '0', '5', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0007/PJ//0920', '13123213', 'PCS', '7', '27000', '0', '7', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0008/PJ//0920', '13123213', 'LSN', '1', '420000', '0', '12', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0009/PJ//0920', '6936103601056', 'PCS', '5', '80000', '1', '5', null);
+INSERT INTO `tb_penjualan_detail` VALUES ('0010/PJ//0920', 'B0000025', 'PCS', '2', '2', '2', '10000', '12000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0010/PJ//0920', '13123213', 'PCS', '2', '0', '2', '8167', '35000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0011/PJ//0920', '13123213', 'PCS', '3', '0', '3', '8167', '35000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0011/PJ//0920', '13123213', 'LSN', '2', '1', '24', '98004', '420000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0012/PJ//0920', '13123213', 'PCS', '1', '1', '1', '8167', '35000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0013/PJ//0920', '13123213', 'LSN', '1', '324000', '2', '12', '98004');
+INSERT INTO `tb_penjualan_detail` VALUES ('0014/PJ//0920', '6936103601056', 'LSN', '5', '1200000', '2', '60', '720000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0015/PJ//0920', '6936103601056', 'PCS', '3', '80000', '0', '3', '60000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0015/PJ//0920', '13123213', 'LSN', '1', '324000', '1', '12', '98004');
+INSERT INTO `tb_penjualan_detail` VALUES ('0016/PJ//0920', '6936103601056', 'PCS', '1', '80000', '2', '1', '60000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0016/PJ//0920', 'B0000019', 'PCS', '2', '130000', '0', '2', '90');
+INSERT INTO `tb_penjualan_detail` VALUES ('0017/PJ//0920', '13123213', 'LSN', '1', '324000', '2', '12', '98004');
+INSERT INTO `tb_penjualan_detail` VALUES ('0018/PJ//0920', '6936103601056', 'PCS', '1', '100000', '0', '1', '60000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0019/PJ//0920', 'B0000019', 'PCS', '4', '150000', '0', '4', '90');
 
 -- ----------------------------
 -- Table structure for `tb_satuan`

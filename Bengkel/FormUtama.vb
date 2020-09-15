@@ -107,4 +107,18 @@
         FormPenjualan.Dock = DockStyle.Fill
         FormPenjualan.Show()
     End Sub
+
+    Private Sub PenjualanToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PenjualanToolStripMenuItem1.Click
+        closeAll()
+        FormDaftarpenjualan.MdiParent = Me
+        FormDaftarpenjualan.Dock = DockStyle.Fill
+        FormDaftarpenjualan.Show()
+    End Sub
+
+    Private Sub PenjualanBONToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PenjualanBONToolStripMenuItem.Click
+        closeAll()
+        FormDaftarpenjualan.MdiParent = Me
+        FormDaftarpenjualan.Dock = DockStyle.Fill
+        FormDaftarpenjualan.Show()
+    End Sub
 End Class

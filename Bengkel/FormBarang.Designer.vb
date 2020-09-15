@@ -487,7 +487,7 @@ Partial Class FormBarang
         'tbKode
         '
         Me.tbKode.Location = New System.Drawing.Point(124, 19)
-        Me.tbKode.MaxLength = 8
+        Me.tbKode.MaxLength = 16
         Me.tbKode.Name = "tbKode"
         Me.tbKode.Size = New System.Drawing.Size(131, 20)
         Me.tbKode.TabIndex = 0

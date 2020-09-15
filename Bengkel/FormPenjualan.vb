@@ -443,7 +443,12 @@ Public Class FormPenjualan
                     End If
                 Next
                 trans.Commit()
-                MsgBox("Transaksi Berhasil di-Simpan!", MsgBoxStyle.Information, "Informasi")
+                Dim pilih As Integer
+                pilih = MsgBox("Transaksi Berhasil di-Simpan! Cetak Nota?", 48 + 4 + 256, "Konfirmasi")
+                If pilih = 6 Then
+                    FormViewCR.printNotaPenjualan(kode)
+                    FormViewCR.cryReport.Close()
+                End If
                 dgvKeranjang.Rows.Clear()
                 reset()
             Else
