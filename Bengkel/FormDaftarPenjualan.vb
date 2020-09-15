@@ -110,7 +110,11 @@ Public Class FormDaftarpenjualan
             kodeTrx = kd_penjualan
             'Dim cryReport As New ReportDocument
             Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
-            cryReport.Load(RepLocation & "CRNotaPenjualan.rpt")
+            If from = "nota" Then
+                cryReport.Load(RepLocation & "CRNotaPenjualan.rpt")
+            ElseIf from = "bon" Then
+                cryReport.Load(RepLocation & "CRBuktiPenjualan.rpt")
+            End If
             cryReport.Refresh()
             cryReport.SetParameterValue("kd_penjualan", kd_penjualan)
             CRVBuktiPenjualan.ReportSource = cryReport

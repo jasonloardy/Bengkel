@@ -2,6 +2,7 @@
     Public user As String
     Sub closeAll()
         For Each aform As Form In Me.MdiChildren
+            aform.Close()
             aform.Dispose()
         Next
     End Sub
@@ -110,6 +111,7 @@
 
     Private Sub PenjualanToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PenjualanToolStripMenuItem1.Click
         closeAll()
+        FormDaftarpenjualan.from = "nota"
         FormDaftarpenjualan.MdiParent = Me
         FormDaftarpenjualan.Dock = DockStyle.Fill
         FormDaftarpenjualan.Show()
@@ -117,6 +119,7 @@
 
     Private Sub PenjualanBONToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PenjualanBONToolStripMenuItem.Click
         closeAll()
+        FormDaftarpenjualan.from = "bon"
         FormDaftarpenjualan.MdiParent = Me
         FormDaftarpenjualan.Dock = DockStyle.Fill
         FormDaftarpenjualan.Show()
