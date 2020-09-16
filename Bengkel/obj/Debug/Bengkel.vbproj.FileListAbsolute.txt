@@ -44,3 +44,4 @@ C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\B
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormPenjualan.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormListPending.resources
 C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormDaftarpenjualan.resources
+C:\Users\Jason\Documents\Visual Studio 2015\Projects\Bengkel\Bengkel\obj\Debug\Bengkel.FormDaftarpiutang.resources

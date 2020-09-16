@@ -428,10 +428,14 @@ Public Class FormPenjualan
 
     Sub querySimpan()
         Try
+            Dim sisa As Integer = 0
+            If tbKembalian.Text < 0 Then
+                sisa = Math.Abs(CInt(tbKembalian.Text))
+            End If
             Dim kode As String = kode_penjualan()
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_penjualan VALUES (@kd_penjualan, NOW(), @kd_pelanggan, @diskon, @bayar, @kembali, '1');"
-            If queryPenjualan(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text), tbBayar.Text, tbKembalian.Text) Then
+            Dim sql As String = "INSERT INTO tb_penjualan VALUES (@kd_penjualan, NOW(), @kd_pelanggan, @diskon, @bayar, @sisa, '1');"
+            If queryPenjualan(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text), tbBayar.Text, sisa) Then
                 Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
                     If queryPenjualanDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,

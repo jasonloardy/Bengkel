@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormDaftarHutang
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class FormDaftarpiutang
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,32 +20,32 @@ Partial Class FormDaftarHutang
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.dgvSupplier = New System.Windows.Forms.DataGridView()
+        Me.dgvPelanggan = New System.Windows.Forms.DataGridView()
         Me.dgvTrx = New System.Windows.Forms.DataGridView()
-        Me.gbSupplier = New System.Windows.Forms.GroupBox()
+        Me.gbPelanggan = New System.Windows.Forms.GroupBox()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.lblSupplier = New System.Windows.Forms.Label()
-        Me.tbCariSupplier = New System.Windows.Forms.TextBox()
+        Me.tbCaripelanggan = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbCariTrx = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbSupplier.SuspendLayout()
+        Me.gbPelanggan.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'dgvSupplier
+        'dgvPelanggan
         '
-        Me.dgvSupplier.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvPelanggan.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSupplier.Location = New System.Drawing.Point(6, 74)
-        Me.dgvSupplier.Name = "dgvSupplier"
-        Me.dgvSupplier.Size = New System.Drawing.Size(388, 457)
-        Me.dgvSupplier.TabIndex = 0
+        Me.dgvPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvPelanggan.Location = New System.Drawing.Point(6, 74)
+        Me.dgvPelanggan.Name = "dgvPelanggan"
+        Me.dgvPelanggan.Size = New System.Drawing.Size(388, 457)
+        Me.dgvPelanggan.TabIndex = 0
         '
         'dgvTrx
         '
@@ -58,20 +58,20 @@ Partial Class FormDaftarHutang
         Me.dgvTrx.Size = New System.Drawing.Size(742, 486)
         Me.dgvTrx.TabIndex = 1
         '
-        'gbSupplier
+        'gbPelanggan
         '
-        Me.gbSupplier.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.gbPelanggan.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.gbSupplier.Controls.Add(Me.btnRefresh)
-        Me.gbSupplier.Controls.Add(Me.lblSupplier)
-        Me.gbSupplier.Controls.Add(Me.tbCariSupplier)
-        Me.gbSupplier.Controls.Add(Me.dgvSupplier)
-        Me.gbSupplier.Location = New System.Drawing.Point(12, 12)
-        Me.gbSupplier.Name = "gbSupplier"
-        Me.gbSupplier.Size = New System.Drawing.Size(400, 537)
-        Me.gbSupplier.TabIndex = 3
-        Me.gbSupplier.TabStop = False
-        Me.gbSupplier.Text = "Supplier"
+        Me.gbPelanggan.Controls.Add(Me.btnRefresh)
+        Me.gbPelanggan.Controls.Add(Me.lblSupplier)
+        Me.gbPelanggan.Controls.Add(Me.tbCaripelanggan)
+        Me.gbPelanggan.Controls.Add(Me.dgvPelanggan)
+        Me.gbPelanggan.Location = New System.Drawing.Point(12, 12)
+        Me.gbPelanggan.Name = "gbPelanggan"
+        Me.gbPelanggan.Size = New System.Drawing.Size(400, 537)
+        Me.gbPelanggan.TabIndex = 5
+        Me.gbPelanggan.TabStop = False
+        Me.gbPelanggan.Text = "Pelanggan"
         '
         'btnRefresh
         '
@@ -85,18 +85,18 @@ Partial Class FormDaftarHutang
         'lblSupplier
         '
         Me.lblSupplier.AutoSize = True
-        Me.lblSupplier.Location = New System.Drawing.Point(34, 22)
+        Me.lblSupplier.Location = New System.Drawing.Point(21, 22)
         Me.lblSupplier.Name = "lblSupplier"
-        Me.lblSupplier.Size = New System.Drawing.Size(51, 13)
+        Me.lblSupplier.Size = New System.Drawing.Size(64, 13)
         Me.lblSupplier.TabIndex = 2
-        Me.lblSupplier.Text = "Supplier :"
+        Me.lblSupplier.Text = "Pelanggan :"
         '
-        'tbCariSupplier
+        'tbCaripelanggan
         '
-        Me.tbCariSupplier.Location = New System.Drawing.Point(91, 19)
-        Me.tbCariSupplier.Name = "tbCariSupplier"
-        Me.tbCariSupplier.Size = New System.Drawing.Size(303, 20)
-        Me.tbCariSupplier.TabIndex = 1
+        Me.tbCaripelanggan.Location = New System.Drawing.Point(91, 19)
+        Me.tbCaripelanggan.Name = "tbCaripelanggan"
+        Me.tbCaripelanggan.Size = New System.Drawing.Size(303, 20)
+        Me.tbCaripelanggan.TabIndex = 1
         '
         'GroupBox1
         '
@@ -109,9 +109,9 @@ Partial Class FormDaftarHutang
         Me.GroupBox1.Location = New System.Drawing.Point(418, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(754, 537)
-        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Transaksi Hutang"
+        Me.GroupBox1.Text = "Transaksi Piutang"
         '
         'tbCariTrx
         '
@@ -131,32 +131,32 @@ Partial Class FormDaftarHutang
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Pencarian :"
         '
-        'FormDaftarHutang
+        'FormDaftarpiutang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.Controls.Add(Me.gbPelanggan)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.gbSupplier)
-        Me.Name = "FormDaftarHutang"
-        Me.Text = "FormDaftarHutang"
-        CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "FormDaftarpiutang"
+        Me.Text = "FormDaftarPiutang"
+        CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbSupplier.ResumeLayout(False)
-        Me.gbSupplier.PerformLayout()
+        Me.gbPelanggan.ResumeLayout(False)
+        Me.gbPelanggan.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents dgvSupplier As DataGridView
+    Friend WithEvents dgvPelanggan As DataGridView
     Friend WithEvents dgvTrx As DataGridView
-    Friend WithEvents gbSupplier As GroupBox
+    Friend WithEvents gbPelanggan As GroupBox
+    Friend WithEvents btnRefresh As Button
     Friend WithEvents lblSupplier As Label
-    Friend WithEvents tbCariSupplier As TextBox
+    Friend WithEvents tbCaripelanggan As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents tbCariTrx As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnRefresh As Button
 End Class

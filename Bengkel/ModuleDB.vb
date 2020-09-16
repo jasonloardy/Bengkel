@@ -334,7 +334,7 @@ Module ModuleDB
     End Function
 
     Function queryPenjualan(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_pelanggan As String, ByVal diskon As Decimal,
-                            ByVal bayar As Integer, ByVal kembali As Integer)
+                            ByVal bayar As Integer, ByVal sisa As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -342,7 +342,7 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@kd_pelanggan", kd_pelanggan)
                 cmd.Parameters.AddWithValue("@diskon", diskon)
                 cmd.Parameters.AddWithValue("@bayar", bayar)
-                cmd.Parameters.AddWithValue("@kembali", kembali)
+                cmd.Parameters.AddWithValue("@sisa", sisa)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using

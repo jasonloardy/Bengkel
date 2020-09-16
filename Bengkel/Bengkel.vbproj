@@ -137,6 +137,12 @@
     <Compile Include="FormDaftarPenjualan.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDaftarPiutang.Designer.vb">
+      <DependentUpon>FormDaftarPiutang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDaftarPiutang.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormInputBox.Designer.vb">
       <DependentUpon>FormInputBox.vb</DependentUpon>
     </Compile>
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPenjualan.resx">
       <DependentUpon>FormDaftarPenjualan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPiutang.resx">
+      <DependentUpon>FormDaftarPiutang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInputBox.resx">
       <DependentUpon>FormInputBox.vb</DependentUpon>

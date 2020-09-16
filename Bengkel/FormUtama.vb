@@ -124,4 +124,12 @@
         FormDaftarpenjualan.Dock = DockStyle.Fill
         FormDaftarpenjualan.Show()
     End Sub
+
+    Private Sub DaftarPiutangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaftarPiutangToolStripMenuItem.Click
+        closeAll()
+        FormDaftarpiutang.from = "utama"
+        FormDaftarpiutang.MdiParent = Me
+        FormDaftarpiutang.Dock = DockStyle.Fill
+        FormDaftarpiutang.Show()
+    End Sub
 End Class
