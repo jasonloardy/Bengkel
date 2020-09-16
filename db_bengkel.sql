@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-16 09:58:13
+Date: 2020-09-16 17:25:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,8 +36,8 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 INSERT INTO `tb_barang` VALUES ('123123', 'BUSI YAMAHA', '335', '25000', '20000', '17000', '580', 'A');
 INSERT INTO `tb_barang` VALUES ('12312312', 'OLI YAMALUBE', null, '41000', '35000', '34000', '822', 'A');
-INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '-121965', 'A');
-INSERT INTO `tb_barang` VALUES ('6936103601056', 'HELEM', '60000', '100000', '90000', '80000', '485', 'A');
+INSERT INTO `tb_barang` VALUES ('13123213', 'BUSI NGK 2', '8167', '35000', '30000', '27000', '-121968', 'A');
+INSERT INTO `tb_barang` VALUES ('6936103601056', 'HELEM', '60000', '100000', '90000', '80000', '483', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000001', 'VELG ORI MIO Z', '90', '700000', '650000', '600000', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000002', 'LAMPU REM MIO Z', '90', '350000', '300000', '250000', '597', 'A');
 INSERT INTO `tb_barang` VALUES ('B0000003', 'BEHEL NMAX', '90', '150000', '140000', '130000', '597', 'A');
@@ -216,6 +216,9 @@ INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0001/PJ//0920', '2020-
 INSERT INTO `tb_barang_history` VALUES ('B0000013', '0001/PJ//0920', '2020-09-16 09:48:12', '0', '0', '36');
 INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0002/PJ//0920', '2020-09-16 09:48:56', '0', '0', '2');
 INSERT INTO `tb_barang_history` VALUES ('13123213', '0002/PJ//0920', '2020-09-16 09:48:56', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0003/PJ//0920', '2020-09-16 17:02:57', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('13123213', '0003/PJ//0920', '2020-09-16 17:02:57', '0', '0', '3');
+INSERT INTO `tb_barang_history` VALUES ('6936103601056', '0004/PJ//0920', '2020-09-16 17:13:35', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -379,6 +382,39 @@ INSERT INTO `tb_pembayaran_hutang_detail` VALUES ('0022/PH//0920', '0036/PB//092
 INSERT INTO `tb_pembayaran_hutang_detail` VALUES ('0023/PH//0920', '0040/PB//0920', '1176000');
 INSERT INTO `tb_pembayaran_hutang_detail` VALUES ('0024/PH//0920', '0033/PB//0920', '10000000');
 INSERT INTO `tb_pembayaran_hutang_detail` VALUES ('0025/PH//0920', '0041/PB/IRFAN/0920', '121892');
+
+-- ----------------------------
+-- Table structure for `tb_pembayaran_piutang`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_pembayaran_piutang`;
+CREATE TABLE `tb_pembayaran_piutang` (
+  `kd_pembayaran_piutang` varchar(32) NOT NULL,
+  `tanggal` datetime DEFAULT NULL,
+  `status` char(1) DEFAULT NULL,
+  PRIMARY KEY (`kd_pembayaran_piutang`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_pembayaran_piutang
+-- ----------------------------
+INSERT INTO `tb_pembayaran_piutang` VALUES ('0001/PP//0920', '2020-09-16 17:13:55', '0');
+
+-- ----------------------------
+-- Table structure for `tb_pembayaran_piutang_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_pembayaran_piutang_detail`;
+CREATE TABLE `tb_pembayaran_piutang_detail` (
+  `kd_pembayaran_piutang` varchar(32) DEFAULT NULL,
+  `kd_penjualan` varchar(32) DEFAULT NULL,
+  `bayar` int(9) DEFAULT NULL,
+  KEY `kd_pembelian` (`kd_penjualan`),
+  KEY `tb_pembayaran_hutang_detail_ibfk_2` (`kd_pembayaran_piutang`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_pembayaran_piutang_detail
+-- ----------------------------
+INSERT INTO `tb_pembayaran_piutang_detail` VALUES ('0001/PP//0920', '0004/PJ//0920', '40000');
 
 -- ----------------------------
 -- Table structure for `tb_pembelian`
@@ -617,6 +653,8 @@ CREATE TABLE `tb_penjualan` (
 -- ----------------------------
 INSERT INTO `tb_penjualan` VALUES ('0001/PJ//0920', '2020-09-16 09:48:12', 'PL000003', '0.00', '100000', '64680', '0');
 INSERT INTO `tb_penjualan` VALUES ('0002/PJ//0920', '2020-09-16 09:48:56', 'PL000003', '0.00', '250000', '0', '0');
+INSERT INTO `tb_penjualan` VALUES ('0003/PJ//0920', '2020-09-16 17:02:57', 'PL000001', '0.00', '0', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0004/PJ//0920', '2020-09-16 17:13:35', 'PL000003', '0.00', '40000', '40000', '1');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan_detail`
@@ -644,6 +682,9 @@ INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', '6936103601056', 'PCS
 INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', 'B0000013', 'LSN', '3', '1560', '0', '36', '103608');
 INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '6936103601056', 'PCS', '2', '80000', '0', '2', '60000');
 INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', '13123213', 'PCS', '2', '27000', '0', '2', '8167');
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '6936103601056', 'PCS', '1', '100000', '0', '1', '60000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', '13123213', 'PCS', '3', '35000', '0', '3', '8167');
+INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ//0920', '6936103601056', 'PCS', '1', '80000', '0', '1', '60000');
 
 -- ----------------------------
 -- Table structure for `tb_satuan`
@@ -726,6 +767,24 @@ DELIMITER ;;
 CREATE TRIGGER `kurangi sisa hutang` AFTER INSERT ON `tb_pembayaran_hutang_detail` FOR EACH ROW UPDATE tb_pembelian
 SET sisa = sisa - NEW.bayar
 WHERE kd_pembelian = NEW.kd_pembelian
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pembatalan_copy`;
+DELIMITER ;;
+CREATE TRIGGER `pembatalan_copy` AFTER UPDATE ON `tb_pembayaran_piutang` FOR EACH ROW IF (NEW.status = '0') THEN
+UPDATE tb_penjualan tb
+JOIN tb_pembayaran_piutang_detail tphd
+ON tb.kd_penjualan = tphd.kd_penjualan
+SET tb.sisa = tb.sisa + tphd.bayar
+WHERE tphd.kd_pembayaran_piutang = NEW.kd_pembayaran_piutang;
+END IF
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `kurangi sisa hutang_copy`;
+DELIMITER ;;
+CREATE TRIGGER `kurangi sisa hutang_copy` AFTER INSERT ON `tb_pembayaran_piutang_detail` FOR EACH ROW UPDATE tb_penjualan
+SET sisa = sisa - NEW.bayar
+WHERE kd_penjualan = NEW.kd_penjualan
 ;;
 DELIMITER ;
 DROP TRIGGER IF EXISTS `pembatalan pembelian`;
