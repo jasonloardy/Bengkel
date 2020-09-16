@@ -62,7 +62,7 @@ Public Class FormDaftarpiutang
     Sub isiGridTrx(ByVal kd_pelanggan As String)
         Try
             Dim sql As String = "SELECT tb.kd_penjualan, tanggal,
-                                    SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100 nominal, sisa
+                                    SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100 nominal, sisa
                                     FROM tb_penjualan tb
                                     JOIN tb_penjualan_detail tbd ON tb.kd_penjualan = tbd.kd_penjualan
                                     WHERE kd_pelanggan = '" & kd_pelanggan & "' AND sisa > 0 AND status = '1'
@@ -102,36 +102,36 @@ Public Class FormDaftarpiutang
     End Sub
 
     Sub isipelanggan()
-        'FormPembayaranpiutang.reset()
-        'Dim baris As Integer
-        'With dgvPelanggan
-        '    baris = .CurrentRow.Index
-        '    FormPembayaranpiutang.tbKodepelanggan.Text = .Item(0, baris).Value
-        '    FormPembayaranpiutang.tbNamapelanggan.Text = .Item(1, baris).Value
-        '    FormPembayaranpiutang.tbAlamat.Text = .Item(2, baris).Value
-        '    FormPembayaranpiutang.tbNoTelepon.Text = .Item(3, baris).Value
-        'End With
-        'Me.Close()
+        FormPembayaranpiutang.reset()
+        Dim baris As Integer
+        With dgvPelanggan
+            baris = .CurrentRow.Index
+            FormPembayaranpiutang.tbKodePlg.Text = .Item(0, baris).Value
+            FormPembayaranpiutang.tbNamaPlg.Text = .Item(1, baris).Value
+            FormPembayaranpiutang.tbAlamat.Text = .Item(2, baris).Value
+            FormPembayaranpiutang.tbNoTelepon.Text = .Item(3, baris).Value
+        End With
+        Me.Close()
     End Sub
 
     Private Sub dgvpelanggan_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPelanggan.CellDoubleClick
-        'If e.RowIndex > -1 Then
-        '    If from = "piutang-pelanggan" Then
-        '        If FormPembayaranpiutang.tbKodepelanggan.Text <> "" Then
-        '            If FormPembayaranpiutang.tbKodepelanggan.Text = dgvPelanggan.Item(0, dgvPelanggan.CurrentRow.Index).Value Then
-        '                Me.Close()
-        '            Else
-        '                Dim pilih As Integer
-        '                pilih = MsgBox("Yakin Ganti pelanggan? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
-        '                If pilih = 6 Then
-        '                    isipelanggan()
-        '                End If
-        '            End If
-        '        Else
-        '            isipelanggan()
-        '        End If
-        '    End If
-        'End If
+        If e.RowIndex > -1 Then
+            If from = "piutang-pelanggan" Then
+                If FormPembayaranpiutang.tbKodePlg.Text <> "" Then
+                    If FormPembayaranpiutang.tbKodePlg.Text = dgvPelanggan.Item(0, dgvPelanggan.CurrentRow.Index).Value Then
+                        Me.Close()
+                    Else
+                        Dim pilih As Integer
+                        pilih = MsgBox("Yakin Ganti pelanggan? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
+                        If pilih = 6 Then
+                            isipelanggan()
+                        End If
+                    End If
+                Else
+                    isipelanggan()
+                End If
+            End If
+        End If
     End Sub
 
     Private Sub tbCaripelanggan_TextChanged(sender As Object, e As EventArgs) Handles tbCaripelanggan.TextChanged

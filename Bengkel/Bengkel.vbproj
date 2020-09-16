@@ -83,6 +83,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRBuktiPembayaranPiutang.vb">
+      <DependentUpon>CRBuktiPembayaranPiutang.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CRBuktiPembayaranHutang.vb">
       <DependentUpon>CRBuktiPembayaranHutang.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -123,6 +129,12 @@
       <DependentUpon>FormDaftarPembayaranHutang.vb</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarPembayaranHutang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarPembayaranPiutang.Designer.vb">
+      <DependentUpon>FormDaftarPembayaranPiutang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDaftarPembayaranPiutang.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDaftarPembelian.Designer.vb">
@@ -171,6 +183,12 @@
       <DependentUpon>FormPembayaranHutang.vb</DependentUpon>
     </Compile>
     <Compile Include="FormPembayaranHutang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPembayaranPiutang.Designer.vb">
+      <DependentUpon>FormPembayaranPiutang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPembayaranPiutang.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPembelian.Designer.vb">
@@ -234,6 +252,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CRBuktiPembayaranPiutang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRBuktiPembayaranPiutang.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRBuktiPembayaranHutang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRBuktiPembayaranHutang.vb</LastGenOutput>
@@ -259,6 +281,9 @@
     <EmbeddedResource Include="FormDaftarPembayaranHutang.resx">
       <DependentUpon>FormDaftarPembayaranHutang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPembayaranPiutang.resx">
+      <DependentUpon>FormDaftarPembayaranPiutang.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPembelian.resx">
       <DependentUpon>FormDaftarPembelian.vb</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPembayaranHutang.resx">
       <DependentUpon>FormPembayaranHutang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPembayaranPiutang.resx">
+      <DependentUpon>FormPembayaranPiutang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPembelian.resx">
       <DependentUpon>FormPembelian.vb</DependentUpon>

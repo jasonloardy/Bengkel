@@ -377,6 +377,39 @@ Module ModuleDB
         End Try
     End Function
 
+    Function queryPembayaranPiutang(ByVal query As String, ByVal kd_pembayaran_piutang As String)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pembayaran_piutang", kd_pembayaran_piutang)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
+    Function queryPembayaranPiutangDetail(ByVal query As String, ByVal kd_pembayaran_piutang As String,
+                                         ByVal kd_penjualan As String, ByVal bayar As Integer)
+        Try
+            Using cmd As New MySqlCommand
+                cmd.CommandText = query
+                cmd.Parameters.AddWithValue("@kd_pembayaran_piutang", kd_pembayaran_piutang)
+                cmd.Parameters.AddWithValue("@kd_penjualan", kd_penjualan)
+                cmd.Parameters.AddWithValue("@bayar", bayar)
+                cmd.Connection = conn
+                cmd.ExecuteNonQuery()
+            End Using
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+            Return False
+        End Try
+    End Function
+
     Function queryCb(ByVal query As String)
         Try
             Dim dt As New DataTable()
