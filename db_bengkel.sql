@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-17 11:06:31
+Date: 2020-09-17 11:08:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -219,8 +219,6 @@ CREATE TABLE `tb_pending` (
 -- ----------------------------
 -- Records of tb_pending
 -- ----------------------------
-INSERT INTO `tb_pending` VALUES ('0915100156', '2020-09-15 10:01:56', 'PL000003', '0.00');
-INSERT INTO `tb_pending` VALUES ('0917110501', '2020-09-17 11:05:30', 'PL000001', '0.00');
 
 -- ----------------------------
 -- Table structure for `tb_pending_detail`
@@ -244,8 +242,6 @@ CREATE TABLE `tb_pending_detail` (
 -- ----------------------------
 -- Records of tb_pending_detail
 -- ----------------------------
-INSERT INTO `tb_pending_detail` VALUES ('0915100156', '13123213', 'LSN', '2', '324000', '2', '12', '98004');
-INSERT INTO `tb_pending_detail` VALUES ('0917110501', 'B0000001', 'PCS', '10', '30000', '5', '1', '10000');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan`
