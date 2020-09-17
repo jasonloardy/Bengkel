@@ -52,7 +52,11 @@ Partial Class FormListPending
         Me.ClientSize = New System.Drawing.Size(384, 461)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.dgvPending)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormListPending"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormListPending"
         CType(Me.dgvPending, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

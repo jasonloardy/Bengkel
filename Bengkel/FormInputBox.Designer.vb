@@ -59,7 +59,7 @@ Partial Class FormInputBox
         Me.tbValue.Location = New System.Drawing.Point(12, 129)
         Me.tbValue.Name = "tbValue"
         Me.tbValue.Size = New System.Drawing.Size(360, 20)
-        Me.tbValue.TabIndex = 4
+        Me.tbValue.TabIndex = 0
         '
         'FormInputBox
         '
@@ -70,7 +70,11 @@ Partial Class FormInputBox
         Me.Controls.Add(Me.lblMessage)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnInput)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormInputBox"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormInputBox"
         Me.ResumeLayout(False)
         Me.PerformLayout()

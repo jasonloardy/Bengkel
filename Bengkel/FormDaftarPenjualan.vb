@@ -156,6 +156,10 @@ Public Class FormDaftarpenjualan
         End Try
     End Sub
 
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        isiGrid()
+    End Sub
+
     Private Sub FormDaftarpenjualan_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         cryReport.Close()
     End Sub

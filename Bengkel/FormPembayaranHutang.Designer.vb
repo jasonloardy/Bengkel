@@ -22,7 +22,7 @@ Partial Class FormPembayaranHutang
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
@@ -67,7 +67,7 @@ Partial Class FormPembayaranHutang
         Me.btnSimpan.Location = New System.Drawing.Point(1097, 526)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
-        Me.btnSimpan.TabIndex = 40
+        Me.btnSimpan.TabIndex = 5
         Me.btnSimpan.Text = "Simpan"
         Me.btnSimpan.UseVisualStyleBackColor = True
         '
@@ -77,7 +77,7 @@ Partial Class FormPembayaranHutang
         Me.btnBatal.Location = New System.Drawing.Point(1016, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 39
+        Me.btnBatal.TabIndex = 4
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -88,7 +88,7 @@ Partial Class FormPembayaranHutang
         Me.tbTotalKredit.Name = "tbTotalKredit"
         Me.tbTotalKredit.ReadOnly = True
         Me.tbTotalKredit.Size = New System.Drawing.Size(156, 20)
-        Me.tbTotalKredit.TabIndex = 50
+        Me.tbTotalKredit.TabIndex = 3
         Me.tbTotalKredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GroupBox1
@@ -100,7 +100,7 @@ Partial Class FormPembayaranHutang
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(312, 133)
-        Me.GroupBox1.TabIndex = 32
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pembayaran Hutang"
         '
@@ -152,7 +152,7 @@ Partial Class FormPembayaranHutang
         Me.GroupBox2.Location = New System.Drawing.Point(333, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(308, 133)
-        Me.GroupBox2.TabIndex = 33
+        Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Supplier"
         '
@@ -161,7 +161,7 @@ Partial Class FormPembayaranHutang
         Me.btnSupplier.Location = New System.Drawing.Point(202, 21)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(37, 23)
-        Me.btnSupplier.TabIndex = 36
+        Me.btnSupplier.TabIndex = 1
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = True
         '
@@ -180,7 +180,7 @@ Partial Class FormPembayaranHutang
         Me.tbNoTelepon.Name = "tbNoTelepon"
         Me.tbNoTelepon.ReadOnly = True
         Me.tbNoTelepon.Size = New System.Drawing.Size(200, 20)
-        Me.tbNoTelepon.TabIndex = 12
+        Me.tbNoTelepon.TabIndex = 4
         '
         'Label12
         '
@@ -197,7 +197,7 @@ Partial Class FormPembayaranHutang
         Me.tbAlamat.Name = "tbAlamat"
         Me.tbAlamat.ReadOnly = True
         Me.tbAlamat.Size = New System.Drawing.Size(200, 20)
-        Me.tbAlamat.TabIndex = 10
+        Me.tbAlamat.TabIndex = 3
         '
         'Label10
         '
@@ -214,7 +214,7 @@ Partial Class FormPembayaranHutang
         Me.tbKodeSupplier.Name = "tbKodeSupplier"
         Me.tbKodeSupplier.ReadOnly = True
         Me.tbKodeSupplier.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodeSupplier.TabIndex = 6
+        Me.tbKodeSupplier.TabIndex = 0
         '
         'Label11
         '
@@ -231,7 +231,7 @@ Partial Class FormPembayaranHutang
         Me.tbNamaSupplier.Name = "tbNamaSupplier"
         Me.tbNamaSupplier.ReadOnly = True
         Me.tbNamaSupplier.Size = New System.Drawing.Size(200, 20)
-        Me.tbNamaSupplier.TabIndex = 7
+        Me.tbNamaSupplier.TabIndex = 2
         '
         'GroupBox3
         '
@@ -261,8 +261,8 @@ Partial Class FormPembayaranHutang
         '
         Me.dgvTrx.AllowUserToAddRows = False
         Me.dgvTrx.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvTrx.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvTrx.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvTrx.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -272,7 +272,7 @@ Partial Class FormPembayaranHutang
         Me.dgvTrx.ReadOnly = True
         Me.dgvTrx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTrx.Size = New System.Drawing.Size(1160, 343)
-        Me.dgvTrx.TabIndex = 37
+        Me.dgvTrx.TabIndex = 2
         '
         'FormPembayaranHutang
         '
@@ -287,7 +287,11 @@ Partial Class FormPembayaranHutang
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.dgvTrx)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormPembayaranHutang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPembayaranHutang"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

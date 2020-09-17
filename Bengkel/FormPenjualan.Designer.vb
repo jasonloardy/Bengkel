@@ -22,7 +22,7 @@ Partial Class FormPenjualan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.gbBarang = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -73,10 +73,6 @@ Partial Class FormPenjualan
         Me.tbHargaBeli = New System.Windows.Forms.TextBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.dgvKeranjang = New System.Windows.Forms.DataGridView()
-        Me.btnPending = New System.Windows.Forms.Button()
-        Me.tbKodePending = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnBaru = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,6 +82,10 @@ Partial Class FormPenjualan
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnPending = New System.Windows.Forms.Button()
+        Me.tbKodePending = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnBaru = New System.Windows.Forms.Button()
         Me.gbBarang.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -126,7 +126,7 @@ Partial Class FormPenjualan
         Me.gbBarang.Location = New System.Drawing.Point(12, 151)
         Me.gbBarang.Name = "gbBarang"
         Me.gbBarang.Size = New System.Drawing.Size(1160, 62)
-        Me.gbBarang.TabIndex = 41
+        Me.gbBarang.TabIndex = 2
         Me.gbBarang.TabStop = False
         '
         'Label14
@@ -143,9 +143,10 @@ Partial Class FormPenjualan
         '
         Me.tbDiskonBarang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDiskonBarang.Location = New System.Drawing.Point(739, 32)
+        Me.tbDiskonBarang.MaxLength = 6
         Me.tbDiskonBarang.Name = "tbDiskonBarang"
         Me.tbDiskonBarang.Size = New System.Drawing.Size(75, 20)
-        Me.tbDiskonBarang.TabIndex = 37
+        Me.tbDiskonBarang.TabIndex = 5
         '
         'tbIsi
         '
@@ -174,7 +175,7 @@ Partial Class FormPenjualan
         Me.tbNamaBarang.Name = "tbNamaBarang"
         Me.tbNamaBarang.ReadOnly = True
         Me.tbNamaBarang.Size = New System.Drawing.Size(300, 20)
-        Me.tbNamaBarang.TabIndex = 24
+        Me.tbNamaBarang.TabIndex = 1
         '
         'Label5
         '
@@ -189,9 +190,10 @@ Partial Class FormPenjualan
         'tbKodeBarang
         '
         Me.tbKodeBarang.Location = New System.Drawing.Point(9, 32)
+        Me.tbKodeBarang.MaxLength = 16
         Me.tbKodeBarang.Name = "tbKodeBarang"
         Me.tbKodeBarang.Size = New System.Drawing.Size(125, 20)
-        Me.tbKodeBarang.TabIndex = 22
+        Me.tbKodeBarang.TabIndex = 0
         '
         'Label4
         '
@@ -220,7 +222,7 @@ Partial Class FormPenjualan
         Me.tbSatuan.Name = "tbSatuan"
         Me.tbSatuan.ReadOnly = True
         Me.tbSatuan.Size = New System.Drawing.Size(75, 20)
-        Me.tbSatuan.TabIndex = 25
+        Me.tbSatuan.TabIndex = 2
         '
         'Label2
         '
@@ -235,9 +237,10 @@ Partial Class FormPenjualan
         '
         Me.tbQty.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbQty.Location = New System.Drawing.Point(527, 32)
+        Me.tbQty.MaxLength = 7
         Me.tbQty.Name = "tbQty"
         Me.tbQty.Size = New System.Drawing.Size(75, 20)
-        Me.tbQty.TabIndex = 26
+        Me.tbQty.TabIndex = 3
         '
         'Label1
         '
@@ -252,9 +255,10 @@ Partial Class FormPenjualan
         '
         Me.tbHargaJual.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbHargaJual.Location = New System.Drawing.Point(608, 32)
+        Me.tbHargaJual.MaxLength = 11
         Me.tbHargaJual.Name = "tbHargaJual"
         Me.tbHargaJual.Size = New System.Drawing.Size(125, 20)
-        Me.tbHargaJual.TabIndex = 27
+        Me.tbHargaJual.TabIndex = 4
         '
         'btnInput
         '
@@ -262,7 +266,7 @@ Partial Class FormPenjualan
         Me.btnInput.Location = New System.Drawing.Point(820, 30)
         Me.btnInput.Name = "btnInput"
         Me.btnInput.Size = New System.Drawing.Size(75, 23)
-        Me.btnInput.TabIndex = 29
+        Me.btnInput.TabIndex = 6
         Me.btnInput.Text = "Input"
         Me.btnInput.UseVisualStyleBackColor = True
         '
@@ -273,7 +277,7 @@ Partial Class FormPenjualan
         Me.tbTotal.Name = "tbTotal"
         Me.tbTotal.ReadOnly = True
         Me.tbTotal.Size = New System.Drawing.Size(150, 20)
-        Me.tbTotal.TabIndex = 28
+        Me.tbTotal.TabIndex = 7
         Me.tbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnSimpan
@@ -282,7 +286,7 @@ Partial Class FormPenjualan
         Me.btnSimpan.Location = New System.Drawing.Point(1097, 526)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
-        Me.btnSimpan.TabIndex = 40
+        Me.btnSimpan.TabIndex = 16
         Me.btnSimpan.Text = "Simpan"
         Me.btnSimpan.UseVisualStyleBackColor = True
         '
@@ -292,7 +296,7 @@ Partial Class FormPenjualan
         Me.btnBatal.Location = New System.Drawing.Point(1016, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 39
+        Me.btnBatal.TabIndex = 15
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -310,9 +314,10 @@ Partial Class FormPenjualan
         '
         Me.tbBayar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbBayar.Location = New System.Drawing.Point(1016, 474)
+        Me.tbBayar.MaxLength = 11
         Me.tbBayar.Name = "tbBayar"
         Me.tbBayar.Size = New System.Drawing.Size(156, 20)
-        Me.tbBayar.TabIndex = 48
+        Me.tbBayar.TabIndex = 12
         Me.tbBayar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label16
@@ -339,9 +344,10 @@ Partial Class FormPenjualan
         '
         Me.tbDiskonAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDiskonAll.Location = New System.Drawing.Point(960, 448)
+        Me.tbDiskonAll.MaxLength = 6
         Me.tbDiskonAll.Name = "tbDiskonAll"
         Me.tbDiskonAll.Size = New System.Drawing.Size(50, 20)
-        Me.tbDiskonAll.TabIndex = 45
+        Me.tbDiskonAll.TabIndex = 10
         '
         'tbJumlahItem
         '
@@ -350,7 +356,7 @@ Partial Class FormPenjualan
         Me.tbJumlahItem.Name = "tbJumlahItem"
         Me.tbJumlahItem.ReadOnly = True
         Me.tbJumlahItem.Size = New System.Drawing.Size(50, 20)
-        Me.tbJumlahItem.TabIndex = 44
+        Me.tbJumlahItem.TabIndex = 8
         '
         'tbPotongan
         '
@@ -359,7 +365,7 @@ Partial Class FormPenjualan
         Me.tbPotongan.Name = "tbPotongan"
         Me.tbPotongan.ReadOnly = True
         Me.tbPotongan.Size = New System.Drawing.Size(156, 20)
-        Me.tbPotongan.TabIndex = 43
+        Me.tbPotongan.TabIndex = 11
         Me.tbPotongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbSubtotal
@@ -369,7 +375,7 @@ Partial Class FormPenjualan
         Me.tbSubtotal.Name = "tbSubtotal"
         Me.tbSubtotal.ReadOnly = True
         Me.tbSubtotal.Size = New System.Drawing.Size(156, 20)
-        Me.tbSubtotal.TabIndex = 42
+        Me.tbSubtotal.TabIndex = 9
         Me.tbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbKembalian
@@ -379,7 +385,7 @@ Partial Class FormPenjualan
         Me.tbKembalian.Name = "tbKembalian"
         Me.tbKembalian.ReadOnly = True
         Me.tbKembalian.Size = New System.Drawing.Size(156, 20)
-        Me.tbKembalian.TabIndex = 50
+        Me.tbKembalian.TabIndex = 13
         Me.tbKembalian.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnHapus
@@ -388,7 +394,7 @@ Partial Class FormPenjualan
         Me.btnHapus.Location = New System.Drawing.Point(12, 425)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 38
+        Me.btnHapus.TabIndex = 4
         Me.btnHapus.Text = "Hapus Item"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -401,7 +407,7 @@ Partial Class FormPenjualan
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(312, 133)
-        Me.GroupBox1.TabIndex = 32
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Penjualan"
         '
@@ -454,7 +460,7 @@ Partial Class FormPenjualan
         Me.GroupBox2.Location = New System.Drawing.Point(333, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(308, 133)
-        Me.GroupBox2.TabIndex = 33
+        Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pelanggan"
         '
@@ -464,14 +470,14 @@ Partial Class FormPenjualan
         Me.tbKatPlg.Name = "tbKatPlg"
         Me.tbKatPlg.ReadOnly = True
         Me.tbKatPlg.Size = New System.Drawing.Size(51, 20)
-        Me.tbKatPlg.TabIndex = 37
+        Me.tbKatPlg.TabIndex = 2
         '
         'btnSupplier
         '
         Me.btnSupplier.Location = New System.Drawing.Point(202, 21)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(37, 23)
-        Me.btnSupplier.TabIndex = 36
+        Me.btnSupplier.TabIndex = 1
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = True
         '
@@ -490,7 +496,7 @@ Partial Class FormPenjualan
         Me.tbNoTelepon.Name = "tbNoTelepon"
         Me.tbNoTelepon.ReadOnly = True
         Me.tbNoTelepon.Size = New System.Drawing.Size(200, 20)
-        Me.tbNoTelepon.TabIndex = 12
+        Me.tbNoTelepon.TabIndex = 5
         '
         'Label12
         '
@@ -507,7 +513,7 @@ Partial Class FormPenjualan
         Me.tbAlamat.Name = "tbAlamat"
         Me.tbAlamat.ReadOnly = True
         Me.tbAlamat.Size = New System.Drawing.Size(200, 20)
-        Me.tbAlamat.TabIndex = 10
+        Me.tbAlamat.TabIndex = 4
         '
         'Label10
         '
@@ -524,7 +530,7 @@ Partial Class FormPenjualan
         Me.tbKodePlg.Name = "tbKodePlg"
         Me.tbKodePlg.ReadOnly = True
         Me.tbKodePlg.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodePlg.TabIndex = 6
+        Me.tbKodePlg.TabIndex = 0
         '
         'Label11
         '
@@ -541,7 +547,7 @@ Partial Class FormPenjualan
         Me.tbNamaPlg.Name = "tbNamaPlg"
         Me.tbNamaPlg.ReadOnly = True
         Me.tbNamaPlg.Size = New System.Drawing.Size(200, 20)
-        Me.tbNamaPlg.TabIndex = 7
+        Me.tbNamaPlg.TabIndex = 3
         '
         'GroupBox3
         '
@@ -581,8 +587,8 @@ Partial Class FormPenjualan
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -593,46 +599,7 @@ Partial Class FormPenjualan
         Me.dgvKeranjang.ReadOnly = True
         Me.dgvKeranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvKeranjang.Size = New System.Drawing.Size(1160, 197)
-        Me.dgvKeranjang.TabIndex = 37
-        '
-        'btnPending
-        '
-        Me.btnPending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPending.Location = New System.Drawing.Point(12, 526)
-        Me.btnPending.Name = "btnPending"
-        Me.btnPending.Size = New System.Drawing.Size(75, 23)
-        Me.btnPending.TabIndex = 52
-        Me.btnPending.Text = "Pending"
-        Me.btnPending.UseVisualStyleBackColor = True
-        '
-        'tbKodePending
-        '
-        Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
-        Me.tbKodePending.Name = "tbKodePending"
-        Me.tbKodePending.ReadOnly = True
-        Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodePending.TabIndex = 53
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(93, 526)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 23)
-        Me.Button1.TabIndex = 54
-        Me.Button1.Text = "List Pending"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnBaru
-        '
-        Me.btnBaru.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBaru.Location = New System.Drawing.Point(935, 526)
-        Me.btnBaru.Name = "btnBaru"
-        Me.btnBaru.Size = New System.Drawing.Size(75, 23)
-        Me.btnBaru.TabIndex = 55
-        Me.btnBaru.Text = "Baru"
-        Me.btnBaru.UseVisualStyleBackColor = True
+        Me.dgvKeranjang.TabIndex = 3
         '
         'Column1
         '
@@ -691,6 +658,45 @@ Partial Class FormPenjualan
         Me.Column9.ReadOnly = True
         Me.Column9.Visible = False
         '
+        'btnPending
+        '
+        Me.btnPending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnPending.Location = New System.Drawing.Point(12, 526)
+        Me.btnPending.Name = "btnPending"
+        Me.btnPending.Size = New System.Drawing.Size(75, 23)
+        Me.btnPending.TabIndex = 6
+        Me.btnPending.Text = "Pending"
+        Me.btnPending.UseVisualStyleBackColor = True
+        '
+        'tbKodePending
+        '
+        Me.tbKodePending.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tbKodePending.Location = New System.Drawing.Point(12, 500)
+        Me.tbKodePending.Name = "tbKodePending"
+        Me.tbKodePending.ReadOnly = True
+        Me.tbKodePending.Size = New System.Drawing.Size(100, 20)
+        Me.tbKodePending.TabIndex = 5
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(93, 526)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 23)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "List Pending"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnBaru
+        '
+        Me.btnBaru.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBaru.Location = New System.Drawing.Point(935, 526)
+        Me.btnBaru.Name = "btnBaru"
+        Me.btnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.btnBaru.TabIndex = 14
+        Me.btnBaru.Text = "Baru"
+        Me.btnBaru.UseVisualStyleBackColor = True
+        '
         'FormPenjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -718,7 +724,11 @@ Partial Class FormPenjualan
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.dgvKeranjang)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormPenjualan"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPenjualan"
         Me.gbBarang.ResumeLayout(False)
         Me.gbBarang.PerformLayout()

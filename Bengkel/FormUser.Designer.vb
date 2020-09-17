@@ -23,10 +23,11 @@ Partial Class FormUser
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbUser = New System.Windows.Forms.GroupBox()
+        Me.cbLihat = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbNama = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.tbNama = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbStatus = New System.Windows.Forms.ComboBox()
@@ -39,7 +40,6 @@ Partial Class FormUser
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
-        Me.cbLihat = New System.Windows.Forms.CheckBox()
         Me.gbUser.SuspendLayout()
         CType(Me.dgvUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,6 +64,16 @@ Partial Class FormUser
         Me.gbUser.TabStop = False
         Me.gbUser.Text = "Data User"
         '
+        'cbLihat
+        '
+        Me.cbLihat.AutoSize = True
+        Me.cbLihat.Location = New System.Drawing.Point(348, 47)
+        Me.cbLihat.Name = "cbLihat"
+        Me.cbLihat.Size = New System.Drawing.Size(49, 17)
+        Me.cbLihat.TabIndex = 2
+        Me.cbLihat.Text = "Lihat"
+        Me.cbLihat.UseVisualStyleBackColor = True
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -72,14 +82,6 @@ Partial Class FormUser
         Me.Label3.Size = New System.Drawing.Size(41, 13)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Nama :"
-        '
-        'tbNama
-        '
-        Me.tbNama.Location = New System.Drawing.Point(142, 71)
-        Me.tbNama.MaxLength = 32
-        Me.tbNama.Name = "tbNama"
-        Me.tbNama.Size = New System.Drawing.Size(200, 20)
-        Me.tbNama.TabIndex = 3
         '
         'Label5
         '
@@ -98,6 +100,14 @@ Partial Class FormUser
         Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Level :"
+        '
+        'tbNama
+        '
+        Me.tbNama.Location = New System.Drawing.Point(142, 71)
+        Me.tbNama.MaxLength = 32
+        Me.tbNama.Name = "tbNama"
+        Me.tbNama.Size = New System.Drawing.Size(200, 20)
+        Me.tbNama.TabIndex = 3
         '
         'Label2
         '
@@ -209,16 +219,6 @@ Partial Class FormUser
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
-        'cbLihat
-        '
-        Me.cbLihat.AutoSize = True
-        Me.cbLihat.Location = New System.Drawing.Point(348, 47)
-        Me.cbLihat.Name = "cbLihat"
-        Me.cbLihat.Size = New System.Drawing.Size(49, 17)
-        Me.cbLihat.TabIndex = 2
-        Me.cbLihat.Text = "Lihat"
-        Me.cbLihat.UseVisualStyleBackColor = True
-        '
         'FormUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -233,7 +233,9 @@ Partial Class FormUser
         Me.Controls.Add(Me.gbUser)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormUser"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormUser"
         Me.gbUser.ResumeLayout(False)
         Me.gbUser.PerformLayout()

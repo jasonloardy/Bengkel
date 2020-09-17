@@ -320,4 +320,40 @@ Public Class FormPembelian
             MsgBox(ex.Message, 16, "Error")
         End Try
     End Sub
+
+    Private Sub tbQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbQty.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbHargaBeli_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbHargaBeli.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbDiskonBarang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbDiskonBarang.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".") And Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub tbDiskonAll_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbDiskonAll.KeyPress
+        If Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".") And Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub tbTunai_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbTunai.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
 End Class

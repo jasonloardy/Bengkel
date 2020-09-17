@@ -60,7 +60,7 @@ Partial Class FormSatuan
         Me.btnRefresh.Location = New System.Drawing.Point(12, 127)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 12
+        Me.btnRefresh.TabIndex = 5
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -69,7 +69,7 @@ Partial Class FormSatuan
         Me.btnHapus.Location = New System.Drawing.Point(316, 98)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 10
+        Me.btnHapus.TabIndex = 3
         Me.btnHapus.Text = "Hapus"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -78,7 +78,7 @@ Partial Class FormSatuan
         Me.btnEdit.Location = New System.Drawing.Point(235, 98)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 9
+        Me.btnEdit.TabIndex = 2
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -87,7 +87,7 @@ Partial Class FormSatuan
         Me.btnTambah.Location = New System.Drawing.Point(154, 98)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambah.TabIndex = 8
+        Me.btnTambah.TabIndex = 1
         Me.btnTambah.Text = "Tambah"
         Me.btnTambah.UseVisualStyleBackColor = True
         '
@@ -115,14 +115,14 @@ Partial Class FormSatuan
         Me.dgvSatuan.Location = New System.Drawing.Point(12, 156)
         Me.dgvSatuan.Name = "dgvSatuan"
         Me.dgvSatuan.Size = New System.Drawing.Size(460, 393)
-        Me.dgvSatuan.TabIndex = 13
+        Me.dgvSatuan.TabIndex = 6
         '
         'btnBatal
         '
         Me.btnBatal.Location = New System.Drawing.Point(397, 98)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 11
+        Me.btnBatal.TabIndex = 4
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -135,7 +135,7 @@ Partial Class FormSatuan
         Me.gbSatuan.Location = New System.Drawing.Point(12, 12)
         Me.gbSatuan.Name = "gbSatuan"
         Me.gbSatuan.Size = New System.Drawing.Size(460, 80)
-        Me.gbSatuan.TabIndex = 7
+        Me.gbSatuan.TabIndex = 0
         Me.gbSatuan.TabStop = False
         Me.gbSatuan.Text = "Data Satuan"
         '
@@ -153,7 +153,9 @@ Partial Class FormSatuan
         Me.Controls.Add(Me.gbSatuan)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormSatuan"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormSatuan"
         CType(Me.dgvSatuan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbSatuan.ResumeLayout(False)

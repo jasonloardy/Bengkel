@@ -548,6 +548,62 @@ Public Class FormBarang
         Me.Dispose()
     End Sub
 
+    Private Sub tbHrgBeli_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbHrgBeli.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbHrgJualU_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbHrgJualU.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbHrgJualL_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbHrgJualL.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbHrgJualP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbHrgJualP.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbIsiStn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbIsiStn.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbStok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbStok.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub tbStokFisik_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbStokFisik.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click
         Try
             If cbStnMulti.SelectedIndex = -1 Or tbIsiStn.Text = "" Then

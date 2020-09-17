@@ -51,4 +51,12 @@
     Private Sub tbValue_TextChanged(sender As Object, e As EventArgs) Handles tbValue.TextChanged
         formatRibuanMask(tbValue)
     End Sub
+
+    Private Sub tbValue_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbValue.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
 End Class

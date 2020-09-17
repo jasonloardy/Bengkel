@@ -45,7 +45,7 @@ Partial Class FormDaftarpiutang
         Me.dgvPelanggan.Location = New System.Drawing.Point(6, 74)
         Me.dgvPelanggan.Name = "dgvPelanggan"
         Me.dgvPelanggan.Size = New System.Drawing.Size(388, 457)
-        Me.dgvPelanggan.TabIndex = 0
+        Me.dgvPelanggan.TabIndex = 2
         '
         'dgvTrx
         '
@@ -69,7 +69,7 @@ Partial Class FormDaftarpiutang
         Me.gbPelanggan.Location = New System.Drawing.Point(12, 12)
         Me.gbPelanggan.Name = "gbPelanggan"
         Me.gbPelanggan.Size = New System.Drawing.Size(400, 537)
-        Me.gbPelanggan.TabIndex = 5
+        Me.gbPelanggan.TabIndex = 0
         Me.gbPelanggan.TabStop = False
         Me.gbPelanggan.Text = "Pelanggan"
         '
@@ -78,7 +78,7 @@ Partial Class FormDaftarpiutang
         Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 3
+        Me.btnRefresh.TabIndex = 1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -96,7 +96,7 @@ Partial Class FormDaftarpiutang
         Me.tbCaripelanggan.Location = New System.Drawing.Point(91, 19)
         Me.tbCaripelanggan.Name = "tbCaripelanggan"
         Me.tbCaripelanggan.Size = New System.Drawing.Size(303, 20)
-        Me.tbCaripelanggan.TabIndex = 1
+        Me.tbCaripelanggan.TabIndex = 0
         '
         'GroupBox1
         '
@@ -109,7 +109,7 @@ Partial Class FormDaftarpiutang
         Me.GroupBox1.Location = New System.Drawing.Point(418, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(754, 537)
-        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Transaksi Piutang"
         '
@@ -120,7 +120,7 @@ Partial Class FormDaftarpiutang
         Me.tbCariTrx.Location = New System.Drawing.Point(73, 19)
         Me.tbCariTrx.Name = "tbCariTrx"
         Me.tbCariTrx.Size = New System.Drawing.Size(675, 20)
-        Me.tbCariTrx.TabIndex = 3
+        Me.tbCariTrx.TabIndex = 0
         '
         'Label1
         '
@@ -138,7 +138,11 @@ Partial Class FormDaftarpiutang
         Me.ClientSize = New System.Drawing.Size(1184, 561)
         Me.Controls.Add(Me.gbPelanggan)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormDaftarpiutang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormDaftarPiutang"
         CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()

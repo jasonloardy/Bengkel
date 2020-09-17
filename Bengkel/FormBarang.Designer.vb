@@ -94,7 +94,7 @@ Partial Class FormBarang
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(754, 537)
-        Me.GroupBox1.TabIndex = 12
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Daftar Barang"
         '
@@ -114,7 +114,7 @@ Partial Class FormBarang
         Me.btnNext.Location = New System.Drawing.Point(718, 45)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(30, 23)
-        Me.btnNext.TabIndex = 15
+        Me.btnNext.TabIndex = 3
         Me.btnNext.Text = ">"
         Me.btnNext.UseVisualStyleBackColor = True
         '
@@ -124,7 +124,7 @@ Partial Class FormBarang
         Me.btnPrev.Location = New System.Drawing.Point(622, 45)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(30, 23)
-        Me.btnPrev.TabIndex = 14
+        Me.btnPrev.TabIndex = 2
         Me.btnPrev.Text = "<"
         Me.btnPrev.UseVisualStyleBackColor = True
         '
@@ -155,7 +155,7 @@ Partial Class FormBarang
         Me.dgvBarang.Location = New System.Drawing.Point(6, 74)
         Me.dgvBarang.Name = "dgvBarang"
         Me.dgvBarang.Size = New System.Drawing.Size(742, 457)
-        Me.dgvBarang.TabIndex = 2
+        Me.dgvBarang.TabIndex = 4
         '
         'Label5
         '
@@ -183,7 +183,7 @@ Partial Class FormBarang
         Me.cbStnDasar.Location = New System.Drawing.Point(124, 71)
         Me.cbStnDasar.Name = "cbStnDasar"
         Me.cbStnDasar.Size = New System.Drawing.Size(131, 21)
-        Me.cbStnDasar.TabIndex = 9
+        Me.cbStnDasar.TabIndex = 3
         '
         'gbBarang
         '
@@ -218,7 +218,7 @@ Partial Class FormBarang
         Me.gbBarang.Location = New System.Drawing.Point(772, 12)
         Me.gbBarang.Name = "gbBarang"
         Me.gbBarang.Size = New System.Drawing.Size(400, 508)
-        Me.gbBarang.TabIndex = 13
+        Me.gbBarang.TabIndex = 1
         Me.gbBarang.TabStop = False
         Me.gbBarang.Text = "Data Barang"
         '
@@ -234,18 +234,18 @@ Partial Class FormBarang
         'tbStokFisik
         '
         Me.tbStokFisik.Location = New System.Drawing.Point(220, 455)
-        Me.tbStokFisik.MaxLength = 64
+        Me.tbStokFisik.MaxLength = 7
         Me.tbStokFisik.Name = "tbStokFisik"
         Me.tbStokFisik.Size = New System.Drawing.Size(65, 20)
-        Me.tbStokFisik.TabIndex = 29
+        Me.tbStokFisik.TabIndex = 10
         '
         'tbStok
         '
         Me.tbStok.Location = New System.Drawing.Point(124, 455)
-        Me.tbStok.MaxLength = 64
+        Me.tbStok.MaxLength = 7
         Me.tbStok.Name = "tbStok"
         Me.tbStok.Size = New System.Drawing.Size(65, 20)
-        Me.tbStok.TabIndex = 27
+        Me.tbStok.TabIndex = 9
         '
         'labelStok
         '
@@ -264,7 +264,7 @@ Partial Class FormBarang
         Me.cbStatus.Location = New System.Drawing.Point(124, 481)
         Me.cbStatus.Name = "cbStatus"
         Me.cbStatus.Size = New System.Drawing.Size(131, 21)
-        Me.cbStatus.TabIndex = 25
+        Me.cbStatus.TabIndex = 11
         '
         'Label11
         '
@@ -281,7 +281,7 @@ Partial Class FormBarang
         Me.cbCustom.Location = New System.Drawing.Point(264, 21)
         Me.cbCustom.Name = "cbCustom"
         Me.cbCustom.Size = New System.Drawing.Size(61, 17)
-        Me.cbCustom.TabIndex = 24
+        Me.cbCustom.TabIndex = 1
         Me.cbCustom.Text = "Custom"
         Me.cbCustom.UseVisualStyleBackColor = True
         '
@@ -333,10 +333,10 @@ Partial Class FormBarang
         'tbHrgJualP
         '
         Me.tbHrgJualP.Location = New System.Drawing.Point(124, 176)
-        Me.tbHrgJualP.MaxLength = 64
+        Me.tbHrgJualP.MaxLength = 11
         Me.tbHrgJualP.Name = "tbHrgJualP"
         Me.tbHrgJualP.Size = New System.Drawing.Size(131, 20)
-        Me.tbHrgJualP.TabIndex = 18
+        Me.tbHrgJualP.TabIndex = 7
         '
         'Label10
         '
@@ -350,10 +350,10 @@ Partial Class FormBarang
         'tbHrgJualL
         '
         Me.tbHrgJualL.Location = New System.Drawing.Point(124, 150)
-        Me.tbHrgJualL.MaxLength = 64
+        Me.tbHrgJualL.MaxLength = 11
         Me.tbHrgJualL.Name = "tbHrgJualL"
         Me.tbHrgJualL.Size = New System.Drawing.Size(131, 20)
-        Me.tbHrgJualL.TabIndex = 16
+        Me.tbHrgJualL.TabIndex = 6
         '
         'Label9
         '
@@ -367,10 +367,10 @@ Partial Class FormBarang
         'tbHrgJualU
         '
         Me.tbHrgJualU.Location = New System.Drawing.Point(124, 124)
-        Me.tbHrgJualU.MaxLength = 64
+        Me.tbHrgJualU.MaxLength = 11
         Me.tbHrgJualU.Name = "tbHrgJualU"
         Me.tbHrgJualU.Size = New System.Drawing.Size(131, 20)
-        Me.tbHrgJualU.TabIndex = 14
+        Me.tbHrgJualU.TabIndex = 5
         '
         'Label8
         '
@@ -384,10 +384,10 @@ Partial Class FormBarang
         'tbHrgBeli
         '
         Me.tbHrgBeli.Location = New System.Drawing.Point(124, 98)
-        Me.tbHrgBeli.MaxLength = 64
+        Me.tbHrgBeli.MaxLength = 11
         Me.tbHrgBeli.Name = "tbHrgBeli"
         Me.tbHrgBeli.Size = New System.Drawing.Size(131, 20)
-        Me.tbHrgBeli.TabIndex = 12
+        Me.tbHrgBeli.TabIndex = 4
         '
         'Label7
         '
@@ -411,7 +411,7 @@ Partial Class FormBarang
         Me.gbStnMulti.Location = New System.Drawing.Point(124, 202)
         Me.gbStnMulti.Name = "gbStnMulti"
         Me.gbStnMulti.Size = New System.Drawing.Size(270, 247)
-        Me.gbStnMulti.TabIndex = 10
+        Me.gbStnMulti.TabIndex = 8
         Me.gbStnMulti.TabStop = False
         Me.gbStnMulti.Text = "Konversi"
         '
@@ -420,7 +420,7 @@ Partial Class FormBarang
         Me.btnHapusStn.Location = New System.Drawing.Point(157, 72)
         Me.btnHapusStn.Name = "btnHapusStn"
         Me.btnHapusStn.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapusStn.TabIndex = 18
+        Me.btnHapusStn.TabIndex = 3
         Me.btnHapusStn.Text = "Hapus"
         Me.btnHapusStn.UseVisualStyleBackColor = True
         '
@@ -438,7 +438,7 @@ Partial Class FormBarang
         Me.btnTambahStn.Location = New System.Drawing.Point(76, 72)
         Me.btnTambahStn.Name = "btnTambahStn"
         Me.btnTambahStn.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambahStn.TabIndex = 18
+        Me.btnTambahStn.TabIndex = 2
         Me.btnTambahStn.Text = "Tambah"
         Me.btnTambahStn.UseVisualStyleBackColor = True
         '
@@ -454,9 +454,10 @@ Partial Class FormBarang
         'tbIsiStn
         '
         Me.tbIsiStn.Location = New System.Drawing.Point(76, 46)
+        Me.tbIsiStn.MaxLength = 7
         Me.tbIsiStn.Name = "tbIsiStn"
         Me.tbIsiStn.Size = New System.Drawing.Size(100, 20)
-        Me.tbIsiStn.TabIndex = 13
+        Me.tbIsiStn.TabIndex = 1
         '
         'cbStnMulti
         '
@@ -465,7 +466,7 @@ Partial Class FormBarang
         Me.cbStnMulti.Location = New System.Drawing.Point(76, 19)
         Me.cbStnMulti.Name = "cbStnMulti"
         Me.cbStnMulti.Size = New System.Drawing.Size(131, 21)
-        Me.cbStnMulti.TabIndex = 12
+        Me.cbStnMulti.TabIndex = 0
         '
         'Label4
         '
@@ -482,7 +483,7 @@ Partial Class FormBarang
         Me.dgvSatuan.Location = New System.Drawing.Point(6, 101)
         Me.dgvSatuan.Name = "dgvSatuan"
         Me.dgvSatuan.Size = New System.Drawing.Size(258, 140)
-        Me.dgvSatuan.TabIndex = 0
+        Me.dgvSatuan.TabIndex = 4
         '
         'tbKode
         '
@@ -507,7 +508,7 @@ Partial Class FormBarang
         Me.tbNama.MaxLength = 64
         Me.tbNama.Name = "tbNama"
         Me.tbNama.Size = New System.Drawing.Size(270, 20)
-        Me.tbNama.TabIndex = 1
+        Me.tbNama.TabIndex = 2
         '
         'Label2
         '
@@ -533,7 +534,7 @@ Partial Class FormBarang
         Me.btnHapus.Location = New System.Drawing.Point(1016, 526)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 16
+        Me.btnHapus.TabIndex = 4
         Me.btnHapus.Text = "Hapus"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -543,7 +544,7 @@ Partial Class FormBarang
         Me.btnEdit.Location = New System.Drawing.Point(935, 526)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 15
+        Me.btnEdit.TabIndex = 3
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -553,7 +554,7 @@ Partial Class FormBarang
         Me.btnTambah.Location = New System.Drawing.Point(854, 526)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambah.TabIndex = 14
+        Me.btnTambah.TabIndex = 2
         Me.btnTambah.Text = "Tambah"
         Me.btnTambah.UseVisualStyleBackColor = True
         '
@@ -563,7 +564,7 @@ Partial Class FormBarang
         Me.btnBatal.Location = New System.Drawing.Point(1097, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 17
+        Me.btnBatal.TabIndex = 5
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -580,6 +581,7 @@ Partial Class FormBarang
         Me.Controls.Add(Me.btnBatal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormBarang"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormBarang"

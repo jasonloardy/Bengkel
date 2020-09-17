@@ -22,7 +22,7 @@ Partial Class FormPembelian
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -149,6 +149,7 @@ Partial Class FormPembelian
         'tbKodeBukti
         '
         Me.tbKodeBukti.Location = New System.Drawing.Point(102, 75)
+        Me.tbKodeBukti.MaxLength = 32
         Me.tbKodeBukti.Name = "tbKodeBukti"
         Me.tbKodeBukti.Size = New System.Drawing.Size(200, 20)
         Me.tbKodeBukti.TabIndex = 2
@@ -157,9 +158,10 @@ Partial Class FormPembelian
         '
         Me.tbSales.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbSales.Location = New System.Drawing.Point(102, 101)
+        Me.tbSales.MaxLength = 32
         Me.tbSales.Name = "tbSales"
         Me.tbSales.Size = New System.Drawing.Size(200, 20)
-        Me.tbSales.TabIndex = 6
+        Me.tbSales.TabIndex = 3
         '
         'tbKodePembelian
         '
@@ -200,7 +202,7 @@ Partial Class FormPembelian
         Me.btnSupplier.Location = New System.Drawing.Point(202, 21)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(37, 23)
-        Me.btnSupplier.TabIndex = 36
+        Me.btnSupplier.TabIndex = 1
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = True
         '
@@ -219,7 +221,7 @@ Partial Class FormPembelian
         Me.tbNoTelepon.Name = "tbNoTelepon"
         Me.tbNoTelepon.ReadOnly = True
         Me.tbNoTelepon.Size = New System.Drawing.Size(200, 20)
-        Me.tbNoTelepon.TabIndex = 12
+        Me.tbNoTelepon.TabIndex = 4
         '
         'Label12
         '
@@ -236,7 +238,7 @@ Partial Class FormPembelian
         Me.tbAlamat.Name = "tbAlamat"
         Me.tbAlamat.ReadOnly = True
         Me.tbAlamat.Size = New System.Drawing.Size(200, 20)
-        Me.tbAlamat.TabIndex = 10
+        Me.tbAlamat.TabIndex = 3
         '
         'Label10
         '
@@ -253,7 +255,7 @@ Partial Class FormPembelian
         Me.tbKodeSupplier.Name = "tbKodeSupplier"
         Me.tbKodeSupplier.ReadOnly = True
         Me.tbKodeSupplier.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodeSupplier.TabIndex = 6
+        Me.tbKodeSupplier.TabIndex = 0
         '
         'Label11
         '
@@ -270,7 +272,7 @@ Partial Class FormPembelian
         Me.tbNamaSupplier.Name = "tbNamaSupplier"
         Me.tbNamaSupplier.ReadOnly = True
         Me.tbNamaSupplier.Size = New System.Drawing.Size(200, 20)
-        Me.tbNamaSupplier.TabIndex = 7
+        Me.tbNamaSupplier.TabIndex = 2
         '
         'GroupBox3
         '
@@ -300,8 +302,8 @@ Partial Class FormPembelian
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -312,7 +314,7 @@ Partial Class FormPembelian
         Me.dgvKeranjang.ReadOnly = True
         Me.dgvKeranjang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvKeranjang.Size = New System.Drawing.Size(1160, 197)
-        Me.dgvKeranjang.TabIndex = 11
+        Me.dgvKeranjang.TabIndex = 3
         '
         'Column1
         '
@@ -369,7 +371,7 @@ Partial Class FormPembelian
         Me.btnHapus.Location = New System.Drawing.Point(12, 425)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 12
+        Me.btnHapus.TabIndex = 4
         Me.btnHapus.Text = "Hapus Item"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -379,7 +381,7 @@ Partial Class FormPembelian
         Me.btnBatal.Location = New System.Drawing.Point(1016, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 13
+        Me.btnBatal.TabIndex = 12
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -389,7 +391,7 @@ Partial Class FormPembelian
         Me.btnSimpan.Location = New System.Drawing.Point(1097, 526)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
-        Me.btnSimpan.TabIndex = 14
+        Me.btnSimpan.TabIndex = 13
         Me.btnSimpan.Text = "Simpan"
         Me.btnSimpan.UseVisualStyleBackColor = True
         '
@@ -416,7 +418,7 @@ Partial Class FormPembelian
         Me.gbBarang.Location = New System.Drawing.Point(12, 151)
         Me.gbBarang.Name = "gbBarang"
         Me.gbBarang.Size = New System.Drawing.Size(1160, 62)
-        Me.gbBarang.TabIndex = 21
+        Me.gbBarang.TabIndex = 2
         Me.gbBarang.TabStop = False
         '
         'Label14
@@ -433,9 +435,10 @@ Partial Class FormPembelian
         '
         Me.tbDiskonBarang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDiskonBarang.Location = New System.Drawing.Point(739, 32)
+        Me.tbDiskonBarang.MaxLength = 6
         Me.tbDiskonBarang.Name = "tbDiskonBarang"
         Me.tbDiskonBarang.Size = New System.Drawing.Size(75, 20)
-        Me.tbDiskonBarang.TabIndex = 37
+        Me.tbDiskonBarang.TabIndex = 5
         '
         'tbIsi
         '
@@ -464,7 +467,7 @@ Partial Class FormPembelian
         Me.tbNamaBarang.Name = "tbNamaBarang"
         Me.tbNamaBarang.ReadOnly = True
         Me.tbNamaBarang.Size = New System.Drawing.Size(300, 20)
-        Me.tbNamaBarang.TabIndex = 24
+        Me.tbNamaBarang.TabIndex = 1
         '
         'Label5
         '
@@ -479,9 +482,10 @@ Partial Class FormPembelian
         'tbKodeBarang
         '
         Me.tbKodeBarang.Location = New System.Drawing.Point(9, 32)
+        Me.tbKodeBarang.MaxLength = 16
         Me.tbKodeBarang.Name = "tbKodeBarang"
         Me.tbKodeBarang.Size = New System.Drawing.Size(125, 20)
-        Me.tbKodeBarang.TabIndex = 22
+        Me.tbKodeBarang.TabIndex = 0
         '
         'Label4
         '
@@ -510,7 +514,7 @@ Partial Class FormPembelian
         Me.tbSatuan.Name = "tbSatuan"
         Me.tbSatuan.ReadOnly = True
         Me.tbSatuan.Size = New System.Drawing.Size(75, 20)
-        Me.tbSatuan.TabIndex = 25
+        Me.tbSatuan.TabIndex = 2
         '
         'Label2
         '
@@ -525,9 +529,10 @@ Partial Class FormPembelian
         '
         Me.tbQty.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbQty.Location = New System.Drawing.Point(527, 32)
+        Me.tbQty.MaxLength = 7
         Me.tbQty.Name = "tbQty"
         Me.tbQty.Size = New System.Drawing.Size(75, 20)
-        Me.tbQty.TabIndex = 26
+        Me.tbQty.TabIndex = 3
         '
         'Label1
         '
@@ -542,9 +547,10 @@ Partial Class FormPembelian
         '
         Me.tbHargaBeli.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbHargaBeli.Location = New System.Drawing.Point(608, 32)
+        Me.tbHargaBeli.MaxLength = 11
         Me.tbHargaBeli.Name = "tbHargaBeli"
         Me.tbHargaBeli.Size = New System.Drawing.Size(125, 20)
-        Me.tbHargaBeli.TabIndex = 27
+        Me.tbHargaBeli.TabIndex = 4
         '
         'btnInput
         '
@@ -552,7 +558,7 @@ Partial Class FormPembelian
         Me.btnInput.Location = New System.Drawing.Point(820, 30)
         Me.btnInput.Name = "btnInput"
         Me.btnInput.Size = New System.Drawing.Size(75, 23)
-        Me.btnInput.TabIndex = 29
+        Me.btnInput.TabIndex = 6
         Me.btnInput.Text = "Input"
         Me.btnInput.UseVisualStyleBackColor = True
         '
@@ -563,7 +569,7 @@ Partial Class FormPembelian
         Me.tbTotal.Name = "tbTotal"
         Me.tbTotal.ReadOnly = True
         Me.tbTotal.Size = New System.Drawing.Size(150, 20)
-        Me.tbTotal.TabIndex = 28
+        Me.tbTotal.TabIndex = 7
         Me.tbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbSubtotal
@@ -573,7 +579,7 @@ Partial Class FormPembelian
         Me.tbSubtotal.Name = "tbSubtotal"
         Me.tbSubtotal.ReadOnly = True
         Me.tbSubtotal.Size = New System.Drawing.Size(156, 20)
-        Me.tbSubtotal.TabIndex = 22
+        Me.tbSubtotal.TabIndex = 6
         Me.tbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbPotongan
@@ -583,7 +589,7 @@ Partial Class FormPembelian
         Me.tbPotongan.Name = "tbPotongan"
         Me.tbPotongan.ReadOnly = True
         Me.tbPotongan.Size = New System.Drawing.Size(156, 20)
-        Me.tbPotongan.TabIndex = 23
+        Me.tbPotongan.TabIndex = 8
         Me.tbPotongan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'tbJumlahItem
@@ -593,15 +599,16 @@ Partial Class FormPembelian
         Me.tbJumlahItem.Name = "tbJumlahItem"
         Me.tbJumlahItem.ReadOnly = True
         Me.tbJumlahItem.Size = New System.Drawing.Size(50, 20)
-        Me.tbJumlahItem.TabIndex = 24
+        Me.tbJumlahItem.TabIndex = 5
         '
         'tbDiskonAll
         '
         Me.tbDiskonAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDiskonAll.Location = New System.Drawing.Point(960, 448)
+        Me.tbDiskonAll.MaxLength = 6
         Me.tbDiskonAll.Name = "tbDiskonAll"
         Me.tbDiskonAll.Size = New System.Drawing.Size(50, 20)
-        Me.tbDiskonAll.TabIndex = 25
+        Me.tbDiskonAll.TabIndex = 7
         '
         'Label15
         '
@@ -639,7 +646,7 @@ Partial Class FormPembelian
         Me.dtpJatuhTempo.Location = New System.Drawing.Point(707, 500)
         Me.dtpJatuhTempo.Name = "dtpJatuhTempo"
         Me.dtpJatuhTempo.Size = New System.Drawing.Size(200, 20)
-        Me.dtpJatuhTempo.TabIndex = 6
+        Me.dtpJatuhTempo.TabIndex = 10
         '
         'Label19
         '
@@ -655,9 +662,10 @@ Partial Class FormPembelian
         '
         Me.tbTunai.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbTunai.Location = New System.Drawing.Point(1016, 474)
+        Me.tbTunai.MaxLength = 11
         Me.tbTunai.Name = "tbTunai"
         Me.tbTunai.Size = New System.Drawing.Size(156, 20)
-        Me.tbTunai.TabIndex = 28
+        Me.tbTunai.TabIndex = 9
         Me.tbTunai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label20
@@ -677,7 +685,7 @@ Partial Class FormPembelian
         Me.tbKredit.Name = "tbKredit"
         Me.tbKredit.ReadOnly = True
         Me.tbKredit.Size = New System.Drawing.Size(156, 20)
-        Me.tbKredit.TabIndex = 30
+        Me.tbKredit.TabIndex = 11
         Me.tbKredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'FormPembelian
@@ -707,7 +715,9 @@ Partial Class FormPembelian
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormPembelian"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPembelian"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

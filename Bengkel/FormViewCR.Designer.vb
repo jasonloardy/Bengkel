@@ -49,6 +49,7 @@ Partial Class FormViewCR
         Me.Controls.Add(Me.CRViewer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormViewCR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormViewCR"

@@ -46,7 +46,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.dgvTrx.Location = New System.Drawing.Point(6, 74)
         Me.dgvTrx.Name = "dgvTrx"
         Me.dgvTrx.Size = New System.Drawing.Size(452, 457)
-        Me.dgvTrx.TabIndex = 0
+        Me.dgvTrx.TabIndex = 4
         '
         'gbDaftar
         '
@@ -63,7 +63,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.gbDaftar.Location = New System.Drawing.Point(12, 12)
         Me.gbDaftar.Name = "gbDaftar"
         Me.gbDaftar.Size = New System.Drawing.Size(464, 537)
-        Me.gbDaftar.TabIndex = 11
+        Me.gbDaftar.TabIndex = 0
         Me.gbDaftar.TabStop = False
         Me.gbDaftar.Text = "Daftar Pembayaran Piutang"
         '
@@ -92,7 +92,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.btnNext.Location = New System.Drawing.Point(428, 45)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(30, 23)
-        Me.btnNext.TabIndex = 18
+        Me.btnNext.TabIndex = 3
         Me.btnNext.Text = ">"
         Me.btnNext.UseVisualStyleBackColor = True
         '
@@ -102,7 +102,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.btnPrev.Location = New System.Drawing.Point(332, 45)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(30, 23)
-        Me.btnPrev.TabIndex = 17
+        Me.btnPrev.TabIndex = 2
         Me.btnPrev.Text = "<"
         Me.btnPrev.UseVisualStyleBackColor = True
         '
@@ -111,7 +111,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 3
+        Me.btnRefresh.TabIndex = 1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -129,7 +129,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.tbCari.Location = New System.Drawing.Point(90, 19)
         Me.tbCari.Name = "tbCari"
         Me.tbCari.Size = New System.Drawing.Size(368, 20)
-        Me.tbCari.TabIndex = 1
+        Me.tbCari.TabIndex = 0
         '
         'btnVoid
         '
@@ -138,7 +138,7 @@ Partial Class FormDaftarPembayaranpiutang
         Me.btnVoid.Location = New System.Drawing.Point(482, 526)
         Me.btnVoid.Name = "btnVoid"
         Me.btnVoid.Size = New System.Drawing.Size(75, 23)
-        Me.btnVoid.TabIndex = 13
+        Me.btnVoid.TabIndex = 2
         Me.btnVoid.Text = "VOID"
         Me.btnVoid.UseVisualStyleBackColor = True
         '
@@ -158,10 +158,10 @@ Partial Class FormDaftarPembayaranpiutang
         Me.CRVBuktiPembayaran.ShowParameterPanelButton = False
         Me.CRVBuktiPembayaran.ShowRefreshButton = False
         Me.CRVBuktiPembayaran.Size = New System.Drawing.Size(690, 508)
-        Me.CRVBuktiPembayaran.TabIndex = 12
+        Me.CRVBuktiPembayaran.TabIndex = 1
         Me.CRVBuktiPembayaran.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'FormDaftarPembayaranPiutang
+        'FormDaftarPembayaranpiutang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -169,7 +169,11 @@ Partial Class FormDaftarPembayaranpiutang
         Me.Controls.Add(Me.gbDaftar)
         Me.Controls.Add(Me.btnVoid)
         Me.Controls.Add(Me.CRVBuktiPembayaran)
-        Me.Name = "FormDaftarPembayaranPiutang"
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "FormDaftarPembayaranpiutang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormDaftarPembayaranPiutang"
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbDaftar.ResumeLayout(False)

@@ -45,7 +45,7 @@ Partial Class FormDaftarHutang
         Me.dgvSupplier.Location = New System.Drawing.Point(6, 74)
         Me.dgvSupplier.Name = "dgvSupplier"
         Me.dgvSupplier.Size = New System.Drawing.Size(388, 457)
-        Me.dgvSupplier.TabIndex = 0
+        Me.dgvSupplier.TabIndex = 2
         '
         'dgvTrx
         '
@@ -69,7 +69,7 @@ Partial Class FormDaftarHutang
         Me.gbSupplier.Location = New System.Drawing.Point(12, 12)
         Me.gbSupplier.Name = "gbSupplier"
         Me.gbSupplier.Size = New System.Drawing.Size(400, 537)
-        Me.gbSupplier.TabIndex = 3
+        Me.gbSupplier.TabIndex = 0
         Me.gbSupplier.TabStop = False
         Me.gbSupplier.Text = "Supplier"
         '
@@ -78,7 +78,7 @@ Partial Class FormDaftarHutang
         Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 3
+        Me.btnRefresh.TabIndex = 1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -96,7 +96,7 @@ Partial Class FormDaftarHutang
         Me.tbCariSupplier.Location = New System.Drawing.Point(91, 19)
         Me.tbCariSupplier.Name = "tbCariSupplier"
         Me.tbCariSupplier.Size = New System.Drawing.Size(303, 20)
-        Me.tbCariSupplier.TabIndex = 1
+        Me.tbCariSupplier.TabIndex = 0
         '
         'GroupBox1
         '
@@ -109,7 +109,7 @@ Partial Class FormDaftarHutang
         Me.GroupBox1.Location = New System.Drawing.Point(418, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(754, 537)
-        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Transaksi Hutang"
         '
@@ -120,7 +120,7 @@ Partial Class FormDaftarHutang
         Me.tbCariTrx.Location = New System.Drawing.Point(73, 19)
         Me.tbCariTrx.Name = "tbCariTrx"
         Me.tbCariTrx.Size = New System.Drawing.Size(675, 20)
-        Me.tbCariTrx.TabIndex = 3
+        Me.tbCariTrx.TabIndex = 0
         '
         'Label1
         '
@@ -138,7 +138,11 @@ Partial Class FormDaftarHutang
         Me.ClientSize = New System.Drawing.Size(1184, 561)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gbSupplier)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormDaftarHutang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormDaftarHutang"
         CType(Me.dgvSupplier, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()

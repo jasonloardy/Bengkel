@@ -90,7 +90,7 @@ Partial Class FormPembayaranpiutang
         Me.dgvTrx.ReadOnly = True
         Me.dgvTrx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTrx.Size = New System.Drawing.Size(1160, 343)
-        Me.dgvTrx.TabIndex = 55
+        Me.dgvTrx.TabIndex = 2
         '
         'GroupBox2
         '
@@ -106,7 +106,7 @@ Partial Class FormPembayaranpiutang
         Me.GroupBox2.Location = New System.Drawing.Point(333, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(308, 133)
-        Me.GroupBox2.TabIndex = 53
+        Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pelanggan"
         '
@@ -115,7 +115,7 @@ Partial Class FormPembayaranpiutang
         Me.btnPlg.Location = New System.Drawing.Point(202, 21)
         Me.btnPlg.Name = "btnPlg"
         Me.btnPlg.Size = New System.Drawing.Size(37, 23)
-        Me.btnPlg.TabIndex = 36
+        Me.btnPlg.TabIndex = 1
         Me.btnPlg.Text = "..."
         Me.btnPlg.UseVisualStyleBackColor = True
         '
@@ -134,7 +134,7 @@ Partial Class FormPembayaranpiutang
         Me.tbNoTelepon.Name = "tbNoTelepon"
         Me.tbNoTelepon.ReadOnly = True
         Me.tbNoTelepon.Size = New System.Drawing.Size(200, 20)
-        Me.tbNoTelepon.TabIndex = 12
+        Me.tbNoTelepon.TabIndex = 4
         '
         'Label12
         '
@@ -151,7 +151,7 @@ Partial Class FormPembayaranpiutang
         Me.tbAlamat.Name = "tbAlamat"
         Me.tbAlamat.ReadOnly = True
         Me.tbAlamat.Size = New System.Drawing.Size(200, 20)
-        Me.tbAlamat.TabIndex = 10
+        Me.tbAlamat.TabIndex = 3
         '
         'Label10
         '
@@ -168,7 +168,7 @@ Partial Class FormPembayaranpiutang
         Me.tbKodePlg.Name = "tbKodePlg"
         Me.tbKodePlg.ReadOnly = True
         Me.tbKodePlg.Size = New System.Drawing.Size(100, 20)
-        Me.tbKodePlg.TabIndex = 6
+        Me.tbKodePlg.TabIndex = 0
         '
         'Label11
         '
@@ -185,7 +185,7 @@ Partial Class FormPembayaranpiutang
         Me.tbNamaPlg.Name = "tbNamaPlg"
         Me.tbNamaPlg.ReadOnly = True
         Me.tbNamaPlg.Size = New System.Drawing.Size(200, 20)
-        Me.tbNamaPlg.TabIndex = 7
+        Me.tbNamaPlg.TabIndex = 2
         '
         'tbKodePiutang
         '
@@ -218,7 +218,7 @@ Partial Class FormPembayaranpiutang
         Me.btnBatal.Location = New System.Drawing.Point(1016, 526)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 56
+        Me.btnBatal.TabIndex = 4
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -229,7 +229,7 @@ Partial Class FormPembayaranpiutang
         Me.tbTotalKredit.Name = "tbTotalKredit"
         Me.tbTotalKredit.ReadOnly = True
         Me.tbTotalKredit.Size = New System.Drawing.Size(156, 20)
-        Me.tbTotalKredit.TabIndex = 58
+        Me.tbTotalKredit.TabIndex = 3
         Me.tbTotalKredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GroupBox1
@@ -241,7 +241,7 @@ Partial Class FormPembayaranpiutang
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(312, 133)
-        Me.GroupBox1.TabIndex = 52
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pembayaran Piutang"
         '
@@ -260,7 +260,7 @@ Partial Class FormPembayaranpiutang
         Me.btnSimpan.Location = New System.Drawing.Point(1097, 526)
         Me.btnSimpan.Name = "btnSimpan"
         Me.btnSimpan.Size = New System.Drawing.Size(75, 23)
-        Me.btnSimpan.TabIndex = 57
+        Me.btnSimpan.TabIndex = 5
         Me.btnSimpan.Text = "Simpan"
         Me.btnSimpan.UseVisualStyleBackColor = True
         '
@@ -287,7 +287,11 @@ Partial Class FormPembayaranpiutang
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSimpan)
         Me.Controls.Add(Me.Label20)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormPembayaranpiutang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPembayaranPiutang"
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()

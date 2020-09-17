@@ -54,7 +54,7 @@ Partial Class FormPelanggan
         Me.btnBatal.Location = New System.Drawing.Point(1097, 177)
         Me.btnBatal.Name = "btnBatal"
         Me.btnBatal.Size = New System.Drawing.Size(75, 23)
-        Me.btnBatal.TabIndex = 11
+        Me.btnBatal.TabIndex = 5
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
@@ -64,7 +64,7 @@ Partial Class FormPelanggan
         Me.btnHapus.Location = New System.Drawing.Point(1016, 177)
         Me.btnHapus.Name = "btnHapus"
         Me.btnHapus.Size = New System.Drawing.Size(75, 23)
-        Me.btnHapus.TabIndex = 10
+        Me.btnHapus.TabIndex = 4
         Me.btnHapus.Text = "Hapus"
         Me.btnHapus.UseVisualStyleBackColor = True
         '
@@ -74,7 +74,7 @@ Partial Class FormPelanggan
         Me.btnEdit.Location = New System.Drawing.Point(935, 177)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 9
+        Me.btnEdit.TabIndex = 3
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -84,7 +84,7 @@ Partial Class FormPelanggan
         Me.btnTambah.Location = New System.Drawing.Point(854, 177)
         Me.btnTambah.Name = "btnTambah"
         Me.btnTambah.Size = New System.Drawing.Size(75, 23)
-        Me.btnTambah.TabIndex = 8
+        Me.btnTambah.TabIndex = 2
         Me.btnTambah.Text = "Tambah"
         Me.btnTambah.UseVisualStyleBackColor = True
         '
@@ -221,7 +221,7 @@ Partial Class FormPelanggan
         Me.gbPelanggan.Location = New System.Drawing.Point(772, 12)
         Me.gbPelanggan.Name = "gbPelanggan"
         Me.gbPelanggan.Size = New System.Drawing.Size(400, 159)
-        Me.gbPelanggan.TabIndex = 7
+        Me.gbPelanggan.TabIndex = 1
         Me.gbPelanggan.TabStop = False
         Me.gbPelanggan.Text = "Data Pelanggan"
         '
@@ -233,7 +233,7 @@ Partial Class FormPelanggan
         Me.cbKategori.Location = New System.Drawing.Point(107, 123)
         Me.cbKategori.Name = "cbKategori"
         Me.cbKategori.Size = New System.Drawing.Size(131, 21)
-        Me.cbKategori.TabIndex = 9
+        Me.cbKategori.TabIndex = 4
         '
         'Label6
         '
@@ -257,7 +257,7 @@ Partial Class FormPelanggan
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(754, 537)
-        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Daftar Pelanggan"
         '
@@ -274,6 +274,7 @@ Partial Class FormPelanggan
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormPelanggan"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormPelanggan"

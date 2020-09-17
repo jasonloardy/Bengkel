@@ -46,7 +46,7 @@ Partial Class FormDaftarPembelian
         Me.dgvTrx.Location = New System.Drawing.Point(6, 74)
         Me.dgvTrx.Name = "dgvTrx"
         Me.dgvTrx.Size = New System.Drawing.Size(452, 457)
-        Me.dgvTrx.TabIndex = 0
+        Me.dgvTrx.TabIndex = 4
         '
         'gbSupplier
         '
@@ -63,7 +63,7 @@ Partial Class FormDaftarPembelian
         Me.gbSupplier.Location = New System.Drawing.Point(12, 12)
         Me.gbSupplier.Name = "gbSupplier"
         Me.gbSupplier.Size = New System.Drawing.Size(464, 537)
-        Me.gbSupplier.TabIndex = 5
+        Me.gbSupplier.TabIndex = 0
         Me.gbSupplier.TabStop = False
         Me.gbSupplier.Text = "Daftar Pembelian"
         '
@@ -92,7 +92,7 @@ Partial Class FormDaftarPembelian
         Me.btnNext.Location = New System.Drawing.Point(428, 45)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(30, 23)
-        Me.btnNext.TabIndex = 18
+        Me.btnNext.TabIndex = 3
         Me.btnNext.Text = ">"
         Me.btnNext.UseVisualStyleBackColor = True
         '
@@ -102,7 +102,7 @@ Partial Class FormDaftarPembelian
         Me.btnPrev.Location = New System.Drawing.Point(332, 45)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(30, 23)
-        Me.btnPrev.TabIndex = 17
+        Me.btnPrev.TabIndex = 2
         Me.btnPrev.Text = "<"
         Me.btnPrev.UseVisualStyleBackColor = True
         '
@@ -111,7 +111,7 @@ Partial Class FormDaftarPembelian
         Me.btnRefresh.Location = New System.Drawing.Point(6, 45)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 3
+        Me.btnRefresh.TabIndex = 1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
@@ -129,7 +129,7 @@ Partial Class FormDaftarPembelian
         Me.tbCari.Location = New System.Drawing.Point(90, 19)
         Me.tbCari.Name = "tbCari"
         Me.tbCari.Size = New System.Drawing.Size(368, 20)
-        Me.tbCari.TabIndex = 1
+        Me.tbCari.TabIndex = 0
         '
         'CRVBuktiPembelian
         '
@@ -147,7 +147,7 @@ Partial Class FormDaftarPembelian
         Me.CRVBuktiPembelian.ShowParameterPanelButton = False
         Me.CRVBuktiPembelian.ShowRefreshButton = False
         Me.CRVBuktiPembelian.Size = New System.Drawing.Size(690, 508)
-        Me.CRVBuktiPembelian.TabIndex = 6
+        Me.CRVBuktiPembelian.TabIndex = 1
         Me.CRVBuktiPembelian.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'btnVoid
@@ -157,7 +157,7 @@ Partial Class FormDaftarPembelian
         Me.btnVoid.Location = New System.Drawing.Point(482, 526)
         Me.btnVoid.Name = "btnVoid"
         Me.btnVoid.Size = New System.Drawing.Size(75, 23)
-        Me.btnVoid.TabIndex = 7
+        Me.btnVoid.TabIndex = 2
         Me.btnVoid.Text = "VOID"
         Me.btnVoid.UseVisualStyleBackColor = True
         '
@@ -169,7 +169,11 @@ Partial Class FormDaftarPembelian
         Me.Controls.Add(Me.btnVoid)
         Me.Controls.Add(Me.CRVBuktiPembelian)
         Me.Controls.Add(Me.gbSupplier)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FormDaftarPembelian"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormDaftarPembelian"
         CType(Me.dgvTrx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbSupplier.ResumeLayout(False)
