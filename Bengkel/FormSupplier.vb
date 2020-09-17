@@ -4,7 +4,7 @@ Public Class FormSupplier
     Public mode, id_data, from As String
     Public page As Integer = 1
     Public totalPage As Integer = 1
-    Public offset As Integer = 1
+    Public offset As Integer = 50
 
     Private Sub FormSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()

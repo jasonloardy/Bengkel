@@ -2,17 +2,45 @@
 
 Public Class FormPelanggan
     Public mode, id_data, from As String
-    Public dt As DataTable
+    Public page As Integer = 1
+    Public totalPage As Integer = 1
+    Public offset As Integer = 50
 
     Private Sub Formpelanggan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
         reset()
-            isiGrid()
+        isiGrid()
+    End Sub
 
+    Sub paging()
+        Dim sqlCount As String = "SELECT COUNT(*) FROM tb_pelanggan
+                                    WHERE (kd_pelanggan LIKE @kd_pelanggan OR nama LIKE @nama)"
+        Using cmdCount As New MySqlCommand(sqlCount, conn)
+            cmdCount.Parameters.AddWithValue("@kd_pelanggan", "%" & tbCari.Text & "%")
+            cmdCount.Parameters.AddWithValue("@nama", "%" & tbCari.Text & "%")
+            Using drCount = cmdCount.ExecuteReader
+                While drCount.Read
+                    lblTotal.Text = "Jumlah Pelanggan : " & drCount.Item(0)
+                    totalPage = Math.Ceiling(drCount.Item(0) / offset)
+                    lblPage.Text = page & " / " & totalPage
+                End While
+            End Using
+        End Using
+        If page >= totalPage Then
+            btnNext.Enabled = False
+        Else
+            btnNext.Enabled = True
+        End If
+        If page = 1 Then
+            btnPrev.Enabled = False
+        Else
+            btnPrev.Enabled = True
+        End If
     End Sub
 
     Sub isiGrid()
         Try
+            Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT kd_pelanggan, nama, alamat, no_telepon,
                                 CASE
                                 WHEN kategori = 'U' THEN 'Umum'
@@ -20,16 +48,22 @@ Public Class FormPelanggan
                                 WHEN kategori = 'P' THEN 'Partai'
                                 END kategori
                                 FROM tb_pelanggan"
-            Dim da As New MySqlDataAdapter(sql, conn)
-            Dim ds As New DataSet()
-            If da.Fill(ds) Then
-                dgvpelanggan.DataSource = ds.Tables(0)
-                dt = ds.Tables(0)
-                judulGrid()
-            Else
-                dgvpelanggan.DataSource = Nothing
-            End If
-            lblTotal.Text = "Jumlah Pelanggan : " & dgvPelanggan.RowCount
+            Using cmd As New MySqlCommand(sql, conn)
+                cmd.Parameters.AddWithValue("@kd_pelanggan", "%" & tbCari.Text & "%")
+                cmd.Parameters.AddWithValue("@nama", "%" & tbCari.Text & "%")
+                Using dr = cmd.ExecuteReader
+                    If dr.HasRows Then
+                        Using dt As New DataTable
+                            dt.Load(dr)
+                            dgvPelanggan.DataSource = dt
+                        End Using
+                        judulGrid()
+                    Else
+                        dgvPelanggan.DataSource = Nothing
+                    End If
+                End Using
+            End Using
+            paging()
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
@@ -234,12 +268,19 @@ Public Class FormPelanggan
         End If
     End Sub
 
+    Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
+        page -= 1
+        isiGrid()
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        page += 1
+        isiGrid()
+    End Sub
+
     Private Sub tbCari_TextChanged(sender As Object, e As EventArgs) Handles tbCari.TextChanged
-        Try
-            dt.DefaultView.RowFilter = "kd_pelanggan LIKE '%" & tbCari.Text & "%' OR nama LIKE '%" & tbCari.Text & "%'"
-        Catch ex As Exception
-            'MsgBox(ex.Message, 16, "Error")
-        End Try
+        page = 1
+        isiGrid()
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click

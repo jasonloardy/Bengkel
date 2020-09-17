@@ -4,11 +4,25 @@ Public Class FormBarang
     Public mode, id_data, temp_kode, from As String
     Public page As Integer = 1
     Public totalPage As Integer = 1
-    Public offset As Integer = 5
+    Public offset As Integer = 50
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         reset()
         isiGrid()
+        If FormUtama.level = "A" Then
+            gbBarang.Visible = True
+            btnTambah.Visible = True
+            btnEdit.Visible = True
+            btnHapus.Visible = True
+            btnBatal.Visible = True
+        ElseIf FormUtama.level = "K" Then
+            gbBarang.Visible = False
+            btnTambah.Visible = False
+            btnEdit.Visible = False
+            btnHapus.Visible = False
+            btnBatal.Visible = False
+            GroupBox1.Width = 1160
+        End If
     End Sub
 
     Sub isiCb()

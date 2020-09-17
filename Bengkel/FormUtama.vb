@@ -1,5 +1,5 @@
 ﻿Public Class FormUtama
-    Public user As String
+    Public user, level As String
     Sub closeAll()
         For Each aform As Form In Me.MdiChildren
             aform.Close()

@@ -24,10 +24,17 @@ Public Class FormLogin
                             While dr.Read
                                 If dr.Item("status") = "A" Then
                                     FormUtama.user = dr.Item("username").ToString.ToUpper
+                                    FormUtama.level = dr.Item("level")
                                     If dr.Item("level") = "A" Then
                                         FormUtama.DataMasterToolStripMenuItem.Visible = True
+                                        FormUtama.PembelianToolStripMenuItem.Visible = True
+                                        FormUtama.DaftarTransaksiToolStripMenuItem.Visible = True
+                                        FormUtama.LaporanToolStripMenuItem.Visible = True
                                     ElseIf dr.Item("level") = "K" Then
                                         FormUtama.DataMasterToolStripMenuItem.Visible = False
+                                        FormUtama.PembelianToolStripMenuItem.Visible = False
+                                        FormUtama.DaftarTransaksiToolStripMenuItem.Visible = False
+                                        FormUtama.LaporanToolStripMenuItem.Visible = False
                                     End If
                                     clear()
                                     Me.Hide()

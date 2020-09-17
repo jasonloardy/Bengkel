@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-17 10:17:20
+Date: 2020-09-17 11:06:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,7 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 -- Records of tb_barang
 -- ----------------------------
+INSERT INTO `tb_barang` VALUES ('B0000001', 'TEST', '10000', '30000', '20000', '15000', '100', 'A');
 
 -- ----------------------------
 -- Table structure for `tb_barang_history`
@@ -47,12 +48,13 @@ CREATE TABLE `tb_barang_history` (
   `stok_masuk` int(9) DEFAULT NULL,
   `stok_keluar` int(9) DEFAULT NULL,
   KEY `kd_barang` (`kd_barang`),
-  CONSTRAINT `tb_barang_history_ibfk_1` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON UPDATE CASCADE
+  CONSTRAINT `tb_barang_history_ibfk_1` FOREIGN KEY (`kd_barang`) REFERENCES `tb_barang` (`kd_barang`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tb_barang_history
 -- ----------------------------
+INSERT INTO `tb_barang_history` VALUES ('B0000001', 'SA', '2020-09-17 10:58:29', '10000', '100', '0');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -70,6 +72,7 @@ CREATE TABLE `tb_barang_satuan` (
 -- ----------------------------
 -- Records of tb_barang_satuan
 -- ----------------------------
+INSERT INTO `tb_barang_satuan` VALUES ('B0000001', 'PCS', '1', 'D');
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
@@ -87,6 +90,7 @@ CREATE TABLE `tb_pelanggan` (
 -- ----------------------------
 -- Records of tb_pelanggan
 -- ----------------------------
+INSERT INTO `tb_pelanggan` VALUES ('PL000001', 'UMUM', 'UMUM', 'UMUM', 'U');
 
 -- ----------------------------
 -- Table structure for `tb_pembayaran_hutang`
@@ -216,6 +220,7 @@ CREATE TABLE `tb_pending` (
 -- Records of tb_pending
 -- ----------------------------
 INSERT INTO `tb_pending` VALUES ('0915100156', '2020-09-15 10:01:56', 'PL000003', '0.00');
+INSERT INTO `tb_pending` VALUES ('0917110501', '2020-09-17 11:05:30', 'PL000001', '0.00');
 
 -- ----------------------------
 -- Table structure for `tb_pending_detail`
@@ -240,6 +245,7 @@ CREATE TABLE `tb_pending_detail` (
 -- Records of tb_pending_detail
 -- ----------------------------
 INSERT INTO `tb_pending_detail` VALUES ('0915100156', '13123213', 'LSN', '2', '324000', '2', '12', '98004');
+INSERT INTO `tb_pending_detail` VALUES ('0917110501', 'B0000001', 'PCS', '10', '30000', '5', '1', '10000');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan`
@@ -298,6 +304,7 @@ CREATE TABLE `tb_satuan` (
 -- ----------------------------
 -- Records of tb_satuan
 -- ----------------------------
+INSERT INTO `tb_satuan` VALUES ('PCS', 'PCS');
 
 -- ----------------------------
 -- Table structure for `tb_supplier`
@@ -332,6 +339,7 @@ CREATE TABLE `tb_user` (
 -- Records of tb_user
 -- ----------------------------
 INSERT INTO `tb_user` VALUES ('admin', 'admin', 'ADMIN', 'A', 'A');
+INSERT INTO `tb_user` VALUES ('kasir', 'kasir', 'KASIR', 'K', 'A');
 DROP TRIGGER IF EXISTS `sesuaikan stok`;
 DELIMITER ;;
 CREATE TRIGGER `sesuaikan stok` AFTER INSERT ON `tb_barang_history` FOR EACH ROW IF (NEW.stok_masuk <> 0) THEN

@@ -40,6 +40,15 @@ Public Class FormPenjualan
     Private Sub FormPenjualan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
         reset()
+        If FormUtama.level = "A" Then
+            tbHargaJual.ReadOnly = False
+            tbDiskonBarang.ReadOnly = False
+            tbDiskonAll.ReadOnly = False
+        ElseIf FormUtama.level = "K" Then
+            tbHargaJual.ReadOnly = True
+            tbDiskonBarang.ReadOnly = True
+            tbDiskonAll.ReadOnly = True
+        End If
     End Sub
 
     Sub hitungTotal()
@@ -252,19 +261,21 @@ Public Class FormPenjualan
                         hitungTotal()
                     End With
                 ElseIf e.ColumnIndex = 5 Then
-                    With FormInputBox
-                        .dgv = dgvKeranjang
-                        .from = "trx"
-                        .columnValue = e.ColumnIndex
-                        .row = e.RowIndex
-                        .Text = "Diskon Barang"
-                        .lblMessage.Text = "Masukkan Diskon Barang"
-                        .tbValue.Mask = "00,00"
-                        .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
-                        .ShowDialog()
-                        updateTotal(e.RowIndex)
-                        hitungTotal()
-                    End With
+                    If FormUtama.level = "A" Then
+                        With FormInputBox
+                            .dgv = dgvKeranjang
+                            .from = "trx"
+                            .columnValue = e.ColumnIndex
+                            .row = e.RowIndex
+                            .Text = "Diskon Barang"
+                            .lblMessage.Text = "Masukkan Diskon Barang"
+                            .tbValue.Mask = "00,00"
+                            .tbValue.Text = CDec(dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value)
+                            .ShowDialog()
+                            updateTotal(e.RowIndex)
+                            hitungTotal()
+                        End With
+                    End If
                 End If
             End If
         Catch ex As Exception

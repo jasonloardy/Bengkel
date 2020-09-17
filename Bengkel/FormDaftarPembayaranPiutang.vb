@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 Public Class FormDaftarPembayaranpiutang
     Public page As Integer = 1
     Public totalPage As Integer = 1
-    Public offset As Integer = 5
+    Public offset As Integer = 50
     Public kodeTrx As String
     Public cryReport As New ReportDocument
 

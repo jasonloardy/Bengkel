@@ -43,6 +43,9 @@ Partial Class FormPelanggan
         Me.cbKategori = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblPage = New System.Windows.Forms.Label()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnPrev = New System.Windows.Forms.Button()
         CType(Me.dgvPelanggan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbPelanggan.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -249,7 +252,10 @@ Partial Class FormPelanggan
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.lblPage)
         Me.GroupBox1.Controls.Add(Me.lblTotal)
+        Me.GroupBox1.Controls.Add(Me.btnNext)
+        Me.GroupBox1.Controls.Add(Me.btnPrev)
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.dgvPelanggan)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -260,6 +266,36 @@ Partial Class FormPelanggan
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Daftar Pelanggan"
+        '
+        'lblPage
+        '
+        Me.lblPage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblPage.Location = New System.Drawing.Point(658, 50)
+        Me.lblPage.Name = "lblPage"
+        Me.lblPage.Size = New System.Drawing.Size(54, 13)
+        Me.lblPage.TabIndex = 22
+        Me.lblPage.Text = "999 / 999"
+        Me.lblPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnNext
+        '
+        Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNext.Location = New System.Drawing.Point(718, 45)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(30, 23)
+        Me.btnNext.TabIndex = 21
+        Me.btnNext.Text = ">"
+        Me.btnNext.UseVisualStyleBackColor = True
+        '
+        'btnPrev
+        '
+        Me.btnPrev.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrev.Location = New System.Drawing.Point(622, 45)
+        Me.btnPrev.Name = "btnPrev"
+        Me.btnPrev.Size = New System.Drawing.Size(30, 23)
+        Me.btnPrev.TabIndex = 20
+        Me.btnPrev.Text = "<"
+        Me.btnPrev.UseVisualStyleBackColor = True
         '
         'FormPelanggan
         '
@@ -308,4 +344,7 @@ Partial Class FormPelanggan
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cbKategori As ComboBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents lblPage As Label
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnPrev As Button
 End Class
