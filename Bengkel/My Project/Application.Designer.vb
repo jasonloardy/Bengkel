@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Bengkel.FormLogin
+            Me.MainForm = Global.Bengkel.FormUtama
         End Sub
     End Class
 End Namespace
