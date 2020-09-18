@@ -10,7 +10,6 @@ Public Class FormViewCR
             cryReport.Load(RepLocation & "CRBuktiPembelian.rpt")
             cryReport.Refresh()
             cryReport.SetParameterValue("kd_pembelian", kd_pembelian)
-            'cryReport.PrintToPrinter(1, False, 0, 0) 
             CRViewer.ReportSource = cryReport
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
@@ -24,7 +23,6 @@ Public Class FormViewCR
             cryReport.Refresh()
             cryReport.SetParameterValue("kd_penjualan", kd_penjualan)
             cryReport.PrintToPrinter(1, False, 0, 0)
-            'CRViewer.ReportSource = cryReport
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try

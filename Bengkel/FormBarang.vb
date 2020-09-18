@@ -259,6 +259,7 @@ Public Class FormBarang
         lblStok.Visible = False
         tbStokFisik.Visible = False
         clear()
+        btnBarcode.Enabled = False
         btnTambah.Text = "Tambah"
         btnTambah.Enabled = True
         btnEdit.Enabled = False
@@ -525,6 +526,7 @@ Public Class FormBarang
         lblStok.Visible = True
         tbStokFisik.Visible = True
         gridDetail()
+        btnBarcode.Enabled = True
         btnTambah.Enabled = False
         btnEdit.Enabled = True
         btnHapus.Enabled = True
@@ -616,6 +618,11 @@ Public Class FormBarang
                 e.Handled = True
             End If
         End If
+    End Sub
+
+    Private Sub btnBarcode_Click(sender As Object, e As EventArgs) Handles btnBarcode.Click
+        FormViewBarcode.viewBarcode(tbKode.Text)
+        FormViewBarcode.ShowDialog()
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

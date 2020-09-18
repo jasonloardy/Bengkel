@@ -71,6 +71,7 @@ Partial Class FormBarang
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnTambah = New System.Windows.Forms.Button()
         Me.btnBatal = New System.Windows.Forms.Button()
+        Me.btnBarcode = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBarang.SuspendLayout()
@@ -568,11 +569,22 @@ Partial Class FormBarang
         Me.btnBatal.Text = "Batal"
         Me.btnBatal.UseVisualStyleBackColor = True
         '
+        'btnBarcode
+        '
+        Me.btnBarcode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBarcode.Location = New System.Drawing.Point(772, 526)
+        Me.btnBarcode.Name = "btnBarcode"
+        Me.btnBarcode.Size = New System.Drawing.Size(75, 23)
+        Me.btnBarcode.TabIndex = 6
+        Me.btnBarcode.Text = "Barcode"
+        Me.btnBarcode.UseVisualStyleBackColor = True
+        '
         'FormBarang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.Controls.Add(Me.btnBarcode)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gbBarang)
         Me.Controls.Add(Me.btnHapus)
@@ -646,4 +658,5 @@ Partial Class FormBarang
     Friend WithEvents lblPage As Label
     Friend WithEvents btnNext As Button
     Friend WithEvents btnPrev As Button
+    Friend WithEvents btnBarcode As Button
 End Class

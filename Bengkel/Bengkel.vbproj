@@ -83,6 +83,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRBarcode.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRBarcode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRBuktiPembayaranPiutang.vb">
       <DependentUpon>CRBuktiPembayaranPiutang.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -228,6 +234,12 @@
     <Compile Include="FormUtama.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormViewBarcode.Designer.vb">
+      <DependentUpon>FormViewBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormViewCR.Designer.vb">
       <DependentUpon>FormViewCR.vb</DependentUpon>
     </Compile>
@@ -252,6 +264,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CRBarcode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRBarcode.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRBuktiPembayaranPiutang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRBuktiPembayaranPiutang.vb</LastGenOutput>
@@ -328,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewBarcode.resx">
+      <DependentUpon>FormViewBarcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewCR.resx">
       <DependentUpon>FormViewCR.vb</DependentUpon>
