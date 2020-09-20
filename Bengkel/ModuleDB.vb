@@ -309,7 +309,7 @@ Module ModuleDB
         End Try
     End Function
 
-    Function queryPendingDetail(ByVal query As String, ByVal kd_pending As String, ByVal kd_barang As String,
+    Function queryPendingDetail(ByVal query As String, ByVal kd_pending As String, ByVal kd_barang As String, ByVal nama_barang As String,
                                   ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
                                   ByVal diskon As Decimal, ByVal unit As Integer, ByVal harga_beli As Integer)
         Try
@@ -317,6 +317,7 @@ Module ModuleDB
                 cmd.CommandText = query
                 cmd.Parameters.AddWithValue("@kd_pending", kd_pending)
                 cmd.Parameters.AddWithValue("@kd_barang", kd_barang)
+                cmd.Parameters.AddWithValue("@nama_barang", nama_barang)
                 cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
                 cmd.Parameters.AddWithValue("@qty", qty)
                 cmd.Parameters.AddWithValue("@harga_jual", harga_jual)
@@ -353,7 +354,7 @@ Module ModuleDB
         End Try
     End Function
 
-    Function queryPenjualanDetail(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_barang As String,
+    Function queryPenjualanDetail(ByVal query As String, ByVal kd_penjualan As String, ByVal kd_barang As String, ByVal nama_barang As String,
                                   ByVal kd_satuan As String, ByVal qty As Integer, ByVal harga_jual As Integer,
                                   ByVal diskon As Decimal, ByVal unit As Integer, ByVal harga_beli As Integer)
         Try
@@ -361,6 +362,7 @@ Module ModuleDB
                 cmd.CommandText = query
                 cmd.Parameters.AddWithValue("@kd_penjualan", kd_penjualan)
                 cmd.Parameters.AddWithValue("@kd_barang", kd_barang)
+                cmd.Parameters.AddWithValue("@nama_barang", nama_barang)
                 cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
                 cmd.Parameters.AddWithValue("@qty", qty)
                 cmd.Parameters.AddWithValue("@harga_jual", harga_jual)

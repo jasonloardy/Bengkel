@@ -276,6 +276,36 @@ Public Class FormPenjualan
                             hitungTotal()
                         End With
                     End If
+                ElseIf e.ColumnIndex = 1 Then
+                    If FormUtama.level = "A" Then
+                        With FormInputBox
+                            .dgv = dgvKeranjang
+                            .from = "namaBarang"
+                            .columnValue = e.ColumnIndex
+                            .row = e.RowIndex
+                            .Text = "Nama Barang"
+                            .lblMessage.Text = "Masukkan Nama Barang"
+                            .tbValue.Mask = ""
+                            .tbValue.Text = dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value
+                            .ShowDialog()
+                        End With
+                    End If
+                ElseIf e.ColumnIndex = 4 Then
+                    If FormUtama.level = "A" Then
+                        With FormInputBox
+                            .dgv = dgvKeranjang
+                            .from = "hargaJual"
+                            .columnValue = e.ColumnIndex
+                            .row = e.RowIndex
+                            .Text = "Harga Jual"
+                            .lblMessage.Text = "Masukkan Harga Jual"
+                            .tbValue.Mask = ""
+                            .tbValue.Text = dgvKeranjang.Item(e.ColumnIndex, e.RowIndex).Value
+                            .ShowDialog()
+                            updateTotal(e.RowIndex)
+                            hitungTotal()
+                        End With
+                    End If
                 End If
             End If
         Catch ex As Exception
@@ -303,9 +333,9 @@ Public Class FormPenjualan
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
             If queryPending(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
-                Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
+                Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @nama_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
-                    If queryPendingDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                    If queryPendingDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(1).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
                                             dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                         'Update harga beli barang
                     Else
@@ -335,9 +365,9 @@ Public Class FormPenjualan
             If query(sqlDelete) Then
                 Dim sql As String = "INSERT INTO tb_pending VALUES (@kd_pending, NOW(), @kd_pelanggan, @diskon);"
                 If queryPending(sql, tbKodePending.Text, tbKodePlg.Text, Val(tbDiskonAll.Text)) Then
-                    Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
+                    Dim sqlDetail As String = "INSERT INTO tb_pending_detail VALUES (@kd_pending, @kd_barang, @nama_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                     For i As Integer = 0 To dgvKeranjang.RowCount - 1
-                        If queryPendingDetail(sqlDetail, tbKodePending.Text, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                        If queryPendingDetail(sqlDetail, tbKodePending.Text, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(1).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
                                                 dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                             'Update harga beli barang
                         Else
@@ -394,11 +424,10 @@ Public Class FormPenjualan
 
     Sub isiGridPending()
         Try
-            Dim sql As String = "SELECT tpd.kd_barang kd_barang, tb.nama_barang nama_barang, tpd.kd_satuan kd_satuan,
+            Dim sql As String = "SELECT tpd.kd_barang kd_barang, tpd.nama_barang nama_barang, tpd.kd_satuan kd_satuan,
                                     tpd.qty qty, tpd.harga_jual harga_jual, tpd.diskon diskon, tpd.unit unit,
                                     tpd.qty*tpd.harga_jual*(100-tpd.diskon)/100 total, tpd.harga_beli harga_beli
                                  FROM tb_pending_detail tpd
-                                 JOIN tb_barang tb ON tpd.kd_barang = tb.kd_barang
                                  WHERE tpd.kd_pending = '" & tbKodePending.Text & "'"
             Using cmd As New MySqlCommand(sql, conn)
                 Using dr = cmd.ExecuteReader
@@ -447,9 +476,9 @@ Public Class FormPenjualan
             trans = conn.BeginTransaction
             Dim sql As String = "INSERT INTO tb_penjualan VALUES (@kd_penjualan, NOW(), @kd_pelanggan, @diskon, @bayar, @sisa, '1');"
             If queryPenjualan(sql, kode, tbKodePlg.Text, Val(tbDiskonAll.Text), tbBayar.Text, sisa) Then
-                Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
+                Dim sqlDetail As String = "INSERT INTO tb_penjualan_detail VALUES (@kd_penjualan, @kd_barang, @nama_barang, @kd_satuan, @qty, @harga_jual, @diskon, @unit, @harga_beli);"
                 For i As Integer = 0 To dgvKeranjang.RowCount - 1
-                    If queryPenjualanDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
+                    If queryPenjualanDetail(sqlDetail, kode, dgvKeranjang.Rows(i).Cells(0).Value, dgvKeranjang.Rows(i).Cells(1).Value, dgvKeranjang.Rows(i).Cells(2).Value, dgvKeranjang.Rows(i).Cells(3).Value,
                                             dgvKeranjang.Rows(i).Cells(4).Value, dgvKeranjang.Rows(i).Cells(5).Value, dgvKeranjang.Rows(i).Cells(6).Value * dgvKeranjang.Rows(i).Cells(3).Value, dgvKeranjang.Rows(i).Cells(8).Value) Then
                         'Update harga beli barang
                     Else

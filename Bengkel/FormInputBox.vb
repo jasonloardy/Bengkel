@@ -36,12 +36,34 @@
         End Try
     End Sub
 
+    Sub updateNamaBarang()
+        Try
+            dgv.Item(columnValue, row).Value = tbValue.Text
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub updateHargaJual()
+        Try
+            dgv.Item(columnValue, row).Value = tbValue.Text
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Private Sub btnInput_Click(sender As Object, e As EventArgs) Handles btnInput.Click
         Try
             If from = "hutang" Then
                 bayarHutang()
             ElseIf from = "trx" Then
                 updateTrx()
+            ElseIf from = "namaBarang" Then
+                updateNamaBarang()
+            ElseIf from = "hargaJual" Then
+                updateHargaJual
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
@@ -53,9 +75,11 @@
     End Sub
 
     Private Sub tbValue_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbValue.KeyPress
-        If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
-                e.Handled = True
+        If Not from = "namaBarang" Then
+            If Asc(e.KeyChar) <> 8 Then
+                If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                    e.Handled = True
+                End If
             End If
         End If
     End Sub

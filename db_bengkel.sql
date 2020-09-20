@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-17 11:08:13
+Date: 2020-09-20 22:02:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,8 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 -- Records of tb_barang
 -- ----------------------------
-INSERT INTO `tb_barang` VALUES ('B0000001', 'TEST', '10000', '30000', '20000', '15000', '100', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000001', 'OLI CASTROL MAGNETEC GTX', '10000', '30000', '20000', '15000', '80', 'A');
+INSERT INTO `tb_barang` VALUES ('B0000002', 'TEST', '100000', '150000', '140000', '130000', '-3', 'A');
 
 -- ----------------------------
 -- Table structure for `tb_barang_history`
@@ -55,6 +56,29 @@ CREATE TABLE `tb_barang_history` (
 -- Records of tb_barang_history
 -- ----------------------------
 INSERT INTO `tb_barang_history` VALUES ('B0000001', 'SA', '2020-09-17 10:58:29', '10000', '100', '0');
+INSERT INTO `tb_barang_history` VALUES ('B0000002', 'SA', '2020-09-18 15:06:30', '100000', '2', '0');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0001/PJ/ADMIN/0920', '2020-09-20 21:05:05', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0002/PJ/ADMIN/0920', '2020-09-20 21:22:04', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('B0000002', '0003/PJ/ADMIN/0920', '2020-09-20 21:23:24', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0004/PJ/ADMIN/0920', '2020-09-20 21:34:37', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000002', '0004/PJ/ADMIN/0920', '2020-09-20 21:34:37', '0', '0', '2');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000001', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000002', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
+INSERT INTO `tb_barang_history` VALUES ('B0000002', '0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -73,6 +97,7 @@ CREATE TABLE `tb_barang_satuan` (
 -- Records of tb_barang_satuan
 -- ----------------------------
 INSERT INTO `tb_barang_satuan` VALUES ('B0000001', 'PCS', '1', 'D');
+INSERT INTO `tb_barang_satuan` VALUES ('B0000002', 'PCS', '1', 'D');
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
@@ -138,6 +163,7 @@ CREATE TABLE `tb_pembayaran_piutang` (
 -- ----------------------------
 -- Records of tb_pembayaran_piutang
 -- ----------------------------
+INSERT INTO `tb_pembayaran_piutang` VALUES ('0001/PP/ADMIN/0920', '2020-09-20 22:00:18', '1');
 
 -- ----------------------------
 -- Table structure for `tb_pembayaran_piutang_detail`
@@ -155,6 +181,7 @@ CREATE TABLE `tb_pembayaran_piutang_detail` (
 -- ----------------------------
 -- Records of tb_pembayaran_piutang_detail
 -- ----------------------------
+INSERT INTO `tb_pembayaran_piutang_detail` VALUES ('0001/PP/ADMIN/0920', '0004/PJ/ADMIN/0920', '317226');
 
 -- ----------------------------
 -- Table structure for `tb_pembelian`
@@ -227,6 +254,7 @@ DROP TABLE IF EXISTS `tb_pending_detail`;
 CREATE TABLE `tb_pending_detail` (
   `kd_pending` varchar(10) DEFAULT NULL,
   `kd_barang` varchar(16) DEFAULT NULL,
+  `nama_barang` varchar(64) DEFAULT NULL,
   `kd_satuan` varchar(8) DEFAULT NULL,
   `qty` int(9) DEFAULT NULL,
   `harga_jual` int(9) DEFAULT NULL,
@@ -263,6 +291,11 @@ CREATE TABLE `tb_penjualan` (
 -- ----------------------------
 -- Records of tb_penjualan
 -- ----------------------------
+INSERT INTO `tb_penjualan` VALUES ('0001/PJ/ADMIN/0920', '2020-09-20 21:05:05', 'PL000001', '0.00', '60000', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0002/PJ/ADMIN/0920', '2020-09-20 21:22:04', 'PL000001', '0.00', '100000', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0003/PJ/ADMIN/0920', '2020-09-20 21:23:24', 'PL000001', '0.00', '200000', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0004/PJ/ADMIN/0920', '2020-09-20 21:34:37', 'PL000001', '2.00', '0', '0', '1');
+INSERT INTO `tb_penjualan` VALUES ('0005/PJ/ADMIN/0920', '2020-09-20 21:47:16', 'PL000001', '0.00', '0', '750000', '1');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan_detail`
@@ -271,6 +304,7 @@ DROP TABLE IF EXISTS `tb_penjualan_detail`;
 CREATE TABLE `tb_penjualan_detail` (
   `kd_penjualan` varchar(32) DEFAULT NULL,
   `kd_barang` varchar(16) DEFAULT NULL,
+  `nama_barang` varchar(64) DEFAULT NULL,
   `kd_satuan` varchar(8) DEFAULT NULL,
   `qty` int(9) DEFAULT NULL,
   `harga_jual` int(9) DEFAULT NULL,
@@ -286,6 +320,28 @@ CREATE TABLE `tb_penjualan_detail` (
 -- ----------------------------
 -- Records of tb_penjualan_detail
 -- ----------------------------
+INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '2', '30000', '0', '2', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX + OK', 'PCS', '2', '50000', '0', '2', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ/ADMIN/0920', 'B0000002', 'TEST + OK', 'PCS', '1', '200000', '0', '1', '100000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '1', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ/ADMIN/0920', 'B0000002', 'TEST', 'PCS', '2', '150000', '2', '2', '100000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000001', 'OLI CASTROL MAGNETEC GTX', 'PCS', '1', '30000', '0', '1', '10000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000002', 'TEST', 'PCS', '1', '150000', '0', '1', '100000');
+INSERT INTO `tb_penjualan_detail` VALUES ('0005/PJ/ADMIN/0920', 'B0000002', 'TEST', 'PCS', '1', '150000', '0', '1', '100000');
 
 -- ----------------------------
 -- Table structure for `tb_satuan`
@@ -317,6 +373,7 @@ CREATE TABLE `tb_supplier` (
 -- ----------------------------
 -- Records of tb_supplier
 -- ----------------------------
+INSERT INTO `tb_supplier` VALUES ('SP000001', 'TEST', 'TEST', 't123');
 
 -- ----------------------------
 -- Table structure for `tb_user`
