@@ -140,10 +140,17 @@
         FormPembayaranpiutang.Show()
     End Sub
 
+    Private Sub LaporanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanToolStripMenuItem.Click
+        closeAll()
+        FormLaporan.MdiParent = Me
+        FormLaporan.Dock = DockStyle.Fill
+        FormLaporan.Show()
+    End Sub
+
     Private Sub PembayaranPiutangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PembayaranPiutangToolStripMenuItem1.Click
         closeAll()
-        FormDaftarPembayaranPiutang.MdiParent = Me
-        FormDaftarPembayaranPiutang.Dock = DockStyle.Fill
-        FormDaftarPembayaranPiutang.Show()
+        FormDaftarPembayaranpiutang.MdiParent = Me
+        FormDaftarPembayaranpiutang.Dock = DockStyle.Fill
+        FormDaftarPembayaranpiutang.Show()
     End Sub
 End Class

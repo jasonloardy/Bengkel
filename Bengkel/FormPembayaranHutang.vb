@@ -82,7 +82,7 @@ Public Class FormPembayaranHutang
     Sub isiGridTrx(ByVal kd_supplier As String)
         Try
             Dim sql As String = "SELECT tb.kd_pembelian, kd_bukti, sales, tanggal_jt,
-                                    SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100 nominal,
+                                    FLOOR(SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal,
                                     sisa, '0', sisa
                                     FROM tb_pembelian tb
                                     JOIN tb_pembelian_detail tbd ON tb.kd_pembelian = tbd.kd_pembelian

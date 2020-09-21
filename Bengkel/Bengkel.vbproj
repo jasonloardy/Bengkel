@@ -113,6 +113,42 @@
       <DependentUpon>CRBuktiPembelian.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRLapPenjualanTahunan.vb">
+      <DependentUpon>CRLapPenjualanTahunan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRLapPenjualanBulanan.vb">
+      <DependentUpon>CRLapPenjualanBulanan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRLapPenjualanHarian.vb">
+      <DependentUpon>CRLapPenjualanHarian.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRLapPembelianTahunan.vb">
+      <DependentUpon>CRLapPembelianTahunan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRLapPembelianBulanan.vb">
+      <DependentUpon>CRLapPembelianBulanan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRLapPembelianHarian.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRLapPembelianHarian.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRNotaPenjualan.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +201,12 @@
       <DependentUpon>FormInputBox.vb</DependentUpon>
     </Compile>
     <Compile Include="FormInputBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLaporan.Designer.vb">
+      <DependentUpon>FormLaporan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLaporan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormListPending.Designer.vb">
@@ -284,6 +326,30 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRBuktiPembelian.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPenjualanTahunan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPenjualanTahunan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPenjualanBulanan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPenjualanBulanan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPenjualanHarian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPenjualanHarian.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPembelianTahunan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPembelianTahunan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPembelianBulanan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPembelianBulanan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRLapPembelianHarian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRLapPembelianHarian.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRNotaPenjualan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRNotaPenjualan.vb</LastGenOutput>
@@ -311,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInputBox.resx">
       <DependentUpon>FormInputBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLaporan.resx">
+      <DependentUpon>FormLaporan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListPending.resx">
       <DependentUpon>FormListPending.vb</DependentUpon>

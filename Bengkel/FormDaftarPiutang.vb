@@ -62,7 +62,7 @@ Public Class FormDaftarpiutang
     Sub isiGridTrx(ByVal kd_pelanggan As String)
         Try
             Dim sql As String = "SELECT tb.kd_penjualan, tanggal,
-                                    SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100 nominal, sisa
+                                    FLOOR(SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal, sisa
                                     FROM tb_penjualan tb
                                     JOIN tb_penjualan_detail tbd ON tb.kd_penjualan = tbd.kd_penjualan
                                     WHERE kd_pelanggan = '" & kd_pelanggan & "' AND sisa > 0 AND status = '1'
