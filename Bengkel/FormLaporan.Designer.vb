@@ -23,18 +23,18 @@ Partial Class FormLaporan
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.tbTahunan = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.rbHarian = New System.Windows.Forms.RadioButton()
-        Me.rbBulanan = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.dtpHarian1 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpHarian2 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpBulanan = New System.Windows.Forms.DateTimePicker()
         Me.cbTahunan = New System.Windows.Forms.ComboBox()
-        Me.rbPembelian = New System.Windows.Forms.RadioButton()
-        Me.rbPenjualan = New System.Windows.Forms.RadioButton()
-        Me.rbBarangBeli = New System.Windows.Forms.RadioButton()
+        Me.dtpBulanan = New System.Windows.Forms.DateTimePicker()
+        Me.dtpHarian2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpHarian1 = New System.Windows.Forms.DateTimePicker()
+        Me.rbTahunan = New System.Windows.Forms.RadioButton()
+        Me.rbBulanan = New System.Windows.Forms.RadioButton()
+        Me.rbHarian = New System.Windows.Forms.RadioButton()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rbBarangJual = New System.Windows.Forms.RadioButton()
+        Me.rbBarangBeli = New System.Windows.Forms.RadioButton()
+        Me.rbPenjualan = New System.Windows.Forms.RadioButton()
+        Me.rbPembelian = New System.Windows.Forms.RadioButton()
         Me.btnPreview = New System.Windows.Forms.Button()
         Me.CRViewer = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.tbTahunan.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class FormLaporan
         Me.tbTahunan.Controls.Add(Me.dtpBulanan)
         Me.tbTahunan.Controls.Add(Me.dtpHarian2)
         Me.tbTahunan.Controls.Add(Me.dtpHarian1)
-        Me.tbTahunan.Controls.Add(Me.RadioButton2)
+        Me.tbTahunan.Controls.Add(Me.rbTahunan)
         Me.tbTahunan.Controls.Add(Me.rbBulanan)
         Me.tbTahunan.Controls.Add(Me.rbHarian)
         Me.tbTahunan.Location = New System.Drawing.Point(12, 12)
@@ -56,6 +56,75 @@ Partial Class FormLaporan
         Me.tbTahunan.TabIndex = 0
         Me.tbTahunan.TabStop = False
         Me.tbTahunan.Text = "Periode"
+        '
+        'cbTahunan
+        '
+        Me.cbTahunan.FormattingEnabled = True
+        Me.cbTahunan.Location = New System.Drawing.Point(80, 71)
+        Me.cbTahunan.Name = "cbTahunan"
+        Me.cbTahunan.Size = New System.Drawing.Size(100, 21)
+        Me.cbTahunan.TabIndex = 6
+        '
+        'dtpBulanan
+        '
+        Me.dtpBulanan.CustomFormat = "MMMM yyyy"
+        Me.dtpBulanan.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpBulanan.Location = New System.Drawing.Point(80, 45)
+        Me.dtpBulanan.Name = "dtpBulanan"
+        Me.dtpBulanan.Size = New System.Drawing.Size(206, 20)
+        Me.dtpBulanan.TabIndex = 5
+        '
+        'dtpHarian2
+        '
+        Me.dtpHarian2.CustomFormat = "yyyy-MM-dd"
+        Me.dtpHarian2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpHarian2.Location = New System.Drawing.Point(186, 19)
+        Me.dtpHarian2.Name = "dtpHarian2"
+        Me.dtpHarian2.Size = New System.Drawing.Size(100, 20)
+        Me.dtpHarian2.TabIndex = 4
+        '
+        'dtpHarian1
+        '
+        Me.dtpHarian1.CustomFormat = "yyyy-MM-dd"
+        Me.dtpHarian1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpHarian1.Location = New System.Drawing.Point(80, 19)
+        Me.dtpHarian1.Name = "dtpHarian1"
+        Me.dtpHarian1.Size = New System.Drawing.Size(100, 20)
+        Me.dtpHarian1.TabIndex = 3
+        '
+        'rbTahunan
+        '
+        Me.rbTahunan.AutoSize = True
+        Me.rbTahunan.Location = New System.Drawing.Point(6, 71)
+        Me.rbTahunan.Name = "rbTahunan"
+        Me.rbTahunan.Size = New System.Drawing.Size(68, 17)
+        Me.rbTahunan.TabIndex = 2
+        Me.rbTahunan.TabStop = True
+        Me.rbTahunan.Text = "Tahunan"
+        Me.rbTahunan.UseVisualStyleBackColor = True
+        '
+        'rbBulanan
+        '
+        Me.rbBulanan.AutoSize = True
+        Me.rbBulanan.Location = New System.Drawing.Point(6, 45)
+        Me.rbBulanan.Name = "rbBulanan"
+        Me.rbBulanan.Size = New System.Drawing.Size(64, 17)
+        Me.rbBulanan.TabIndex = 1
+        Me.rbBulanan.TabStop = True
+        Me.rbBulanan.Text = "Bulanan"
+        Me.rbBulanan.UseVisualStyleBackColor = True
+        '
+        'rbHarian
+        '
+        Me.rbHarian.AutoSize = True
+        Me.rbHarian.Checked = True
+        Me.rbHarian.Location = New System.Drawing.Point(6, 19)
+        Me.rbHarian.Name = "rbHarian"
+        Me.rbHarian.Size = New System.Drawing.Size(56, 17)
+        Me.rbHarian.TabIndex = 0
+        Me.rbHarian.TabStop = True
+        Me.rbHarian.Text = "Harian"
+        Me.rbHarian.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -70,72 +139,38 @@ Partial Class FormLaporan
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Laporan"
         '
-        'rbHarian
+        'rbBarangJual
         '
-        Me.rbHarian.AutoSize = True
-        Me.rbHarian.Checked = True
-        Me.rbHarian.Location = New System.Drawing.Point(6, 19)
-        Me.rbHarian.Name = "rbHarian"
-        Me.rbHarian.Size = New System.Drawing.Size(56, 17)
-        Me.rbHarian.TabIndex = 0
-        Me.rbHarian.TabStop = True
-        Me.rbHarian.Text = "Harian"
-        Me.rbHarian.UseVisualStyleBackColor = True
+        Me.rbBarangJual.AutoSize = True
+        Me.rbBarangJual.Location = New System.Drawing.Point(86, 45)
+        Me.rbBarangJual.Name = "rbBarangJual"
+        Me.rbBarangJual.Size = New System.Drawing.Size(124, 17)
+        Me.rbBarangJual.TabIndex = 3
+        Me.rbBarangJual.TabStop = True
+        Me.rbBarangJual.Text = "Jumlah Barang Dijual"
+        Me.rbBarangJual.UseVisualStyleBackColor = True
         '
-        'rbBulanan
+        'rbBarangBeli
         '
-        Me.rbBulanan.AutoSize = True
-        Me.rbBulanan.Location = New System.Drawing.Point(6, 45)
-        Me.rbBulanan.Name = "rbBulanan"
-        Me.rbBulanan.Size = New System.Drawing.Size(64, 17)
-        Me.rbBulanan.TabIndex = 1
-        Me.rbBulanan.TabStop = True
-        Me.rbBulanan.Text = "Bulanan"
-        Me.rbBulanan.UseVisualStyleBackColor = True
+        Me.rbBarangBeli.AutoSize = True
+        Me.rbBarangBeli.Location = New System.Drawing.Point(86, 19)
+        Me.rbBarangBeli.Name = "rbBarangBeli"
+        Me.rbBarangBeli.Size = New System.Drawing.Size(124, 17)
+        Me.rbBarangBeli.TabIndex = 2
+        Me.rbBarangBeli.TabStop = True
+        Me.rbBarangBeli.Text = "Jumlah Barang Dibeli"
+        Me.rbBarangBeli.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'rbPenjualan
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(6, 71)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(68, 17)
-        Me.RadioButton2.TabIndex = 2
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Tahunan"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'dtpHarian1
-        '
-        Me.dtpHarian1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpHarian1.Location = New System.Drawing.Point(80, 19)
-        Me.dtpHarian1.Name = "dtpHarian1"
-        Me.dtpHarian1.Size = New System.Drawing.Size(100, 20)
-        Me.dtpHarian1.TabIndex = 3
-        '
-        'dtpHarian2
-        '
-        Me.dtpHarian2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpHarian2.Location = New System.Drawing.Point(186, 19)
-        Me.dtpHarian2.Name = "dtpHarian2"
-        Me.dtpHarian2.Size = New System.Drawing.Size(100, 20)
-        Me.dtpHarian2.TabIndex = 4
-        '
-        'dtpBulanan
-        '
-        Me.dtpBulanan.CustomFormat = "MMMM yyyy"
-        Me.dtpBulanan.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpBulanan.Location = New System.Drawing.Point(80, 45)
-        Me.dtpBulanan.Name = "dtpBulanan"
-        Me.dtpBulanan.Size = New System.Drawing.Size(206, 20)
-        Me.dtpBulanan.TabIndex = 5
-        '
-        'cbTahunan
-        '
-        Me.cbTahunan.FormattingEnabled = True
-        Me.cbTahunan.Location = New System.Drawing.Point(80, 71)
-        Me.cbTahunan.Name = "cbTahunan"
-        Me.cbTahunan.Size = New System.Drawing.Size(100, 21)
-        Me.cbTahunan.TabIndex = 6
+        Me.rbPenjualan.AutoSize = True
+        Me.rbPenjualan.Location = New System.Drawing.Point(6, 45)
+        Me.rbPenjualan.Name = "rbPenjualan"
+        Me.rbPenjualan.Size = New System.Drawing.Size(72, 17)
+        Me.rbPenjualan.TabIndex = 1
+        Me.rbPenjualan.TabStop = True
+        Me.rbPenjualan.Text = "Penjualan"
+        Me.rbPenjualan.UseVisualStyleBackColor = True
         '
         'rbPembelian
         '
@@ -149,39 +184,6 @@ Partial Class FormLaporan
         Me.rbPembelian.Text = "Pembelian"
         Me.rbPembelian.UseVisualStyleBackColor = True
         '
-        'rbPenjualan
-        '
-        Me.rbPenjualan.AutoSize = True
-        Me.rbPenjualan.Location = New System.Drawing.Point(6, 45)
-        Me.rbPenjualan.Name = "rbPenjualan"
-        Me.rbPenjualan.Size = New System.Drawing.Size(72, 17)
-        Me.rbPenjualan.TabIndex = 1
-        Me.rbPenjualan.TabStop = True
-        Me.rbPenjualan.Text = "Penjualan"
-        Me.rbPenjualan.UseVisualStyleBackColor = True
-        '
-        'rbBarangBeli
-        '
-        Me.rbBarangBeli.AutoSize = True
-        Me.rbBarangBeli.Location = New System.Drawing.Point(86, 19)
-        Me.rbBarangBeli.Name = "rbBarangBeli"
-        Me.rbBarangBeli.Size = New System.Drawing.Size(124, 17)
-        Me.rbBarangBeli.TabIndex = 2
-        Me.rbBarangBeli.TabStop = True
-        Me.rbBarangBeli.Text = "Jumlah Barang Dibeli"
-        Me.rbBarangBeli.UseVisualStyleBackColor = True
-        '
-        'rbBarangJual
-        '
-        Me.rbBarangJual.AutoSize = True
-        Me.rbBarangJual.Location = New System.Drawing.Point(86, 45)
-        Me.rbBarangJual.Name = "rbBarangJual"
-        Me.rbBarangJual.Size = New System.Drawing.Size(124, 17)
-        Me.rbBarangJual.TabIndex = 3
-        Me.rbBarangJual.TabStop = True
-        Me.rbBarangJual.Text = "Jumlah Barang Dijual"
-        Me.rbBarangJual.UseVisualStyleBackColor = True
-        '
         'btnPreview
         '
         Me.btnPreview.Location = New System.Drawing.Point(536, 89)
@@ -194,6 +196,9 @@ Partial Class FormLaporan
         'CRViewer
         '
         Me.CRViewer.ActiveViewIndex = -1
+        Me.CRViewer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CRViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CRViewer.Cursor = System.Windows.Forms.Cursors.Default
         Me.CRViewer.Location = New System.Drawing.Point(12, 118)
@@ -234,7 +239,7 @@ Partial Class FormLaporan
     Friend WithEvents dtpBulanan As DateTimePicker
     Friend WithEvents dtpHarian2 As DateTimePicker
     Friend WithEvents dtpHarian1 As DateTimePicker
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents rbTahunan As RadioButton
     Friend WithEvents rbBulanan As RadioButton
     Friend WithEvents rbHarian As RadioButton
     Friend WithEvents GroupBox2 As GroupBox

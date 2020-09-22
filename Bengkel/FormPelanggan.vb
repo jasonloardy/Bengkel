@@ -253,18 +253,20 @@ Public Class FormPelanggan
     End Sub
 
     Private Sub dgvPelanggan_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPelanggan.CellDoubleClick
-        If FormPenjualan.tbKodePlg.Text <> "" Then
-            If FormPenjualan.tbKatPlg.Text = dgvPelanggan.Item(4, dgvPelanggan.CurrentRow.Index).Value(0) Then
-                Me.Close()
-            Else
-                Dim pilih As Integer
-                pilih = MsgBox("Kategori Pelanggan Berbeda (Keranjang akan di-Reset). Lanjutkan?", 48 + 4 + 256, "Konfirmasi")
-                If pilih = 6 Then
-                    isiPelanggan()
+        If from = "penjualan" Then
+            If FormPenjualan.tbKodePlg.Text <> "" Then
+                If FormPenjualan.tbKatPlg.Text = dgvPelanggan.Item(4, dgvPelanggan.CurrentRow.Index).Value(0) Then
+                    Me.Close()
+                Else
+                    Dim pilih As Integer
+                    pilih = MsgBox("Kategori Pelanggan Berbeda (Keranjang akan di-Reset). Lanjutkan?", 48 + 4 + 256, "Konfirmasi")
+                    If pilih = 6 Then
+                        isiPelanggan()
+                    End If
                 End If
+            Else
+                isiPelanggan()
             End If
-        Else
-            isiPelanggan()
         End If
     End Sub
 
