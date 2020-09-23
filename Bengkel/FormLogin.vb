@@ -14,7 +14,7 @@ Public Class FormLogin
     Sub login()
         Try
             If tbUsername.Text = "" Or tbPassword.Text = "" Then
-                MsgBox("Username / Password masih kosong!", 16, "Perhatian")
+                MsgBox("Username / Password Masih Kosong!", 16, "Perhatian")
             Else
                 Dim sql As String = "SELECT * FROM tb_user
                                 WHERE username = '" & tbUsername.Text.ToLower & "' AND PASSWORD = '" & tbPassword.Text & "'"
@@ -38,14 +38,14 @@ Public Class FormLogin
                                     End If
                                     clear()
                                     Me.Hide()
-                                    FormUtama.Text = "Bengkel Cahaya Motor Bantaeng (User : " & FormUtama.user & ")"
+                                    FormUtama.Text = "Cahaya Motor Bantaeng (User : " & FormUtama.user & ")"
                                     FormUtama.Show()
                                 ElseIf dr.Item("status") = "N" Then
                                     MsgBox("User Non Aktif!", 16, "Perhatian")
                                 End If
                             End While
                         Else
-                            MsgBox("Username / Password salah!", 16, "Perhatian")
+                            MsgBox("Username / Password Salah!", 16, "Perhatian")
                         End If
                     End Using
                 End Using
