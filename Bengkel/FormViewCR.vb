@@ -22,6 +22,9 @@ Public Class FormViewCR
             cryReport.Load(RepLocation & "CRNotaPenjualan.rpt")
             cryReport.Refresh()
             cryReport.SetParameterValue("kd_penjualan", kd_penjualan)
+            Using reader As StreamReader = New StreamReader("configPrinterKasir.ini")
+                cryReport.PrintOptions.PrinterName = reader.ReadLine
+            End Using
             cryReport.PrintToPrinter(1, False, 0, 0)
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
