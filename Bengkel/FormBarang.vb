@@ -11,12 +11,14 @@ Public Class FormBarang
         isiGrid()
         If FormUtama.level = "A" Then
             gbBarang.Visible = True
+            btnBarcode.Visible = True
             btnTambah.Visible = True
             btnEdit.Visible = True
             btnHapus.Visible = True
             btnBatal.Visible = True
         ElseIf FormUtama.level = "K" Then
             gbBarang.Visible = False
+            btnBarcode.Visible = False
             btnTambah.Visible = False
             btnEdit.Visible = False
             btnHapus.Visible = False
@@ -194,13 +196,14 @@ Public Class FormBarang
             .Columns(7).HeaderText = "Stok"
             .Columns(8).HeaderText = "Status"
             .Columns(9).Visible = False
-            .Columns(0).Width = 100
+            .Columns(0).Width = 80
             .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            .Columns(2).Width = 75
-            .Columns(3).Width = 100
-            .Columns(4).Width = 100
-            .Columns(7).Width = 75
-            .Columns(8).Width = 75
+            .Columns(2).Width = 50
+            .Columns(3).Width = 80
+            .Columns(4).Width = 80
+            .Columns(5).Width = 80
+            .Columns(7).Width = 60
+            .Columns(8).Width = 50
             .Columns(3).DefaultCellStyle.Format = "c0"
             .Columns(4).DefaultCellStyle.Format = "c0"
             .Columns(5).DefaultCellStyle.Format = "c0"
@@ -533,30 +536,32 @@ Public Class FormBarang
     End Sub
 
     Private Sub dgvBarang_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvBarang.CellDoubleClick
-        If from = "pembelian" Then
-            Dim baris As Integer
-            With dgvBarang
-                baris = .CurrentRow.Index
-                FormPembelian.kodeBarang = .Item(0, baris).Value
-                FormPembelian.tbKodeBarang.Text = .Item(0, baris).Value
-                FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
-                FormPembelian.tbSatuan.Text = .Item(2, baris).Value
-                FormPembelian.tbIsi.Text = .Item(9, baris).Value
-            End With
-            Me.Close()
-        ElseIf from.Contains("penjualan") Then
-            Dim baris As Integer
-            With dgvBarang
-                baris = .CurrentRow.Index
-                FormPenjualan.kodeBarang = .Item(0, baris).Value
-                FormPenjualan.tbKodeBarang.Text = .Item(0, baris).Value
-                FormPenjualan.tbNamaBarang.Text = .Item(1, baris).Value
-                FormPenjualan.tbSatuan.Text = .Item(2, baris).Value
-                FormPenjualan.tbHargaJual.Text = FormatCurrency(.Item(4, baris).Value)
-                FormPenjualan.tbIsi.Text = .Item(9, baris).Value
-                FormPenjualan.tbHargaBeli.Text = .Item(3, baris).Value
-            End With
-            Me.Close()
+        If e.RowIndex > -1 Then
+            If from = "pembelian" Then
+                Dim baris As Integer
+                With dgvBarang
+                    baris = .CurrentRow.Index
+                    FormPembelian.kodeBarang = .Item(0, baris).Value
+                    FormPembelian.tbKodeBarang.Text = .Item(0, baris).Value
+                    FormPembelian.tbNamaBarang.Text = .Item(1, baris).Value
+                    FormPembelian.tbSatuan.Text = .Item(2, baris).Value
+                    FormPembelian.tbIsi.Text = .Item(9, baris).Value
+                End With
+                Me.Close()
+            ElseIf from.Contains("penjualan") Then
+                Dim baris As Integer
+                With dgvBarang
+                    baris = .CurrentRow.Index
+                    FormPenjualan.kodeBarang = .Item(0, baris).Value
+                    FormPenjualan.tbKodeBarang.Text = .Item(0, baris).Value
+                    FormPenjualan.tbNamaBarang.Text = .Item(1, baris).Value
+                    FormPenjualan.tbSatuan.Text = .Item(2, baris).Value
+                    FormPenjualan.tbHargaJual.Text = FormatCurrency(.Item(4, baris).Value)
+                    FormPenjualan.tbIsi.Text = .Item(9, baris).Value
+                    FormPenjualan.tbHargaBeli.Text = .Item(3, baris).Value
+                End With
+                Me.Close()
+            End If
         End If
     End Sub
 

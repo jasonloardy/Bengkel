@@ -97,10 +97,8 @@ Public Class FormUser
     Sub modeSimpan()
         gbUser.Enabled = True
         If mode = "edit" Then
-            tbUsername.Enabled = False
             tbNama.Focus()
         Else
-            tbUsername.Enabled = True
             tbUsername.Focus()
         End If
         btnTambah.Text = "Simpan"

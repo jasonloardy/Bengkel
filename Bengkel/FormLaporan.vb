@@ -38,7 +38,95 @@ Public Class FormLaporan
                 penjualanBulanan(dtpBulanan.Value.ToString("MM"), dtpBulanan.Value.ToString("yyyy"))
             ElseIf rbtahunan.Checked And rbpenjualan.Checked Then
                 penjualanTahunan(cbTahunan.Text)
+            ElseIf rbHarian.Checked And rbBarangBeli.Checked Then
+                barangPembelianHarian(dtpHarian1.Value.ToString("yyyy-MM-dd"), dtpHarian2.Value.ToString("yyyy-MM-dd"))
+            ElseIf rbBulanan.Checked And rbBarangBeli.Checked Then
+                barangPembelianBulanan(dtpBulanan.Value.ToString("MM"), dtpBulanan.Value.ToString("yyyy"))
+            ElseIf rbTahunan.Checked And rbBarangBeli.Checked Then
+                barangPembelianTahunan(cbTahunan.Text)
+            ElseIf rbHarian.Checked And rbBarangJual.Checked Then
+                barangPenjualanHarian(dtpHarian1.Value.ToString("yyyy-MM-dd"), dtpHarian2.Value.ToString("yyyy-MM-dd"))
+            ElseIf rbBulanan.Checked And rbBarangJual.Checked Then
+                barangPenjualanBulanan(dtpBulanan.Value.ToString("MM"), dtpBulanan.Value.ToString("yyyy"))
+            ElseIf rbTahunan.Checked And rbBarangJual.Checked Then
+                barangPenjualanTahunan(cbTahunan.Text)
             End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPembelianHarian(ByVal tgl1 As String, ByVal tgl2 As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangHarian.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "pembelian")
+            cryReport.SetParameterValue("tgl1", tgl1)
+            cryReport.SetParameterValue("tgl2", tgl2)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPembelianBulanan(ByVal bulan As String, ByVal tahun As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangBulanan.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "pembelian")
+            cryReport.SetParameterValue("bulan", bulan)
+            cryReport.SetParameterValue("tahun", tahun)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPembelianTahunan(ByVal tahun As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangTahunan.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "pembelian")
+            cryReport.SetParameterValue("tahun", tahun)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPenjualanHarian(ByVal tgl1 As String, ByVal tgl2 As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangHarian.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "penjualan")
+            cryReport.SetParameterValue("tgl1", tgl1)
+            cryReport.SetParameterValue("tgl2", tgl2)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPenjualanBulanan(ByVal bulan As String, ByVal tahun As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangBulanan.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "penjualan")
+            cryReport.SetParameterValue("bulan", bulan)
+            cryReport.SetParameterValue("tahun", tahun)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
+    Sub barangPenjualanTahunan(ByVal tahun As String)
+        Try
+            cryReport.Load(RepLocation & "CRLapBarangTahunan.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("trx", "penjualan")
+            cryReport.SetParameterValue("tahun", tahun)
+            CRViewer.ReportSource = cryReport
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try

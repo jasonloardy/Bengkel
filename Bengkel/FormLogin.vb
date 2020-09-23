@@ -51,7 +51,7 @@ Public Class FormLogin
                 End Using
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, 16, "Error")
+            MsgBox("Error", 16, "Error")
         End Try
     End Sub
 
