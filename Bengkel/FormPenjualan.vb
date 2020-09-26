@@ -2,6 +2,7 @@
 
 Public Class FormPenjualan
     Public kodeBarang As String
+    Public hrgMin As Integer
 
     Function kode_penjualan()
         Try
@@ -45,7 +46,7 @@ Public Class FormPenjualan
             tbDiskonBarang.ReadOnly = False
             tbDiskonAll.ReadOnly = False
         ElseIf FormUtama.level = "K" Then
-            tbHargaJual.ReadOnly = True
+            'tbHargaJual.ReadOnly = True
             tbDiskonBarang.ReadOnly = True
             tbDiskonAll.ReadOnly = True
         End If
@@ -183,19 +184,23 @@ Public Class FormPenjualan
                 If tbQty.Text = "" Then
                     MsgBox("Kolom Qty / Harga Beli Masih Kosong!", 16, "Perhatian")
                 Else
-                    With dgvKeranjang
-                        Dim baris As Integer = .Rows.Add()
-                        .Rows.Item(baris).Cells(0).Value = kodeBarang
-                        .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
-                        .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
-                        .Rows.Item(baris).Cells(3).Value = tbQty.Text
-                        .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
-                        .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
-                        .Rows.Item(baris).Cells(6).Value = tbIsi.Text
-                        .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
-                        .Rows.Item(baris).Cells(8).Value = FormatCurrency(tbHargaBeli.Text)
-                    End With
-                    clearInput()
+                    If CInt(tbHargaJual.Text) < hrgMin Then
+                        MsgBox("Harga Jual Salah!", 16, "Perhatian")
+                    Else
+                        With dgvKeranjang
+                            Dim baris As Integer = .Rows.Add()
+                            .Rows.Item(baris).Cells(0).Value = kodeBarang
+                            .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
+                            .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
+                            .Rows.Item(baris).Cells(3).Value = tbQty.Text
+                            .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
+                            .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
+                            .Rows.Item(baris).Cells(6).Value = tbIsi.Text
+                            .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
+                            .Rows.Item(baris).Cells(8).Value = FormatCurrency(tbHargaBeli.Text)
+                        End With
+                        clearInput()
+                    End If
                 End If
             End If
         Catch ex As Exception
@@ -570,6 +575,14 @@ Public Class FormPenjualan
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
+        End If
+    End Sub
+
+    Private Sub tbKatPlg_TextChanged(sender As Object, e As EventArgs) Handles tbKatPlg.TextChanged
+        If tbKatPlg.Text <> "U" Then
+            tbHargaJual.ReadOnly = True
+        Else
+            tbHargaJual.ReadOnly = False
         End If
     End Sub
 End Class

@@ -10,6 +10,11 @@ Public Class FormPelanggan
         koneksi()
         reset()
         isiGrid()
+        If FormUtama.level = "A" Then
+            btnEdit.Visible = True
+        ElseIf FormUtama.level = "K" Then
+            btnEdit.Visible = False
+        End If
     End Sub
 
     Sub paging()

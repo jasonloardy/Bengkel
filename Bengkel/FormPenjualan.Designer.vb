@@ -22,7 +22,7 @@ Partial Class FormPenjualan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.gbBarang = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -587,8 +587,8 @@ Partial Class FormPenjualan
         '
         Me.dgvKeranjang.AllowUserToAddRows = False
         Me.dgvKeranjang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvKeranjang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvKeranjang.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)

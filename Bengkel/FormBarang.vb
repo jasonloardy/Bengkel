@@ -177,7 +177,7 @@ Public Class FormBarang
             Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
                                 tb.harga_beli*tbs.isi, tbs." & harga_jual & ", (tbs.harga_jual_p) - (tb.harga_beli*tbs.isi),
-                                tbs.harga_jual_p, tb.stok/tbs.isi,
+                                tbs.harga_jual_l, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
@@ -218,6 +218,7 @@ Public Class FormBarang
             .Columns(3).HeaderText = "Hrg. Beli"
             .Columns(4).HeaderText = "Hrg. Jual"
             .Columns(5).HeaderText = "Margin"
+            .Columns(6).HeaderText = "Hrg. Minimum"
             .Columns(6).Visible = False
             .Columns(7).HeaderText = "Stok"
             .Columns(8).HeaderText = "Status"
@@ -233,6 +234,7 @@ Public Class FormBarang
             .Columns(3).DefaultCellStyle.Format = "c0"
             .Columns(4).DefaultCellStyle.Format = "c0"
             .Columns(5).DefaultCellStyle.Format = "c0"
+            .Columns(6).DefaultCellStyle.Format = "c0"
             .Columns(7).DefaultCellStyle.Format = "n2"
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -243,12 +245,18 @@ Public Class FormBarang
             With dgvBarang
                 .Columns(3).Visible = False
                 .Columns(5).Visible = False
+                If from = "penjualan-umum" Then
+                    .Columns(6).Visible = True
+                Else
+                    .Columns(6).Visible = False
+                End If
                 .Columns(8).Visible = False
             End With
         Else
             With dgvBarang
                 .Columns(3).Visible = True
                 .Columns(5).Visible = True
+                .Columns(6).Visible = False
                 .Columns(8).Visible = True
             End With
         End If
@@ -583,6 +591,7 @@ Public Class FormBarang
                 With dgvBarang
                     baris = .CurrentRow.Index
                     FormPenjualan.kodeBarang = .Item(0, baris).Value
+                    FormPenjualan.hrgMin = .Item(6, baris).Value
                     FormPenjualan.tbKodeBarang.Text = .Item(0, baris).Value
                     FormPenjualan.tbNamaBarang.Text = .Item(1, baris).Value
                     FormPenjualan.tbSatuan.Text = .Item(2, baris).Value
