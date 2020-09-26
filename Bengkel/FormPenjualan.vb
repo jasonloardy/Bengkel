@@ -184,28 +184,36 @@ Public Class FormPenjualan
                 If tbQty.Text = "" Then
                     MsgBox("Kolom Qty / Harga Beli Masih Kosong!", 16, "Perhatian")
                 Else
-                    If CInt(tbHargaJual.Text) < hrgMin Then
-                        MsgBox("Harga Jual Salah!", 16, "Perhatian")
+                    If tbKatPlg.Text = "U" Then
+                        If CInt(tbHargaJual.Text) < hrgMin Then
+                            MsgBox("Harga Jual Salah!", 16, "Perhatian")
+                        Else
+                            inputBarang()
+                        End If
                     Else
-                        With dgvKeranjang
-                            Dim baris As Integer = .Rows.Add()
-                            .Rows.Item(baris).Cells(0).Value = kodeBarang
-                            .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
-                            .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
-                            .Rows.Item(baris).Cells(3).Value = tbQty.Text
-                            .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
-                            .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
-                            .Rows.Item(baris).Cells(6).Value = tbIsi.Text
-                            .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
-                            .Rows.Item(baris).Cells(8).Value = FormatCurrency(tbHargaBeli.Text)
-                        End With
-                        clearInput()
+                        inputBarang()
                     End If
                 End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
+    End Sub
+
+    Sub inputBarang()
+        With dgvKeranjang
+            Dim baris As Integer = .Rows.Add()
+            .Rows.Item(baris).Cells(0).Value = kodeBarang
+            .Rows.Item(baris).Cells(1).Value = tbNamaBarang.Text
+            .Rows.Item(baris).Cells(2).Value = tbSatuan.Text
+            .Rows.Item(baris).Cells(3).Value = tbQty.Text
+            .Rows.Item(baris).Cells(4).Value = FormatCurrency(tbHargaJual.Text)
+            .Rows.Item(baris).Cells(5).Value = Val(tbDiskonBarang.Text)
+            .Rows.Item(baris).Cells(6).Value = tbIsi.Text
+            .Rows.Item(baris).Cells(7).Value = tbQty.Text * tbHargaJual.Text * ((100 - Val(tbDiskonBarang.Text)) / 100)
+            .Rows.Item(baris).Cells(8).Value = FormatCurrency(tbHargaBeli.Text)
+        End With
+        clearInput()
     End Sub
 
     Private Sub tbDiskonAll_TextChanged(sender As Object, e As EventArgs) Handles tbDiskonAll.TextChanged
