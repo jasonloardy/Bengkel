@@ -7,6 +7,7 @@ Public Class FormBarang
     Public offset As Integer = 50
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        koneksi()
         reset()
         isiGrid()
         If FormUtama.level = "A" Then
@@ -34,9 +35,9 @@ Public Class FormBarang
             cbStnDasar.DisplayMember = "kd_satuan"
             cbStnDasar.SelectedIndex = -1
 
-            cbStnMulti.DataSource = queryCb(sqlStn)
-            cbStnMulti.DisplayMember = "kd_satuan"
-            cbStnMulti.SelectedIndex = -1
+            FormMultiSatuan.cbStnMulti.DataSource = queryCb(sqlStn)
+            FormMultiSatuan.cbStnMulti.DisplayMember = "kd_satuan"
+            FormMultiSatuan.cbStnMulti.SelectedIndex = -1
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
@@ -45,8 +46,8 @@ Public Class FormBarang
     Sub isiDetailBarang(ByVal kd_barang As String)
         Try
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi harga_beli, tb.harga_jual_u*tbs.isi harga_jual_u,
-                                tb.harga_jual_l*tbs.isi harga_jual_l, tb.harga_jual_p*tbs.isi harga_jual_p, tb.stok,
+                                tb.harga_beli*tbs.isi harga_beli, tbs.harga_jual_u*tbs.isi harga_jual_u,
+                                tbs.harga_jual_l*tbs.isi harga_jual_l, tbs.harga_jual_p*tbs.isi harga_jual_p, tb.stok,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
@@ -96,16 +97,25 @@ Public Class FormBarang
     Sub isiColStn()
         dgvSatuan.Columns.Clear()
         Dim colKdSatuan As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
-        colKdSatuan.HeaderText = "Kode Satuan"
+        colKdSatuan.HeaderText = "Satuan"
         dgvSatuan.Columns.Add(colKdSatuan)
         Dim colIsi As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         colIsi.HeaderText = "Isi"
         dgvSatuan.Columns.Add(colIsi)
+        Dim colHargaU As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        colHargaU.HeaderText = "Umum"
+        dgvSatuan.Columns.Add(colHargaU)
+        Dim colHargaL As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        colHargaL.HeaderText = "Langganan"
+        dgvSatuan.Columns.Add(colHargaL)
+        Dim colHargaP As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        colHargaP.HeaderText = "Partai"
+        dgvSatuan.Columns.Add(colHargaP)
     End Sub
 
     Sub isiGridStn(ByVal kd_barang As String)
         Try
-            Dim sql As String = "SELECT kd_satuan, isi FROM tb_barang_satuan
+            Dim sql As String = "SELECT kd_satuan, isi, harga_jual_u, harga_jual_l, harga_jual_p FROM tb_barang_satuan
                                 WHERE kd_barang = '" & kd_barang & "' AND jenis_satuan = 'M'"
             Dim da As New MySqlDataAdapter(sql, conn)
             Dim ds As New DataSet()
@@ -116,6 +126,9 @@ Public Class FormBarang
                         Dim baris As Integer = .Rows.Add()
                         .Rows.Item(baris).Cells(0).Value = dr("kd_satuan")
                         .Rows.Item(baris).Cells(1).Value = dr("isi")
+                        .Rows.Item(baris).Cells(2).Value = dr("harga_jual_u")
+                        .Rows.Item(baris).Cells(3).Value = dr("harga_jual_l")
+                        .Rows.Item(baris).Cells(4).Value = dr("harga_jual_p")
                     End With
                 Next
                 judulGridSatuan()
@@ -133,6 +146,15 @@ Public Class FormBarang
             Dim objAlternatingCellStyle As New DataGridViewCellStyle()
             .AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
+            .RowHeadersVisible = False
+            .Columns(0).Width = 50
+            .Columns(1).Width = 40
+            .Columns(2).Width = 80
+            .Columns(3).Width = 80
+            .Columns(4).Width = 80
+            .Columns(2).DefaultCellStyle.Format = "c0"
+            .Columns(3).DefaultCellStyle.Format = "c0"
+            .Columns(4).DefaultCellStyle.Format = "c0"
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = True
@@ -148,16 +170,20 @@ Public Class FormBarang
             ElseIf from = "penjualan-partai" Then
                 harga_jual = "harga_jual_p"
             End If
+            Dim status As String = ""
+            If from.Contains("penjualan") Then
+                status = " AND tb.status = 'A'"
+            End If
             Dim limit As Integer = offset * (page - 1)
             Dim sql As String = "SELECT tb.kd_barang, tb.nama_barang, tbs.kd_satuan,
-                                tb.harga_beli*tbs.isi, tb." & harga_jual & "*tbs.isi, (tb.harga_jual_p*tbs.isi) - (tb.harga_beli*tbs.isi),
-                                tb.harga_jual_p*tbs.isi, tb.stok/tbs.isi,
+                                tb.harga_beli*tbs.isi, tbs." & harga_jual & ", (tbs.harga_jual_p) - (tb.harga_beli*tbs.isi),
+                                tbs.harga_jual_p, tb.stok/tbs.isi,
                                 CASE
                                 WHEN tb.status = 'A' THEN 'Aktif'
                                 WHEN tb.status = 'N' THEN 'Non Aktif'
                                 END status, tbs.isi FROM tb_barang tb
                                 JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang
-                                WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)
+                                WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)" & status & "
                                 ORDER BY tb.status, tb.kd_barang
                                 LIMIT " & limit & ", " & offset
             Using cmd As New MySqlCommand(sql, conn)
@@ -245,8 +271,6 @@ Public Class FormBarang
         tbHrgJualU.Clear()
         tbHrgJualL.Clear()
         tbHrgJualP.Clear()
-        cbStnMulti.SelectedIndex = -1
-        tbIsiStn.Clear()
         dgvSatuan.Columns.Clear()
         dgvSatuan.Rows.Clear()
         tbStok.Clear()
@@ -325,13 +349,13 @@ Public Class FormBarang
                 kode = kode_barang()
             End If
             trans = conn.BeginTransaction
-            Dim sql As String = "INSERT INTO tb_barang VALUES (@kode, @nama, @harga_beli, @harga_jual_u, @harga_jual_l, @harga_jual_p, @stok, @status);
-                                 INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
+            Dim sql As String = "INSERT INTO tb_barang VALUES (@kode, @nama, @harga_beli, @stok, @status);
+                                 INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan, @harga_jual_u, @harga_jual_l, @harga_jual_p);"
             If queryBarang(sql, kode, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualP.Text,
                         0, cbStatus.Text(0), cbStnDasar.Text, 1, "D") Then
-                Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
+                Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan, @harga_jual_u, @harga_jual_l, @harga_jual_p);"
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
-                    queryBarangStnMulti(sqlStn, kode, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
+                    queryBarangStnMulti(sqlStn, kode, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M", dgvSatuan.Rows(i).Cells(2).Value, dgvSatuan.Rows(i).Cells(3).Value, dgvSatuan.Rows(i).Cells(4).Value)
                 Next
                 Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @harga_beli, @stok_masuk, @stok_keluar);"
                 queryBarangHistory(sqlHistory, kode, "SA", Date.Now.ToString("yyyy-MM-dd HH:mm:ss"), tbHrgBeli.Text, tbStok.Text, 0)
@@ -351,15 +375,14 @@ Public Class FormBarang
     Sub queryEdit()
         Try
             trans = conn.BeginTransaction
-            Dim sql As String = "UPDATE tb_barang SET kd_barang = @kode, nama_barang = @nama, harga_beli = @harga_beli, harga_jual_u = @harga_jual_u,
-                                  harga_jual_l = @harga_jual_l, harga_jual_p = @harga_jual_p, status = @status WHERE kd_barang = '" & id_data & "';
+            Dim sql As String = "UPDATE tb_barang SET kd_barang = @kode, nama_barang = @nama, harga_beli = @harga_beli, status = @status WHERE kd_barang = '" & id_data & "';
                                  DELETE FROM tb_barang_satuan WHERE kd_barang = '" & id_data & "';
-                                 INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
+                                 INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan, @harga_jual_u, @harga_jual_l, @harga_jual_p);"
             If queryBarang(sql, tbKode.Text, tbNama.Text.ToUpper, tbHrgBeli.Text, tbHrgJualU.Text, tbHrgJualL.Text, tbHrgJualP.Text,
                         0, cbStatus.Text(0), cbStnDasar.Text, 1, "D") Then
-                Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan);"
+                Dim sqlStn As String = "INSERT INTO tb_barang_satuan VALUES (@kode, @kd_satuan, @isi, @jenis_satuan, @harga_jual_u, @harga_jual_l, @harga_jual_p);"
                 For i As Integer = 0 To dgvSatuan.RowCount - 1
-                    queryBarangStnMulti(sqlStn, tbKode.Text, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M")
+                    queryBarangStnMulti(sqlStn, tbKode.Text, dgvSatuan.Rows(i).Cells(0).Value, dgvSatuan.Rows(i).Cells(1).Value, "M", dgvSatuan.Rows(i).Cells(2).Value, dgvSatuan.Rows(i).Cells(3).Value, dgvSatuan.Rows(i).Cells(4).Value)
                 Next
                 Dim sqlHistory As String = "INSERT INTO tb_barang_history VALUES(@kode, @kd_transaksi, @tanggal, @harga_beli, @stok_masuk, @stok_keluar);"
                 Dim selisih As Integer = tbStokFisik.Text - tbStok.Text
@@ -466,7 +489,10 @@ Public Class FormBarang
         lblStnJualU.Text = stnDasar
         lblStnJualL.Text = stnDasar
         lblStnJualB.Text = stnDasar
-        lblStnMulti.Text = stnDasar
+        FormMultiSatuan.lblStnMulti.Text = stnDasar
+        FormMultiSatuan.lblStnJualU.Text = stnDasar
+        FormMultiSatuan.lblStnJualL.Text = stnDasar
+        FormMultiSatuan.lblStnJualB.Text = stnDasar
         labelStok.Text = "Stok " & cbStnDasar.Text & " :"
     End Sub
 
@@ -487,9 +513,13 @@ Public Class FormBarang
     End Sub
 
     Sub paging()
+        Dim status As String = ""
+        If from.Contains("penjualan") Then
+            status = " AND tb.status = 'A'"
+        End If
         Dim sqlCount As String = "SELECT COUNT(*) FROM tb_barang tb
                                                   JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang 
-                                                  WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)"
+                                                  WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)" & status
         Using cmdCount As New MySqlCommand(sqlCount, conn)
             cmdCount.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
             cmdCount.Parameters.AddWithValue("@nama_barang", "%" & tbCari.Text & "%")
@@ -601,7 +631,7 @@ Public Class FormBarang
         End If
     End Sub
 
-    Private Sub tbIsiStn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbIsiStn.KeyPress
+    Private Sub tbIsiStn_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -630,23 +660,30 @@ Public Class FormBarang
         FormViewBarcode.ShowDialog()
     End Sub
 
+    Private Sub dgvSatuan_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSatuan.CellDoubleClick
+        Try
+            Dim baris As Integer
+            With dgvSatuan
+                baris = .CurrentRow.Index
+                FormMultiSatuan.cbStnMulti.Text = .Item(0, baris).Value
+                FormMultiSatuan.tbIsiStn.Text = .Item(1, baris).Value
+                FormMultiSatuan.tbHrgJualU.Text = CInt(.Item(2, baris).Value)
+                FormMultiSatuan.tbHrgJualL.Text = CInt(.Item(3, baris).Value)
+                FormMultiSatuan.tbHrgJualP.Text = CInt(.Item(4, baris).Value)
+            End With
+            FormMultiSatuan.from = "edit"
+            FormMultiSatuan.editRow = baris
+            FormMultiSatuan.ShowDialog()
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click
         Try
-            If cbStnMulti.SelectedIndex = -1 Or tbIsiStn.Text = "" Then
-                MsgBox("Masukkan Satuan & Isi", 16, "Perhatian")
-            Else
-                If dgvSatuan.ColumnCount = 0 Then
-                    isiColStn()
-                    judulGridSatuan()
-                End If
-                With dgvSatuan
-                    Dim baris As Integer = .Rows.Add()
-                    .Rows.Item(baris).Cells(0).Value = cbStnMulti.Text
-                    .Rows.Item(baris).Cells(1).Value = tbIsiStn.Text
-                End With
-                cbStnMulti.SelectedIndex = -1
-                tbIsiStn.Clear()
-            End If
+            FormMultiSatuan.reset()
+            FormMultiSatuan.from = "tambah"
+            FormMultiSatuan.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try

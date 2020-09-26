@@ -174,7 +174,8 @@ Module ModuleDB
     End Function
 
     Function queryBarangStnMulti(ByVal query As String, ByVal kode As String, ByVal kd_satuan As String,
-                         ByVal isi As Integer, ByVal jenis_satuan As String)
+                         ByVal isi As Integer, ByVal jenis_satuan As String, ByVal harga_jual_u As Integer,
+                         ByVal harga_jual_l As Integer, ByVal harga_jual_p As Integer)
         Try
             Using cmd As New MySqlCommand
                 cmd.CommandText = query
@@ -182,6 +183,9 @@ Module ModuleDB
                 cmd.Parameters.AddWithValue("@kd_satuan", kd_satuan)
                 cmd.Parameters.AddWithValue("@isi", isi)
                 cmd.Parameters.AddWithValue("@jenis_satuan", jenis_satuan)
+                cmd.Parameters.AddWithValue("@harga_jual_u", harga_jual_u)
+                cmd.Parameters.AddWithValue("@harga_jual_l", harga_jual_l)
+                cmd.Parameters.AddWithValue("@harga_jual_p", harga_jual_p)
                 cmd.Connection = conn
                 cmd.ExecuteNonQuery()
             End Using

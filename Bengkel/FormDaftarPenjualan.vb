@@ -78,7 +78,7 @@ Public Class FormDaftarpenjualan
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
             .Columns(0).HeaderText = "Kode penjualan"
             .Columns(1).HeaderText = "Tanggal"
-            .Columns(2).HeaderText = "pelanggan"
+            .Columns(2).HeaderText = "Pelanggan"
             .Columns(3).Visible = False
             .Columns(0).Width = 125
             .Columns(1).Width = 75

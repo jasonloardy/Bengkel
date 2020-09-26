@@ -40,7 +40,6 @@ Partial Class FormBarang
         Me.cbStatus = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cbCustom = New System.Windows.Forms.CheckBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.lblStnJualB = New System.Windows.Forms.Label()
         Me.lblStnJualL = New System.Windows.Forms.Label()
         Me.lblStnJualU = New System.Windows.Forms.Label()
@@ -55,12 +54,7 @@ Partial Class FormBarang
         Me.Label7 = New System.Windows.Forms.Label()
         Me.gbStnMulti = New System.Windows.Forms.GroupBox()
         Me.btnHapusStn = New System.Windows.Forms.Button()
-        Me.lblStnMulti = New System.Windows.Forms.Label()
         Me.btnTambahStn = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.tbIsiStn = New System.Windows.Forms.TextBox()
-        Me.cbStnMulti = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.dgvSatuan = New System.Windows.Forms.DataGridView()
         Me.tbKode = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -196,7 +190,6 @@ Partial Class FormBarang
         Me.gbBarang.Controls.Add(Me.cbStatus)
         Me.gbBarang.Controls.Add(Me.Label11)
         Me.gbBarang.Controls.Add(Me.cbCustom)
-        Me.gbBarang.Controls.Add(Me.Label16)
         Me.gbBarang.Controls.Add(Me.lblStnJualB)
         Me.gbBarang.Controls.Add(Me.lblStnJualL)
         Me.gbBarang.Controls.Add(Me.lblStnJualU)
@@ -285,15 +278,6 @@ Partial Class FormBarang
         Me.cbCustom.TabIndex = 1
         Me.cbCustom.Text = "Custom"
         Me.cbCustom.UseVisualStyleBackColor = True
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(46, 202)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(72, 13)
-        Me.Label16.TabIndex = 23
-        Me.Label16.Text = "Multi Satuan :"
         '
         'lblStnJualB
         '
@@ -402,88 +386,39 @@ Partial Class FormBarang
         'gbStnMulti
         '
         Me.gbStnMulti.Controls.Add(Me.btnHapusStn)
-        Me.gbStnMulti.Controls.Add(Me.lblStnMulti)
         Me.gbStnMulti.Controls.Add(Me.btnTambahStn)
-        Me.gbStnMulti.Controls.Add(Me.Label6)
-        Me.gbStnMulti.Controls.Add(Me.tbIsiStn)
-        Me.gbStnMulti.Controls.Add(Me.cbStnMulti)
-        Me.gbStnMulti.Controls.Add(Me.Label4)
         Me.gbStnMulti.Controls.Add(Me.dgvSatuan)
-        Me.gbStnMulti.Location = New System.Drawing.Point(124, 202)
+        Me.gbStnMulti.Location = New System.Drawing.Point(40, 202)
         Me.gbStnMulti.Name = "gbStnMulti"
-        Me.gbStnMulti.Size = New System.Drawing.Size(270, 247)
+        Me.gbStnMulti.Size = New System.Drawing.Size(351, 247)
         Me.gbStnMulti.TabIndex = 8
         Me.gbStnMulti.TabStop = False
-        Me.gbStnMulti.Text = "Konversi"
+        Me.gbStnMulti.Text = "Multi Satuan :"
         '
         'btnHapusStn
         '
-        Me.btnHapusStn.Location = New System.Drawing.Point(157, 72)
+        Me.btnHapusStn.Location = New System.Drawing.Point(180, 19)
         Me.btnHapusStn.Name = "btnHapusStn"
         Me.btnHapusStn.Size = New System.Drawing.Size(75, 23)
         Me.btnHapusStn.TabIndex = 3
         Me.btnHapusStn.Text = "Hapus"
         Me.btnHapusStn.UseVisualStyleBackColor = True
         '
-        'lblStnMulti
-        '
-        Me.lblStnMulti.AutoSize = True
-        Me.lblStnMulti.Location = New System.Drawing.Point(182, 49)
-        Me.lblStnMulti.Name = "lblStnMulti"
-        Me.lblStnMulti.Size = New System.Drawing.Size(65, 13)
-        Me.lblStnMulti.TabIndex = 23
-        Me.lblStnMulti.Text = "/ Stn. Dasar"
-        '
         'btnTambahStn
         '
-        Me.btnTambahStn.Location = New System.Drawing.Point(76, 72)
+        Me.btnTambahStn.Location = New System.Drawing.Point(99, 19)
         Me.btnTambahStn.Name = "btnTambahStn"
         Me.btnTambahStn.Size = New System.Drawing.Size(75, 23)
         Me.btnTambahStn.TabIndex = 2
         Me.btnTambahStn.Text = "Tambah"
         Me.btnTambahStn.UseVisualStyleBackColor = True
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(47, 49)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(23, 13)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Isi :"
-        '
-        'tbIsiStn
-        '
-        Me.tbIsiStn.Location = New System.Drawing.Point(76, 46)
-        Me.tbIsiStn.MaxLength = 7
-        Me.tbIsiStn.Name = "tbIsiStn"
-        Me.tbIsiStn.Size = New System.Drawing.Size(100, 20)
-        Me.tbIsiStn.TabIndex = 1
-        '
-        'cbStnMulti
-        '
-        Me.cbStnMulti.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbStnMulti.FormattingEnabled = True
-        Me.cbStnMulti.Location = New System.Drawing.Point(76, 19)
-        Me.cbStnMulti.Name = "cbStnMulti"
-        Me.cbStnMulti.Size = New System.Drawing.Size(131, 21)
-        Me.cbStnMulti.TabIndex = 0
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 22)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(47, 13)
-        Me.Label4.TabIndex = 11
-        Me.Label4.Text = "Satuan :"
-        '
         'dgvSatuan
         '
         Me.dgvSatuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSatuan.Location = New System.Drawing.Point(6, 101)
+        Me.dgvSatuan.Location = New System.Drawing.Point(6, 48)
         Me.dgvSatuan.Name = "dgvSatuan"
-        Me.dgvSatuan.Size = New System.Drawing.Size(258, 140)
+        Me.dgvSatuan.Size = New System.Drawing.Size(339, 193)
         Me.dgvSatuan.TabIndex = 4
         '
         'tbKode
@@ -603,7 +538,6 @@ Partial Class FormBarang
         Me.gbBarang.ResumeLayout(False)
         Me.gbBarang.PerformLayout()
         Me.gbStnMulti.ResumeLayout(False)
-        Me.gbStnMulti.PerformLayout()
         CType(Me.dgvSatuan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -627,10 +561,6 @@ Partial Class FormBarang
     Friend WithEvents Label7 As Label
     Friend WithEvents gbStnMulti As GroupBox
     Friend WithEvents btnTambahStn As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents tbIsiStn As TextBox
-    Friend WithEvents cbStnMulti As ComboBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents dgvSatuan As DataGridView
     Friend WithEvents tbKode As TextBox
     Friend WithEvents Label1 As Label
@@ -641,12 +571,10 @@ Partial Class FormBarang
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnTambah As Button
     Friend WithEvents btnBatal As Button
-    Friend WithEvents Label16 As Label
     Friend WithEvents lblStnJualB As Label
     Friend WithEvents lblStnJualL As Label
     Friend WithEvents lblStnJualU As Label
     Friend WithEvents lblStnBeli As Label
-    Friend WithEvents lblStnMulti As Label
     Friend WithEvents cbCustom As CheckBox
     Friend WithEvents cbStatus As ComboBox
     Friend WithEvents Label11 As Label

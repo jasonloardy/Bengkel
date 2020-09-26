@@ -43,11 +43,11 @@ Public Class FormDaftarpiutang
             Dim objAlternatingCellStyle As New DataGridViewCellStyle()
             dgvPelanggan.AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
-            .Columns(0).HeaderText = "Kode pelanggan"
-            .Columns(1).HeaderText = "Nama pelanggan"
+            .Columns(0).HeaderText = "Kode Pelanggan"
+            .Columns(1).HeaderText = "Nama Pelanggan"
             .Columns(2).Visible = False
             .Columns(3).Visible = False
-            .Columns(4).HeaderText = "Total piutang"
+            .Columns(4).HeaderText = "Total Piutang"
             .Columns(0).Width = 100
             .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             .Columns(4).Width = 100
@@ -86,8 +86,8 @@ Public Class FormDaftarpiutang
             Dim objAlternatingCellStyle As New DataGridViewCellStyle()
             .AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
-            .Columns(0).HeaderText = "Kode penjualan"
-            .Columns(1).HeaderText = "Jatuh Tempo"
+            .Columns(0).HeaderText = "Kode Penjualan"
+            .Columns(1).HeaderText = "Tgl. Pengambilan"
             .Columns(2).HeaderText = "Nominal"
             .Columns(3).HeaderText = "Sisa"
             .Columns(0).Width = 150
@@ -122,7 +122,7 @@ Public Class FormDaftarpiutang
                         Me.Close()
                     Else
                         Dim pilih As Integer
-                        pilih = MsgBox("Yakin Ganti pelanggan? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
+                        pilih = MsgBox("Yakin Ganti Pelanggan? (Keranjang Transaksi Akan Di-Reset)", 48 + 4 + 256, "Konfirmasi")
                         If pilih = 6 Then
                             isipelanggan()
                         End If
