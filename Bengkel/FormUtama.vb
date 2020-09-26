@@ -93,6 +93,11 @@
 
     Private Sub FormUtama_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
+        For Each ctl As Control In Me.Controls
+            If TypeOf ctl Is MdiClient Then
+                ctl.BackColor = Me.BackColor
+            End If
+        Next ctl
     End Sub
 
     Private Sub PembayaranHutangToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PembayaranHutangToolStripMenuItem1.Click
