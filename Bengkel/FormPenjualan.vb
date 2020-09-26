@@ -579,10 +579,14 @@ Public Class FormPenjualan
     End Sub
 
     Private Sub tbKatPlg_TextChanged(sender As Object, e As EventArgs) Handles tbKatPlg.TextChanged
-        If tbKatPlg.Text <> "U" Then
-            tbHargaJual.ReadOnly = True
-        Else
+        If FormUtama.level = "A" Then
             tbHargaJual.ReadOnly = False
+        ElseIf Formutama.level = "K" Then
+            If tbKatPlg.Text <> "U" Then
+                tbHargaJual.ReadOnly = True
+            Else
+                tbHargaJual.ReadOnly = False
+            End If
         End If
     End Sub
 End Class
