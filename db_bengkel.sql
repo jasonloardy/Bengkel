@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-23 10:24:05
+Date: 2020-09-24 18:12:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -331,6 +331,7 @@ CREATE TABLE `tb_user` (
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
+INSERT INTO `tb_user` VALUES ('admin', 'admin', 'admin', 'A', 'A');
 DROP TRIGGER IF EXISTS `sesuaikan stok`;
 DELIMITER ;;
 CREATE TRIGGER `sesuaikan stok` AFTER INSERT ON `tb_barang_history` FOR EACH ROW IF (NEW.stok_masuk <> 0) THEN
@@ -411,6 +412,18 @@ CREATE TRIGGER `tambah ke tabel history` AFTER INSERT ON `tb_pembelian_detail` F
 VALUES (NEW.kd_barang, NEW.kd_pembelian, NOW(),
 NEW.qty*NEW.harga_beli*(100-NEW.diskon)/100/NEW.unit*(100-(SELECT diskon FROM tb_pembelian WHERE kd_pembelian = NEW.kd_pembelian))/100,
 NEW.unit, 0)
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pembatalan penjualan`;
+DELIMITER ;;
+CREATE TRIGGER `pembatalan penjualan` AFTER UPDATE ON `tb_penjualan` FOR EACH ROW IF (NEW.status = '0') THEN
+
+INSERT INTO tb_barang_history
+SELECT kd_barang, kd_penjualan, NOW(), 0, unit, 0
+FROM tb_penjualan_detail
+WHERE kd_penjualan = NEW.kd_penjualan;
+
+END IF
 ;;
 DELIMITER ;
 DROP TRIGGER IF EXISTS `tambah tabel history`;
