@@ -87,11 +87,11 @@ Public Class FormDaftarpiutang
             .AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
             .Columns(0).HeaderText = "Kode Penjualan"
-            .Columns(1).HeaderText = "Tgl. Pengambilan"
+            .Columns(1).HeaderText = "Tgl. Transaksi"
             .Columns(2).HeaderText = "Nominal"
             .Columns(3).HeaderText = "Sisa"
             .Columns(0).Width = 150
-            .Columns(1).Width = 100
+            .Columns(1).Width = 150
             .Columns(2).DefaultCellStyle.Format = "c0"
             .Columns(3).DefaultCellStyle.Format = "c0"
             objAlternatingCellStyle.BackColor = Color.AliceBlue

@@ -99,8 +99,8 @@ Public Class FormPembayaranpiutang
             Dim objAlternatingCellStyle As New DataGridViewCellStyle()
             .AlternatingRowsDefaultCellStyle = objAlternatingCellStyle
             Dim style As DataGridViewCellStyle = .Columns(0).DefaultCellStyle
-            .Columns(0).HeaderText = "Kode penjualan"
-            .Columns(1).HeaderText = "Tanggal"
+            .Columns(0).HeaderText = "Kode Penjualan"
+            .Columns(1).HeaderText = "Tgl. Transaksi"
             .Columns(2).HeaderText = "Nominal"
             .Columns(3).HeaderText = "Sisa"
             .Columns(4).HeaderText = "Bayar"

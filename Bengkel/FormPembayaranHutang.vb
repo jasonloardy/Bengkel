@@ -109,7 +109,7 @@ Public Class FormPembayaranHutang
             .Columns(0).HeaderText = "Kode Pembelian"
             .Columns(1).HeaderText = "Kode Bukti"
             .Columns(2).HeaderText = "Sales"
-            .Columns(3).HeaderText = "Jatuh Tempo"
+            .Columns(3).HeaderText = "Tgl. Pengambilan"
             .Columns(4).HeaderText = "Nominal"
             .Columns(5).HeaderText = "Sisa"
             .Columns(6).HeaderText = "Bayar"
@@ -117,6 +117,7 @@ Public Class FormPembayaranHutang
             .Columns(0).Width = 150
             .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             .Columns(2).Width = 100
+            .Columns(3).Width = 150
             .Columns(4).DefaultCellStyle.Format = "c0"
             .Columns(5).DefaultCellStyle.Format = "c0"
             .Columns(7).DefaultCellStyle.Format = "c0"
