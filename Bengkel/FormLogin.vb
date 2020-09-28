@@ -30,11 +30,13 @@ Public Class FormLogin
                                         FormUtama.PembelianToolStripMenuItem.Visible = True
                                         FormUtama.DaftarTransaksiToolStripMenuItem.Visible = True
                                         FormUtama.LaporanToolStripMenuItem.Visible = True
+                                        FormUtama.PembayaranPiutangToolStripMenuItem.Visible = True
                                     ElseIf dr.Item("level") = "K" Then
                                         FormUtama.DataMasterToolStripMenuItem.Visible = False
                                         FormUtama.PembelianToolStripMenuItem.Visible = False
                                         FormUtama.DaftarTransaksiToolStripMenuItem.Visible = False
                                         FormUtama.LaporanToolStripMenuItem.Visible = False
+                                        FormUtama.PembayaranPiutangToolStripMenuItem.Visible = False
                                     End If
                                     clear()
                                     Me.Hide()
