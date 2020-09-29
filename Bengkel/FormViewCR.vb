@@ -16,6 +16,18 @@ Public Class FormViewCR
         End Try
     End Sub
 
+    Sub viewBuktiPenjualan(ByVal kd_penjualan As String)
+        Try
+            Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
+            cryReport.Load(RepLocation & "CRNotaPenjualan.rpt")
+            cryReport.Refresh()
+            cryReport.SetParameterValue("kd_penjualan", kd_penjualan)
+            CRViewer.ReportSource = cryReport
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, "Error")
+        End Try
+    End Sub
+
     Sub printNotaPenjualan(ByVal kd_penjualan As String)
         Try
             Dim RepLocation = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))

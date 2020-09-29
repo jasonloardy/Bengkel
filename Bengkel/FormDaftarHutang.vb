@@ -62,7 +62,7 @@ Public Class FormDaftarHutang
     Sub isiGridTrx(ByVal kd_supplier As String)
         Try
             Dim sql As String = "SELECT tb.kd_pembelian, kd_bukti, sales, tanggal_jt,
-                                    FLOOR(SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal, sisa
+                                    FLOOR(SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal, FLOOR(SUM(tbd.qty*tbd.harga_beli*(100-tbd.diskon)/100)*(100-tb.diskon)/100)-sisa bayar, sisa
                                     FROM tb_pembelian tb
                                     JOIN tb_pembelian_detail tbd ON tb.kd_pembelian = tbd.kd_pembelian
                                     WHERE kd_supplier = '" & kd_supplier & "' AND sisa > 0 AND status = '1'
@@ -91,13 +91,18 @@ Public Class FormDaftarHutang
             .Columns(2).HeaderText = "Sales"
             .Columns(3).HeaderText = "Tgl. Pengambilan"
             .Columns(4).HeaderText = "Nominal"
-            .Columns(5).HeaderText = "Sisa"
+            .Columns(5).HeaderText = "Bayar"
+            .Columns(6).HeaderText = "Sisa"
             .Columns(0).Width = 150
-            .Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            .Columns(1).Width = 100
             .Columns(2).Width = 100
-            .Columns(3).Width = 150
+            .Columns(3).Width = 100
+            .Columns(4).Width = 80
+            .Columns(5).Width = 80
+            .Columns(6).Width = 80
             .Columns(4).DefaultCellStyle.Format = "c0"
             .Columns(5).DefaultCellStyle.Format = "c0"
+            .Columns(6).DefaultCellStyle.Format = "c0"
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = True
@@ -171,5 +176,10 @@ Public Class FormDaftarHutang
         If e.RowIndex > -1 Then
             isiGridTrx(dgvSupplier.Item(0, e.RowIndex).Value)
         End If
+    End Sub
+
+    Private Sub dgvTrx_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTrx.CellDoubleClick
+        FormViewCR.viewBuktiPembelian(dgvTrx.Item(0, e.RowIndex).Value)
+        FormViewCR.ShowDialog()
     End Sub
 End Class

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-09-26 11:33:21
+Date: 2020-09-29 10:43:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,7 +31,6 @@ CREATE TABLE `tb_barang` (
 -- ----------------------------
 -- Records of tb_barang
 -- ----------------------------
-INSERT INTO `tb_barang` VALUES ('B0000001', 'TEST', '1000', '120', 'A');
 
 -- ----------------------------
 -- Table structure for `tb_barang_history`
@@ -51,14 +50,6 @@ CREATE TABLE `tb_barang_history` (
 -- ----------------------------
 -- Records of tb_barang_history
 -- ----------------------------
-INSERT INTO `tb_barang_history` VALUES ('B0000001', 'SA', '2020-09-26 10:10:23', '500', '100', '0');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0001/PJ//0920', '2020-09-26 10:23:27', '0', '0', '100');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0002/PJ//0920', '2020-09-26 10:27:43', '0', '0', '12');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0003/PJ//0920', '2020-09-26 10:34:39', '0', '0', '1');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0001/PB//0920', '2020-09-26 10:35:36', '1000', '120', '0');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0002/PB//0920', '2020-09-26 10:39:57', '500', '13', '0');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0002/PB//0920', '2020-09-26 10:39:58', '1000', '200', '0');
-INSERT INTO `tb_barang_history` VALUES ('B0000001', '0004/PJ//0920', '2020-09-26 11:31:56', '0', '0', '200');
 
 -- ----------------------------
 -- Table structure for `tb_barang_satuan`
@@ -79,9 +70,6 @@ CREATE TABLE `tb_barang_satuan` (
 -- ----------------------------
 -- Records of tb_barang_satuan
 -- ----------------------------
-INSERT INTO `tb_barang_satuan` VALUES ('B0000001', 'PCS', '1', 'D', '2500', '2000', '1500');
-INSERT INTO `tb_barang_satuan` VALUES ('B0000001', 'BKS', '100', 'M', '150000', '130000', '110000');
-INSERT INTO `tb_barang_satuan` VALUES ('B0000001', 'LSN', '12', 'M', '25000', '20000', '15000');
 
 -- ----------------------------
 -- Table structure for `tb_pelanggan`
@@ -99,7 +87,6 @@ CREATE TABLE `tb_pelanggan` (
 -- ----------------------------
 -- Records of tb_pelanggan
 -- ----------------------------
-INSERT INTO `tb_pelanggan` VALUES ('PL000001', 'UMUM', 'UMUM', 'umum', 'P');
 
 -- ----------------------------
 -- Table structure for `tb_pembayaran_hutang`
@@ -188,8 +175,6 @@ CREATE TABLE `tb_pembelian` (
 -- ----------------------------
 -- Records of tb_pembelian
 -- ----------------------------
-INSERT INTO `tb_pembelian` VALUES ('0001/PB//0920', '2020-09-26 10:35:36', 'SP000001', '', '', '0.00', '2020-09-26', '0', '120000', '1');
-INSERT INTO `tb_pembelian` VALUES ('0002/PB//0920', '2020-09-26 10:39:57', 'SP000001', '', '', '0.00', '2020-09-26', '0', '206500', '1');
 
 -- ----------------------------
 -- Table structure for `tb_pembelian_detail`
@@ -212,9 +197,6 @@ CREATE TABLE `tb_pembelian_detail` (
 -- ----------------------------
 -- Records of tb_pembelian_detail
 -- ----------------------------
-INSERT INTO `tb_pembelian_detail` VALUES ('0001/PB//0920', 'B0000001', 'PCS', '120', '1000', '0.00', '120');
-INSERT INTO `tb_pembelian_detail` VALUES ('0002/PB//0920', 'B0000001', 'PCS', '13', '500', '0.00', '13');
-INSERT INTO `tb_pembelian_detail` VALUES ('0002/PB//0920', 'B0000001', 'BKS', '2', '100000', '0.00', '200');
 
 -- ----------------------------
 -- Table structure for `tb_pending`
@@ -278,10 +260,6 @@ CREATE TABLE `tb_penjualan` (
 -- ----------------------------
 -- Records of tb_penjualan
 -- ----------------------------
-INSERT INTO `tb_penjualan` VALUES ('0001/PJ//0920', '2020-09-26 10:23:27', 'PL000001', '0.00', '0', '148500', '1');
-INSERT INTO `tb_penjualan` VALUES ('0002/PJ//0920', '2020-09-26 10:27:43', 'PL000001', '0.00', '0', '10000', '1');
-INSERT INTO `tb_penjualan` VALUES ('0003/PJ//0920', '2020-09-26 10:34:39', 'PL000001', '0.00', '0', '1000', '1');
-INSERT INTO `tb_penjualan` VALUES ('0004/PJ//0920', '2020-09-26 11:31:56', 'PL000001', '0.00', '0', '220000', '1');
 
 -- ----------------------------
 -- Table structure for `tb_penjualan_detail`
@@ -306,10 +284,6 @@ CREATE TABLE `tb_penjualan_detail` (
 -- ----------------------------
 -- Records of tb_penjualan_detail
 -- ----------------------------
-INSERT INTO `tb_penjualan_detail` VALUES ('0001/PJ//0920', 'B0000001', 'TEST', 'BKS', '1', '150000', '1', '100', '50000');
-INSERT INTO `tb_penjualan_detail` VALUES ('0002/PJ//0920', 'B0000001', 'TEST', 'LSN', '1', '10000', '0', '12', '6000');
-INSERT INTO `tb_penjualan_detail` VALUES ('0003/PJ//0920', 'B0000001', 'TEST', 'PCS', '1', '1000', '0', '1', '500');
-INSERT INTO `tb_penjualan_detail` VALUES ('0004/PJ//0920', 'B0000001', 'TEST', 'BKS', '2', '110000', '0', '200', '100000');
 
 -- ----------------------------
 -- Table structure for `tb_satuan`
@@ -324,9 +298,6 @@ CREATE TABLE `tb_satuan` (
 -- ----------------------------
 -- Records of tb_satuan
 -- ----------------------------
-INSERT INTO `tb_satuan` VALUES ('BKS', 'BUNGKUS');
-INSERT INTO `tb_satuan` VALUES ('LSN', 'LUSIN');
-INSERT INTO `tb_satuan` VALUES ('PCS', 'PICES');
 
 -- ----------------------------
 -- Table structure for `tb_supplier`
@@ -343,7 +314,6 @@ CREATE TABLE `tb_supplier` (
 -- ----------------------------
 -- Records of tb_supplier
 -- ----------------------------
-INSERT INTO `tb_supplier` VALUES ('SP000001', 'ANUGERAH', 'ANUGERAH', '123');
 
 -- ----------------------------
 -- Table structure for `tb_user`
@@ -362,6 +332,7 @@ CREATE TABLE `tb_user` (
 -- Records of tb_user
 -- ----------------------------
 INSERT INTO `tb_user` VALUES ('admin', 'admin', 'admin', 'A', 'A');
+INSERT INTO `tb_user` VALUES ('kasir', 'kasir', 'KASIR', 'K', 'A');
 DROP TRIGGER IF EXISTS `sesuaikan stok`;
 DELIMITER ;;
 CREATE TRIGGER `sesuaikan stok` AFTER INSERT ON `tb_barang_history` FOR EACH ROW IF (NEW.stok_masuk <> 0) THEN
@@ -421,7 +392,7 @@ JOIN tb_pembelian_detail tpd ON tb.kd_barang = tpd.kd_barang
 SET tb.harga_beli = (SELECT harga_beli
                                     FROM tb_barang_history tbh
                                     LEFT JOIN tb_pembelian tp ON tbh.kd_transaksi = tp.kd_pembelian
-                                    WHERE kd_barang = tb.kd_barang AND (status = '1' or status IS NULL) AND MID(kd_transaksi, 6, 2) = 'PB'
+                                    WHERE kd_barang = tb.kd_barang AND (status = '1' or status IS NULL) AND (kd_transaksi = 'SA' OR MID(kd_transaksi, 6, 2) = 'PB')
                                     ORDER BY tbh.tanggal DESC
                                     LIMIT 1)
 WHERE tpd.kd_pembelian = NEW.kd_pembelian;

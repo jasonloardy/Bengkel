@@ -62,7 +62,7 @@ Public Class FormDaftarpiutang
     Sub isiGridTrx(ByVal kd_pelanggan As String)
         Try
             Dim sql As String = "SELECT tb.kd_penjualan, tanggal,
-                                    FLOOR(SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal, sisa
+                                    FLOOR(SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100) nominal, FLOOR(SUM(tbd.qty*tbd.harga_jual*(100-tbd.diskon)/100)*(100-tb.diskon)/100)-sisa bayar, sisa
                                     FROM tb_penjualan tb
                                     JOIN tb_penjualan_detail tbd ON tb.kd_penjualan = tbd.kd_penjualan
                                     WHERE kd_pelanggan = '" & kd_pelanggan & "' AND sisa > 0 AND status = '1'
@@ -89,11 +89,13 @@ Public Class FormDaftarpiutang
             .Columns(0).HeaderText = "Kode Penjualan"
             .Columns(1).HeaderText = "Tgl. Transaksi"
             .Columns(2).HeaderText = "Nominal"
-            .Columns(3).HeaderText = "Sisa"
+            .Columns(3).HeaderText = "Bayar"
+            .Columns(4).HeaderText = "Sisa"
             .Columns(0).Width = 150
             .Columns(1).Width = 150
             .Columns(2).DefaultCellStyle.Format = "c0"
             .Columns(3).DefaultCellStyle.Format = "c0"
+            .Columns(4).DefaultCellStyle.Format = "c0"
             objAlternatingCellStyle.BackColor = Color.AliceBlue
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = True
@@ -158,5 +160,10 @@ Public Class FormDaftarpiutang
         If e.RowIndex > -1 Then
             isiGridTrx(dgvPelanggan.Item(0, e.RowIndex).Value)
         End If
+    End Sub
+
+    Private Sub dgvTrx_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTrx.CellDoubleClick
+        FormViewCR.viewBuktiPenjualan(dgvTrx.Item(0, e.RowIndex).Value)
+        FormViewCR.ShowDialog()
     End Sub
 End Class
