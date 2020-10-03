@@ -5,6 +5,7 @@ Public Class FormBarang
     Public page As Integer = 1
     Public totalPage As Integer = 1
     Public offset As Integer = 50
+    Public sortBy As String = "kd_barang ASC"
 
     Private Sub Formbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         koneksi()
@@ -184,7 +185,7 @@ Public Class FormBarang
                                 END status, tbs.isi FROM tb_barang tb
                                 JOIN tb_barang_satuan tbs ON tb.kd_barang = tbs.kd_barang
                                 WHERE (tb.kd_barang LIKE @kd_barang OR tb.nama_barang LIKE @nama_barang)" & status & "
-                                ORDER BY tb.status, tb.kd_barang
+                                ORDER BY tb.status, " & sortBy & "
                                 LIMIT " & limit & ", " & offset
             Using cmd As New MySqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@kd_barang", "%" & tbCari.Text & "%")
@@ -479,7 +480,8 @@ Public Class FormBarang
     Private Sub cbCustom_CheckedChanged(sender As Object, e As EventArgs) Handles cbCustom.CheckedChanged
         If cbCustom.Checked Then
             If mode = "edit" Then
-                temp_kode = tbKode.Text
+                'temp_kode = tbKode.Text
+                temp_kode = kode_barang()
             Else
                 temp_kode = kode_barang()
             End If
@@ -686,6 +688,44 @@ Public Class FormBarang
         Catch ex As Exception
             MsgBox(ex.Message, 16, "Error")
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAsc.Click
+        If cbSort.SelectedIndex <> -1 Then
+            If cbSort.Text.Contains("Kode") Then
+                sortBy = "kd_barang ASC"
+            ElseIf cbSort.Text.Contains("Nama") Then
+                sortBy = "nama_barang ASC"
+            ElseIf cbSort.Text.Contains("Beli") Then
+                sortBy = "tb.harga_beli*tbs.isi ASC"
+            ElseIf cbSort.Text.Contains("Jual") Then
+                sortBy = "harga_jual_u ASC"
+            ElseIf cbSort.Text.Contains("Margin") Then
+                sortBy = "(tbs.harga_jual_p) - (tb.harga_beli*tbs.isi) ASC"
+            ElseIf cbSort.Text.Contains("Stok") Then
+                sortBy = "tb.stok/tbs.isi ASC"
+            End If
+            isiGrid()
+        End If
+    End Sub
+
+    Private Sub btnDesc_Click(sender As Object, e As EventArgs) Handles btnDesc.Click
+        If cbSort.SelectedIndex <> -1 Then
+            If cbSort.Text.Contains("Kode") Then
+                sortBy = "kd_barang DESC"
+            ElseIf cbSort.Text.Contains("Nama") Then
+                sortBy = "nama_barang DESC"
+            ElseIf cbSort.Text.Contains("Beli") Then
+                sortBy = "tb.harga_beli*tbs.isi DESC"
+            ElseIf cbSort.Text.Contains("Jual") Then
+                sortBy = "harga_jual_u DESC"
+            ElseIf cbSort.Text.Contains("Margin") Then
+                sortBy = "(tbs.harga_jual_p) - (tb.harga_beli*tbs.isi) DESC"
+            ElseIf cbSort.Text.Contains("Stok") Then
+                sortBy = "tb.stok/tbs.isi DESC"
+            End If
+            isiGrid()
+        End If
     End Sub
 
     Private Sub btnTambahStn_Click(sender As Object, e As EventArgs) Handles btnTambahStn.Click

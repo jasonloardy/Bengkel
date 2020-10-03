@@ -184,4 +184,12 @@ Public Class FormPembayaranpiutang
             End If
         End If
     End Sub
+
+    Private Sub btnBatal_Click(sender As Object, e As EventArgs) Handles btnBatal.Click
+        Dim pilih As Integer
+        pilih = MsgBox("Batalkan Transaksi Pembayaran ?", 48 + 4 + 256, "Konfirmasi")
+        If pilih = 6 Then
+            reset()
+        End If
+    End Sub
 End Class

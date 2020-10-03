@@ -23,6 +23,9 @@ Partial Class FormBarang
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbSort = New System.Windows.Forms.ComboBox()
+        Me.btnDesc = New System.Windows.Forms.Button()
+        Me.btnAsc = New System.Windows.Forms.Button()
         Me.lblPage = New System.Windows.Forms.Label()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnPrev = New System.Windows.Forms.Button()
@@ -78,6 +81,9 @@ Partial Class FormBarang
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.cbSort)
+        Me.GroupBox1.Controls.Add(Me.btnDesc)
+        Me.GroupBox1.Controls.Add(Me.btnAsc)
         Me.GroupBox1.Controls.Add(Me.lblPage)
         Me.GroupBox1.Controls.Add(Me.btnNext)
         Me.GroupBox1.Controls.Add(Me.btnPrev)
@@ -92,6 +98,37 @@ Partial Class FormBarang
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Daftar Barang"
+        '
+        'cbSort
+        '
+        Me.cbSort.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbSort.FormattingEnabled = True
+        Me.cbSort.Items.AddRange(New Object() {"Kode Barang", "Nama Barang", "Harga Beli", "Harga Jual", "Margin", "Stok"})
+        Me.cbSort.Location = New System.Drawing.Point(316, 46)
+        Me.cbSort.Name = "cbSort"
+        Me.cbSort.Size = New System.Drawing.Size(121, 21)
+        Me.cbSort.TabIndex = 19
+        '
+        'btnDesc
+        '
+        Me.btnDesc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDesc.Location = New System.Drawing.Point(479, 45)
+        Me.btnDesc.Name = "btnDesc"
+        Me.btnDesc.Size = New System.Drawing.Size(30, 23)
+        Me.btnDesc.TabIndex = 18
+        Me.btnDesc.Text = "▼"
+        Me.btnDesc.UseVisualStyleBackColor = True
+        '
+        'btnAsc
+        '
+        Me.btnAsc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAsc.Location = New System.Drawing.Point(443, 45)
+        Me.btnAsc.Name = "btnAsc"
+        Me.btnAsc.Size = New System.Drawing.Size(30, 23)
+        Me.btnAsc.TabIndex = 17
+        Me.btnAsc.Text = "▲"
+        Me.btnAsc.UseVisualStyleBackColor = True
         '
         'lblPage
         '
@@ -424,7 +461,7 @@ Partial Class FormBarang
         'tbKode
         '
         Me.tbKode.Location = New System.Drawing.Point(124, 19)
-        Me.tbKode.MaxLength = 16
+        Me.tbKode.MaxLength = 32
         Me.tbKode.Name = "tbKode"
         Me.tbKode.Size = New System.Drawing.Size(131, 20)
         Me.tbKode.TabIndex = 0
@@ -587,4 +624,7 @@ Partial Class FormBarang
     Friend WithEvents btnNext As Button
     Friend WithEvents btnPrev As Button
     Friend WithEvents btnBarcode As Button
+    Friend WithEvents cbSort As ComboBox
+    Friend WithEvents btnDesc As Button
+    Friend WithEvents btnAsc As Button
 End Class

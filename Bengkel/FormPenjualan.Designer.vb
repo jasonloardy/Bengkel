@@ -190,7 +190,7 @@ Partial Class FormPenjualan
         'tbKodeBarang
         '
         Me.tbKodeBarang.Location = New System.Drawing.Point(9, 32)
-        Me.tbKodeBarang.MaxLength = 16
+        Me.tbKodeBarang.MaxLength = 32
         Me.tbKodeBarang.Name = "tbKodeBarang"
         Me.tbKodeBarang.Size = New System.Drawing.Size(125, 20)
         Me.tbKodeBarang.TabIndex = 0
