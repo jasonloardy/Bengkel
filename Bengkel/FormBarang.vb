@@ -500,9 +500,6 @@ Public Class FormBarang
         lblStnJualL.Text = stnDasar
         lblStnJualB.Text = stnDasar
         FormMultiSatuan.lblStnMulti.Text = stnDasar
-        FormMultiSatuan.lblStnJualU.Text = stnDasar
-        FormMultiSatuan.lblStnJualL.Text = stnDasar
-        FormMultiSatuan.lblStnJualB.Text = stnDasar
         labelStok.Text = "Stok " & cbStnDasar.Text & " :"
     End Sub
 

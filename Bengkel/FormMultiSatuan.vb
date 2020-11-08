@@ -88,4 +88,11 @@
             End If
         End If
     End Sub
+
+    Private Sub cbStnMulti_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbStnMulti.SelectedIndexChanged
+        Dim stnDasar As String = "/ " & cbStnMulti.Text
+        lblStnJualU.Text = stnDasar
+        lblStnJualL.Text = stnDasar
+        lblStnJualB.Text = stnDasar
+    End Sub
 End Class
