@@ -664,7 +664,7 @@ Public Class FormBarang
     End Sub
 
     Private Sub btnBarcode_Click(sender As Object, e As EventArgs) Handles btnBarcode.Click
-        FormViewBarcode.viewBarcode(tbKode.Text)
+        FormViewBarcode.viewBarcode(tbKode.Text, "11111111")
         FormViewBarcode.ShowDialog()
     End Sub
 
